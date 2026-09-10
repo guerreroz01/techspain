@@ -1,0 +1,250 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { SITE } from '../../consts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+
+  return posts
+    .filter((entry) => (import.meta.env.PROD ? !entry.data.draft : true))
+    .map((entry) => ({
+      params: { slug: entry.id },
+      props: { entry },
+    }));
+}
+
+interface Props {
+  entry: CollectionEntry<'news'>;
+}
+
+const { entry } = Astro.props;
+const { title, description, pubDate, updatedDate, author, tags, cover, coverAlt, source } =
+  entry.data;
+
+const { Content } = await render(entry);
+
+const dateFormatter = new Intl.DateTimeFormat('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedDate = dateFormatter.format(pubDate);
+const formattedUpdated = updatedDate ? dateFormatter.format(updatedDate) : undefined;
+
+const siteBase = Astro.site ?? new URL(SITE.url);
+const canonical = new URL(`/noticias/${entry.id}/`, siteBase).href;
+const image = cover ? new URL(cover, siteBase).href : undefined;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  author: {
+    '@type': 'Person',
+    name: author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.title,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonical,
+  },
+  inLanguage: 'es',
+  ...(image ? { image: [image] } : {}),
+};
+---
+
+<BaseLayout title={title} description={description} type="article" image={cover}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <div class="article container container--wide">
+    <header class="article__header">
+      {
+        tags.length > 0 && (
+          <ul class="article__tags" aria-label="Temas">
+            {tags.map((tag) => (
+              <li class="article__tag">{tag}</li>
+            ))}
+          </ul>
+        )
+      }
+
+      <h1 class="article__title">{title}</h1>
+
+      <p class="article__meta">
+        <span class="article__author">{author}</span>
+        {' · '}
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        {
+          updatedDate && formattedUpdated && (
+            <span class="article__updated">
+              {' · '}Actualizado el{' '}
+              <time datetime={updatedDate.toISOString()}>{formattedUpdated}</time>
+            </span>
+          )
+        }
+      </p>
+    </header>
+
+    {
+      cover ? (
+        <figure class="article__figure">
+          <img
+            class="article__cover"
+            src={cover}
+            alt={coverAlt ?? ''}
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+      ) : (
+        <div class="article__placeholder" aria-hidden="true">
+          <svg
+            class="article__placeholder-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="18" height="18" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="m21 15-5-5L5 21" />
+          </svg>
+          <span>Sin imagen</span>
+        </div>
+      )
+    }
+
+    <article class="prose article__body">
+      <Content />
+    </article>
+
+    {
+      source && (
+        <aside class="article__source" aria-label="Fuente">
+          <p>
+            Fuente:{' '}
+            <a href={source.url} rel="noopener noreferrer" target="_blank">
+              {source.name}
+            </a>
+          </p>
+        </aside>
+      )
+    }
+
+    <AdSlot />
+
+    <nav class="article__back" aria-label="Volver a noticias">
+      <a href="/noticias/">← Volver a noticias</a>
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .article__header {
+    padding-block: var(--space-8) var(--space-5);
+  }
+
+  .article__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--space-4);
+  }
+
+  .article__tag {
+    padding: var(--space-1) var(--space-3);
+    background-color: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+  }
+
+  .article__title {
+    font-size: var(--text-4xl);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .article__meta {
+    margin-top: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .article__figure {
+    margin: 0 0 var(--space-6);
+  }
+
+  .article__cover,
+  .article__placeholder {
+    width: 100%;
+    aspect-ratio: var(--aspect-cover);
+    border-radius: var(--radius-lg);
+  }
+
+  .article__cover {
+    object-fit: cover;
+  }
+
+  .article__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    background-color: var(--color-surface);
+    border: var(--border-width) dashed var(--color-border);
+    color: var(--color-text-muted);
+  }
+
+  .article__placeholder-icon {
+    width: var(--space-6);
+    height: var(--space-6);
+    stroke-width: var(--icon-stroke);
+  }
+
+  .article__placeholder span {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .article__body {
+    margin-bottom: var(--space-6);
+  }
+
+  .article__source {
+    margin-top: var(--space-6);
+    padding: var(--space-4);
+    background-color: var(--color-surface);
+    border-left: var(--space-1) solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .article__source p {
+    margin: 0;
+  }
+
+  .article__back {
+    margin-top: var(--space-8);
+    padding-top: var(--space-5);
+    border-top: var(--border-width) solid var(--color-border);
+  }
+</style>

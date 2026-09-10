@@ -1,0 +1,64 @@
+---
+import { ADS } from '../consts';
+
+interface Props {
+  slot?: string;
+  format?: string;
+  label?: string;
+}
+
+const { slot = '', format = 'auto', label = 'Espacio publicitario' } = Astro.props;
+
+// In production nothing is rendered while ADS.enabled is false, so the layout
+// stays clean. In dev a subtle placeholder makes the slot visible.
+const showDevPlaceholder = import.meta.env.DEV;
+---
+
+{
+  ADS.enabled && (
+    <aside class="ad-slot" aria-label={label}>
+      {/* AdSense unit. Requires the loader script in BaseLayout to be enabled. */}
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client={ADS.client}
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true"
+      />
+      {/*
+        AdSense requires a push call after each <ins> unit exists in the DOM:
+        <script is:inline>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      */}
+    </aside>
+  )
+}
+
+{
+  !ADS.enabled && showDevPlaceholder && (
+    <aside class="ad-slot ad-slot--placeholder" aria-label={label}>
+      <span>{label}</span>
+    </aside>
+  )
+}
+
+<style>
+  .ad-slot {
+    margin-block: var(--space-7);
+  }
+
+  .ad-slot--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--space-8);
+    padding: var(--space-4);
+    background-color: var(--color-surface);
+    border: var(--border-width) dashed var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+</style>

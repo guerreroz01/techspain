@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../consts';
+---
+
+<BaseLayout title="Acerca" description={`Sobre ${SITE.title} y cómo trabajamos.`}>
+  <div class="container">
+    <article class="prose">
+      <h1>Acerca de {SITE.title}</h1>
+
+      <p>
+        {SITE.title} es un portal de noticias de tecnología en español. Cubrimos inteligencia
+        artificial, hardware, software y las decisiones de la industria que afectan al día a día de
+        quienes usan y construyen tecnología.
+      </p>
+
+      <p>
+        Nuestro enfoque es simple: explicar qué pasó, por qué importa y qué cambia para el lector.
+        Sin ruido, sin tecnicismos innecesarios y sin dejar de lado el contexto que suele faltar en
+        los titulares.
+      </p>
+
+      <h2>Qué publicamos</h2>
+
+      <ul>
+        <li>Lanzamientos de productos y servicios con impacto real.</li>
+        <li>Avances en inteligencia artificial y su aplicación práctica.</li>
+        <li>Hardware, semiconductores y la cadena que los produce.</li>
+        <li>Seguridad, privacidad y regulación de la industria.</li>
+      </ul>
+
+      <h2>Cómo trabajamos</h2>
+
+      <p>
+        Cada noticia se basa en fuentes públicas en inglés y se reescribe en español con atribución
+        explícita al medio original. Cuando el tema lo permite, añadimos contexto y explicamos las
+        implicaciones para el lector hispanohablante.
+      </p>
+
+      <p>
+        Si encontrás un error o querés sugerir un tema, podés escribirnos a través de los enlaces
+        del pie de página.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,121 @@
+/*
+ * Design tokens — the single source of truth for the design system.
+ *
+ * Every color, space, font size, radius, shadow and motion value used across
+ * the site lives here. Components must only reference these custom properties
+ * (var(--token)) and never hardcode design values. Editing this file alone is
+ * enough to restyle the whole site.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Color */
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f5;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b6b6b;
+  --color-border: #e6e6e6;
+  --color-accent: #b4442e;
+  --color-accent-hover: #93361f;
+  --color-focus: #2563eb;
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.375rem;
+  --text-4xl: 3rem;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  --measure: 68ch;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* Layout */
+  --container: 44rem;
+  --container-wide: 64rem;
+
+  /* Media */
+  /* Aspect ratio for the lead story cover / placeholder frame. */
+  --aspect-cover: 16 / 9;
+  /* Aspect ratio for card and article thumbnails. */
+  --aspect-thumb: 4 / 3;
+  /* Thumbnail widths used by the news list and the compact story cards. */
+  --thumb-width: 7rem;
+  --thumb-width-sm: 4.5rem;
+
+  /* Motion */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* Extended tokens (kept here so no component hardcodes these values) */
+  --border-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --underline-offset: 0.15em;
+  --tracking-tight: -0.01em;
+  --tracking-wide: 0.08em;
+  --text-code: 0.9em;
+  --z-skip-link: 100;
+  /* Stroke width for inline SVG icons. */
+  --icon-stroke: 1.5;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #0f0f10;
+  --color-surface: #17171a;
+  --color-text: #ededed;
+  --color-text-muted: #9a9a9a;
+  --color-border: #2a2a2e;
+  --color-accent: #e07a5f;
+  --color-accent-hover: #f0956f;
+}
+
+/*
+ * System preference fallback: applies the dark palette before any JavaScript
+ * runs, but only while no explicit theme has been chosen (no `data-theme`).
+ */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    color-scheme: dark;
+
+    --color-bg: #0f0f10;
+    --color-surface: #17171a;
+    --color-text: #ededed;
+    --color-text-muted: #9a9a9a;
+    --color-border: #2a2a2e;
+    --color-accent: #e07a5f;
+    --color-accent-hover: #f0956f;
+  }
+}

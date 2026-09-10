@@ -1,0 +1,131 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'news'>;
+}
+
+const { entry } = Astro.props;
+const { title, description, pubDate, tags, cover, coverAlt } = entry.data;
+
+const dateFormatter = new Intl.DateTimeFormat('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const formattedDate = dateFormatter.format(pubDate);
+const isoDate = pubDate.toISOString();
+---
+
+<article class="news-card">
+  {
+    cover && (
+      <img
+        class="news-card__thumb"
+        src={cover}
+        alt={coverAlt ?? ''}
+        loading="lazy"
+        decoding="async"
+      />
+    )
+  }
+
+  <div class="news-card__body">
+    <time class="news-card__date" datetime={isoDate}>{formattedDate}</time>
+
+    <h2 class="news-card__title">
+      <a href={`/noticias/${entry.id}/`}>{title}</a>
+    </h2>
+
+    <p class="news-card__description">{description}</p>
+
+    {
+      tags.length > 0 && (
+        <ul class="news-card__tags" aria-label="Temas">
+          {tags.map((tag) => (
+            <li class="news-card__tag">{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .news-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding-block: var(--space-6);
+    border-bottom: var(--border-width) solid var(--color-border);
+  }
+
+  .news-card:last-child {
+    border-bottom: 0;
+  }
+
+  .news-card__thumb {
+    width: 100%;
+    aspect-ratio: var(--aspect-thumb);
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  .news-card__date {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .news-card__title {
+    margin-top: var(--space-2);
+    font-size: var(--text-xl);
+  }
+
+  .news-card__title a {
+    color: var(--color-text);
+  }
+
+  .news-card__title a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .news-card__description {
+    margin-top: var(--space-3);
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+  }
+
+  .news-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-4);
+  }
+
+  .news-card__tag {
+    padding: var(--space-1) var(--space-3);
+    background-color: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+  }
+
+  @media (min-width: 48rem) {
+    .news-card:has(.news-card__thumb) {
+      grid-template-columns: var(--thumb-width) 1fr;
+      align-items: start;
+    }
+
+    .news-card__thumb {
+      width: var(--thumb-width);
+    }
+  }
+</style>

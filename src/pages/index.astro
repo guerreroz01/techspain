@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadStory from '../components/LeadStory.astro';
+import NewsCard from '../components/NewsCard.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const allNews = await getCollection('news');
+
+const posts = allNews
+  .filter((entry) => (import.meta.env.PROD ? !entry.data.draft : true))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Breaking banner: the newest non-draft story flagged as `breaking`.
+const breaking = posts.find((entry) => entry.data.breaking);
+
+// Lead story: the first featured post, falling back to the newest one.
+const featured = posts.filter((entry) => entry.data.featured);
+const lead = featured[0] ?? posts[0];
+
+// Two secondary stories beside the lead. Keeping the count low leaves room
+// for the "Últimas noticias" section below.
+const secondary = lead ? posts.filter((entry) => entry.id !== lead.id).slice(0, 2) : [];
+
+const shownIds = new Set([lead?.id, ...secondary.map((entry) => entry.id)]);
+const remaining = posts.filter((entry) => !shownIds.has(entry.id));
+---
+
+<BaseLayout>
+  {
+    breaking && (
+      <aside class="breaking" aria-label="Última hora">
+        <div class="container container--wide breaking__inner">
+          <span class="breaking__label">Última hora</span>
+          <a class="breaking__link" href={`/noticias/${breaking.id}/`}>
+            {breaking.data.title}
+          </a>
+        </div>
+      </aside>
+    )
+  }
+
+  {lead && <LeadStory lead={lead} secondary={secondary} />}
+
+  {
+    posts.length === 0 && (
+      <section class="container">
+        <p class="empty">Todavía no hay noticias publicadas.</p>
+      </section>
+    )
+  }
+
+  <div class="container container--wide">
+    <AdSlot />
+  </div>
+
+  {
+    remaining.length > 0 && (
+      <section class="latest container container--wide" aria-labelledby="latest-title">
+        <h2 id="latest-title" class="latest__title">
+          Últimas noticias
+        </h2>
+        <ul class="latest__list">
+          {remaining.map((entry) => (
+            <li>
+              <NewsCard entry={entry} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <div class="container container--wide">
+    <AdSlot />
+  </div>
+</BaseLayout>
+
+<style>
+  .breaking {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .breaking__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    padding-block: var(--space-2);
+  }
+
+  .breaking__label {
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-bg);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .breaking__link {
+    color: var(--color-bg);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .breaking__link:hover {
+    color: var(--color-bg);
+  }
+
+  .latest {
+    padding-bottom: var(--space-6);
+  }
+
+  .latest__title {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .latest__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .empty {
+    padding-block: var(--space-7);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

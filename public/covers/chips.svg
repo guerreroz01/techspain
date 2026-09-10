@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Chip de silicio abstracto">
+  <rect width="1600" height="900" fill="#f7f7f5"/>
+  <g stroke="#b4442e" stroke-width="6" stroke-opacity="0.5">
+    <path d="M470 250 H620 M470 400 H620 M470 550 H620 M470 700 H620"/>
+    <path d="M980 250 H1130 M980 400 H1130 M980 550 H1130 M980 700 H1130"/>
+    <path d="M650 180 V330 M800 180 V330 M950 180 V330"/>
+    <path d="M650 620 V770 M800 620 V770 M950 620 V770"/>
+  </g>
+  <rect x="620" y="250" width="360" height="450" rx="28" fill="#b4442e"/>
+  <rect x="700" y="330" width="200" height="290" rx="16" fill="#f7f7f5" fill-opacity="0.92"/>
+  <g fill="#b4442e">
+    <circle cx="760" cy="400" r="20"/>
+    <circle cx="840" cy="400" r="20"/>
+    <circle cx="760" cy="480" r="20"/>
+    <circle cx="840" cy="480" r="20"/>
+    <circle cx="800" cy="560" r="20"/>
+  </g>
+</svg>

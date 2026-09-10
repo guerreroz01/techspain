@@ -1,0 +1,66 @@
+---
+import { SITE, SOCIAL } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p class="site-footer__copy">© {year} {SITE.author}</p>
+
+    <nav aria-label="Enlaces sociales">
+      <ul class="site-footer__links">
+        {
+          SOCIAL.map((item) => (
+            <li>
+              <a href={item.href} rel="me noopener noreferrer" target="_blank">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        <li><a href="/rss.xml">RSS</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: var(--space-9);
+    border-top: var(--border-width) solid var(--color-border);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+  }
+
+  .site-footer__copy {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .site-footer__links a {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer__links a:hover {
+    color: var(--color-text);
+  }
+</style>
