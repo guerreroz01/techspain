@@ -1,0 +1,38 @@
+---
+title: 'Windows 11 prepara su propio modo oscuro automático, sin PowerToys'
+description: 'Unas cadenas ocultas en las compilaciones experimentales de Windows 11 apuntan a un modo oscuro programable de serie, con horarios fijos o basados en la salida y puesta del sol.'
+pubDate: 2026-09-10
+author: 'Redacción Tecnología Hoy'
+tags: ['Software', 'Windows 11', 'Microsoft']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Dedo tocando el logotipo de Windows 11 en una pantalla a oscuras'
+source:
+  name: 'PCWorld'
+  url: 'https://www.pcworld.com/article/3232058/windows-11-may-finally-auto-switch-dark-mode-without-powertoys.html'
+---
+
+Microsoft estaría preparando por fin un modo oscuro automático integrado en Windows 11, una función que hasta ahora solo se podía conseguir con herramientas externas como PowerToys o utilidades de terceros. La señal no viene de un anuncio oficial, sino de las tripas del sistema: según Windows Latest, las compilaciones experimentales de la rama 26xxx incluyen cadenas de texto y un archivo dedicado, `Windows.Shell.AutoDarkMode.dll`, ubicado en `System32`, que delatan el desarrollo de la función.
+
+El hallazgo lo detectó primero el entusiasta de Windows conocido como phantomofearth, que publicó que esas compilaciones "incluyen varias cadenas" relacionadas con el cambio automático de tema. Conviene ser prudente: la presencia de cadenas y de una DLL no confirma que la función esté terminada ni que vaya a llegar al canal estable en una fecha concreta. De hecho, el propio filtrador señaló que los identificadores necesarios para activarla todavía no están disponibles en las compilaciones de Insider.
+
+## Cómo funcionaría el modo oscuro automático
+
+Las cadenas encontradas describen una opción llamada "Schedule auto mode", pensada para que el sistema alterne entre claro y oscuro sin que el usuario tenga que tocar nada. Según lo filtrado, el calendario podría configurarse de varias formas:
+
+- **Salida y puesta del sol**, usando los servicios de ubicación para calcular el horario, de forma parecida a como ya funciona la luz nocturna de Windows.
+- **Horas fijas de inicio y fin**, para quien prefiere no compartir su ubicación y quedarse, por ejemplo, con un rango de 19:00 a 7:00.
+- **Cambio solo cuando el PC esté inactivo**, la cadena más interesante: evita que el escritorio pase de blanco a negro en mitad de una presentación o de una reunión, y espera a que el equipo esté libre para aplicar el cambio.
+
+## Por qué importa (y por qué llega tarde)
+
+Windows 11 ya permite elegir entre modo claro, oscuro y personalizado en Configuración > Personalización > Colores, pero nunca ha tenido una forma nativa de programarlo por hora. Esa carencia se ha cubierto durante años con parches: PowerToys cuenta con Light Switch, con sus modos de salida a puesta del sol, horas fijas y seguimiento de la luz nocturna, y existe una utilidad de código abierto, Auto Dark Mode, que incluso permite pausar el cambio mientras se juega. Que Microsoft integre ahora algo que los usuarios avanzados llevan tiempo instalando por su cuenta es una buena noticia, aunque también una muestra de lo mucho que se ha demorado.
+
+El movimiento encaja en una limpieza más amplia del modo oscuro. Microsoft ya ha confirmado que rehace en WinUI 3 el cuadro de diálogo de Propiedades heredado de la era de Windows 95, y que AutoPlay será el siguiente en recibir soporte oscuro de serie, en lugar de seguir parcheando la interfaz heredada a trozos. macOS ofrece este cambio automático desde hace años, incluida la espera a que el equipo esté inactivo.
+
+## Qué cambia para el usuario
+
+Para el lector hispanohablante, la promesa es simple: dejar de instalar utilidades para algo que debería venir de fábrica. Un cambio de tema programado reduce además el consumo de energía al no forzar tanto brillo y descansa la vista en las horas nocturnas, un detalle nada menor si se pasa muchas horas frente a la pantalla.
+
+La letra pequeña es que todo esto sigue siendo preliminar. No hay anuncio oficial ni fecha de lanzamiento, y la propia PCWorld apunta a que una llegada a finales de este año es posible, quizá en octubre coincidiendo con el desembarco de Windows 11 26H2. Hasta entonces, el modo oscuro automático de Windows 11 es una promesa bien fundamentada, pero todavía una promesa.

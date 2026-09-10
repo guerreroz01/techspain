@@ -1,0 +1,38 @@
+---
+title: 'La cinta magnética vuelve al centro del debate: el almacenamiento olvidado de la IA'
+description: 'Un análisis de TechRadar Pro defiende una estrategia de almacenamiento por capas para la IA, con la cinta LTO como capa económica para los grandes conjuntos de datos.'
+pubDate: 2026-09-10
+author: 'Redacción Tecnología Hoy'
+tags: ['Memorias', 'Almacenamiento', 'Inteligencia Artificial']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Carpetas azules de un sistema operativo sobre un fondo azul oscuro'
+source:
+  name: 'TechRadar'
+  url: 'https://www.techradar.com/pro/ais-overlooked-storage-opportunity'
+---
+
+La conversación sobre la infraestructura de la inteligencia artificial suele girar en torno a los mismos protagonistas: el coste de los centros de datos, el consumo eléctrico y la potencia de cómputo necesaria para entrenar y ejecutar modelos, con las GPU y el almacenamiento de alto rendimiento en el punto de mira. Sin embargo, hay una pieza que queda en segundo plano y que, según un análisis publicado por TechRadar Pro, puede marcar la diferencia entre escalar o quedarse a mitad de camino: dónde y cómo se guardan los datos que alimentan esos modelos.
+
+El artículo, firmado por Skip Levens —responsable de producto y estratega de IA en Quantum, fabricante de soluciones de almacenamiento—, parte de un dato llamativo: según el informe AI Index 2025 de la Universidad de Stanford, el tamaño de los conjuntos de datos usados para entrenar modelos de lenguaje se duplica cada ocho meses. Traducido a la práctica, una parte de esos datos pasa enseguida a entornos de curación y desarrollo, donde el acceso rápido es imprescindible, pero buena parte permanece a la espera mientras los equipos determinan si resulta relevante para un caso de uso concreto.
+
+## No todos los datos necesitan la misma velocidad
+
+La idea central del análisis es sencilla: un conjunto de datos no requiere el mismo rendimiento en todas las etapas del flujo de trabajo de la IA. Lo que importa es que esté disponible cuando haga falta, no que resida permanentemente en una infraestructura de alto rendimiento encendida las 24 horas. A gran escala, mantenerlo todo en ese nivel se vuelve innecesariamente caro.
+
+Por eso, la pregunta que deberían hacerse los responsables de infraestructura no es si la IA necesita almacenamiento rápido, sino dónde conservar los grandes volúmenes de datos que se necesitarán en el futuro antes de que llegue el momento de procesarlos. Según el autor, se trata de una decisión estratégica y no de una simple tarea de mantenimiento: la capa de capacidad adecuada debe mantener los datos protegidos y recuperables, reservar el máximo rendimiento solo para donde se produce el trabajo real y devolver la diferencia al presupuesto.
+
+## La cinta, de respaldo a capa activa
+
+La propuesta más discutida del texto es recuperar la cinta magnética como pieza central de esa arquitectura. Aunque la mayoría la asocia al respaldo y al archivo a largo plazo —un papel que sigue cumpliendo bien—, las sucesivas generaciones del estándar LTO han multiplicado su capacidad, su caudal y su seguridad mientras la industria miraba hacia otro lado.
+
+En volúmenes de varios petabytes, el coste por terabyte de la cinta es una fracción del de la memoria flash o incluso del de los discos duros, y su rendimiento y su capacidad pueden escalar de forma independiente: más unidades para el caudal y más cartuchos para la capacidad. A ello se suma una eficiencia energética que, según el análisis, convierte a esta tecnología en una capacidad estratégica que conviene integrar en el centro de datos.
+
+El artículo también destaca ventajas de protección que las capas en línea no ofrecen de forma estructural: cifrado gestionado por hardware en el propio cartucho y soporte WORM (escritura única, lectura múltiple), que hace que un conjunto de datos sea inmutable a nivel físico para que no pueda reescribirse. Para el material más valioso, los conjuntos de cintas pueden salir de la librería y almacenarse fuera de las instalaciones, completamente desconectados y aislados de lo que ocurra en el entorno de producción.
+
+## Nuestra lectura
+
+Conviene enmarcar el texto en su contexto: se trata de una pieza de opinión dentro del canal *Perspectives* de TechRadar Pro, y su autor trabaja para un fabricante de almacenamiento que vende, precisamente, soluciones basadas en cinta. Esa relación no invalida sus argumentos —el coste por terabyte y la eficiencia energética de la cinta son hechos conocidos en la industria—, pero sí aconseja leerlo como una defensa interesada de una tecnología concreta, no como un informe neutral.
+
+Dicho esto, el planteamiento de fondo es difícil de rebatir. La mayoría de las organizaciones no puede permitirse mantener todo su patrimonio de datos en el nivel más rápido y caro, y la gestión por capas —rendimiento donde se trabaja, capacidad económica donde se espera— es una práctica consolidada en el mundo del almacenamiento. La novedad está en el encuadre: en la era de la IA, saber qué datos se tienen, dónde están y con qué rapidez pueden ponerse a trabajar se está convirtiendo en una ventaja competitiva, porque los modelos están al alcance de cualquiera, pero los datos propios no.

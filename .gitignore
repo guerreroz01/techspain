@@ -23,3 +23,11 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+# editorial script state/output
+scripts/.seen.json
+scripts/candidates.json
+scripts/seleccion.md
+
+# gentle-ai local skill registry (machine-specific paths)
+.atl/

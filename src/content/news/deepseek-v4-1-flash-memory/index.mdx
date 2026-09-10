@@ -1,0 +1,47 @@
+---
+title: 'DeepSeek V4.1 Flash recorta más del 75 % el uso de HBM y SSD y tensa el relato de la subida de precios de la memoria'
+description: 'El nuevo modelo de DeepSeek reduce el caché KV por token a 890 bytes y el que se guarda en SSD o memoria a una octava parte, lo que según MyDrivers cuestiona los argumentos con los que los fabricantes justifican sus subidas de precios.'
+pubDate: 2026-09-10
+author: 'Redacción Tecnología Hoy'
+tags: ['Memorias', 'Inteligencia Artificial', 'Almacenamiento']
+featured: false
+breaking: false
+cover: './assets/imagen-1.png'
+coverAlt: 'Gráfico que compara el caché KV global por token entre DeepSeek-V1, V3.2, V4-Flash y V4.1-Flash'
+source:
+  name: 'MyDrivers'
+  url: 'https://news.mydrivers.com/1/1150/1150190.htm'
+---
+
+Durante el último año, los precios de la memoria RAM y de las unidades SSD se han multiplicado entre cinco y diez veces, un encarecimiento que los grandes fabricantes atribuyen al tirón de la inteligencia artificial. Según MyDrivers, el lanzamiento de DeepSeek V4.1 Flash introduce un matiz incómodo para ese relato: el nuevo modelo necesita entre una cuarta y una octava parte de la memoria HBM y del almacenamiento SSD que exigía su predecesor, una reducción superior al 75 %.
+
+## Un salto de arquitectura, no una simple décima
+
+Aunque el nombre invite a pensar en una evolución menor, el medio chino sostiene que V4.1 Flash es en la práctica un modelo distinto. El V4 Flash original partía de una base de 282.000 millones de parámetros y activaba 13.000 millones. La nueva versión adopta una estructura Causal-Encoder-Decoder, con 552.000 millones de parámetros en el tronco principal y un módulo externo de 196.000 millones de parámetros denominado memoria condicional Engram, según la descripción de MyDrivers.
+
+El resultado, siempre según la fuente, es un modelo de escala más del doble de grande pero más rápido: en las pruebas realizadas dos días antes de su publicación alcanzaba entre 500 y 600 tokens por segundo, tres o cuatro veces más que V4 Flash, y con más carga en el servicio todavía mantendría alrededor del doble de velocidad. A eso se suma una rebaja de precio: el coste de los aciertos de caché en la API cae un 60 %, lo que en conjunto recorta aproximadamente a la mitad el gasto por usuario.
+
+## La clave está en el caché KV
+
+El origen de esa eficiencia está en la gestión del caché KV, la estructura que los modelos de lenguaje mantienen en memoria para no recalcular el contexto en cada paso. MyDrivers explica que V4.1 Flash pasa el caché principal a FP4 y añade reutilización entre capas, de modo que el caché KV global por token se queda en 890 bytes, aproximadamente una cuarta parte del que usaba V4 Flash. El caché que se conserva a largo plazo en SSD o en memoria baja todavía más, hasta cerca de una octava parte.
+
+![Gráfico del artículo original de MyDrivers sobre el caché KV por token](./assets/imagen-2.png)
+
+La propia gráfica que acompaña al artículo sitúa la evolución en perspectiva: DeepSeek-V1 necesitaba 389.120 bytes por token en noviembre de 2023; V3.2 bajó a 48.068 bytes en diciembre de 2025 (8,1 veces menos); V4-Flash quedó en torno a 3.510 bytes en abril de 2026 (13,7 veces menos); y V4.1-Flash llega a los 890 bytes en septiembre de 2026, 3,9 veces por debajo del anterior.
+
+| Modelo | Fecha | Caché KV global por token |
+| --- | --- | --- |
+| DeepSeek-V1 | nov. 2023 | 389.120 bytes |
+| DeepSeek-V3.2 | dic. 2025 | 48.068 bytes (8,1× menos) |
+| DeepSeek-V4-Flash | abr. 2026 | ~3.510 bytes (13,7× menos) |
+| DeepSeek-V4.1-Flash | sep. 2026 | 890 bytes (3,9× menos) |
+
+## Qué significa para el mercado de la memoria
+
+La consecuencia que destaca el medio es directa: si V4.1 Flash necesita mucha menos HBM y mucho menos SSD para el mismo trabajo, la demanda global de memoria y almacenamiento asociada a la IA podría reducirse al menos dos o tres veces en caso de que la técnica se generalice. El artículo recuerda que Samsung, SK Hynix y Micron justifican subidas de precio de cinco a diez veces con la presión de la IA, cuando —según su lectura— el déficit real de demanda ronda apenas el 5 o el 10 %.
+
+## Nuestra lectura
+
+La optimización descrita es concreta y verificable en sus cifras: pasar de miles de bytes por token a 890 es una mejora de ingeniería real, no una promesa de marketing. Dicho esto, conviene separar el dato del titular. Un solo modelo, por eficiente que sea, no reordena por sí mismo un mercado tan rígido como el de la memoria: la producción de HBM está condicionada por la capacidad de empaquetado, la asignación de obleas y los contratos a largo plazo, factores que no cambian de un trimestre a otro.
+
+Lo que sí deja V4.1 Flash es un argumento difícil de esquivar. Si la eficiencia en el caché puede recortar el consumo de HBM y SSD más de un 75 %, resulta complicado sostener que un déficit de demanda del 5 al 10 % justifique multiplicar los precios por cinco o por diez. La pelota, ahora, está en el tejado de los fabricantes: demostrar que el encarecimiento responde a una escasez estructural y no a una oportunidad de mercado.

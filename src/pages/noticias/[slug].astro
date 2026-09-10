@@ -37,7 +37,8 @@ const formattedUpdated = updatedDate ? dateFormatter.format(updatedDate) : undef
 
 const siteBase = Astro.site ?? new URL(SITE.url);
 const canonical = new URL(`/noticias/${entry.id}/`, siteBase).href;
-const image = cover ? new URL(cover, siteBase).href : undefined;
+const coverSrc = cover?.src;
+const image = coverSrc ? new URL(coverSrc, siteBase).href : undefined;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -63,7 +64,7 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={title} description={description} type="article" image={cover}>
+<BaseLayout title={title} description={description} type="article" image={coverSrc}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
@@ -102,7 +103,7 @@ const jsonLd = {
         <figure class="article__figure">
           <img
             class="article__cover"
-            src={cover}
+            src={coverSrc}
             alt={coverAlt ?? ''}
             loading="eager"
             decoding="async"

@@ -1,0 +1,26 @@
+---
+title: 'Las GeForce RTX 20 reciben el DLSS Frame Generation mediante un mod'
+description: 'El mod adapta el runtime de NVIDIA a la arquitectura Turing para activar la generación de fotogramas en las RTX 20, sin depender de FSR 3.'
+pubDate: 2026-09-10
+author: 'Redacción Tecnología Hoy'
+tags: ['Tarjetas gráficas', 'NVIDIA']
+cover: './assets/cover.jpg'
+coverAlt: 'GeForce RTX 20 Series ejecutando Frame Generation mediante un mod'
+source:
+  name: 'El Chapuzas Informático'
+  url: 'https://elchapuzasinformatico.com/2026/09/geforce-rtx-20-reciben-dlss-frame-generation-mod/'
+---
+
+Un nuevo mod vuelve a demostrar hasta qué punto la comunidad puede sortear las restricciones de NVIDIA. Esta vez le toca al DLSS Frame Generation, que ya se puede ejecutar de forma nativa en las GeForce RTX 20, una generación que oficialmente nunca tuvo soporte para esta tecnología.
+
+## La diferencia clave: no es FSR
+
+El proyecto de Coldwood1026, un fork del trabajo previo para las RTX 30, adapta el DLSS-G a la arquitectura SM75 de Turing. Y aquí está lo interesante: no se trata de interceptar las llamadas a DLSS-G y redirigirlas hacia el Frame Generation de FSR 3.1, que era la vía habitual. Aquí se ejecuta el runtime de NVIDIA con kernels reconstruidos para Turing, después de reemplazar los 72 kernels originales y ajustar las comprobaciones de arquitectura para que la gráfica se identifique como Ada Lovelace.
+
+La prueba se hizo físicamente sobre una RTX 2060 Max-Q con The Witcher 3 Next-Gen, donde la opción de Frame Generation se habilitó con éxito.
+
+## Resultados prometedores pero inestables
+
+The Witcher 3 en DX12 es el único juego validado oficialmente por el desarrollador, aunque en principio deberían funcionar otros títulos compatibles. En el modo 2x, que inyecta un fotograma generado por IA entre dos renderizados, el resultado es razonablemente bueno; duplicar el rendimiento ya es mucho. El problema llega con los multiplicadores superiores: en 3x aparecen artefactos y ghosting, y en 4x el resultado es aún peor. Hay quien señala que el rendimiento queda ligeramente por debajo del Frame Generation de FSR.
+
+Aun así, que las RTX 20 puedan estirar su vida útil ejecutando el propio DLSS Frame Generation de NVIDIA, y no una alternativa, es un hito que no debería pasar desapercibido para quienes aún conservan estas gráficas.

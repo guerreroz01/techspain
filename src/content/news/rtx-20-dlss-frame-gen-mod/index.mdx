@@ -1,0 +1,28 @@
+---
+title: 'El DLSS Frame Generation llega a las GeForce RTX 20 gracias a un mod'
+description: 'Un modder consiguió ejecutar la generación de fotogramas de NVIDIA de forma nativa en una RTX 2060 Max-Q, aunque el resultado todavía es experimental.'
+pubDate: 2026-09-10
+author: 'Redacción Tecnología Hoy'
+tags: ['Tarjetas gráficas', 'NVIDIA']
+cover: './assets/cover.jpg'
+coverAlt: 'Prueba del mod de DLSS Frame Generation en una GeForce RTX 20'
+source:
+  name: 'MyDrivers'
+  url: 'https://news.mydrivers.com/1/1150/1150241.htm'
+---
+
+Un modder identificado como Coldwood1026 logró activar el DLSS Frame Generation de NVIDIA en una GeForce RTX 2060 Max-Q, una gráfica de arquitectura Turing lanzada en 2018. La gracia del experimento es que no se trata de redirigir las llamadas a la generación de fotogramas de AMD FSR 3, algo que ya se había visto, sino de ejecutar el propio runtime de NVIDIA sobre hardware que, en principio, no lo soporta.
+
+## Cómo se consiguió
+
+El mod parte del runtime oficial `nvngx_dlssg` 3.10.1 de NVIDIA y reemplaza los kernels de GPU, optimizados para arquitecturas modernas, por versiones recompiladas para SM75, la arquitectura de Turing. También se tocan las comprobaciones internas: la RTX 2060 se identifica ante el runtime como una GPU Ada Lovelace para sortear el bloqueo por hardware.
+
+La prueba se realizó con The Witcher 3 bajo DirectX 12, donde la opción de generación de fotogramas se activó con éxito.
+
+## Funciona, pero a medias
+
+Los primeros resultados son mixtos. El modo 2x —que inyecta un fotograma generado por IA entre dos renderizados— funciona de forma razonable, y ya es duplicar la tasa de fotogramas. El problema aparece al subir el multiplicador: en 3x aparecen artefactos y ghosting, y el modo 4x directamente no funciona. Algunos usuarios apuntan además que el rendimiento queda ligeramente por debajo del que ofrece el Frame Generation de FSR.
+
+## Qué dice esto
+
+Es un experimento que vuelve a demostrar hasta qué punto las limitaciones de NVIDIA pueden sortearse por la comunidad. Pero conviene ser cauto: el mod inyecta y modifica DLL sensibles, por lo que no es raro que el antivirus lo bloquee durante la instalación. Estamos ante una prueba de concepto en fase experimental, no ante una solución estable para alargar la vida de las RTX 20.

@@ -4,12 +4,12 @@
  */
 
 export const SITE = {
-  title: 'Tecnología Hoy',
+  title: 'TechSpain',
   description:
     'Noticias de tecnología en español: inteligencia artificial, hardware, software y la industria que las mueve.',
   author: 'Redacción Tecnología Hoy',
   // `import.meta.env.SITE` comes from the `site` option in astro.config.mjs.
-  url: import.meta.env.SITE ?? 'https://example.com',
+  url: import.meta.env.SITE ?? 'https://techspain24.com',
   lang: 'es',
 } as const;
 
@@ -22,7 +22,7 @@ export const NAV = [
 
 /** Social profiles shown in the footer. Replace the placeholder URLs. */
 export const SOCIAL = [
-  { label: 'GitHub', href: 'https://github.com/usuario' },
+  { label: 'GitHub', href: 'https://github.com/guerreroz01' },
   { label: 'X', href: 'https://x.com/usuario' },
 ] as const;
 

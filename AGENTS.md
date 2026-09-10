@@ -8,7 +8,7 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 
 - Single editorial line: technology news. **No sections, no categories, no tag pages.**
 - Static output by default (fastest). SSR is available per-route if ever needed.
-- Near-zero client JavaScript (only two tiny inline scripts: theme init + theme toggle).
+- Near-zero client JavaScript: two tiny inline scripts (theme init + theme toggle) plus the Vercel Web Analytics component (see section 11).
 - Ad-ready (Google AdSense) but **ads are disabled by default**.
 - Styling is a **token-based design system** — see section 8.
 
@@ -38,6 +38,7 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 | Framework | `astro` ^7.3.2 | Static output |
 | Language | TypeScript (strict) | `tsconfig.json` extends `astro/tsconfigs/strict` |
 | Deploy adapter | `@astrojs/vercel` | Installed; output stays `static` |
+| Analytics | `@vercel/analytics` | Web Analytics component in `BaseLayout`; enabled in the Vercel dashboard |
 | Sitemap | `@astrojs/sitemap` | Emits `sitemap-index.xml` + `sitemap-0.xml` |
 | MDX | `@astrojs/mdx` | Articles can be `.mdx` |
 | RSS | `@astrojs/rss` | `src/pages/rss.xml.js` |
@@ -109,7 +110,7 @@ Collection name: **`news`** · Folder: **`src/content/news/`** · Loader: `glob(
 | `tags` | string[] | no | `[]` | Metadata only — **no tag pages** |
 | `featured` | boolean | no | `false` | Candidate for the home lead story |
 | `breaking` | boolean | no | `false` | Shows in the "Última hora" banner |
-| `cover` | string | no | — | Path in `/public` (e.g. `/covers/x.svg`) or remote URL |
+| `cover` | image() | no | — | Colocated image in the entry's `assets/` folder (e.g. `./assets/cover.jpg`) |
 | `coverAlt` | string | no | — | Alt text for the cover |
 | `source` | `{ name, url }` | no | — | Attribution to the English-language outlet |
 | `draft` | boolean | no | `false` | Excluded from production builds |
@@ -136,10 +137,10 @@ source:
 
 ## 7. Adding a news article
 
-1. Create `src/content/news/<slug>.mdx` (the filename **is** the URL slug: `entry.id`).
+1. Create a folder `src/content/news/<slug>/` with `index.mdx` inside (the folder name **is** the URL slug: `entry.id`).
 2. Fill the frontmatter per the table in section 6.
 3. Write the body in **Spanish**. Markdown/MDX is fully supported (headings, lists, tables, blockquotes, code).
-4. If you use a cover, place the file in `public/covers/` and reference it as `/covers/<file>`.
+4. Put the article's images in `src/content/news/<slug>/assets/`. Reference the cover as `./assets/<file>` and embed extra images inline as `![alt](./assets/<file>)`.
 5. Set `featured: true` for the lead candidate and/or `breaking: true` for the banner.
 6. Always attribute the original English source via `source`.
 7. Run `npm run build` and confirm it passes.
@@ -184,15 +185,23 @@ How content becomes discoverable by search engines:
 
 ### Indexing gotchas
 
-- The `site` value in `astro.config.mjs` is the placeholder `https://example.com`. **Canonical URLs, sitemaps, and RSS links will be wrong until it is set to the real domain.**
-- `public/robots.txt` also hardcodes `https://example.com` — update both files together.
+- The `site` value in `astro.config.mjs` is set to the real domain `https://techspain24.com`. **Canonical URLs, sitemaps, and RSS links depend on it.**
+- `public/robots.txt` references the same domain — keep both files in sync if it ever changes.
 - The 48-hour news window means a quiet site will produce a near-empty news sitemap. That is expected behavior, not a bug.
 
-## 11. Ads
+## 11. Ads & Analytics
+
+### Ads
 
 - `src/components/AdSlot.astro` renders nothing in production while `ADS.enabled === false` (it shows a labeled placeholder only in dev).
 - To enable AdSense: set `ADS.enabled = true` and `ADS.client = 'ca-pub-…'` in `src/consts.ts`, then uncomment the AdSense loader in `src/layouts/BaseLayout.astro`.
 - Ad slots are placed on the home (two) and on article pages (one).
+
+### Web Analytics
+
+- Vercel Web Analytics is enabled **per project in the Vercel dashboard**. The tracking routes (`/_vercel/insights/*`) are added on the next deployment.
+- `src/layouts/BaseLayout.astro` renders `<Analytics />` from `@vercel/analytics/astro` inside `<head>`, so every page is tracked. It is a bundled client script — the only one besides the two inline theme scripts.
+- `@vercel/analytics` is a direct dependency. Do **not** set `webAnalytics: { enabled: true }` on the Vercel adapter: that option only applies to `@vercel/analytics@1.3.x` and earlier.
 
 ## 12. Configuration
 
@@ -205,7 +214,7 @@ How content becomes discoverable by search engines:
 
 ## 13. Deployment (Vercel)
 
-1. Set the real domain in **both** `astro.config.mjs` (`site`) and `public/robots.txt`.
+1. The domain is set to `https://techspain24.com` in **both** `astro.config.mjs` (`site`) and `public/robots.txt`.
 2. Update `SITE` in `src/consts.ts` (name, description, author).
 3. Push the repository to a Git remote and import it in Vercel (Astro is auto-detected; `npm run build`, output `dist/`).
 4. The `@astrojs/vercel` adapter also writes `.vercel/output/`. Output remains static.
@@ -213,10 +222,11 @@ How content becomes discoverable by search engines:
 ## 14. Gotchas and conventions
 
 - **Astro 7 content config path**: the file must be `src/content.config.ts`. The legacy `src/content/config.ts` throws `LegacyContentConfigError`.
-- **Content Layer API**: use `glob` from `astro/loaders` and `z` from `astro/zod` (Zod v4). Entries expose `id` (the filename slug) — there is **no `slug` field**.
+- **Content Layer API**: use `glob` from `astro/loaders` and `z` from `astro/zod` (Zod v4). Each entry is a folder `<slug>/index.mdx`; `generateId` maps the folder to `id` (the slug). There is **no `slug` field**.
+- **Colocated images**: the `cover` field uses the `image()` helper from `astro:assets` and resolves relative to the entry folder (`./assets/...`). Inline body images use relative markdown paths. Article images are NOT placed in `public/`.
 - **Rendering**: use `getCollection('news')`, `getEntry('news', id)`, and `render(entry)` from `astro:content`.
 - **Endpoints**: `src/pages/rss.xml.js` and `sitemap-news.xml.ts` use `export async function GET(context)`.
-- **Client JS**: any script that must not be bundled uses `is:inline`. Keep client JS to the absolute minimum.
+- **Client JS**: any script that must not be bundled uses `is:inline`. Keep client JS to the absolute minimum (currently the two theme scripts and the Vercel Analytics component).
 - **Do not commit** `node_modules/`, `dist/`, or `.vercel/` (see `.gitignore`).
 - **No CSS framework.** Do not add Tailwind or a component library.
 - **No sections/taxonomy.** This is a single-topic portal by design; do not reintroduce a `section` field or category pages without an explicit request.
@@ -234,3 +244,11 @@ Relevant guides:
 - [Deploy to Vercel](https://docs.astro.build/en/guides/deploy/vercel/)
 - [Sitemap integration](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 - [RSS recipe](https://docs.astro.build/en/recipes/rss/)
+
+## 16. Editorial sources & the press-writing skill
+
+- **Source list** — `src/data/sources.json` is the curated, machine-readable list of outlets used to detect, contrast, and confirm stories before rewriting them in Spanish. It groups ~66 sources into 5 layers: `tech-media`, `reviews`, `asia`, `es-competition`, and `primary`. Each entry has `homepage`, `rss` (or `null` when there is no confirmed feed), `lang`, `focus`, and optional `notes`.
+- **Press-writing skill** — `skills/redaccion-prensa/SKILL.md` encodes the daily editorial workflow: pull the latest from the detection layers, contrast with `tech-media`/`reviews`, confirm with `primary`, check `es-competition` for saturation, then write `src/content/news/<slug>.mdx` in neutral/professional Spanish with explicit `source` attribution. Use it whenever an article is written or the sources are reviewed.
+- **Editorial verticals** — the portal covers 6 verticals: componentes de PC, portátiles, consolas (portátiles y de escritorio), tarjetas gráficas, memorias y móviles. Stories must fit one of them; the primary vertical goes first in `tags`. These are editorial focus, not URL sections (there are still no category/tag pages).
+- **Daily news script** — `scripts/daily-news.mjs` (`npm run news`) fetches the RSS feeds from `sources.json`, marks already-seen items in `scripts/.seen.json` (gitignored), classifies titles into the 5 verticals, and writes `scripts/candidates.json` plus a markdown report for manual selection. No dependencies (uses Node's global `fetch` + a built-in RSS/Atom parser).
+- **Redaction delegation** — when the user selects articles and asks to redact them, delegate one subagent (`general`) per article, all in parallel, using the prompt template in `skills/redaccion-prensa/DELEGATION.md`. Each subagent writes one `src/content/news/<slug>/` folder, so there is no file overlap.

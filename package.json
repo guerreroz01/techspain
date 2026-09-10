@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "news": "node scripts/daily-news.mjs",
+    "news:all": "node scripts/daily-news.mjs --all"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",
@@ -17,6 +19,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/vercel": "^11.0.10",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^7.3.2"
   },
   "allowScripts": {

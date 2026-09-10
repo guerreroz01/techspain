@@ -1,0 +1,26 @@
+---
+title: 'Qwen3.8-27B corrió en un portátil con 12 GB de RAM uniendo la memoria de cuatro dispositivos'
+description: 'Un usuario combinó un portátil Windows, un mini PC con RTX 3060, un Mac mini y un móvil Android mediante software libre para cargar el modelo cuantizado a 4 bits.'
+pubDate: 2026-09-10
+author: 'Redacción Tecnología Hoy'
+tags: ['Memorias', 'Inteligencia Artificial', 'Software']
+cover: './assets/cover.jpg'
+coverAlt: 'Representación del modelo Qwen3.8-27B ejecutándose repartido entre varios dispositivos'
+source:
+  name: 'Wccftech'
+  url: 'https://wccftech.com/qwen38-27b-ai-model-runs-on-12gb-laptop-by-pooling-memory-across-four-devices/'
+---
+
+Ejecutar un modelo de lenguaje grande en casa no depende solo de la tarjeta gráfica: la memoria disponible marca el límite. La versión cuantizada a 4 bits de Qwen3.8-27B exige entre 15 y 17 GB de VRAM y RAM del sistema combinadas, y la variante sin cuantizar se dispara hasta los 55-60 GB. Con esas cifras, intentarlo en un portátil Windows con 12 GB de memoria parece directamente imposible. Y, aun así, alguien lo consiguió.
+
+## Cuatro equipos, una sola carga
+
+El usuario de Reddit conocido como "Medicine_Blogscanner" repartió el modelo entre cuatro dispositivos conectados a la misma red local. La pieza central fue el propio portátil de 12 GB, que aportó 3,4 GB. A su lado entraron un mini PC con RTX 3060, que sumó 20 GB entre VRAM y memoria del sistema; un Mac mini, con 3,7 GB; y un teléfono Android, que cedió 1 GB. El pegamento entre todos ellos fue RAMDeck, una herramienta de código abierto que agrupa la memoria de varias máquinas para comportarse como un único pool.
+
+## El precio de la hazaña
+
+El truco funciona, pero no sale gratis. La velocidad de generación se quedó en 1,92 tokens por segundo, con una latencia de 25 ms. Para ponerlo en perspectiva: cualquier chatbot al uso entrega decenas de tokens por segundo, así que aquí la experiencia es de paciencia más que de conversación fluida. Varios usuarios de Reddit señalaron que el resultado es poco práctico y que tiene más sentido recurrir a una cuantización a 2 bits o a modelos más pequeños, del orden de 13B, que caben en un solo equipo.
+
+## Qué significa para el aficionado
+
+La noticia no es que Qwen3.8-27B vaya a ser usable en un portátil modesto, porque no lo es. Lo relevante es la demostración de concepto: hardware antiguo y disperso por casa puede encontrar una segunda vida si se acepta el compromiso de velocidad. Para quien ya tiene un mini PC con GPU, un Mac y algún móvil sin usar, herramientas como RAMDeck abren una vía de bajo coste para experimentar con modelos que, de otro modo, quedarían fuera de alcance. La contrapartida es clara y conviene decirlo sin adornos: si se busca rendimiento real, ampliar memoria en un único equipo sigue siendo la ruta sensata.

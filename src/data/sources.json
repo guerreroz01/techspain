@@ -1,0 +1,640 @@
+{
+  "meta": {
+    "title": "Fuentes editoriales del portal",
+    "description": "Lista curada de fuentes agrupada en 5 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
+    "updated": "2026-09-10",
+    "version": 1,
+    "note": "Los campos 'rss' con valor null no tienen feed confirmado (o no lo publican): usar la homepage para seguimiento manual o scraping autorizado. Antes de automatizar, verificar cada feed y respetar los términos de uso de cada sitio (p. ej. VideoCardz prohíbe explícitamente el scraping programático sin consentimiento escrito).",
+    "layers": {
+      "tech-media": "Capa 1 — Medios técnicos en inglés (contraste y profundidad)",
+      "reviews": "Capa 2 — Especializados en portátiles, monitores y periféricos (datos medidos y reviews)",
+      "asia": "Capa 3 — Fuentes asiáticas (adelanto de novedades y filtraciones)",
+      "es-competition": "Capa 4 — Competencia en español (vigilar saturación)",
+      "primary": "Capa 5 — Fuentes primarias: salas de prensa y blogs oficiales (confirmación de datos e imágenes)"
+    }
+  },
+  "sources": [
+    {
+      "id": "toms-hardware",
+      "name": "Tom's Hardware",
+      "layer": "tech-media",
+      "homepage": "https://www.tomshardware.com",
+      "rss": "https://www.tomshardware.com/feeds/all",
+      "lang": "en",
+      "focus": ["componentes", "reviews", "noticias"]
+    },
+    {
+      "id": "techpowerup",
+      "name": "TechPowerUp",
+      "layer": "tech-media",
+      "homepage": "https://www.techpowerup.com",
+      "rss": "https://www.techpowerup.com/rss/news",
+      "lang": "en",
+      "focus": ["gpu", "cpu", "especificaciones", "noticias"]
+    },
+    {
+      "id": "anandtech",
+      "name": "AnandTech",
+      "layer": "tech-media",
+      "homepage": "https://www.anandtech.com",
+      "rss": "https://www.anandtech.com/rss/",
+      "lang": "en",
+      "focus": ["arquitectura", "cpu", "gpu", "análisis técnico"]
+    },
+    {
+      "id": "pcworld",
+      "name": "PCWorld",
+      "layer": "tech-media",
+      "homepage": "https://www.pcworld.com",
+      "rss": "https://www.pcworld.com/feed/",
+      "lang": "en",
+      "focus": ["portátiles", "software", "noticias"]
+    },
+    {
+      "id": "pcmag",
+      "name": "PCMag",
+      "layer": "tech-media",
+      "homepage": "https://www.pcmag.com",
+      "rss": "https://www.pcmag.com/feeds/latest",
+      "lang": "en",
+      "focus": ["reviews", "hardware", "software"]
+    },
+    {
+      "id": "pc-gamer",
+      "name": "PC Gamer",
+      "layer": "tech-media",
+      "homepage": "https://www.pcgamer.com",
+      "rss": "https://www.pcgamer.com/rss/",
+      "lang": "en",
+      "focus": ["gaming", "hardware", "componentes"]
+    },
+    {
+      "id": "digital-trends",
+      "name": "Digital Trends",
+      "layer": "tech-media",
+      "homepage": "https://www.digitaltrends.com",
+      "rss": "https://www.digitaltrends.com/feed/",
+      "lang": "en",
+      "focus": ["consumo", "noticias", "reviews"]
+    },
+    {
+      "id": "the-verge",
+      "name": "The Verge",
+      "layer": "tech-media",
+      "homepage": "https://www.theverge.com",
+      "rss": "https://www.theverge.com/rss/index.xml",
+      "lang": "en",
+      "focus": ["industria", "noticias", "productos"]
+    },
+    {
+      "id": "ars-technica",
+      "name": "Ars Technica",
+      "layer": "tech-media",
+      "homepage": "https://arstechnica.com",
+      "rss": "https://feeds.arstechnica.com/arstechnica/index",
+      "lang": "en",
+      "focus": ["ciencia", "hardware", "análisis"]
+    },
+    {
+      "id": "engadget",
+      "name": "Engadget",
+      "layer": "tech-media",
+      "homepage": "https://www.engadget.com",
+      "rss": "https://www.engadget.com/rss.xml",
+      "lang": "en",
+      "focus": ["consumo", "gadgets", "noticias"]
+    },
+    {
+      "id": "cnet",
+      "name": "CNET",
+      "layer": "tech-media",
+      "homepage": "https://www.cnet.com",
+      "rss": "https://www.cnet.com/rss/news/",
+      "lang": "en",
+      "focus": ["consumo", "reviews", "noticias"]
+    },
+    {
+      "id": "windows-central",
+      "name": "Windows Central",
+      "layer": "tech-media",
+      "homepage": "https://www.windowscentral.com",
+      "rss": "https://www.windowscentral.com/rss.xml",
+      "lang": "en",
+      "focus": ["windows", "microsoft", "portátiles"]
+    },
+    {
+      "id": "xda-developers",
+      "name": "XDA Developers",
+      "layer": "tech-media",
+      "homepage": "https://www.xda-developers.com",
+      "rss": "https://www.xda-developers.com/feed/",
+      "lang": "en",
+      "focus": ["android", "windows", "reviews", "trucos"]
+    },
+    {
+      "id": "hothardware",
+      "name": "HotHardware",
+      "layer": "tech-media",
+      "homepage": "https://hothardware.com",
+      "rss": "https://hothardware.com/rss.xml",
+      "lang": "en",
+      "focus": ["componentes", "noticias", "reviews"]
+    },
+    {
+      "id": "extremetech",
+      "name": "ExtremeTech",
+      "layer": "tech-media",
+      "homepage": "https://www.extremetech.com",
+      "rss": "https://www.extremetech.com/feed/",
+      "lang": "en",
+      "focus": ["ciencia", "hardware", "análisis"]
+    },
+    {
+      "id": "servethehome",
+      "name": "ServeTheHome",
+      "layer": "tech-media",
+      "homepage": "https://www.servethehome.com",
+      "rss": "https://www.servethehome.com/feed/",
+      "lang": "en",
+      "focus": ["servidores", "almacenamiento", "redes"]
+    },
+    {
+      "id": "gamersnexus",
+      "name": "GamersNexus",
+      "layer": "tech-media",
+      "homepage": "https://gamersnexus.net",
+      "rss": "https://gamersnexus.net/rss.xml",
+      "lang": "en",
+      "focus": ["benchmarks", "componentes", "investigación"],
+      "notes": "También activo en YouTube; foco en datos y desmontajes."
+    },
+    {
+      "id": "hardware-unboxed",
+      "name": "Hardware Unboxed",
+      "layer": "tech-media",
+      "homepage": "https://www.youtube.com/@HardwareUnboxed",
+      "rss": null,
+      "lang": "en",
+      "focus": ["benchmarks", "monitores", "gpu", "cpu"],
+      "notes": "Canal de YouTube. Sin feed RSS propio; usar feed de YouTube con el channel_id."
+    },
+    {
+      "id": "kitguru",
+      "name": "KitGuru",
+      "layer": "tech-media",
+      "homepage": "https://www.kitguru.net",
+      "rss": "https://www.kitguru.net/feed/",
+      "lang": "en",
+      "focus": ["componentes", "reviews", "noticias"]
+    },
+    {
+      "id": "guru3d",
+      "name": "Guru3D",
+      "layer": "tech-media",
+      "homepage": "https://www.guru3d.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["gpu", "drivers", "reviews"],
+      "notes": "Seguimiento manual en https://www.guru3d.com/news (RSS no confirmado)."
+    },
+
+    {
+      "id": "notebookcheck",
+      "name": "Notebookcheck",
+      "layer": "reviews",
+      "homepage": "https://www.notebookcheck.net",
+      "rss": null,
+      "lang": "en",
+      "focus": ["portátiles", "reviews", "mediciones"],
+      "notes": "Sección de noticias: https://www.notebookcheck.net/News.152.0.html (RSS no confirmado)."
+    },
+    {
+      "id": "laptop-mag",
+      "name": "Laptop Mag",
+      "layer": "reviews",
+      "homepage": "https://www.laptopmag.com",
+      "rss": "https://www.laptopmag.com/rss.xml",
+      "lang": "en",
+      "focus": ["portátiles", "reviews", "guías"]
+    },
+    {
+      "id": "rtings",
+      "name": "RTINGS",
+      "layer": "reviews",
+      "homepage": "https://www.rtings.com",
+      "rss": "https://www.rtings.com/rss",
+      "lang": "en",
+      "focus": ["mediciones", "monitores", "tvs", "periféricos"]
+    },
+    {
+      "id": "rtings-monitors",
+      "name": "RTINGS Monitors",
+      "layer": "reviews",
+      "homepage": "https://www.rtings.com/monitor",
+      "rss": null,
+      "lang": "en",
+      "focus": ["monitores", "mediciones"],
+      "notes": "Sección de monitores de RTINGS."
+    },
+    {
+      "id": "rtings-mice",
+      "name": "RTINGS Mice",
+      "layer": "reviews",
+      "homepage": "https://www.rtings.com/mouse",
+      "rss": null,
+      "lang": "en",
+      "focus": ["ratones", "mediciones"],
+      "notes": "Sección de ratones de RTINGS."
+    },
+    {
+      "id": "rtings-keyboards",
+      "name": "RTINGS Keyboards",
+      "layer": "reviews",
+      "homepage": "https://www.rtings.com/keyboard",
+      "rss": null,
+      "lang": "en",
+      "focus": ["teclados", "mediciones"],
+      "notes": "Sección de teclados de RTINGS."
+    },
+    {
+      "id": "displayninja",
+      "name": "DisplayNinja",
+      "layer": "reviews",
+      "homepage": "https://displayninja.com",
+      "rss": "https://displayninja.com/feed/",
+      "lang": "en",
+      "focus": ["monitores", "paneles", "guías"]
+    },
+    {
+      "id": "tftcentral",
+      "name": "TFTCentral",
+      "layer": "reviews",
+      "homepage": "https://tftcentral.co.uk",
+      "rss": "https://tftcentral.co.uk/feed/",
+      "lang": "en",
+      "focus": ["monitores", "paneles", "mediciones"]
+    },
+    {
+      "id": "blur-busters",
+      "name": "Blur Busters",
+      "layer": "reviews",
+      "homepage": "https://blurbusters.com",
+      "rss": "https://blurbusters.com/feed/",
+      "lang": "en",
+      "focus": ["monitores", "frecuencia de refresco", "motion blur"]
+    },
+    {
+      "id": "techradar",
+      "name": "TechRadar",
+      "layer": "reviews",
+      "homepage": "https://www.techradar.com",
+      "rss": "https://www.techradar.com/rss",
+      "lang": "en",
+      "focus": ["reviews", "portátiles", "componentes"]
+    },
+
+    {
+      "id": "ithome",
+      "name": "ITHome",
+      "layer": "asia",
+      "homepage": "https://www.ithome.com",
+      "rss": "https://www.ithome.com/rss",
+      "lang": "zh",
+      "focus": ["adelanto", "filtraciones", "noticias"],
+      "notes": "Clave para detección temprana de novedades."
+    },
+    {
+      "id": "mydrivers",
+      "name": "MyDrivers",
+      "layer": "asia",
+      "homepage": "https://news.mydrivers.com",
+      "rss": "https://rss.mydrivers.com/Rss.aspx?Tid=1",
+      "lang": "zh",
+      "focus": ["adelanto", "hardware", "noticias"]
+    },
+    {
+      "id": "expreview",
+      "name": "Expreview",
+      "layer": "asia",
+      "homepage": "https://www.expreview.com",
+      "rss": null,
+      "lang": "zh",
+      "focus": ["hardware", "componentes", "adelanto"],
+      "notes": "Edición en inglés: https://en.expreview.com (RSS no confirmado)."
+    },
+    {
+      "id": "hkepc",
+      "name": "HKEPC",
+      "layer": "asia",
+      "homepage": "https://www.hkepc.com",
+      "rss": null,
+      "lang": "zh",
+      "focus": ["hardware", "adelanto", "noticias"],
+      "notes": "RSS no confirmado."
+    },
+    {
+      "id": "benchlife",
+      "name": "BenchLife",
+      "layer": "asia",
+      "homepage": "https://benchlife.info",
+      "rss": "https://benchlife.info/feed/",
+      "lang": "zh",
+      "focus": ["filtraciones", "componentes", "adelanto"]
+    },
+    {
+      "id": "unikos-hardware",
+      "name": "Uniko's Hardware",
+      "layer": "asia",
+      "homepage": "https://unikoshardware.com",
+      "rss": "https://unikoshardware.com/feed/",
+      "lang": "zh",
+      "focus": ["hardware", "reviews", "noticias"]
+    },
+    {
+      "id": "videocardz",
+      "name": "VideoCardz",
+      "layer": "asia",
+      "homepage": "https://videocardz.com",
+      "rss": "https://videocardz.com/rss-feed",
+      "lang": "en",
+      "focus": ["gpu", "filtraciones", "rumores"],
+      "notes": "IMPORTANTE: prohíbe el scraping programático sin consentimiento escrito. Usar solo como referencia manual/lectura."
+    },
+    {
+      "id": "technode",
+      "name": "TechNode",
+      "layer": "asia",
+      "homepage": "https://technode.com",
+      "rss": "https://technode.com/feed/",
+      "lang": "en",
+      "focus": ["china", "startups", "industria"]
+    },
+    {
+      "id": "scmp-technology",
+      "name": "SCMP Technology",
+      "layer": "asia",
+      "homepage": "https://www.scmp.com/topics/technology",
+      "rss": null,
+      "lang": "en",
+      "focus": ["china", "semiconductores", "industria"],
+      "notes": "Índice RSS general: https://www.scmp.com/rss (seleccionar topic Technology)."
+    },
+    {
+      "id": "wccftech",
+      "name": "Wccftech",
+      "layer": "asia",
+      "homepage": "https://wccftech.com",
+      "rss": "https://wccftech.com/feed/",
+      "lang": "en",
+      "focus": ["hardware", "rumores", "gpu"]
+    },
+
+    {
+      "id": "xataka",
+      "name": "Xataka",
+      "layer": "es-competition",
+      "homepage": "https://www.xataka.com",
+      "rss": "https://www.xataka.com/index.xml",
+      "lang": "es",
+      "focus": ["tecnología", "noticias", "reviews"]
+    },
+    {
+      "id": "xataka-windows",
+      "name": "Xataka Windows",
+      "layer": "es-competition",
+      "homepage": "https://www.xatakawindows.com",
+      "rss": "https://www.xatakawindows.com/index.xml",
+      "lang": "es",
+      "focus": ["windows", "microsoft", "pc"]
+    },
+    {
+      "id": "3djuegos-pc",
+      "name": "3DJuegos PC",
+      "layer": "es-competition",
+      "homepage": "https://www.3djuegospc.com",
+      "rss": null,
+      "lang": "es",
+      "focus": ["hardware", "gaming", "componentes"],
+      "notes": "RSS no confirmado."
+    },
+    {
+      "id": "hardzone",
+      "name": "HardZone",
+      "layer": "es-competition",
+      "homepage": "https://hardzone.es",
+      "rss": "https://hardzone.es/rss",
+      "lang": "es",
+      "focus": ["hardware", "componentes", "noticias"]
+    },
+    {
+      "id": "profesional-review",
+      "name": "Profesional Review",
+      "layer": "es-competition",
+      "homepage": "https://www.profesionalreview.com",
+      "rss": "https://www.profesionalreview.com/feed/",
+      "lang": "es",
+      "focus": ["hardware", "reviews", "noticias"]
+    },
+    {
+      "id": "el-chapuzas-informatico",
+      "name": "El Chapuzas Informático",
+      "layer": "es-competition",
+      "homepage": "https://elchapuzasinformatico.com",
+      "rss": "https://elchapuzasinformatico.com/feed/",
+      "lang": "es",
+      "focus": ["hardware", "reviews", "noticias"]
+    },
+    {
+      "id": "computerhoy",
+      "name": "ComputerHoy",
+      "layer": "es-competition",
+      "homepage": "https://computerhoy.com",
+      "rss": "https://computerhoy.com/rss.xml",
+      "lang": "es",
+      "focus": ["tecnología", "consumo", "noticias"]
+    },
+    {
+      "id": "muycomputer",
+      "name": "MuyComputer",
+      "layer": "es-competition",
+      "homepage": "https://www.muycomputer.com",
+      "rss": "https://www.muycomputer.com/feed/",
+      "lang": "es",
+      "focus": ["hardware", "software", "noticias"]
+    },
+    {
+      "id": "geeknetic",
+      "name": "Geeknetic",
+      "layer": "es-competition",
+      "homepage": "https://www.geeknetic.es",
+      "rss": null,
+      "lang": "es",
+      "focus": ["hardware", "reviews", "noticias"],
+      "notes": "RSS no confirmado."
+    },
+    {
+      "id": "redeszone",
+      "name": "RedesZone",
+      "layer": "es-competition",
+      "homepage": "https://www.redeszone.net",
+      "rss": null,
+      "lang": "es",
+      "focus": ["redes", "wifi", "hardware"],
+      "notes": "RSS no confirmado."
+    },
+
+    {
+      "id": "nvidia",
+      "name": "NVIDIA Newsroom",
+      "layer": "primary",
+      "homepage": "https://nvidianews.nvidia.com",
+      "rss": "https://nvidianews.nvidia.com/rss",
+      "lang": "en",
+      "focus": ["gpu", "ia", "comunicados oficiales"]
+    },
+    {
+      "id": "amd",
+      "name": "AMD Newsroom",
+      "layer": "primary",
+      "homepage": "https://newsroom.amd.com",
+      "rss": "https://newsroom.amd.com/rss.xml?content-type=news",
+      "lang": "en",
+      "focus": ["cpu", "gpu", "comunicados oficiales"]
+    },
+    {
+      "id": "intel",
+      "name": "Intel Newsroom",
+      "layer": "primary",
+      "homepage": "https://newsroom.intel.com",
+      "rss": "https://www.intc.com/news-events/press-releases/rss",
+      "lang": "en",
+      "focus": ["cpu", "fundición", "comunicados oficiales"]
+    },
+    {
+      "id": "asus-rog",
+      "name": "ASUS / ROG",
+      "layer": "primary",
+      "homepage": "https://press.asus.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["placa base", "gpu", "portátiles", "periféricos"],
+      "notes": "ROG: https://rog.asus.com (RSS no confirmado)."
+    },
+    {
+      "id": "msi",
+      "name": "MSI Press Room",
+      "layer": "primary",
+      "homepage": "https://www.msi.com/press-room",
+      "rss": "https://www.msi.com/rss/feed/latest-news",
+      "lang": "en",
+      "focus": ["placa base", "gpu", "portátiles"]
+    },
+    {
+      "id": "gigabyte-aorus",
+      "name": "Gigabyte / AORUS",
+      "layer": "primary",
+      "homepage": "https://www.gigabyte.com/press/news",
+      "rss": null,
+      "lang": "en",
+      "focus": ["placa base", "gpu", "monitores"],
+      "notes": "AORUS: https://global.aorus.com/news.php (RSS no confirmado)."
+    },
+    {
+      "id": "lenovo-storyhub",
+      "name": "Lenovo StoryHub",
+      "layer": "primary",
+      "homepage": "https://news.lenovo.com",
+      "rss": "https://news.lenovo.com/pressroom/press-releases/feed",
+      "lang": "en",
+      "focus": ["portátiles", "servidores", "comunicados oficiales"]
+    },
+    {
+      "id": "dell-newsroom",
+      "name": "Dell Newsroom",
+      "layer": "primary",
+      "homepage": "https://www.dell.com/en-us/dt/corporate/newsroom.htm",
+      "rss": "https://investors.delltechnologies.com/rss-feeds",
+      "lang": "en",
+      "focus": ["portátiles", "servidores", "comunicados oficiales"]
+    },
+    {
+      "id": "hp-press",
+      "name": "HP Press Center",
+      "layer": "primary",
+      "homepage": "https://press.hp.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["portátiles", "impresoras", "comunicados oficiales"],
+      "notes": "RSS no confirmado; seguimiento manual."
+    },
+    {
+      "id": "acer-press",
+      "name": "Acer Press",
+      "layer": "primary",
+      "homepage": "https://news.acer.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["portátiles", "monitores", "comunicados oficiales"],
+      "notes": "Plataforma Prezly; feed probable en /feed o /rss (no confirmado)."
+    },
+    {
+      "id": "corsair-newsroom",
+      "name": "Corsair Newsroom",
+      "layer": "primary",
+      "homepage": "https://www.corsair.com/newsroom",
+      "rss": null,
+      "lang": "en",
+      "focus": ["periféricos", "fuentes", "refrigeración"],
+      "notes": "WordPress; feed probable en https://www.corsair.com/newsroom/feed (verificar)."
+    },
+    {
+      "id": "logitech-newsroom",
+      "name": "Logitech Newsroom",
+      "layer": "primary",
+      "homepage": "https://news.logitech.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["periféricos", "comunicados oficiales"],
+      "notes": "RSS no confirmado; seguimiento manual."
+    },
+    {
+      "id": "razer-press",
+      "name": "Razer Press",
+      "layer": "primary",
+      "homepage": "https://press.razer.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["periféricos", "portátiles gaming"],
+      "notes": "WordPress; feed probable en https://www.razer.com/newsroom/feed (verificar)."
+    },
+    {
+      "id": "kingston-newsroom",
+      "name": "Kingston Newsroom",
+      "layer": "primary",
+      "homepage": "https://www.kingston.com/en/company/press",
+      "rss": null,
+      "lang": "en",
+      "focus": ["memoria", "almacenamiento", "comunicados oficiales"],
+      "notes": "RSS no confirmado."
+    },
+    {
+      "id": "samsung-semiconductor",
+      "name": "Samsung Semiconductor Newsroom",
+      "layer": "primary",
+      "homepage": "https://news.samsungsemiconductor.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["memoria", "nand", "fundición", "comunicados oficiales"],
+      "notes": "RSS no confirmado (enlace RSS en el pie de la web)."
+    },
+    {
+      "id": "windows-blog",
+      "name": "Windows Blog",
+      "layer": "primary",
+      "homepage": "https://blogs.windows.com",
+      "rss": "https://blogs.windows.com/feed",
+      "lang": "en",
+      "focus": ["windows", "microsoft", "comunicados oficiales"]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+---
+title: 'Un mod híbrido FP8/NVFP4 apenas mejora el DLSS 5 en las GeForce RTX 50'
+description: 'La comunidad probó mover parte del modelo de DLSS 5 a NVFP4 en las RTX 50, pero la ganancia real se queda en un 1-2% del tiempo de renderizado neuronal.'
+pubDate: 2026-09-10
+author: 'Redacción Tecnología Hoy'
+tags: ['Tarjetas gráficas', 'NVIDIA']
+cover: './assets/cover.jpg'
+coverAlt: 'Comparativa del modelo híbrido FP8/NVFP4 de DLSS 5 en GPUs RTX 50'
+source:
+  name: 'Wccftech'
+  url: 'https://wccftech.com/dlss-5-modders-get-hybrid-fp8-nvfp4-running-on-rtx-50-gpus-but-performance-improves-by-just-1-2/'
+---
+
+Los modders llevan semanas buscando formas de recortar el coste computacional de DLSS 5, el modelo de renderizado neuronal más exigente de NVIDIA. El último intento pasa por una versión híbrida FP8/NVFP4 del modelo, introducida en la versión 0.7.1 del proyecto OptiScaler-DLSSNR-PreSR-Multipass.
+
+## La idea tiene sentido, el resultado no tanto
+
+Dado que los Tensor Cores de quinta generación de Blackwell aceleran NVFP4 de forma nativa, mover parte de DLSS 5 fuera de FP8 parecía una vía obvia para ganar rendimiento. La realidad, sin embargo, fue otra: según las notas de la versión, el modelo híbrido apenas redujo el tiempo del pase de renderizado neuronal a 4K en un 1-2% respecto a la implementación FP8 original. El propio desarrollador lo describió como una mejora "MUY menor".
+
+Conviene aclarar que esa cifra no se traduce en un 1-2% más de FPS en el juego: se refiere específicamente al tiempo de ese pase. Las formas de modelo no soportadas siguen cayendo a FP8.
+
+## Por qué no fue el atajo esperado
+
+NVFP4 reduce los requisitos de memoria frente a FP8, pero llevar una red neuronal a tan baja precisión requiere cuantización y optimización adecuadas, no simplemente convertir el modelo existente. La versión 0.7.2 ya promovió el híbrido como opción recomendada para Blackwell, y en una prueba de Baldur's Gate 3 logró 55,16 FPS frente a los 54,57 del FP8, una diferencia tan pequeña que el desarrollador avisa de que no es repetible.
+
+NVIDIA, por su parte, afirma que DLSS 5 ya es unas cinco veces más rápido que en su demostración original del GTC 2026. Lo que deja claro este experimento es que, al menos por ahora, mover el modelo a NVFP4 no es el gran atajo de rendimiento que algunos esperaban.
