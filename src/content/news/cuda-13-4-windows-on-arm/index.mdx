@@ -1,0 +1,42 @@
+---
+title: 'CUDA 13.4 lleva el desarrollo con GPU a Windows on Arm y abre la puerta a RTX Spark y Vera Rubin'
+description: 'NVIDIA publica CUDA 13.4 con soporte para desarrollar sobre Windows Arm64, acceso preliminar a la arquitectura Vera Rubin y nuevas herramientas para repartir una GPU entre varios procesos.'
+pubDate: 2026-09-11
+author: 'Redacción Tecnología Hoy'
+tags: ['Tarjetas gráficas', 'NVIDIA', 'CUDA']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Logotipo de NVIDIA CUDA sobre un fondo con la imagen de un chip'
+source:
+  name: 'MuyComputer'
+  url: 'https://www.muycomputer.com/2026/09/10/cuda-13-4-conecta-windows-on-arm-rtx-spark-y-rubin/'
+---
+
+NVIDIA ha publicado CUDA 13.4, una actualización que a primera vista parece menor pero que llega cargada de intención. La compañía ha añadido soporte para desarrollar aplicaciones CUDA sobre Windows on Arm y ha abierto un acceso preliminar a las capacidades de las próximas CPU y GPU Vera Rubin. Son dos frentes distintos —el PC de consumo y el centro de datos— que apuntan a la misma estrategia: que el software esté listo antes de que llegue el hardware.
+
+## Windows on Arm deja de ser territorio ajeno
+
+CUDA lleva años funcionando sobre Arm en Linux, pero el salto a Windows Arm64 es otra cosa. Con esta versión, los desarrolladores pueden empezar a portar sus aplicaciones, validar dependencias y probar flujos de trabajo sobre los equipos Windows on Arm que ya existen en el mercado. La idea es sencilla: que cuando aterricen los primeros sistemas RTX Spark, nadie tenga que empezar de cero.
+
+Ese trabajo previo se entiende mejor mirando al calendario. NVIDIA ha adelantado equipos de fabricantes como ASUS, Dell, HP, Lenovo, Microsoft Surface y MSI, con más modelos previstos para después, y sitúa su llegada comercial a partir de octubre. RTX Spark es la plataforma que la compañía está impulsando junto a Microsoft para PCs con capacidades avanzadas de IA local, y el soporte Arm64 deja de ser una curiosidad técnica para convertirse en una pieza necesaria del ecosistema.
+
+![Comparativa de las novedades de CUDA 13.4](./assets/cuda-2.jpg)
+
+## Vera Rubin: acceso anticipado, no soporte completo
+
+La segunda novedad mira bastante más lejos. CUDA 13.4 incluye soporte funcional preliminar para Vera Rubin, lo que permite a los desarrolladores compilar, portar y validar código dirigido a la nueva arquitectura antes de su disponibilidad general. Esto importa sobre todo a quien mantiene librerías, runtimes y componentes de bajo nivel, porque ese tipo de software tarda meses en adaptarse a una generación nueva.
+
+Conviene no confundir esta fase con un soporte terminado. NVIDIA habla expresamente de acceso anticipado y señala que la compatibilidad general con Rubin llegará en una futura versión del Toolkit. Traducido: es una ventana para preparar el terreno, no una garantía de que todo funcione hoy.
+
+## Compartir GPU y otras mejoras para desarrolladores
+
+El resto de la actualización se reparte entre herramientas que casi nunca salen en los titulares pero que sostienen el trabajo diario. Multi-Process Service V3 renueva el sistema que permite compartir una misma GPU entre varios procesos, con una capa de control modernizada, servidores identificables, configuración mediante TOML y límites tanto de memoria como de capacidad de cómputo por carga. Es terreno fértil para servidores, contenedores y entornos de IA donde varios trabajos compiten por el mismo acelerador.
+
+También hay movimiento en el apartado de múltiples GPU: CUDA Compute Fabric Transport introduce comunicación basada en endpoints lógicos y operaciones asíncronas para mover datos por NVLink con más control. NVIDIA sigue recomendando NCCL o NVSHMEM para la mayoría de cargas distribuidas, así que esta capa está pensada para quien construye librerías de comunicación. En el lado de Python y CCCL, cuda.core 1.1 amplía las APIs para texturas, superficies, memoria administrada y CUDA Graphs, mientras que CCCL 3.4 mejora DeviceScan sobre Blackwell y, según las pruebas de NVIDIA, alcanza hasta un 92 % de utilización del ancho de banda de memoria.
+
+## Qué significa para el usuario hispanohablante
+
+Visto desde fuera, CUDA es el estándar de facto para cálculo en GPU y para casi todo lo que hoy llamamos inteligencia artificial. Que dé el salto a Windows on Arm es relevante porque ese ecosistema de portátiles y equipos compactos, hasta ahora, dependía de otras vías para acelerar cargas de cómputo. Si NVIDIA consigue que su plataforma madure allí, los PCs con Arm y Windows dejarán de ser una alternativa limitada para desarrollo técnico y podrán ejecutar las mismas herramientas que el resto del mundo.
+
+El movimiento hacia Rubin tiene un aire más estratégico y menos inmediato. Enseñar la arquitectura por adelantado a quienes mantienen las librerías críticas es una forma de asegurar que, el día del lanzamiento, el ecosistema responda sin sorpresas. Para el usuario final, nada de esto cambia un equipo mañana, pero sí marca la dirección: NVIDIA quiere cubrir a la vez el PC con IA local y el centro de datos, y CUDA es el hilo que une ambos mundos.

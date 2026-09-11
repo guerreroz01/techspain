@@ -1,0 +1,54 @@
+---
+title: 'Clonar un SSD antiguo ahorra tiempo, pero puede arrastrar los errores de Windows'
+description: 'Un usuario relata cómo clonar su antiguo SSD SATA a un NVMe Gen4 trasladó años de corrupción del sistema a su equipo nuevo; solo una instalación limpia acabó con el problema.'
+pubDate: 2026-09-11
+author: 'Redacción Tecnología Hoy'
+tags: ['Memorias', 'SSD', 'Windows']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Un SSD SATA junto a un teclado y un mando de consola sobre una alfombrilla'
+source:
+  name: 'XDA Developers'
+  url: 'https://www.xda-developers.com/i-cloned-old-ssd-it-created-more-problems/'
+---
+
+Cuando se cambia de PC, hay una decisión que casi todos los usuarios se plantean: instalar el sistema operativo desde cero o clonar el disco antiguo para seguir donde lo dejamos. La segunda opción es la más cómoda, porque evita reinstalar programas y reconfigurarlo todo. El redactor de XDA Developers Tanveer Singh eligió ese atajo y, según relata, acabó pagándolo durante años: los problemas de su vieja instalación de Windows viajaron con el clon a su equipo nuevo.
+
+## Un atajo tentador: clonar en lugar de reinstalar
+
+El autor explica que en 2022 pasó de un equipo con Ryzen 5 1600 y GTX 1660 Ti a otro con Ryzen 7 5700X y RTX 3080. Hasta entonces, un SSD SATA Samsung 860 EVO había sido su disco de arranque durante unos cuatro años, y el nuevo sistema estrenaba un WD Black SN770, un NVMe Gen4 bastante más rápido. Para no perder su entorno de Windows 10 ya configurado, instaló Macrium Reflect y clonó el SSD SATA al nuevo NVMe.
+
+En aquel momento no notó nada raro. Todo funcionaba como esperaba y el rendimiento no era un problema. Los primeros indicios de que algo no iba bien tardaron unos meses en aparecer.
+
+![Windows preparando la actualización del sistema](./assets/getting-windows-ready.jpg)
+
+## Los errores del sistema viajaron con el clon
+
+Según cuenta, su instalación de Windows 10 ya había mostrado corrupción ocasional en el SSD antiguo, pero lo resolvía con un análisis SFC o DISM y seguía adelante. Al clonar, esos fallos heredados encontraron una segunda vida en el equipo nuevo: pantallas negras y bucles de arranque cada pocos meses, además de problemas extraños de Bluetooth, suspensión y conexión a internet que no conseguía explicar.
+
+La respuesta del autor no fue atacar la raíz, sino crear imágenes de sistema periódicas con Macrium Reflect para poder volver a un estado funcional cuando el equipo fallara. Fue un parche que alargó la agonía en lugar de resolverla.
+
+![Pantalla azul de error en Windows](./assets/bsod.jpg)
+
+![Comprobación de una copia de seguridad en Macrium Reflect](./assets/macrium-reflect.jpg)
+
+![Análisis del sistema con el comando SFC en Windows Terminal](./assets/sfc-scan.png)
+
+## La instalación limpia que llegó demasiado tarde
+
+El problema no desapareció hasta que, hace unos meses, el autor dio el salto a Windows 11 con una instalación nueva. Entonces se esfumaron tanto la corrupción recurrente como los fallos de Bluetooth, suspensión y red. Su conclusión es clara: una instalación desde cero borra casi todos los errores subyacentes de la copia anterior y, de paso, elimina la acumulación de programas y ajustes innecesarios que se arrastran con los años.
+
+El propio autor matiza que una corrupción a nivel de firmware o un malware persistente podrían sobrevivir incluso a un formateo, aunque son casos poco frecuentes. Lo habitual es que el sistema quede limpio.
+
+![Pantalla de instalación de Windows 11 con un PC gaming al fondo](./assets/instalacion-windows-11.jpg)
+
+![Monitor de escritorio apagado tras un fallo del sistema](./assets/monitor-apagado.jpg)
+
+![Un SSD NVMe Gen4 sostenido con la mano](./assets/ssd-nvme-adata.jpg)
+
+## Qué significa esto para quien cambia de SSD
+
+Clonar no es una mala práctica en sí misma. Muchos usuarios clonan su disco de arranque y no vuelven a acordarse del asunto, como recuerdan algunos comentarios de la propia noticia. La diferencia está en el estado de la instalación de origen: si el sistema ha sido estable durante años, el clon probablemente funcione sin sobresaltos.
+
+El aviso vale sobre todo para quien viene de una instalación que ya mostraba corrupción, fallos de arranque o comportamientos erráticos. En ese caso, arrastrar el clon es trasladar el problema al hardware nuevo. Para el lector que esté pensando en cambiar de SSD, la recomendación práctica es sencilla: si el sistema actual funciona bien, clonar es rápido y válido; si arrastra errores, merece la pena dedicar una tarde a una instalación limpia y copiar después solo los datos personales, tras comprobarlos con un análisis antivirus. El tiempo ahorrado por el clon puede salir caro en forma de inestabilidad.
