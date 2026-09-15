@@ -40,9 +40,15 @@ const canonical = new URL(`/noticias/${entry.id}/`, siteBase).href;
 const coverSrc = cover?.src;
 const image = coverSrc ? new URL(coverSrc, siteBase).href : undefined;
 
+// Tutorials live in the same `news` collection but are how-to guides, not news,
+// so they must not be typed as NewsArticle. `Article` is the correct parent
+// type: Google retired HowTo rich results in 2023, so emitting a `HowTo` shape
+// would buy nothing and force a brittle `step` array parsed from the body.
+const articleType = tags[0] === 'Tutoriales' ? 'Article' : 'NewsArticle';
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'NewsArticle',
+  '@type': articleType,
   headline: title,
   description,
   datePublished: pubDate.toISOString(),
