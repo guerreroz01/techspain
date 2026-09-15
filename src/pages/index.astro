@@ -24,6 +24,13 @@ const secondary = lead ? posts.filter((entry) => entry.id !== lead.id).slice(0, 
 
 const shownIds = new Set([lead?.id, ...secondary.map((entry) => entry.id)]);
 const remaining = posts.filter((entry) => !shownIds.has(entry.id));
+
+// Cap the "latest" list. The full archive already lives at /noticias/, so
+// rendering every remaining entry here would duplicate that page and bloat the
+// home HTML; the rest is one click away behind the "Ver todas" link.
+const LATEST_LIMIT = 12;
+const latest = remaining.slice(0, LATEST_LIMIT);
+const hasMore = remaining.length > latest.length;
 ---
 
 <BaseLayout>
@@ -55,18 +62,23 @@ const remaining = posts.filter((entry) => !shownIds.has(entry.id));
   </div>
 
   {
-    remaining.length > 0 && (
+    latest.length > 0 && (
       <section class="latest container container--wide" aria-labelledby="latest-title">
         <h2 id="latest-title" class="latest__title">
           Últimas noticias
         </h2>
         <ul class="latest__list">
-          {remaining.map((entry) => (
+          {latest.map((entry) => (
             <li>
               <NewsCard entry={entry} />
             </li>
           ))}
         </ul>
+        {hasMore && (
+          <p class="latest__more">
+            <a href="/noticias/">Ver todas las noticias</a>
+          </p>
+        )}
       </section>
     )
   }
@@ -127,6 +139,13 @@ const remaining = posts.filter((entry) => !shownIds.has(entry.id));
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+
+  .latest__more {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: var(--border-width) solid var(--color-border);
+    font-size: var(--text-sm);
   }
 
   .empty {
