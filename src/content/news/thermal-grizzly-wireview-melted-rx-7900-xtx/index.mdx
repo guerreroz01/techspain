@@ -1,0 +1,36 @@
+---
+title: 'Los conectores de 8 pines tampoco son inmunes a fundirse: un adaptador WireView de Thermal Grizzly arde en una RX 7900 XTX'
+description: 'Un propietario de una Radeon RX 7900 XTX reporta daños por sobrecalentamiento en los conectores de 8 pines de un adaptador de monitorización WireView, con plástico derretido y síntomas previos de cuelgues y pantallas negras.'
+pubDate: 2026-09-15
+author: 'Redacción Tecnología Hoy'
+tags: ['Tarjetas gráficas', 'Fuentes de alimentación', 'AMD']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Conectores PCIe de 8 pines dañados por sobrecalentamiento en un adaptador Thermal Grizzly WireView'
+source:
+  name: "Tom's Hardware"
+  url: 'https://www.tomshardware.com/pc-components/gpus/proven-8-pin-pcie-plugs-arent-immune-to-melting-thermal-grizzly-wireview-adapter-burns-out-on-radeon-rx-7900-xtx'
+---
+
+El conector PCIe de 8 pines se había convertido en el refugio de quienes huían de los problemas de fusión del conector de 16 pines de las RTX más potentes. Un nuevo incidente recuerda que ningún conector de alimentación está libre de riesgos: los 8 pines de un adaptador de monitorización [WireView de Thermal Grizzly](https://www.thermal-grizzly.com/) sufrieron daños por sobrecalentamiento mientras estaban conectados a una Radeon RX 7900 XTX.
+
+## Qué ocurrió
+
+Según el relato de un [propietario de una RX 7900 XTX en Reddit](https://www.reddit.com/r/PCBaumeister/comments/1w9i6g5/geschmolzener_thermalgrizzly_wireview/), los conectores de 8 pines del lado de la tarjeta gráfica del dispositivo de monitorización presentaban signos visibles de quemaduras y plástico derretido. El usuario describió que, antes de descubrir el daño, había sufrido cuelgues y pantallas negras con frecuencia.
+
+El propio usuario confirmó que los conectores estaban completamente insertados, por lo que la causa exacta del fallo sigue sin estar clara. El incidente fue recogido y detallado por [Tom's Hardware](https://www.tomshardware.com/).
+
+## Por qué importa el WireView en este contexto
+
+El WireView es, en esencia, un adaptador que se coloca entre la tarjeta gráfica y los cables de alimentación. Permite monitorizar en tiempo real valores como el consumo, el voltaje, la corriente en amperios y los picos de potencia. En lugar de conectar los cables de la fuente directamente a la GPU, la energía atraviesa el dispositivo de medición, lo que añade un juego adicional de conectores y contactos eléctricos en el camino de la alimentación.
+
+Ese punto extra de contacto es precisamente donde se concentra el riesgo: una conexión deficiente, una resistencia de contacto elevada, un conector dañado o un fallo del propio adaptador pudieron provocar el sobrecalentamiento. Thermal Grizzly ya había señalado en el pasado factores como un asentamiento incorrecto, interferencias con el backplate o contactos mal alineados o mal soldados como posibles causas de daños en conectores, aunque todavía no ha identificado el origen de este caso concreto.
+
+## Qué sigue
+
+La compañía se habría puesto en contacto con el usuario afectado para que se dirija a su equipo de soporte y poder investigar el adaptador dañado. El objetivo de esa investigación es determinar si el fallo partió del adaptador, de los conectores, de la propia GPU o de una combinación de factores.
+
+El episodio llega apenas unos días después de que una [RTX 5090 muy modificada](https://www.tomshardware.com/pc-components/gpus/modded-rtx-5090-ditches-16-pin-power-for-triple-8-pin-connectors-draws-up-to-900w-and-hits-3-400-mhz) funcionara con éxito sobre conectores de 8 pines tradicionales, alcanzando unos 900 W y 3.400 MHz. Aquel caso demostró de lo que es capaz un conector de 8 pines bien implementado, pero se trataba de una modificación extrema con cables reforzados y pines de sensado alterados, no de una configuración de fábrica.
+
+La lección es clara: ningún conector es infalible, y el margen de seguridad depende de la calidad del contacto, de la instalación y de la carga que se le exija, no del número de pines.
