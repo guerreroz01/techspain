@@ -9,7 +9,7 @@
  *   node scripts/daily-news.mjs --limit 30 # tope de artículos a mostrar en consola
  *
  * Lee src/data/sources.json, descarga los feeds (campo `rss`), descarta lo ya visto
- * (scripts/.seen.json) y clasifica cada artículo en las 5 verticales. Escribe
+ * (scripts/.seen.json) y clasifica cada artículo en las 7 verticales. Escribe
  * scripts/candidates.json y un informe en markdown por consola.
  *
  * Sin dependencias: usa `fetch` (global en Node 18+) y un parser RSS/Atom propio.
@@ -30,6 +30,14 @@ const TIMEOUT_MS = 15000;
 
 /** Palabras clave por vertical (inglés + español). Coincidencia por subcadena, sin distinción de mayúsculas. */
 const VERTICALS = {
+  // Tutoriales va primero a propósito: el informe agrupa cada artículo por su
+  // vertical principal (`verticals[0]`), así que una guía how-to debe ganarle
+  // al vertical de hardware del que trate para que aparezca bajo "Tutoriales".
+  tutoriales: [
+    'how to', 'how-to', 'tutorial', 'tutoriales', 'walkthrough', 'step by step',
+    'step-by-step', 'guide', 'guía', 'guia', 'paso a paso', 'trucos', 'consejos',
+    'cómo', 'como hacer', 'aprende', 'aprender', 'instalar', 'configurar',
+  ],
   'tarjetas-graficas': [
     'gpu', 'graphics card', 'tarjeta gráfica', 'tarjeta grafica', 'geforce', 'rtx', 'radeon',
     'arc gpu', 'dlss', 'ray tracing', 'raytracing', 'video card', 'dx12', 'vulkan', 'fsr',
@@ -61,6 +69,7 @@ const VERTICALS = {
 };
 
 const VERTICAL_LABELS = {
+  tutoriales: '📘 Tutoriales',
   'tarjetas-graficas': '🎮 Tarjetas gráficas',
   memorias: '💾 Memorias',
   portatiles: '💻 Portátiles',

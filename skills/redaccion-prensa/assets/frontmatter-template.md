@@ -4,7 +4,7 @@ Cada entrada es un directorio propio: `src/content/news/<slug>/` con su `index.m
 
 ```
 src/content/news/
-└── mi-articulo/
+└── my-article/
     ├── index.mdx
     └── assets/
         ├── cover.jpg
@@ -15,12 +15,12 @@ Copiar y completar este bloque YAML en `index.mdx`:
 
 ```yaml
 ---
-title: 'Titular de la noticia'
+title: 'Titular de la noticia o título de la guía'
 description: 'Bajada de una o dos frases.'
-pubDate: 2026-09-10
-# updatedDate: 2026-09-11
+pubDate: 'YYYY-MM-DD'  # fecha de hoy
+# updatedDate: 'YYYY-MM-DD'
 author: 'Redacción Tecnología Hoy'
-tags: ['Inteligencia Artificial']
+tags: ['<Vertical principal>', '<tag secundario opcional>']
 featured: false
 breaking: false
 cover: './assets/cover.jpg'
@@ -35,14 +35,14 @@ source:
 
 | Campo | Tipo | Requerido | Notas |
 | --- | --- | --- | --- |
-| `title` | string | sí | Titular en español, sin voseo. |
+| `title` | string | sí | Titular (noticia) o título (tutorial) en español, sin voseo. |
 | `description` | string | sí | 1–2 frases; se usa para SEO/OG/cards. |
 | `pubDate` | date | sí | Fecha de hoy, `YYYY-MM-DD`. |
 | `updatedDate` | date | no | Solo si se actualiza después. |
 | `author` | string | no | Default: `SITE.author`. |
 | `tags` | string[] | no | Metadatos; primer tag = vertical principal (ver sección Verticales). |
-| `featured` | boolean | no | Candidato a noticia principal del home. |
-| `breaking` | boolean | no | Muestra en el banner "Última hora". |
+| `featured` | boolean | no | Decisión de mesa (promoción posterior al lote): el redactor lo deja en `false`. Ver «Promoción editorial» en `DELEGATION.md`. |
+| `breaking` | boolean | no | Decisión de mesa: el orquestador lo marca `true` solo para una noticia urgente del mismo día. Ver «Promoción editorial» en `DELEGATION.md`. |
 | `cover` | image() | no | Imagen local relativa a la entrada: `./assets/<nombre>`. |
 | `coverAlt` | string | no | Alt de la imagen de portada. |
 | `source` | `{ name, url }` | no | Atribución al **medio original** (origen, no intermediario). |
@@ -50,7 +50,7 @@ source:
 
 ## Verticales
 
-La página cubre 6 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
+La página cubre 7 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
 
 1. Componentes
 2. Portátiles
@@ -58,6 +58,9 @@ La página cubre 6 verticales. El artículo debe encajar en una de ellas y usarl
 4. Tarjetas gráficas
 5. Memorias
 6. Móviles
+7. Tutoriales
+
+Los tutoriales son contenido **how-to/paso a paso**. El clasificador diario los busca **primero**, así que una guía sobre una GPU se publica con `Tutoriales` como primer `tags` (gana sobre `Tarjetas gráficas`).
 
 ## Imágenes
 
@@ -83,7 +86,7 @@ La página cubre 6 verticales. El artículo debe encajar en una de ellas y usarl
 
 ```
 src/content/news/
-└── proceso-2nm/
+└── 2nm-node-process/
     ├── index.mdx
     └── assets/
         ├── chips.svg
@@ -94,7 +97,7 @@ src/content/news/
 ---
 title: 'Un nuevo proceso de 2 nm promete más autonomía en portátiles'
 description: 'El fabricante arrancó la producción en serie del nodo, con mejoras de eficiencia que podrían alargar la batería de los próximos equipos.'
-pubDate: 2026-09-10
+pubDate: 'YYYY-MM-DD'  # fecha de hoy
 author: 'Redacción Tecnología Hoy'
 tags: ['Componentes', 'Semiconductores']
 cover: './assets/chips.svg'
@@ -114,4 +117,60 @@ reduce el consumo energético por operación en torno a un 30 %.
 
 La mejora no se traduce de inmediato en más velocidad, sino en algo más valioso
 para el día a día: hacer lo mismo gastando menos energía.
+```
+
+## Ejemplo de tutorial
+
+`Tutoriales` va **primero** en `tags`, aunque la guía trate de hardware. El cuerpo es
+paso a paso: intro breve, requisitos previos, pasos numerados y verificación.
+
+```
+src/content/news/
+└── windows-11-bootable-usb/
+    ├── index.mdx
+    └── assets/
+        ├── cover.jpg
+        └── paso-2.jpg
+```
+
+```mdx
+---
+title: 'Cómo crear un USB de arranque de Windows 11 paso a paso'
+description: 'Guía práctica para preparar una unidad de arranque con Windows 11 usando solo herramientas oficiales de Microsoft.'
+pubDate: 'YYYY-MM-DD'  # fecha de hoy
+author: 'Redacción Tecnología Hoy'
+tags: ['Tutoriales', 'Componentes']
+cover: './assets/cover.jpg'
+coverAlt: 'Unidad USB conectada a un puerto del equipo'
+source:
+  name: 'Tom's Hardware'
+  url: 'https://www.tomshardware.com/...'
+---
+
+Preparar un USB de arranque sirve para instalar o reparar Windows 11 en cualquier
+equipo, incluso cuando el sistema no inicia. Esta guía usa únicamente herramientas
+oficiales de Microsoft.
+
+## Requisitos previos
+
+- Una unidad USB de al menos 8 GB (se borrará todo su contenido).
+- Un equipo con Windows en funcionamiento y conexión a internet.
+
+## Pasos
+
+1. Descarga el asistente de instalación oficial de Windows 11 desde la página de Microsoft.
+2. Ejecuta el asistente y acepta los términos de la licencia.
+3. Selecciona la unidad USB cuando el asistente la liste y confirma que se borrará su contenido.
+
+![Selección de la unidad USB en el asistente](./assets/paso-2.jpg)
+
+## Cómo verificar que funcionó
+
+Reinicia el equipo con la unidad conectada y abre el menú de arranque (normalmente
+`F12` o `Supr`). Si la unidad aparece en la lista, el USB quedó listo.
+
+## Advertencias
+
+El proceso borra todo el contenido de la unidad elegida. Verifica que no sea un disco
+con datos antes de confirmar.
 ```
