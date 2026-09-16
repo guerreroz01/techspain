@@ -1,8 +1,10 @@
 ---
 import Analytics from '@vercel/analytics/astro';
-import { SITE } from '../consts';
+import { SITE, GA_ACTIVE } from '../consts';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -83,6 +85,34 @@ const rssHref = new URL('rss.xml', siteBase).href;
     </script>
 
     <!--
+      Cookie-consent init. Runs before paint so the notice state is correct on
+      the first frame. Fail closed: if storage is unavailable we show the notice
+      and load nothing.
+    -->
+    {
+      GA_ACTIVE && (
+        <script is:inline>
+          (() => {
+            try {
+              const stored = localStorage.getItem('consent-analytics');
+              if (stored !== 'granted' && stored !== 'denied') {
+                document.documentElement.dataset.consent = 'pending';
+              }
+            } catch {
+              document.documentElement.dataset.consent = 'pending';
+            }
+          })();
+        </script>
+      )
+    }
+
+    <!--
+      Google Analytics 4. Only injects the Google tag after the visitor accepts
+      the cookie notice; no request is made and no cookie is set before that.
+    -->
+    <GoogleAnalytics />
+
+    <!--
       Vercel Web Analytics. Requires Analytics to be enabled for the project in
       the Vercel dashboard; the tracking routes are added on the next deploy.
     -->
@@ -99,6 +129,8 @@ const rssHref = new URL('rss.xml', siteBase).href;
     </main>
 
     <Footer />
+
+    <ConsentBanner />
 
     <!--
       AdSense loader.

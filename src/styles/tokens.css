@@ -85,7 +85,9 @@
   --tracking-tight: -0.01em;
   --tracking-wide: 0.08em;
   --text-code: 0.9em;
+  /* Stacking order: the consent notice must sit above the skip link. */
   --z-skip-link: 100;
+  --z-consent-banner: 200;
   /* Stroke width for inline SVG icons. */
   --icon-stroke: 1.5;
 }

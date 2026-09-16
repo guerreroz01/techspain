@@ -35,3 +35,21 @@ export const ADS = {
   enabled: false,
   client: '',
 } as const;
+
+/**
+ * Google Analytics 4 configuration.
+ *
+ * Analytics is opt-in for visitors: nothing is requested from Google and no
+ * cookie is set until the cookie notice is accepted. Set `enabled: false` to
+ * turn the notice and the loader off entirely.
+ */
+export const GA = {
+  enabled: true,
+  measurementId: 'G-23GTC9SZCF',
+} as const;
+
+/**
+ * Analytics only runs when the switch is on AND a measurement id is set.
+ * Every component gates on this single flag.
+ */
+export const GA_ACTIVE = GA.enabled && GA.measurementId.length > 0;

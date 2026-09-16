@@ -1,5 +1,5 @@
 ---
-import { SITE, SOCIAL } from '../consts';
+import { SITE, SOCIAL, GA_ACTIVE } from '../consts';
 
 const year = new Date().getFullYear();
 ---
@@ -20,10 +20,34 @@ const year = new Date().getFullYear();
           ))
         }
         <li><a href="/rss.xml">RSS</a></li>
+        {
+          GA_ACTIVE && (
+            <li>
+              <button id="consent-reopen" class="site-footer__consent" type="button">
+                Configurar cookies
+              </button>
+            </li>
+          )
+        }
       </ul>
     </nav>
   </div>
 </footer>
+
+{
+  GA_ACTIVE && (
+    <script is:inline>
+      (() => {
+        const button = document.getElementById('consent-reopen');
+        if (!button) return;
+
+        button.addEventListener('click', () => {
+          document.dispatchEvent(new CustomEvent('consent:reopen'));
+        });
+      })();
+    </script>
+  )
+}
 
 <style>
   .site-footer {
@@ -61,6 +85,20 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__links a:hover {
+    color: var(--color-text);
+  }
+
+  /* Matches the surrounding footer links; reopens the cookie notice. */
+  .site-footer__consent {
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+
+  .site-footer__consent:hover {
     color: var(--color-text);
   }
 </style>

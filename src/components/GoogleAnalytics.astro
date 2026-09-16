@@ -1,0 +1,45 @@
+---
+import { GA, GA_ACTIVE } from '../consts';
+
+// Nothing is emitted at all while analytics is disabled, so the shipped default
+// never requests the Google tag or sets a cookie.
+---
+
+{
+  GA_ACTIVE && (
+    <script is:inline define:vars={{ measurementId: GA.measurementId }}>
+      (() => {
+        // Inject the Google tag at most once, even if consent fires twice.
+        let loaded = false;
+
+        const load = () => {
+          if (loaded) return;
+          loaded = true;
+
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function gtag() {
+            window.dataLayer.push(arguments);
+          };
+          window.gtag('js', new Date());
+          window.gtag('config', measurementId);
+
+          const tag = document.createElement('script');
+          tag.async = true;
+          tag.src =
+            'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+          document.head.appendChild(tag);
+        };
+
+        // A returning visitor who already accepted is tracked immediately.
+        try {
+          if (localStorage.getItem('consent-analytics') === 'granted') load();
+        } catch {
+          // Storage unavailable (private mode): keep analytics off.
+        }
+
+        // In-page acceptance starts tracking without a reload.
+        document.addEventListener('consent:granted', load);
+      })();
+    </script>
+  )
+}

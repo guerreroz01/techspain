@@ -8,7 +8,7 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 
 - Single editorial line: technology news. **No sections, no categories, no tag pages.**
 - Static output by default (fastest). SSR is available per-route if ever needed.
-- Near-zero client JavaScript: two tiny inline scripts (theme init + theme toggle) plus the Vercel Web Analytics component (see section 11).
+- Near-zero client JavaScript: the two theme scripts plus the cookie-consent init script and the consent notice scripts, alongside the Vercel Web Analytics component (see section 11). Google Analytics 4 stays off until the visitor accepts the cookie notice.
 - Ad-ready (Google AdSense) but **ads are disabled by default**.
 - Styling is a **token-based design system** — see section 8.
 
@@ -66,7 +66,9 @@ blog/
 └── src/
     ├── components/
     │   ├── AdSlot.astro          # ad unit; inert unless ADS.enabled
+    │   ├── ConsentBanner.astro   # cookie notice; inert unless GA_ACTIVE
     │   ├── Footer.astro
+    │   ├── GoogleAnalytics.astro # GA4 loader; injects the tag only after consent
     │   ├── Header.astro          # site title + nav + theme toggle
     │   ├── LeadStory.astro       # home lead story + secondary stories
     │   ├── NewsCard.astro        # list item in "Últimas noticias"
@@ -156,7 +158,7 @@ Drafts (`draft: true`) render in dev but are excluded from production builds, RS
 - Dark mode: `[data-theme="dark"]` overrides, plus a `@media (prefers-color-scheme: dark)` fallback for `html:not([data-theme])`.
 - `global.css` holds the reset, base element styles, `.container` / `.container--wide`, `.skip-link`, `.sr-only`, focus states, and `.prose` (article typography).
 
-Token groups: `--color-*`, `--font-*`, `--text-*`, `--leading-*`, `--measure`, `--space-*`, `--radius-*`, `--container*`, `--transition-*`, `--shadow-*`, plus `--aspect-cover`, `--aspect-thumb`, `--thumb-width`, `--thumb-width-sm`, `--border-width`, `--focus-*`, `--tracking-*`, `--underline-offset`, `--text-code`, `--icon-stroke`, `--z-skip-link`.
+Token groups: `--color-*`, `--font-*`, `--text-*`, `--leading-*`, `--measure`, `--space-*`, `--radius-*`, `--container*`, `--transition-*`, `--shadow-*`, plus `--aspect-cover`, `--aspect-thumb`, `--thumb-width`, `--thumb-width-sm`, `--border-width`, `--focus-*`, `--tracking-*`, `--underline-offset`, `--text-code`, `--icon-stroke`, `--z-skip-link`, `--z-consent-banner`.
 
 ## 9. Routes
 
@@ -203,6 +205,16 @@ How content becomes discoverable by search engines:
 - `src/layouts/BaseLayout.astro` renders `<Analytics />` from `@vercel/analytics/astro` inside `<head>`, so every page is tracked. It is a bundled client script — the only one besides the two inline theme scripts.
 - `@vercel/analytics` is a direct dependency. Do **not** set `webAnalytics: { enabled: true }` on the Vercel adapter: that option only applies to `@vercel/analytics@1.3.x` and earlier.
 
+### Google Analytics
+
+- Toggle: `GA = { enabled, measurementId }` in `src/consts.ts`, plus `GA_ACTIVE = GA.enabled && GA.measurementId.length > 0`. Every GA component gates on `GA_ACTIVE`, so analytics only runs when the switch is on **and** a measurement id is set. Keep `enabled: false` until a real id exists.
+- **Nothing loads before consent.** `GoogleAnalytics.astro` emits no script at all when `GA_ACTIVE` is false, and even when active it only builds the `gtag/js` tag after consent. No request to Google and no third-party cookie happens before the visitor accepts.
+- **Storage key**: `localStorage['consent-analytics']` holds `'granted'` or `'denied'`.
+- **State machine**: `html[data-consent]` with values `pending` (notice visible), `granted` (accepted, tracking starts) and `denied` (rejected). It is set before paint by the inline consent-init script in `BaseLayout`. The notice visibility is CSS-driven off `html[data-consent='pending']` and is never toggled from JavaScript.
+- **Custom events**: `consent:granted` starts tracking immediately without a reload; `consent:reopen` shows the notice again.
+- **Withdrawal path**: the footer "Configurar cookies" control reopens the notice.
+- **Cookie purge — do not "simplify" this.** Withdrawing consent deletes `_ga` and `_ga_*` and reloads, but the delete is **not** a plain one-liner. Two traps: (1) `gtag.js` is still live on the page and keeps rewriting its cookies, so purging before the reload loses the race — the authoritative purge runs on the reloaded page, where the tag is absent; (2) GA4 uses `cookie_domain: auto`, so in production the cookie is scoped to `.techspain24.com` (a *domain* cookie) while on an IP literal it is host-only. `purgeAnalyticsCookies()` therefore sweeps every plausible scope by walking the hostname's parent domains. It runs on **every** load for a refused visitor, which also cleans up any stray cookie. Verified with 28 headless-Chromium assertions covering both the host-only and domain-cookie shapes.
+
 ## 12. Configuration
 
 `src/consts.ts` is where site-wide values live:
@@ -211,6 +223,7 @@ How content becomes discoverable by search engines:
 - `NAV` — header navigation.
 - `SOCIAL` — footer links (placeholder URLs).
 - `ADS` — ad toggle and publisher id.
+- `GA` — Google Analytics 4 toggle and measurement id, plus `GA_ACTIVE` (see section 11).
 
 ## 13. Deployment (Vercel)
 
@@ -226,7 +239,8 @@ How content becomes discoverable by search engines:
 - **Colocated images**: the `cover` field uses the `image()` helper from `astro:assets` and resolves relative to the entry folder (`./assets/...`). Inline body images use relative markdown paths. Article images are NOT placed in `public/`.
 - **Rendering**: use `getCollection('news')`, `getEntry('news', id)`, and `render(entry)` from `astro:content`.
 - **Endpoints**: `src/pages/rss.xml.js` and `sitemap-news.xml.ts` use `export async function GET(context)`.
-- **Client JS**: any script that must not be bundled uses `is:inline`. Keep client JS to the absolute minimum (currently the two theme scripts and the Vercel Analytics component).
+- **Client JS**: any script that must not be bundled uses `is:inline`. Keep client JS to the absolute minimum (currently the two theme scripts, the consent scripts and the Vercel Analytics component).
+- **Client-side state via `data-*` on `<html>`**: theme and consent are coordinated through `document.documentElement.dataset.*` (`theme`, `consent`), set by `is:inline` scripts in `<head>` and reacted to from CSS. The consent notice is shown only by `html[data-consent='pending']` and is never toggled from JavaScript. `--z-consent-banner` (200) must stay above `--z-skip-link` (100).
 - **Do not commit** `node_modules/`, `dist/`, or `.vercel/` (see `.gitignore`).
 - **No CSS framework.** Do not add Tailwind or a component library.
 - **No sections/taxonomy.** This is a single-topic portal by design; do not reintroduce a `section` field or category pages without an explicit request.

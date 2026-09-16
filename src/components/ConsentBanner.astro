@@ -1,0 +1,178 @@
+---
+import { GA_ACTIVE } from '../consts';
+
+// The whole notice (markup, styles and script) is inert while analytics is off.
+---
+
+{
+  GA_ACTIVE && (
+    <>
+      <div id="consent-banner" class="consent" role="region" aria-label="Aviso de cookies">
+        <div class="consent__inner">
+          <p class="consent__text">
+            Usamos cookies de análisis para medir cómo se usa el sitio. Podés aceptarlas o
+            rechazarlas; el contenido está disponible en ambos casos.
+          </p>
+          <button id="consent-reject" class="consent__button" type="button">
+            Rechazar
+          </button>
+          <button id="consent-accept" class="consent__button" type="button">
+            Aceptar
+          </button>
+        </div>
+      </div>
+
+      <script is:inline>
+        (() => {
+          const banner = document.getElementById('consent-banner');
+          if (!banner) return;
+
+          const root = document.documentElement;
+
+          /*
+           * Removes the GA4 cookies. GA4 names them `_ga` and `_ga_<CONTAINER>`
+           * and uses `cookie_domain: auto`, so the cookie is scoped to the
+           * registrable domain in production and is host-only on an IP literal.
+           * Every plausible scope is attempted; a browser silently ignores the
+           * ones that do not match or are invalid.
+           */
+          const purgeAnalyticsCookies = () => {
+            if (!document.cookie.includes('_ga')) return;
+
+            const names = document.cookie
+              .split(';')
+              .map((cookie) => cookie.split('=')[0].trim())
+              .filter((name) => name === '_ga' || name.startsWith('_ga_'));
+
+            const labels = location.hostname.split('.');
+            const domains = [];
+            for (let i = 0; i < labels.length - 1; i++) {
+              domains.push(labels.slice(i).join('.'));
+            }
+
+            for (const name of names) {
+              for (const domain of ['', ...domains]) {
+                document.cookie =
+                  name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '');
+              }
+            }
+          };
+
+          const decide = (value) => {
+            // Read the previous choice before overwriting it, so we can detect a
+            // withdrawal that requires clearing cookies already set.
+            let previous = null;
+            try {
+              previous = localStorage.getItem('consent-analytics');
+              localStorage.setItem('consent-analytics', value);
+            } catch {
+              // Storage unavailable (private mode): the page keeps working.
+            }
+
+            // Hides the notice: visibility is driven by the CSS rule on this
+            // attribute, never toggled from JavaScript.
+            root.dataset.consent = value;
+
+            if (value === 'granted') {
+              document.dispatchEvent(new CustomEvent('consent:granted'));
+              return;
+            }
+
+            if (previous !== 'granted') return;
+
+            /*
+             * Withdrawal after analytics already ran. The tag is still live on
+             * this page and keeps rewriting its cookies, so purging here can
+             * lose the race: purge as a first pass, then reload. The tag is gone
+             * on the reloaded page, where the purge below runs uncontested.
+             */
+            purgeAnalyticsCookies();
+            location.reload();
+          };
+
+          document.getElementById('consent-accept').addEventListener('click', () => decide('granted'));
+          document.getElementById('consent-reject').addEventListener('click', () => decide('denied'));
+
+          // Lets the footer control reopen the notice without rebinding handlers.
+          document.addEventListener('consent:reopen', () => {
+            root.dataset.consent = 'pending';
+          });
+
+          /*
+           * Authoritative purge. A visitor who has refused must not keep any GA4
+           * cookie, so sweep on every load; the tag is never started here, so
+           * nothing re-creates what this removes.
+           */
+          let stored = null;
+          try {
+            stored = localStorage.getItem('consent-analytics');
+          } catch {
+            // Storage unavailable: there is no stored decision to act on.
+          }
+          if (stored === 'denied') purgeAnalyticsCookies();
+        })();
+      </script>
+    </>
+  )
+}
+
+<style>
+  .consent {
+    /* Hidden by default; revealed by the data attribute set before paint. */
+    display: none;
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: var(--z-consent-banner);
+    background-color: var(--color-surface);
+    border-top: var(--border-width) solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    padding-block: var(--space-4);
+  }
+
+  :global(html[data-consent='pending']) .consent {
+    display: block;
+  }
+
+  .consent__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    max-width: var(--container-wide);
+    margin-inline: auto;
+    padding-inline: var(--space-5);
+  }
+
+  .consent__text {
+    flex: 1 1 24rem;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+  }
+
+  /*
+   * Both choices deliberately share one class and identical styling: rejecting
+   * must be as prominent and as easy as accepting (EDPB guidance, no dark
+   * patterns). Do not give "Aceptar" a filled or accent variant.
+   */
+  .consent__button {
+    padding: var(--space-2) var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .consent__button:hover {
+    border-color: var(--color-text-muted);
+    color: var(--color-text-muted);
+  }
+</style>
