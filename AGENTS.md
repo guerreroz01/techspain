@@ -62,7 +62,11 @@ blog/
 │   │   └── software.svg
 │   ├── favicon.ico
 │   ├── favicon.svg
-│   └── robots.txt                # references both sitemaps (placeholder domain)
+│   └── robots.txt                # allows crawling; references both sitemaps
+├── scripts/
+│   └── daily-news.mjs            # RSS candidate fetcher + classifier (see section 16)
+├── skills/
+│   └── redaccion-prensa/         # press-writing skill + delegation playbook
 └── src/
     ├── components/
     │   ├── AdSlot.astro          # ad unit; inert unless ADS.enabled
@@ -76,12 +80,11 @@ blog/
     │   └── ThemeToggle.astro     # light/dark toggle (inline script)
     ├── content/
     │   └── news/                 # ← ALL ARTICLES LIVE HERE
-    │       ├── chips-3nm.mdx
-    │       ├── modelo-razonamiento.mdx
-    │       ├── regulacion-ia.mdx
-    │       └── software-actualizacion.mdx
+    │       └── <slug>/index.mdx  # one folder per article; the folder name IS the slug
     ├── content.config.ts         # `news` collection: loader + schema
-    ├── consts.ts                 # SITE, NAV, SOCIAL, ADS
+    ├── consts.ts                 # SITE, NAV, SOCIAL, ADS, GA
+    ├── data/
+    │   └── sources.json          # curated editorial source list (see section 16)
     ├── env.d.ts                  # astro/client types
     ├── layouts/
     │   └── BaseLayout.astro      # html shell, SEO, head slot, theme init
@@ -89,7 +92,7 @@ blog/
     │   ├── acerca.astro          # /acerca
     │   ├── index.astro           # / (home)
     │   ├── noticias/
-    │   │   ├── index.astro       # /noticias/ (full archive)
+    │   │   ├── [...page].astro   # /noticias/ and /noticias/<page>/ (paginated archive)
     │   │   └── [slug].astro      # /noticias/<slug>/ (article)
     │   ├── rss.xml.js            # /rss.xml
     │   └── sitemap-news.xml.ts   # /sitemap-news.xml (Google News)
@@ -114,7 +117,7 @@ Collection name: **`news`** · Folder: **`src/content/news/`** · Loader: `glob(
 | `breaking` | boolean | no | `false` | Shows in the "Última hora" banner |
 | `cover` | image() | no | — | Colocated image in the entry's `assets/` folder (e.g. `./assets/cover.jpg`) |
 | `coverAlt` | string | no | — | Alt text for the cover |
-| `source` | `{ name, url }` | no | — | Attribution to the English-language outlet |
+| `source` | `{ name, url }` | no | — | Attribution to the story's original outlet, not the outlet that relayed it |
 | `draft` | boolean | no | `false` | Excluded from production builds |
 
 ### Article frontmatter template
@@ -143,8 +146,8 @@ source:
 2. Fill the frontmatter per the table in section 6.
 3. Write the body in **Spanish**. Markdown/MDX is fully supported (headings, lists, tables, blockquotes, code).
 4. Put the article's images in `src/content/news/<slug>/assets/`. Reference the cover as `./assets/<file>` and embed extra images inline as `![alt](./assets/<file>)`.
-5. Set `featured: true` for the lead candidate and/or `breaking: true` for the banner.
-6. Always attribute the original English source via `source`.
+5. Leave `featured` and `breaking` at `false`. Promotion is a newsroom call made on the whole batch by whoever runs it, never by one writer: parallel writers cannot see each other, so each would mark its own piece as the lead. The orchestrator promotes exactly one entry afterwards (see `skills/redaccion-prensa/DELEGATION.md`).
+6. Always attribute the story's original outlet via `source`. If the outlet you read cites another, trace it and attribute that one.
 7. Run `npm run build` and confirm it passes.
 
 Drafts (`draft: true`) render in dev but are excluded from production builds, RSS, and sitemaps.
@@ -165,7 +168,7 @@ Token groups: `--color-*`, `--font-*`, `--text-*`, `--leading-*`, `--measure`, `
 | Route | File | Purpose |
 | --- | --- | --- |
 | `/` | `src/pages/index.astro` | Home: breaking banner → lead + secondary → ads → "Últimas noticias" → ads |
-| `/noticias/` | `src/pages/noticias/index.astro` | Full archive of published articles |
+| `/noticias/` · `/noticias/<page>/` | `src/pages/noticias/[...page].astro` | Paginated archive of published articles |
 | `/noticias/<slug>/` | `src/pages/noticias/[slug].astro` | Article page (JSON-LD `NewsArticle`, source block) |
 | `/acerca` | `src/pages/acerca.astro` | About |
 | `/rss.xml` | `src/pages/rss.xml.js` | RSS feed |
@@ -179,7 +182,7 @@ How content becomes discoverable by search engines:
 
 - **XML sitemap** — `@astrojs/sitemap` generates `sitemap-index.xml` → `sitemap-0.xml` with every route. Needs `site` in `astro.config.mjs` to build absolute URLs.
 - **Google News sitemap** — `src/pages/sitemap-news.xml.ts` emits `news:news` entries. **Google only accepts articles published in the last 48 hours**; the endpoint filters to that window and falls back to the 10 most recent when nothing qualifies (so the demo is never empty).
-- **robots.txt** — `public/robots.txt` allows crawling and points to both sitemaps. **Its URLs are hardcoded to the placeholder domain** and must be updated together with `site`.
+- **robots.txt** — `public/robots.txt` allows crawling and points to both sitemaps. **Its URLs are hardcoded to `https://techspain24.com`** and must be updated together with `site`.
 - **Structured data** — article pages inject JSON-LD `NewsArticle` (headline, description, dates, author, image, publisher, `inLanguage: "es"`) through the `head` slot in `BaseLayout`.
 - **RSS** — `/rss.xml`, linked from `<head>` via `rel="alternate"`.
 - **Per-page metadata** — `BaseLayout` sets canonical URL, description, Open Graph, and Twitter card tags.
@@ -219,7 +222,7 @@ How content becomes discoverable by search engines:
 
 `src/consts.ts` is where site-wide values live:
 
-- `SITE` — `title` (**currently the placeholder `'Tecnología Hoy'`**), `description`, `author`, `url`, `lang`.
+- `SITE` — `title`, `description`, `author` (the byline used across every article), `url`, `lang`.
 - `NAV` — header navigation.
 - `SOCIAL` — footer links (placeholder URLs).
 - `ADS` — ad toggle and publisher id.
@@ -262,7 +265,7 @@ Relevant guides:
 ## 16. Editorial sources & the press-writing skill
 
 - **Source list** — `src/data/sources.json` is the curated, machine-readable list of outlets used to detect, contrast, and confirm stories before rewriting them in Spanish. It groups ~66 sources into 5 layers: `tech-media`, `reviews`, `asia`, `es-competition`, and `primary`. Each entry has `homepage`, `rss` (or `null` when there is no confirmed feed), `lang`, `focus`, and optional `notes`.
-- **Press-writing skill** — `skills/redaccion-prensa/SKILL.md` encodes the daily editorial workflow: pull the latest from the detection layers, contrast with `tech-media`/`reviews`, confirm with `primary`, check `es-competition` for saturation, then write `src/content/news/<slug>.mdx` in neutral/professional Spanish with explicit `source` attribution. Use it whenever an article is written or the sources are reviewed.
+- **Press-writing skill** — `skills/redaccion-prensa/SKILL.md` encodes the daily editorial workflow: pull the latest from the detection layers, contrast with `tech-media`/`reviews`, confirm with `primary`, check `es-competition` for saturation, then write `src/content/news/<slug>/index.mdx` in neutral/professional Spanish with explicit `source` attribution. Use it whenever an article is written or the sources are reviewed.
 - **Editorial verticals** — the portal covers 7 verticals: componentes de PC, portátiles, consolas (portátiles y de escritorio), tarjetas gráficas, memorias, móviles y tutoriales (guías how-to/paso a paso). Stories must fit one of them; the primary vertical goes first in `tags`. These are editorial focus, not URL sections (there are still no category/tag pages).
-- **Daily news script** — `scripts/daily-news.mjs` (`npm run news`) fetches the RSS feeds from `sources.json`, marks already-seen items in `scripts/.seen.json` (gitignored), classifies titles into the 7 verticals, and writes `scripts/candidates.json` plus a markdown report for manual selection. No dependencies (uses Node's global `fetch` + a built-in RSS/Atom parser). `tutoriales` is checked first in the classifier, so a how-to title wins over the hardware topic it covers.
+- **Daily news script** — `scripts/daily-news.mjs` (`npm run news`) fetches the RSS feeds from `sources.json`, marks already-seen items in `scripts/.seen.json` (gitignored), classifies titles into the 7 verticals, and writes `scripts/candidates.json` plus a markdown report for manual selection. No dependencies (uses Node's global `fetch` + a built-in RSS/Atom parser). `tutoriales` is checked first in the classifier, so a how-to title wins over the hardware topic it covers — but only when the title also carries a technology signal, so entertainment guides (live-stream and movie how-tos) are not offered as tutorials.
 - **Redaction delegation** — when the user selects articles and asks to redact them, delegate one subagent (`general`) per article, all in parallel, using the prompt template in `skills/redaccion-prensa/DELEGATION.md`. Each subagent writes one `src/content/news/<slug>/` folder, so there is no file overlap.
