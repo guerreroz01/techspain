@@ -68,6 +68,27 @@ const VERTICALS = {
   ],
 };
 
+/*
+ * A tutorial marker on its own is not a technology signal: "how to watch the F1
+ * race" and "how to fish in Valheim" are guides, but they are not this portal's
+ * subject. Requiring a tech term as well fails closed, which is the right way to
+ * be wrong here: a candidate missing from the report costs one glance, while a
+ * polluted list offers entertainment as a tutorial.
+ */
+const TECH_SIGNAL = [
+  ...Object.entries(VERTICALS).flatMap(([v, kws]) => (v === 'tutoriales' ? [] : kws)),
+  'windows', 'macos', 'linux', 'ubuntu', 'ios', 'ipados', 'android', 'app', 'apps',
+  'software', 'programa', 'aplicación', 'aplicacion', 'navegador', 'browser',
+  'chrome', 'firefox', 'safari', 'router', 'wifi', 'usb', 'hdmi', 'bios', 'uefi',
+  'driver', 'controlador', 'disco', 'archivo', 'archivos', 'carpeta',
+  'contraseña', 'contrasena', 'password', 'cuenta', 'privacidad', 'seguridad',
+  'backup', 'copia de seguridad', 'excel', 'word', 'office', 'google', 'drive',
+  'cloud', 'nube', 'servidor', 'server', 'internet', 'datos', 'pc', 'ordenador',
+  'computadora', 'computer', 'escritorio', 'pantalla', 'monitor', 'teclado',
+  'ratón', 'raton', 'impresora', 'telegram', 'whatsapp', 'notificaciones',
+  'correo', 'email',
+];
+
 const VERTICAL_LABELS = {
   tutoriales: '📘 Tutoriales',
   'tarjetas-graficas': '🎮 Tarjetas gráficas',
@@ -145,15 +166,18 @@ function truncate(text, n = 180) {
 
 function classify(text) {
   const t = text.toLowerCase();
+  const matchesAny = (keywords) =>
+    keywords.some((k) =>
+      new RegExp(`(^|[^${WORD_CHARS}])${escapeRegex(k)}(?=$|[^${WORD_CHARS}])`, 'i').test(t),
+    );
+
   const hits = [];
   for (const [v, kws] of Object.entries(VERTICALS)) {
-    if (
-      kws.some((k) =>
-        new RegExp(`(^|[^${WORD_CHARS}])${escapeRegex(k)}(?=$|[^${WORD_CHARS}])`, 'i').test(t),
-      )
-    ) {
-      hits.push(v);
-    }
+    if (!matchesAny(kws)) continue;
+    // A guide about something outside technology is not one of this portal's
+    // tutorials; see TECH_SIGNAL.
+    if (v === 'tutoriales' && !matchesAny(TECH_SIGNAL)) continue;
+    hits.push(v);
   }
   return hits;
 }
