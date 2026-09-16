@@ -1,0 +1,215 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import type { GetStaticPaths, Page } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { SITE } from '../../consts';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  // Entries per archive page. This must live inside `getStaticPaths`: Astro runs
+  // it in its own prerender chunk, so it cannot see constants declared in the
+  // component frontmatter.
+  const PAGE_SIZE = 30;
+
+  const allNews = await getCollection('news');
+
+  const posts = allNews
+    .filter((entry) => (import.meta.env.PROD ? !entry.data.draft : true))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  // `paginate([])` returns no pages at all, which would delete `/noticias/`
+  // instead of showing the empty state. Emit a single empty page for that case.
+  if (posts.length === 0) {
+    return [{ params: { page: undefined }, props: { page: undefined } }];
+  }
+
+  return paginate(posts, { pageSize: PAGE_SIZE });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page?: Page<CollectionEntry<'news'>>;
+}
+
+const page = Astro.props.page;
+const posts = page?.data ?? [];
+
+const currentPage = page?.currentPage ?? 1;
+const lastPage = page?.lastPage ?? 1;
+
+// `paginate` gives page 1 the URL `/noticias/` and page N the URL `/noticias/N/`.
+//
+// `page.url.prev` / `page.url.next` are deliberately NOT used: they omit the
+// trailing slash (`/noticias/2`), which does not match the canonical form
+// emitted by BaseLayout (`/noticias/2/`) and would cost an extra redirect hop on
+// Vercel. Deriving every link from `pageHref` keeps one source of truth.
+const pageHref = (n: number) => (n === 1 ? '/noticias/' : `/noticias/${n}/`);
+const pageNumbers = Array.from({ length: lastPage }, (_, i) => i + 1);
+const prevHref = currentPage > 1 ? pageHref(currentPage - 1) : undefined;
+const nextHref = currentPage < lastPage ? pageHref(currentPage + 1) : undefined;
+
+const pageTitle = currentPage > 1 ? `Noticias — Página ${currentPage}` : 'Noticias';
+const description =
+  currentPage > 1
+    ? `Página ${currentPage} de ${lastPage} del archivo de noticias de tecnología publicadas en ${SITE.title}.`
+    : `Todas las noticias de tecnología publicadas en ${SITE.title}.`;
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <div class="container container--wide archive">
+    <header class="archive__header">
+      <h1 class="archive__title">Noticias</h1>
+      <p class="archive__intro">
+        Todas las noticias de tecnología publicadas en {SITE.title}, de la más reciente a la más
+        antigua.
+      </p>
+    </header>
+
+    {
+      posts.length > 0 ? (
+        <ul class="archive__list">
+          {posts.map((entry) => (
+            <li>
+              <NewsCard entry={entry} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="archive__empty">Todavía no hay noticias publicadas.</p>
+      )
+    }
+
+    {
+      lastPage > 1 && (
+        <nav class="pagination" aria-label="Paginación del archivo de noticias">
+          <ul class="pagination__list">
+            <li>
+              {prevHref ? (
+                <a class="pagination__link" href={prevHref} rel="prev">
+                  Anterior
+                </a>
+              ) : (
+                <span class="pagination__link pagination__link--muted" aria-hidden="true">
+                  Anterior
+                </span>
+              )}
+            </li>
+
+            {pageNumbers.map((n) => (
+              <li>
+                {n === currentPage ? (
+                  <span class="pagination__link pagination__link--current" aria-current="page">
+                    {n}
+                  </span>
+                ) : (
+                  <a class="pagination__link" href={pageHref(n)} aria-label={`Página ${n}`}>
+                    {n}
+                  </a>
+                )}
+              </li>
+            ))}
+
+            <li>
+              {nextHref ? (
+                <a class="pagination__link" href={nextHref} rel="next">
+                  Siguiente
+                </a>
+              ) : (
+                <span class="pagination__link pagination__link--muted" aria-hidden="true">
+                  Siguiente
+                </span>
+              )}
+            </li>
+          </ul>
+        </nav>
+      )
+    }
+
+    <AdSlot />
+  </div>
+</BaseLayout>
+
+<style>
+  .archive__header {
+    padding-block: var(--space-8) var(--space-6);
+  }
+
+  .archive__title {
+    font-size: var(--text-4xl);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .archive__intro {
+    max-width: var(--measure);
+    margin-top: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+  }
+
+  .archive__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .archive__empty {
+    padding-block: var(--space-7);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .pagination {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: var(--border-width) solid var(--color-border);
+  }
+
+  .pagination__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pagination__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--space-6);
+    min-height: var(--space-6);
+    padding: var(--space-2) var(--space-3);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
+    text-decoration: none;
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .pagination__link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  /* Text over the accent uses --color-bg, as in ::selection and .breaking. */
+  .pagination__link--current {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg);
+    font-weight: 700;
+  }
+
+  .pagination__link--muted {
+    border-color: transparent;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -63,17 +63,24 @@ export default defineConfig({
       serialize(item) {
         const { pathname } = new URL(item.url);
 
+        // The archive is paginated (`/noticias/`, `/noticias/2/`, …). Those are
+        // listings, not articles, and `/noticias/2/` would otherwise match the
+        // article pattern below — where the "2" is not a slug, so the lookup
+        // fails and the early return would skip the listing branch entirely.
+        const isArchiveListing =
+          pathname === '/noticias/' || /^\/noticias\/\d+\/$/.test(pathname);
+
         // `/noticias/<slug>/` -> that entry's real date.
-        const article = pathname.match(/^\/noticias\/([^/]+)\/$/);
+        const article = isArchiveListing ? null : pathname.match(/^\/noticias\/([^/]+)\/$/);
         if (article) {
           const lastmod = entryDates.get(article[1]);
           if (lastmod) item.lastmod = lastmod;
           return item;
         }
 
-        // The home and the archive re-list every entry, so they change whenever
-        // the newest one does. `/acerca/` is static and gets no <lastmod>.
-        if ((pathname === '/' || pathname === '/noticias/') && newestEntryDate) {
+        // The home and every archive page re-list every entry, so they change
+        // whenever the newest one does. `/acerca/` is static: no <lastmod>.
+        if ((pathname === '/' || isArchiveListing) && newestEntryDate) {
           item.lastmod = newestEntryDate;
         }
 
