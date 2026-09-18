@@ -1,0 +1,142 @@
+---
+title: 'Dentro del laboratorio donde Arm da vida a su CPU AGI para centros de datos'
+description: 'ServeTheHome recorre en Austin el laboratorio ATE de Arm, donde el primer procesador de centro de datos de la compañía pasa de oblea a plataforma validada.'
+pubDate: '2026-09-18'
+author: 'Redacción Tecnología Hoy'
+tags: ['Componentes', 'Arm', 'Semiconductores']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Procesador Arm AGI CPU fotografiado de cerca'
+source:
+  name: 'ServeTheHome'
+  url: 'https://www.servethehome.com/inside-the-lab-where-the-arm-agi-cpu-is-brought-to-life/'
+---
+
+Arm es conocida por licenciar la arquitectura y los núcleos que hay detrás de teléfonos, portátiles y servidores, pero no por vender silicio propio. Con la CPU AGI, la compañía dio un paso nuevo: dejar de ser solo proveedora de propiedad intelectual para convertirse también en suministradora de un procesador completo de centro de datos. ServeTheHome visitó en Austin el laboratorio donde ese chip cobra forma y donde se comprueba, pieza a pieza, que lo diseñado funciona en el mundo real.
+
+## Cómo se llegó hasta aquí
+
+Durante años, quien quería un procesador de servidor basado en Arm partía de una licencia de arquitectura o de los núcleos Neoverse. De ahí salen lanzamientos conocidos del sector, como los procesadores Graviton de AWS o las primeras plataformas Arm para servidores. El siguiente paso fue el subsistema Neoverse CSS, un paquete que ya incluye núcleos, interconexión y otra propiedad intelectual validada, y que reduce de forma notable el tiempo hasta el mercado.
+
+Ese atajo resultó decisivo para que empresas más pequeñas pudieran competir. Arm ya ha vendido tanto núcleos sueltos como subsistemas completos, y ahora ofrece también la CPU AGI como producto terminado. La idea no es abandonar el negocio de licencias, sino cubrir todo el espectro: desde un núcleo Neoverse hasta silicio listo para fabricar.
+
+![Mini PC de Apple con arquitectura Arm](./assets/apple-mac-mini-m4-m1.jpg)
+
+![Placa base con una CPU NVIDIA Grace basada en Neoverse](./assets/supermicro-grace-cpu.jpg)
+
+![Salida del comando lscpu en una CPU NVIDIA Grace](./assets/nvidia-grace-lscpu.jpeg)
+
+![Tarjeta DPU Xsight Labs E1 para OCP](./assets/xsight-labs-e1-dpu-card.jpg)
+
+![Salida de lscpu en la DPU Xsight Labs E1](./assets/xsight-labs-e1-lscpu.jpeg)
+
+![Bloques de propiedad intelectual Neoverse de la CPU AGI](./assets/arm-agi-neoverse-ip-blocks.png)
+
+## Qué es la CPU AGI
+
+La CPU AGI se presentó a comienzos de 2026 como el primer silicio de producción de Arm para centro de datos. Su base son dos chiplets Neoverse CSS V3 conectados entre sí que, en conjunto, alcanzan hasta 136 núcleos. La compañía organiza el producto en varias versiones, pero esa cifra de núcleos es la característica más llamativa de la gama.
+
+El chip utiliza núcleos Neoverse V3, la línea de alto rendimiento de Arm que también aparece en procesadores de clientes de gran escala. A su alrededor se integran controladores de memoria, PCIe y seguridad, así como una malla coherente CMN-S3 que coordina la comunicación interna. En el apartado de entrada y salida, el procesador incorpora 96 carriles de PCIe Gen6, soporte de CXL 3.0 y memoria DDR5-8800.
+
+La fabricación de los chiplets corre a cargo de TSMC, y el proceso elegido es N3P. Ese detalle ayuda a entender por qué construir una CPU completa es muy distinto a licenciar un núcleo: hay que diseñar el chip, verificarlo antes de fabricarlo, producir las obleas, empaquetarlas y después validar el resultado.
+
+![Presentación oficial de la CPU AGI de Arm](./assets/arm-agi-launch.jpg)
+
+![Resumen de características de la CPU AGI](./assets/arm-agi-feature-overview.png)
+
+![Plano del chip con los dos chiplets y sus bloques](./assets/arm-agi-floorplan.jpg)
+
+![Núcleo Neoverse V3 de la CPU AGI](./assets/arm-agi-neoverse-v3.png)
+
+![Malla coherente CMN-S3 de la CPU AGI](./assets/arm-agi-cmn-s3-mesh.png)
+
+![Subsistema Neoverse CSS V3 de la CPU AGI](./assets/arm-agi-css-v3.png)
+
+![Detalle del chiplet de la CPU AGI](./assets/arm-agi-floorplan-chiplet.png)
+
+![Tabla de características y especificaciones de la CPU AGI](./assets/arm-agi-features-specs.png)
+
+![Bloques de memoria, RAS y gestión de energía de la CPU AGI](./assets/arm-agi-memory-ras-power.png)
+
+![Servidor ASRock de 1U con la CPU AGI](./assets/asrock-1u4e1s-arm-agi.jpg)
+
+## Qué se vio en el laboratorio de Austin
+
+El recorrido se centra en el laboratorio ATE de Arm, el punto donde un chip ya fabricado se pone a prueba antes de llegar a los clientes. La primera herramienta destacada es la placa de validación funcional, diseñada específicamente para alojar una CPU AGI y ofrecer conectividad de alta calidad para las pruebas.
+
+Sobre esa placa se comprueba que cada señal y cada toma de alimentación del encapsulado cumple lo previsto. El proceso incluye verificar el funcionamiento interno del chip, pero también su comunicación con el resto del sistema: si la energía llega bien, si los carriles PCIe responden y si los canales de memoria trabajan como deberían. La placa emplea un material y un formato que no se usarían en producción en serie, precisamente porque prioriza el acceso y la instrumentación.
+
+A esas pruebas se suman las térmicas y las de interoperabilidad con módulos de memoria, unidades SSD, tarjetas de red y aceleradores. ServeTheHome describe un detalle revelador: las primeras unidades son tan valiosas que a veces viajan acompañadas por ingenieros, porque de su comportamiento temprano depende la velocidad con la que se puede pasar a la producción en volumen. El laboratorio también cuenta con acceso remoto para que equipos de todo el mundo prueben y corrijan errores sobre un hardware todavía escaso.
+
+Cuando la validación básica avanza, los procesadores pasan a servidores más parecidos a los de un centro de datos real. En el laboratorio se vieron plataformas estilo OCP, con dos sistemas de un solo nodo conviviendo en formato 1OU, disipadores de gran tamaño y doce canales de memoria DDR5. Son servidores prototipo, con controladores de gestión ASPEED, pero funcionando con sistemas operativos reales.
+
+![Entrada al laboratorio ATE de Arm](./assets/arm-ate-lab.jpg)
+
+![Vista general del laboratorio de validación de Arm](./assets/arm-fa-lab-1.jpg)
+
+![Placa de validación funcional de la CPU AGI](./assets/arm-validation-board-20.jpg)
+
+![Detalle de la placa de validación funcional](./assets/arm-validation-board-23.jpg)
+
+![CPU AGI instalada en la placa de validación](./assets/arm-agi-cpu-2.jpg)
+
+![Instrumentación junto a la placa de validación](./assets/arm-validation-board-18.jpg)
+
+![Conectores de la placa de validación funcional](./assets/arm-validation-board-22.jpg)
+
+![Vista de la placa de validación funcional de Arm](./assets/arm-validation-board-11.jpg)
+
+![Placa de validación funcional conectada](./assets/arm-validation-board-5.jpg)
+
+![Detalle de la placa de validación funcional](./assets/arm-validation-board-15.jpg)
+
+![Puesto de acceso remoto del laboratorio de Arm](./assets/arm-validation-workstation.jpg)
+
+![Sala de validación con servidores en funcionamiento](./assets/arm-fa-lab-2.jpg)
+
+![Plataformas OCP con la CPU AGI en el laboratorio](./assets/arm-fa-lab-5.jpg)
+
+![Sistema de alimentación para las plataformas OCP](./assets/arm-fa-lab-7.jpg)
+
+![Servidores alineados en el laboratorio](./assets/arm-fa-lab-10.jpg)
+
+![Disipador y canales de memoria DDR5 de la CPU AGI](./assets/arm-fa-lab-16.jpg)
+
+![Disipadores de gran tamaño en los prototipos](./assets/arm-fa-lab-17.jpg)
+
+![Detalle de una placa base de servidor con CPU AGI](./assets/arm-fa-lab-11.jpg)
+
+![Tarjeta de red PCIe de instrumentación](./assets/arm-fa-lab-13.jpg)
+
+![Conectores adicionales de instrumentación](./assets/arm-fa-lab-23.jpg)
+
+![Servidor prototipo con la CPU AGI en marcha](./assets/arm-fa-lab-18.jpg)
+
+![Equipo de refrigeración del laboratorio](./assets/arm-ate-lab-cooling-3.jpg)
+
+![Sistema de refrigeración del laboratorio ATE](./assets/arm-ate-lab-cooling-6.jpg)
+
+## Por qué importa: del IP al silicio
+
+La lección del laboratorio es sencilla de resumir: comprar un núcleo y lanzar un producto al día siguiente no es posible. Hay que unir los núcleos entre sí, añadir controladores, verificar el diseño, fabricar, encapsular, validar y solo después afinar el firmware, el sistema operativo y las aplicaciones. Ese trabajo previo explica por qué la CPU AGI es un salto cualitativo para Arm y no una simple extensión de su catálogo de licencias.
+
+El objetivo declarado es ofrecer la misma libertad de elección que ya existe con Neoverse. Un hiperescalador que diseña su propio procesador puede limitar las pruebas de interoperabilidad a sus propias necesidades; Arm, en cambio, prepara la CPU AGI para que la use un abanico amplio de clientes, desde grandes operadores hasta quien compre un servidor de un fabricante asociado. Según el reportaje, el chip está pensado para clientes como Meta y también para plataformas de terceros.
+
+Además, el proceso de llevar un producto físico hasta el final retroalimenta el desarrollo de Neoverse: al validar sus modelos de simulación contra hardware propio, Arm puede comprobar cuánto se acercan a la realidad y trasladar esas lecciones a las próximas generaciones. La compañía ya habla de varias generaciones futuras y está ampliando sus instalaciones para esa transición.
+
+![Intervención sobre la CPU AGI durante la presentación](./assets/arm-agi-launch-13.jpg)
+
+![Momentos de la presentación de la CPU AGI](./assets/arm-agi-launch-17.jpg)
+
+![Encapsulado de la CPU AGI en detalle](./assets/arm-agi-sp113011s.jpg)
+
+![Otra vista de la placa de validación funcional](./assets/arm-validation-board-21.jpg)
+
+## Qué cambia para el lector hispanohablante
+
+Nada de esto implica, por ahora, que la CPU AGI vaya a llegar a un PC de escritorio o a un portátil doméstico: el foco es el centro de datos. Lo relevante para el usuario final es indirecto pero real. Más competencia en procesadores para servidores se traduce, con el tiempo, en más opciones para quienes alojan servicios, incluidos los que prestan empresas y proveedores de nube que usamos a diario.
+
+La propia Arm presenta el diseño como una plataforma optimizada para la eficiencia energética, un factor que pesa cada vez más en el coste de operar un centro de datos y, por extensión, en el precio de los servicios en la nube. Si esa eficiencia se confirma en servidores de producción, la presión competitiva podría notarse en la oferta disponible para el mercado hispanohablante, tanto en infraestructura local como en plataformas cloud.
+
+Por lo demás, el reportaje es un recordatorio útil de que detrás de cada procesador hay meses de ingeniería que no se ven: diseño, verificación, fabricación y validación. La visita al laboratorio de Austin muestra esa parte del proceso, la que convierte un plano en un chip que realmente arranca y responde.

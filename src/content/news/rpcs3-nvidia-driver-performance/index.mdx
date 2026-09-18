@@ -1,0 +1,37 @@
+---
+title: 'RPCS3 esquiva un bug de los drivers de NVIDIA y recupera hasta un 25 % de FPS en las GeForce'
+description: 'El emulador de PlayStation 3 encuentra un rodeo a un problema de los controladores propietarios de NVIDIA que lastraba el rendimiento, con mejoras que dependen del juego y afectan tanto a las RTX como a las GTX.'
+pubDate: '2026-09-18'
+author: 'Redacción Tecnología Hoy'
+tags: ['Tarjetas gráficas', 'Componentes']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Logo del emulador RPCS3 sobre fondo de circuitos con una tarjeta gráfica NVIDIA'
+source:
+  name: 'RPCS3'
+  url: 'https://x.com/rpcs3/status/2100302575954268238'
+draft: false
+---
+
+El emulador de PlayStation 3 para PC **RPCS3** ha anunciado una mejora de rendimiento dirigida específicamente a las tarjetas gráficas **NVIDIA GeForce**. El detalle relevante es de dónde viene ese aumento: no procede de optimizar el código del propio emulador, sino de encontrar la forma de sortear un problema presente en los **drivers propietarios de NVIDIA** que introducía un cuello de botella y reducía el rendimiento real de las GPU durante la emulación.
+
+El hallazgo lo firma el desarrollador **Yahfz**, y el proyecto lo ha hecho público a través de su cuenta oficial. Según las pruebas que acompañan al anuncio, la ganancia puede llegar a ser de **hasta un 25 % en FPS**, aunque el resultado varía según el juego, la escena concreta y el hardware empleado.
+
+## Qué dicen las pruebas
+
+Para medir el cambio, RPCS3 comparó una misma escena de prueba en configuraciones muy distintas. Un equipo con un **Intel Core i9-13900K** y una **GeForce RTX 3080** obtuvo en torno a un **20 % más de FPS**, mientras que un sistema más moderno con un **AMD Ryzen 7 9800X3D** y una **GeForce RTX 5090** alcanzó alrededor de un **25 %** adicional tras aplicar la solución provisional.
+
+El problema no parece atado a una arquitectura concreta. El equipo también probó en un portátil antiguo con un **Intel Core i7-7700HQ** y una **GeForce GTX 1060**, donde *Saints Row IV* mejoró cerca de un **20 %** y *Saints Row: The Third* en torno a un **10 %**. Es decir, el cuello de botella afectaba incluso a tarjetas que hoy se consideran desfasadas para juegos actuales.
+
+## Por qué AMD no gana nada
+
+El rendimiento extra **no convierte a las GeForce en GPU intrínsecamente más rápidas**: lo que hace es eliminar una penalización que solo aparecía al ejecutar RPCS3 con los drivers de NVIDIA. Por eso los usuarios con gráficas **AMD no reciben ninguna mejora** con este cambio: sus controladores no arrastraban ese problema.
+
+RPCS3 mantiene desde hace años una documentación dedicada a los fallos detectados en los drivers de AMD, Intel y NVIDIA, con especial atención a las API **Vulkan y OpenGL** y a las regresiones de rendimiento que han ido apareciendo durante el desarrollo. Este caso es un ejemplo más de que el rendimiento de un emulador no depende solo de su código o del hardware, sino también de cómo responden los controladores ante cargas gráficas poco habituales.
+
+## Una petición directa a NVIDIA
+
+Aprovechando el descubrimiento, el equipo de RPCS3 ha pedido públicamente a NVIDIA un **canal de comunicación directo** para reportar este tipo de errores en los drivers. El proyecto asegura que ya intentó dar a conocer problemas que afectaban a aplicaciones independientes a través de los foros para desarrolladores de la compañía, sin conseguir respuesta.
+
+Mientras NVIDIA no corrija el fallo desde sus propios controladores, RPCS3 seguirá recurriendo a este **parche** para recuperar el rendimiento perdido en las GeForce. Para el usuario hispanohablante con una GPU NVIDIA, la conclusión es sencilla: si juega a emulación de PS3, es probable que las próximas versiones del emulador rindan mejor sin cambiar de hardware.
