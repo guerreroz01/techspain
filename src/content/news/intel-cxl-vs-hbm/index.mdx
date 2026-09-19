@@ -1,0 +1,40 @@
+---
+title: 'Intel enfría el entusiasmo por CXL: no reemplazará a HBM y quedará como almacenamiento secundario'
+description: 'El responsable de arquitectura de sistemas en chip de IA de Intel sostiene que CXL no sustituirá a HBM por su menor ancho de banda y lo sitúa como una capa intermedia entre la DRAM y el SSD.'
+pubDate: 2026-09-19
+author: 'Redacción Tecnología Hoy'
+tags: ['Memorias', 'CXL', 'HBM', 'Intel', 'DRAM']
+featured: false
+breaking: false
+cover: './assets/cxl-vs-hbm.png'
+coverAlt: 'Módulo de expansión de memoria SK hynix CXL 2.0 sobre fondo amarillo'
+source:
+  name: 'MyDrivers'
+  url: 'https://news.mydrivers.com/1/1152/1152444.htm'
+---
+
+Intel ha enfriado una de las expectativas más repetidas de los últimos años en el sector de la memoria. Vidhya Thyagarajan, responsable de arquitectura de sistemas en chip (SoC) de IA en Intel, ha afirmado que CXL no es un sustituto de HBM y que ambas tecnologías tenderán a una relación de complementariedad. La declaración, recogida por MyDrivers, choca con el relato que durante los últimos años presentaba a CXL como la vía para aliviar el cuello de botella de memoria de la inteligencia artificial sin depender tanto de HBM.
+
+## Dos tecnologías que no compiten en igualdad
+
+Para entender el debate conviene fijar los términos: HBM es una memoria DRAM de altísimo ancho de banda que se apila en vertical y se solda junto al procesador gráfico, mientras que CXL (Compute Express Link) es un protocolo de interconexión abierto que permite añadir memoria u otros recursos a un sistema a través de un enlace, sin integrarlos en el mismo encapsulado.
+
+Sobre esa diferencia se apoyaba la promesa de los fabricantes de memoria, que veían en CXL una salida para reducir la dependencia de HBM y, de paso, contener costes. La intervención de Thyagarajan apunta justo al punto débil de ese planteo.
+
+## El ancho de banda, el obstáculo insalvable
+
+El directivo de Intel señala que en cargas de trabajo reales de modelos de IA resulta difícil encontrar un caso de uso convincente para CXL. El problema es el ancho de banda: la brecha entre CXL y HBM es amplia, y mover datos entre GPU a través de CXL es mucho más lento que con HBM. En un sistema de IA, donde el rendimiento depende de alimentar a los aceleradores con datos a gran velocidad, esa diferencia pesa más que cualquier ventaja en capacidad o en coste.
+
+## OpenAI coincide: CXL para los datos fríos
+
+OpenAI comparte el diagnóstico, según la información publicada. A su juicio, el papel de CXL quedaría limitado a almacenar los datos inactivos de los grandes modelos de IA, aquellos a los que se accede con poca frecuencia. Los datos calientes —los que se consultan de forma constante— seguirían en HBM, mientras que CXL se ocuparía de los fríos, de uso esporádico.
+
+La conclusión de Thyagarajan es que CXL encaja mejor como complemento del almacenamiento secundario: suma, no reemplaza. La industria, en paralelo, no ha dejado de buscar alternativas a HBM: SanDisk y SK Hynix preparan productos HBF (memoria flash de alto ancho de banda), y Samsung y SK Hynix avanzan en desarrollos basados en CXL. Estos últimos se colocan como una capa intermedia de la jerarquía de almacenamiento para IA, entre la DRAM y el SSD, con la función de adelantar datos desde el SSD hacia la DRAM, que es más rápida.
+
+Con ese encuadre, CXL se parece más a un escalón intermedio que a un rival frontal de HBM: HBM sigue en la cima de la DRAM y CXL se hace un hueco entre la DRAM y el SSD. La frontera entre ambas tecnologías queda así más definida.
+
+## Qué cambia para el lector
+
+La discusión no altera lo que se puede comprar hoy, pero sí ordena las expectativas. Mientras el discurso de los fabricantes insistía en CXL como sustituto de HBM, la lectura de Intel y OpenAI devuelve a cada tecnología a su casilla: HBM seguirá siendo la memoria rápida y cara que acompaña a los aceleradores de IA, y CXL se perfila como una capa de capacidad intermedia entre la DRAM y el SSD, pensada para datos que no se consultan a cada instante.
+
+La consecuencia práctica es que el precio y la disponibilidad de HBM continúan siendo el factor que más presiona al hardware de IA, y que CXL llegará, si llega, como una pieza más de la jerarquía de memoria, no como su reemplazo.

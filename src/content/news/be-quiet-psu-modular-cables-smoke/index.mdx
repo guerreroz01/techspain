@@ -1,0 +1,48 @@
+---
+title: 'Un tercer cable PCIe improvisado acaba con una fuente be quiet! de 15 años'
+description: 'Un usuario destruyó su longeva fuente be quiet! de 850 W al fabricar un tercer cable PCIe con un adaptador de terceros y una suposición equivocada sobre los raíles. El caso recuerda dos reglas de oro: verificar el cableado físicamente y no mezclar nunca cables modulares entre fuentes distintas.'
+pubDate: 2026-09-19
+author: 'Redacción Tecnología Hoy'
+tags: ['Componentes', 'Fuentes de alimentación', 'Tarjetas gráficas']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Fuente de alimentación be quiet! de la gama utilizada por el usuario'
+source:
+  name: 'Reddit / r/pcmasterrace'
+  url: 'https://www.reddit.com/r/pcmasterrace/comments/1wkie4d/killed_my_bequiet_850w_p9_today_after_15_years_of/'
+---
+
+El usuario **Sarkoth** relató en el subreddit **r/pcmasterrace** cómo su fuente be quiet! de 850 W, en servicio desde hacía unos 15 años, murió en el mismo instante de arrancar tras instalar una Radeon RX 9070 XT. El caso se ha difundido a través de medios como Wccftech, que lo recogieron a partir de ese hilo, pero conviene leerlo en su origen: no hubo un fallo de la marca, sino una cadena de decisiones tomadas a la carrera para no rehacer el cableado. El episodio deja una advertencia que vale para cualquier montaje.
+
+## Qué pasó
+
+El equipo venía arrastrando una GeForce GTX 1080 Ti Founders Edition, alimentada con un conector de 6 pines y otro de 8. La nueva RX 9070 XT exige tres conectores de 8 pines, así que el usuario necesitaba una vía de alimentación más de la que tenía a mano. Dentro de la caja seguían colgando dos conectores PCIe de 6 pines y dos de 6+2, y ahí llegó el error.
+
+Confió en la memoria: estaba convencido de que los raíles estaban repartidos entre dos cables 6+2 en vías separadas y un tercer raíl con dos conectores de 6 pines. No lo comprobó físicamente, en parte porque el cableado estaba tan bien organizado que desmontarlo le habría costado más de media hora. Para ahorrarse ese trabajo, unió los dos conectores de 6 pines con un adaptador en Y de terceros de 2x6 a 8 pines y lo usó como tercer cable de la gráfica.
+
+El resultado fue inmediato. En sus propias palabras, se escuchó "un rugido atronador, un destello de luz" y el interruptor de seguridad interno de la fuente se activó para cortar la corriente. La be quiet! quedó totalmente inutilizada, y el usuario aún no ha podido confirmar si el resto de componentes sobrevivió: está a la espera de una fuente nueva para volver a montar el equipo y comprobarlo.
+
+## Por qué se rompió: un raíl mal supuesto y un adaptador de terceros
+
+El detalle clave es que no se limitó a enchufar un cable: fabricó una conexión que la fuente nunca estuvo diseñada para entregar. Un adaptador en Y que fusiona dos conectores de 6 pines en uno de 8 pines solo es seguro si ambos van a raíles independientes y con la carga bien repartida; si la suposición era falsa, la corriente acabó yendo por donde no debía y provocó un cortocircuito. El sistema de protección de la fuente hizo justo lo que debía: cortar en seco antes de que el problema fuera a más.
+
+Conviene subrayar la responsabilidad. El propio Sarkoth lo reconoce sin rodeos: fue un "lapso de memoria" y pura pereza. Quince años de servicio continuado hablan bien de la unidad, no mal, y el fabricante no tiene culpa alguna en lo ocurrido. Lo que falló fue el criterio a la hora de improvisar alimentación.
+
+## La regla que nunca hay que saltarse: no mezclar cables modulares
+
+Este caso concreto se originó con un adaptador de terceros y una lectura equivocada del cableado, pero pertenece a la misma familia de riesgos que el clásico "reutilizo los cables de mi fuente vieja". La razón por la que ese atajo está prohibido es sencilla: **el pinout del lado de la fuente no está estandarizado**. Aunque el conector de la fuente parezca idéntico por fuera, la disposición interna de los 12 V y la masa puede cambiar de un modelo a otro, e incluso entre líneas de producto del mismo fabricante.
+
+Cuando se enchufa un cable modular que no pertenece a la unidad, nada garantiza que cada pin reciba la tensión correcta. Un cable pensado para otra fuente puede enviar 12 V a un pin de masa, y eso produce exactamente el tipo de cortocircuito que aquí destruyó el equipo. Por eso la única práctica segura es usar siempre el cableado que viene con la fuente, sin comprar, adaptar ni intercambiar cables aunque el conector encaje. Si se ha perdido un cable, lo correcto es pedir al fabricante el recambio compatible con ese modelo exacto, no improvisar uno.
+
+A esto se suma la lección del raíl: **nunca conviene fiarse de la memoria ni de una guía antigua** sobre cómo está repartido el cableado. La única fuente fiable es la etiqueta de la propia unidad y una comprobación física, aunque implique desmontar el ordenador entero.
+
+## Cómo evitar repetir este error
+
+Antes de cambiar de tarjeta gráfica o de componentes, una comprobación de cinco minutos evita disgustos caros:
+
+- **Cuenta los conectores reales.** Mira cuántos cables PCIe de 8 pines ofrece tu fuente y compáralos con los que pide la gráfica nueva. La RX 9070 XT del caso necesitaba tres.
+- **Usa solo el cableado original.** Nada de adaptadores en Y, alargadores o cables sueltos comprados por internet. Si el conector no llega o no alcanza, el problema es la fuente, no el cable.
+- **Verifica y etiqueta.** Antes de cerrar la caja, identifica a qué raíl corresponde cada cable y ponle una etiqueta. Ahorrará errores en el próximo cambio, dentro de cinco o diez años.
+- **Valora sustituir la fuente.** Una unidad de 15 años no está pensada para alimentar tres conectores de 8 pines de una GPU moderna. Cambiarla junto con la gráfica es más barato que arriesgar el resto del equipo.
+- **Ante la duda, no reutilices.** Si algo huele a quemado o salta la protección, ni la fuente ni los cables deben volver a conectarse. Y si el equipo no arranca tras un susto así, hay que probar los componentes uno a uno.
