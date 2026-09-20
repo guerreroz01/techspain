@@ -3,24 +3,137 @@ import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AdSlot from '../../components/AdSlot.astro';
+import StoryList from '../../components/StoryList.astro';
 import { SITE } from '../../consts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('news');
+  const allNews = await getCollection('news');
 
-  return posts
-    .filter((entry) => (import.meta.env.PROD ? !entry.data.draft : true))
-    .map((entry) => ({
+  // Draft semantics are identical to the rest of the site: drafts render in dev
+  // but are excluded from production builds, feeds and sitemaps.
+  const visible = allNews.filter((entry) =>
+    import.meta.env.PROD ? !entry.data.draft : true,
+  );
+
+  // Tag comparison is normalized (trimmed + lowercased) because the corpus has
+  // real casing and fragmentation defects ('Inteligencia Artificial' vs
+  // 'Inteligencia artificial', 'Nintendo' vs 'Nintendo Switch'). Normalizing at
+  // comparison time keeps the article files untouched.
+  const normalizeTag = (tag: string) => tag.trim().toLowerCase();
+
+  // Each entry's normalized tag set is built exactly once, never per pair.
+  const tagSets = new Map<string, Set<string>>();
+  for (const entry of visible) {
+    tagSets.set(entry.id, new Set(entry.data.tags.map(normalizeTag)));
+  }
+
+  // Document frequency: how many visible entries carry each normalized tag.
+  const documentFrequency = new Map<string, number>();
+  for (const tags of tagSets.values()) {
+    for (const tag of tags) {
+      documentFrequency.set(tag, (documentFrequency.get(tag) ?? 0) + 1);
+    }
+  }
+
+  const total = visible.length;
+
+  // Inverse-document-frequency weight. A rare tag ('AX Gaming', df=1) weighs far
+  // more than a broad vertical ('Consolas', df=53), so no "brand beats vertical"
+  // rule needs to be hardcoded. Guarded against an empty corpus.
+  const tagWeight = (tag: string) => {
+    const df = documentFrequency.get(tag) ?? 0;
+    return df > 0 && total > 0 ? Math.log(total / df) : 0;
+  };
+
+  const slugTokens = new Map<string, string[]>();
+  for (const entry of visible) {
+    slugTokens.set(entry.id, entry.id.split('-'));
+  }
+
+  // Shared leading hyphen-separated tokens between two slugs, e.g.
+  // `iphone-18-pro-teardown-critique` vs `iphone-18-pro-1tb-qlc` -> 3.
+  const sharedPrefixLength = (a: string, b: string) => {
+    const aTokens = slugTokens.get(a) ?? [];
+    const bTokens = slugTokens.get(b) ?? [];
+    const max = Math.min(aTokens.length, bTokens.length);
+    let shared = 0;
+    while (shared < max && aTokens[shared] === bTokens[shared]) shared++;
+    return shared;
+  };
+
+  // Rewards real slug families (iphone-18-pro-*, oppo-find-x10-*, ...).
+  const slugFamilyBonus = (shared: number) => (shared >= 3 ? 1.5 : shared === 2 ? 0.5 : 0);
+
+  const relatedFor = (entry: CollectionEntry<'news'>): CollectionEntry<'news'>[] => {
+    const tags = tagSets.get(entry.id) ?? new Set<string>();
+
+    // An entry with no tags has nothing editorial to match on. Return empty
+    // rather than matching on the slug bonus alone.
+    if (tags.size === 0) return [];
+
+    return visible
+      .filter((candidate) => candidate.id !== entry.id)
+      .map((candidate) => {
+        const candidateTags = tagSets.get(candidate.id) ?? new Set<string>();
+        let score = 0;
+        for (const tag of tags) {
+          if (candidateTags.has(tag)) score += tagWeight(tag);
+        }
+        score += slugFamilyBonus(sharedPrefixLength(entry.id, candidate.id));
+        return { candidate, score };
+      })
+      .filter((scored) => scored.score > 0)
+      .sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return b.candidate.data.pubDate.valueOf() - a.candidate.data.pubDate.valueOf();
+      })
+      .slice(0, 3)
+      .map((scored) => scored.candidate);
+  };
+
+  // Fisher–Yates shuffle over a copy, so the input array is never mutated.
+  const shuffle = <T,>(input: T[]): T[] => {
+    const result = [...input];
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  };
+
+  // Random recommendations, resolved at BUILD TIME ONLY. This is a static build:
+  // Math.random() runs here in getStaticPaths, so the trio is frozen into the
+  // generated HTML until the next deploy. Two builds of identical content will
+  // legitimately differ — that non-determinism is intentional, not a bug, and
+  // must not be "fixed" by making it deterministic. Per-visit randomness would
+  // require client-side JavaScript and is forbidden (AGENTS.md §1 and §14).
+  const randomFor = (
+    entry: CollectionEntry<'news'>,
+    related: CollectionEntry<'news'>[],
+  ): CollectionEntry<'news'>[] => {
+    // Exclude the entry itself and every article already shown in the related
+    // block, so the two blocks on one page can never link the same article twice.
+    const excluded = new Set<string>([entry.id, ...related.map((item) => item.id)]);
+    const pool = visible.filter((candidate) => !excluded.has(candidate.id));
+    return shuffle(pool).slice(0, 3);
+  };
+
+  return visible.map((entry) => {
+    const related = relatedFor(entry);
+    return {
       params: { slug: entry.id },
-      props: { entry },
-    }));
+      props: { entry, related, random: randomFor(entry, related) },
+    };
+  });
 }
 
 interface Props {
   entry: CollectionEntry<'news'>;
+  related: CollectionEntry<'news'>[];
+  random: CollectionEntry<'news'>[];
 }
 
-const { entry } = Astro.props;
+const { entry, related, random } = Astro.props;
 const { title, description, pubDate, updatedDate, author, tags, cover, coverAlt, source } =
   entry.data;
 
@@ -151,11 +264,15 @@ const jsonLd = {
       )
     }
 
+    <StoryList id="related-title" title="Noticias relacionadas" entries={related} />
+
     <AdSlot />
 
     <nav class="article__back" aria-label="Volver a noticias">
       <a href="/noticias/">← Volver a noticias</a>
     </nav>
+
+    <StoryList id="random-title" title="Otras noticias" entries={random} />
   </div>
 </BaseLayout>
 

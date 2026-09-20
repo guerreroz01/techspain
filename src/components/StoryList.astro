@@ -1,0 +1,131 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  /**
+   * DOM id used by `aria-labelledby`. Required so one page can host more than
+   * one instance (related + random) without duplicate ids.
+   */
+  id: string;
+  title: string;
+  entries: CollectionEntry<'news'>[];
+}
+
+const { id, title, entries } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Precompute the per-item derived values once so the template stays declarative.
+// The caller decides which entries come in; this component only renders.
+const items = entries.map((entry) => ({
+  id: entry.id,
+  title: entry.data.title,
+  cover: entry.data.cover,
+  coverAlt: entry.data.coverAlt,
+  isoDate: entry.data.pubDate.toISOString(),
+  formattedDate: dateFormatter.format(entry.data.pubDate),
+}));
+---
+
+{
+  items.length > 0 && (
+    <section class="story-list" aria-labelledby={id}>
+      <h2 id={id} class="story-list__title">
+        {title}
+      </h2>
+      <ul class="story-list__items">
+        {items.map((item) => (
+          <li class="story-list__item">
+            {item.cover && (
+              <img
+                class="story-list__thumb"
+                src={item.cover.src}
+                alt={item.coverAlt ?? ''}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+            <div class="story-list__body">
+              <h3 class="story-list__item-title">
+                <a href={`/noticias/${item.id}/`}>{item.title}</a>
+              </h3>
+              <time class="story-list__date" datetime={item.isoDate}>
+                {item.formattedDate}
+              </time>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .story-list {
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: var(--border-width) solid var(--color-border);
+  }
+
+  .story-list__title {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .story-list__items {
+    display: grid;
+    gap: var(--space-5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .story-list__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .story-list__thumb {
+    flex: 0 0 auto;
+    width: var(--thumb-width-sm);
+    aspect-ratio: var(--aspect-thumb);
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .story-list__body {
+    min-width: 0;
+  }
+
+  .story-list__item-title {
+    font-size: var(--text-base);
+    line-height: var(--leading-tight);
+  }
+
+  .story-list__item-title a {
+    color: var(--color-text);
+  }
+
+  .story-list__item-title a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .story-list__date {
+    display: block;
+    margin-top: var(--space-1);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+</style>
