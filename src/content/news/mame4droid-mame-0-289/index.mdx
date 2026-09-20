@@ -1,0 +1,47 @@
+---
+title: 'MAME4droid 1.41.2 pone el foco en el NetPlay: el rollback llega a CPS-3 y a las partidas que antes se rompían'
+description: 'El porte de MAME para Android, basado en la versión 0.289 del emulador, mejora la estabilidad de las partidas en red, amplía el rollback a los juegos de CPS-3 y añade mensajes rápidos y una selección de BIOS más predecible.'
+pubDate: '2026-09-20'
+author: 'Redacción Tecnología Hoy'
+tags: ['Emuladores', 'Android', 'Arcade']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Logotipo de MAME, el emulador de recreativas, sobre fondo oscuro'
+source:
+  name: 'MAME4droid (seleuco)'
+  url: 'https://github.com/seleuco/MAME4droid-Current'
+---
+
+**MAME4droid** ha publicado la versión **1.41.2**, una actualización que no cambia el núcleo del emulador sino su faceta más social: las partidas en red. El proyecto, desarrollado por **David Valdeita (Seleuco)**, es un **porte de MAME para Android** construido sobre la versión **0.289** del emulador de referencia que mantienen MAMEDev y sus colaboradores. Además de las máquinas recreativas, cubre ordenadores clásicos como **ZX Spectrum, Amstrad CPC y MSX**, y su catálogo supera los **40.000 ROMs** compatibles.
+
+La actualización tiene un hilo conductor claro, el mismo que el autor resume en sus notas: mejorar la compatibilidad y la estabilidad del *rollback*, la técnica que hace que el NetPlay se sienta como dos personas jugando en la misma máquina en lugar de dos personas esperándose. Esta entrega se centra, sobre todo, en los juegos que no podían usarlo y en las sesiones que se deshacían a mitad de partida.
+
+## El rollback se extiende a CPS-3
+
+El cambio más llamativo afecta al hardware **CPS-3** de Capcom. Hasta ahora, títulos como **Street Fighter III** (incluido *3rd Strike* y las dos entregas anteriores), **JoJo's Bizarre Adventure** y **Red Earth** estaban atrapados en *Lockstep*, el modo de sincronización más simple y también el peor terreno posible para un juego de lucha. El motivo era el tamaño: para poder rebobinar, el rollback guarda decenas de instantáneas de la máquina en memoria, y una de CPS-3 era enorme porque arrastraba todo el juego cargado desde el disco. Ahora esas instantáneas dejan fuera lo que no cambia mientras se juega y conservan solo lo que el juego escribe, lo que permite encajar en memoria un estado que antes parecía imposible. Los juegos que ya cabían también se benefician: instantáneas más pequeñas implican menos memoria y menos trabajo en cada corrección.
+
+El autor añade que el anfitrión ahora **entrega su estado al jugador que se une por defecto**, de modo que los títulos que rechazaban el rollback porque no se podía confiar en que ambos arrancaran igual ya pueden calificar.
+
+## Sesiones que dejaban de romperse
+
+Las notas de la versión dedican buena parte del texto a fallos concretos de NetPlay:
+
+- **Unirse y resincronizar.** Una entrada en marcha o una resincronización a mitad de partida podían dejar una máquina congelada o al jugador que se unía ante una pantalla negra. El problema era que la instantánea se tomaba en el punto exacto en que estuviera la emulación, a veces a mitad de fotograma. Ahora se captura siempre al final de un fotograma, con el chip de vídeo ya terminado y la cola de interrupciones vacía, de modo que el estado que llega es uno desde el que la otra máquina puede continuar.
+- **Caídas breves de red.** Perder varios paquetes seguidos podía dejar un fotograma congelado como una suposición permanente, y las dos máquinas se iban separando en silencio. Ese fotograma ahora se vuelve a pedir al otro jugador y la sesión se repara por sí sola.
+- **Controles analógicos.** Parte del estado "vivo" de los mandos no viajaba en el rollback, así que los juegos con diales, *spinners* y palancas de cuatro direcciones podían dar saltos o quedarse con una lectura antigua tras una corrección. Ahora ese estado viaja con la partida.
+- **Selección de BIOS.** El selector de BIOS arrancaba en una versión arbitraria y, si se salía en lugar de elegir, publicaba la sala igualmente. Ahora empieza en la BIOS predeterminada del juego y salir cancela toda la operación.
+
+## Mensajes rápidos y otros detalles
+
+La versión anterior dejó claro que **no habría chat, y sigue sin haberlo**. En su lugar aparecen unos **mensajes rápidos** con una lista cerrada de frases —saludo, buena partida, un momento, insertar moneda y empezar, me tengo que ir—. Elegir una envía un número, no texto, y el dispositivo del otro jugador la muestra en su propio idioma: nada escrito, nada que moderar, nada almacenado. También se pueden silenciar los mensajes recibidos.
+
+Entre los ajustes menores, los diálogos arrancan con un botón sensato ya seleccionado para que un mando pueda recorrer el NetPlay sin tocar la pantalla, con **Desconectar** nunca preseleccionado y ahora situado al final del menú. El tablero de salas públicas muestra además los países con más actividad en una línea propia.
+
+Hay un aviso importante: **el protocolo de red ha cambiado**. Un dispositivo actualizado y otro antiguo se rechazarán al conectar, y es deliberado. Como explica el autor, la alternativa sería una sesión que parece correcta y se desmorona poco a poco.
+
+## Qué cambia para quien usa Android
+
+MAME4droid es un emulador, no una colección de juegos: **no incluye ROMs** ni material con derechos, y el usuario debe aportar sus propios conjuntos. Eso sí, la compatibilidad depende de usar el **romset 0.289** correspondiente a este núcleo. El proyecto recomienda guardar las ROMs en almacenamiento externo mediante el sistema *Scoped Storage* de Android para ahorrar espacio interno y acelerar el arranque; la ruta se puede cambiar luego en **Opciones > Ajustes > General > Change ROMs path**.
+
+Conviene moderar las expectativas con el hardware: pese a las optimizaciones, MAME sigue siendo un emulador exigente y los juegos de recreativa en 3D de finales de los noventa necesitan un dispositivo de gama alta para moverse a plena velocidad. El proyecto tampoco está afiliado oficialmente al equipo de MAMEDev, sino que es un desarrollo independiente con licencia **GPL v2**. Para los aficionados a la emulación en Android, esta entrega refuerza la parte que más fricción genera —jugar con otra persona— y deja el resto del trabajo pendiente de la próxima subida de versión del núcleo.

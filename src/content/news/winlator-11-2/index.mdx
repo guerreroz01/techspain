@@ -1,0 +1,37 @@
+---
+title: 'Winlator 11.2 apunta a los servicios en primer plano y afina su capa gráfica en Android'
+description: 'La nueva versión del emulador de Windows para Android añade una opción para ejecutarse como servicio en primer plano, mejoras de memoria para los juegos de Steam y ajustes en sus componentes gráficos Vortek y Gladio.'
+pubDate: '2026-09-20'
+author: 'Redacción Tecnología Hoy'
+tags: ['Emuladores', 'Android']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Logotipo de Winlator sobre fondo transparente'
+source:
+  name: 'Winlator'
+  url: 'https://github.com/brunodev85/winlator/releases/tag/v11.2.0'
+---
+
+Winlator es una aplicación para Android que permite ejecutar programas y juegos de Windows sobre una combinación de Wine y Box86/Box64, sin necesidad de un ordenador que haga *streaming*. El proyecto acaba de publicar su versión 11.2, la más reciente hasta la fecha, con un bloque de cambios orientado a dos frentes muy concretos: la estabilidad de la aplicación en el sistema móvil y la calidad de su capa de traducción gráfica.
+
+## Primer plano, memoria y Steam
+
+En el apartado más cercano al sistema operativo, la versión 11.2 incorpora una **opción para ejecutar Winlator como servicio en primer plano**, una contribución de [@Juan-Antonio-Doe](https://github.com/Juan-Antonio-Doe). Este modo ayuda a que Android trate la aplicación como una tarea prioritaria y no la descarte mientras un juego de Windows sigue en marcha, algo relevante en sesiones largas o al cambiar de app un momento.
+
+La lista de novedades incluye además una **opción para ahorrar memoria al ejecutar juegos desde Steam**, una mejora en la presentación de las imágenes renderizadas y la implementación de la **extensión XInput para la entrada directa** (*raw input*), la vía que usan muchos juegos de Windows para leer los mandos. Como parte del mantenimiento de dependencias, el proyecto actualizó el controlador Vulkan **Turnip de Mesa a la versión 26.2.0**, tomada de la rama de [@whitebelyash](https://github.com/whitebelyash).
+
+## Gráficos: qué cambia en Vortek y Gladio
+
+Las notas del lanzamiento recogen también los cambios que se probaron durante la fase beta y que llegan cerrados en esta entrega. Por un lado, se corrigió el **retraso de entrada de los mandos** (*input lag*) y se actualizó el emulador de x86_64 **Box64 a la versión 0.4.4**.
+
+Por otro, el trabajo se centró en los dos componentes que traducen las llamadas gráficas de Windows:
+
+- **Vortek** mejoró la decodificación de texturas, que no estaba gestionando bien los *mipmaps*, y sumó ajustes específicos para las GPU **Xclipse**.
+- **Gladio** incorporó una mejor manera de gestionar las texturas activas, mejoró la emulación de **OpenGL 1.x** —con *Half-Life* renderizando ya correctamente— y reforzó los programas de vértices y fragmentos **ARB**. El ejemplo citado es *Digimon Story: Cyber Sleuth*, un título que hace un uso intensivo de esa ruta y que ahora se muestra bien. También se añadieron correcciones en la compilación de *shaders* sobre GPU Xclipse.
+
+## Qué cambia para el usuario
+
+Ninguno de estos cambios convierte a Winlator en una máquina de jugar a todo: sigue siendo una capa de compatibilidad y su rendimiento depende mucho del chip gráfico del teléfono y de los controladores disponibles. La diferencia es más de grano fino. El modo en primer plano ataca un problema cotidiano —que el sistema mate la sesión en segundo plano—, el ahorro de memoria apunta a los títulos que llegan desde Steam y los ajustes de Vortek y Gladio amplían el catálogo de juegos que se ven y se controlan como es debido, con *Half-Life* y *Digimon Story: Cyber Sleuth* como casos concretos mencionados por el propio proyecto.
+
+Quien ya tenga Winlator instalado encontrará la actualización en el repositorio oficial del proyecto. Como en cualquier salto de versión de este tipo de herramientas, conviene revisar la configuración de cada contenedor después de actualizar: los cambios en los componentes gráficos pueden exigir reajustar los controladores asignados a cada juego.
