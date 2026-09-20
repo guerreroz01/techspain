@@ -30,12 +30,13 @@ import { GA, GA_ACTIVE } from '../consts';
           document.head.appendChild(tag);
         };
 
-        // A returning visitor who already accepted is tracked immediately.
-        try {
-          if (localStorage.getItem('consent-analytics') === 'granted') load();
-        } catch {
-          // Storage unavailable (private mode): keep analytics off.
-        }
+        /*
+         * The consent engine in BaseLayout resolves the stored decision (and
+         * migrates the legacy binary key) before this script runs, so the state
+         * is read from there. Only the analytics category gates GA4.
+         */
+        const consent = window.__consent;
+        if (consent && consent.state && consent.state.analytics === true) load();
 
         // In-page acceptance starts tracking without a reload.
         document.addEventListener('consent:granted', load);

@@ -1,14 +1,20 @@
 ---
-import { SITE, SOCIAL, GA_ACTIVE } from '../consts';
+import { SITE, SOCIAL, CONSENT_ACTIVE } from '../consts';
 
 const year = new Date().getFullYear();
+
+const LEGAL_LINKS = [
+  { label: 'Aviso legal', href: '/aviso-legal' },
+  { label: 'Privacidad', href: '/privacidad' },
+  { label: 'Cookies', href: '/cookies' },
+] as const;
 ---
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <p class="site-footer__copy">© {year} {SITE.author}</p>
 
-    <nav aria-label="Enlaces sociales">
+    <nav aria-label="Enlaces del sitio">
       <ul class="site-footer__links">
         {
           SOCIAL.map((item) => (
@@ -21,7 +27,14 @@ const year = new Date().getFullYear();
         }
         <li><a href="/rss.xml">RSS</a></li>
         {
-          GA_ACTIVE && (
+          LEGAL_LINKS.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+        {
+          CONSENT_ACTIVE && (
             <li>
               <button id="consent-reopen" class="site-footer__consent" type="button">
                 Configurar cookies
@@ -35,7 +48,7 @@ const year = new Date().getFullYear();
 </footer>
 
 {
-  GA_ACTIVE && (
+  CONSENT_ACTIVE && (
     <script is:inline>
       (() => {
         const button = document.getElementById('consent-reopen');

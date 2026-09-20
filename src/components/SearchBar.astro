@@ -1,0 +1,272 @@
+---
+// Title search bar shown under the header on every page.
+//
+// Without JavaScript the form is an honest fallback: a GET to the news archive
+// (`action="/noticias/" name="q"`). With JavaScript the article index is fetched
+// lazily on first interaction and filtered client-side, including articles that
+// live on other archive pages.
+---
+
+<div class="search-bar">
+  <div class="container">
+    <form class="search-bar__form" role="search" action="/noticias/" method="get">
+      <label class="sr-only" for="site-search-input">Buscar noticias por título</label>
+      <input
+        id="site-search-input"
+        class="search-bar__input"
+        type="search"
+        name="q"
+        placeholder="Buscar por título…"
+        autocomplete="off"
+        aria-controls="site-search-results"
+      />
+
+      <p id="site-search-status" class="sr-only" role="status" aria-live="polite"></p>
+
+      <div id="site-search-results" class="search-bar__panel" hidden>
+        <ul class="search-bar__list"></ul>
+        <p class="search-bar__empty" hidden></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  interface SearchEntry {
+    title: string;
+    url: string;
+  }
+
+  const MAX_RESULTS = 8;
+
+  /**
+   * Case- and accent-insensitive key. NFD splits accented characters into a
+   * base letter plus a combining mark, which the range below strips, so
+   * `emulación` and `emulacion` normalize to the same value.
+   */
+  const normalize = (value: string): string =>
+    value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+
+  const input = document.getElementById('site-search-input');
+  const panel = document.getElementById('site-search-results');
+  const status = document.getElementById('site-search-status');
+  const list = panel?.querySelector('ul');
+  const empty = panel?.querySelector('.search-bar__empty');
+  const form = input?.closest('form');
+
+  if (
+    input instanceof HTMLInputElement &&
+    panel instanceof HTMLElement &&
+    status instanceof HTMLElement &&
+    list instanceof HTMLUListElement &&
+    empty instanceof HTMLElement &&
+    form instanceof HTMLFormElement
+  ) {
+    // `null` until the index is requested; then a single shared promise so the
+    // fetch never runs twice.
+    let indexPromise: Promise<SearchEntry[]> | null = null;
+    let failed = false;
+    let requestId = 0;
+
+    const loadIndex = (): Promise<SearchEntry[]> => {
+      if (!indexPromise) {
+        indexPromise = fetch('/buscar.json')
+          .then((response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.json();
+          })
+          .then((data: unknown) =>
+            Array.isArray(data)
+              ? data.filter(
+                  (item): item is SearchEntry =>
+                    typeof item === 'object' &&
+                    item !== null &&
+                    typeof (item as SearchEntry).title === 'string' &&
+                    typeof (item as SearchEntry).url === 'string',
+                )
+              : [],
+          )
+          .catch(() => {
+            // Missing index must never break the page: hide the panel silently.
+            failed = true;
+            return [];
+          });
+      }
+      return indexPromise;
+    };
+
+    // Results are plain links, not `role="option"` widgets, so the input keeps
+    // its native `searchbox` semantics: announcing a combobox popup that has no
+    // listbox would mislead assistive tech. The live region carries the updates.
+    const open = (): void => {
+      panel.hidden = false;
+    };
+
+    const close = (): void => {
+      panel.hidden = true;
+      status.textContent = '';
+    };
+
+    const render = (entries: SearchEntry[], query: string): void => {
+      list.replaceChildren();
+
+      if (entries.length === 0) {
+        empty.textContent = `Sin resultados para «${query}»`;
+        empty.hidden = false;
+        status.textContent = `Sin resultados para «${query}»`;
+      } else {
+        empty.hidden = true;
+        status.textContent = `${entries.length} resultado${entries.length === 1 ? '' : 's'}`;
+
+        const fragment = document.createDocumentFragment();
+        for (const entry of entries) {
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = entry.url;
+          link.textContent = entry.title;
+          item.append(link);
+          fragment.append(item);
+        }
+        list.append(fragment);
+      }
+
+      open();
+    };
+
+    const update = async (): Promise<void> => {
+      const query = input.value.trim();
+      const needle = normalize(query);
+
+      if (!needle) {
+        close();
+        return;
+      }
+
+      if (failed) {
+        close();
+        return;
+      }
+
+      const currentRequest = ++requestId;
+      const entries = await loadIndex();
+
+      // A newer keystroke (or a failed load) supersedes this one.
+      if (currentRequest !== requestId || failed) return;
+      if (!input.value.trim()) return;
+
+      const matches = entries
+        .filter((entry) => normalize(entry.title).includes(needle))
+        .slice(0, MAX_RESULTS);
+
+      render(matches, query);
+    };
+
+    // Lazy: the index is only requested once the field is touched, never on
+    // page load.
+    input.addEventListener('focus', () => {
+      void loadIndex();
+    });
+
+    input.addEventListener('input', () => {
+      void update();
+    });
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        input.value = '';
+        close();
+        return;
+      }
+
+      if (event.key === 'ArrowDown' && !panel.hidden) {
+        const firstResult = list.querySelector('a');
+        if (firstResult) {
+          event.preventDefault();
+          firstResult.focus();
+        }
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !form.contains(event.target)) {
+        close();
+      }
+    });
+  }
+</script>
+
+<style>
+  .search-bar {
+    background-color: var(--color-bg);
+    border-bottom: var(--border-width) solid var(--color-border);
+  }
+
+  .search-bar__form {
+    position: relative;
+    padding-block: var(--space-3);
+  }
+
+  .search-bar__input {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    transition: border-color var(--transition-fast);
+  }
+
+  .search-bar__input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .search-bar__input:focus {
+    border-color: var(--color-accent);
+  }
+
+  .search-bar__panel {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    margin-top: var(--space-1);
+    padding: var(--space-2);
+    background-color: var(--color-bg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .search-bar__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Descendant selectors keep Astro's scoping on the static list element, so
+     the anchors created in JavaScript are styled too. */
+  .search-bar__list a {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
+  }
+
+  .search-bar__list a:hover,
+  .search-bar__list a:focus {
+    background-color: var(--color-surface);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .search-bar__empty {
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+</style>

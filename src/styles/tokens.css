@@ -77,6 +77,9 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
 
+  /* Modal backdrop for the cookie preferences dialog. */
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
   /* Extended tokens (kept here so no component hardcodes these values) */
   --border-width: 1px;
   --focus-width: 2px;
@@ -85,9 +88,10 @@
   --tracking-tight: -0.01em;
   --tracking-wide: 0.08em;
   --text-code: 0.9em;
-  /* Stacking order: the consent notice must sit above the skip link. */
+  /* Stacking order: notice above the skip link, dialog above the notice. */
   --z-skip-link: 100;
   --z-consent-banner: 200;
+  --z-consent-panel: 300;
   /* Stroke width for inline SVG icons. */
   --icon-stroke: 1.5;
 }

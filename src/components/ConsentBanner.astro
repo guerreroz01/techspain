@@ -1,48 +1,194 @@
 ---
-import { GA_ACTIVE } from '../consts';
+import { ADS_ACTIVE, GA_ACTIVE, CONSENT_ACTIVE } from '../consts';
 
-// The whole notice (markup, styles and script) is inert while analytics is off.
+// The whole notice (markup, dialog, styles and script) is inert when there is
+// no non-essential category to ask about.
 ---
 
 {
-  GA_ACTIVE && (
+  CONSENT_ACTIVE && (
     <>
       <div id="consent-banner" class="consent" role="region" aria-label="Aviso de cookies">
         <div class="consent__inner">
           <p class="consent__text">
-            Usamos cookies de análisis para medir cómo se usa el sitio. Podés aceptarlas o
-            rechazarlas; el contenido está disponible en ambos casos.
+            Usamos cookies propias y de terceros para analizar el uso del sitio
+            {ADS_ACTIVE ? ' y mostrar publicidad' : ''}. Puedes aceptarlas todas, rechazarlas
+            todas o configurar tus preferencias. El contenido está disponible en todos los casos.
           </p>
-          <button id="consent-reject" class="consent__button" type="button">
-            Rechazar
-          </button>
-          <button id="consent-accept" class="consent__button" type="button">
-            Aceptar
-          </button>
+          <div class="consent__actions">
+            <button id="consent-config" class="consent__link" type="button">
+              Configurar
+            </button>
+            <button id="consent-reject-all" class="consent__button" type="button">
+              Rechazar todas
+            </button>
+            <button id="consent-accept-all" class="consent__button" type="button">
+              Aceptar todas
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="consent-panel"
+        class="consent-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="consent-panel-title"
+        hidden
+      >
+        <div class="consent-panel__box">
+          <div class="consent-panel__header">
+            <h2 id="consent-panel-title" class="consent-panel__title">
+              Preferencias de cookies
+            </h2>
+            <button
+              id="consent-panel-close"
+              class="consent-panel__close"
+              type="button"
+              aria-label="Cerrar"
+            >
+              <svg
+                class="consent-panel__close-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M6 6l12 12M18 6L6 18"></path>
+              </svg>
+            </button>
+          </div>
+
+          <p class="consent-panel__intro">
+            Decide qué categorías quieres permitir. Las necesarias no se pueden desactivar porque
+            el sitio no funciona sin ellas. Puedes cambiar tu elección en cualquier momento desde
+            el enlace «Configurar cookies» del pie de página.
+          </p>
+
+          <ul class="consent-panel__list">
+            <li class="consent-panel__item">
+              <div class="consent-panel__info">
+                <label class="consent-panel__name" for="consent-cat-necessary">Necesarias</label>
+                <span class="consent-panel__desc" id="consent-cat-necessary-desc">
+                  Guardan tu decisión de cookies y tu preferencia de tema. No se envían a terceros.
+                </span>
+              </div>
+              <input
+                id="consent-cat-necessary"
+                class="consent-switch"
+                type="checkbox"
+                checked
+                disabled
+                aria-describedby="consent-cat-necessary-desc"
+              />
+            </li>
+
+            {
+              GA_ACTIVE && (
+                <li class="consent-panel__item">
+                  <div class="consent-panel__info">
+                    <label class="consent-panel__name" for="consent-cat-analytics">
+                      Analíticas
+                    </label>
+                    <span class="consent-panel__desc" id="consent-cat-analytics-desc">
+                      Google Analytics 4 mide de forma agregada qué páginas se visitan para
+                      mejorar el sitio. Solo se activa si la aceptas.
+                    </span>
+                  </div>
+                  <input
+                    id="consent-cat-analytics"
+                    class="consent-switch"
+                    type="checkbox"
+                    data-category="analytics"
+                    aria-describedby="consent-cat-analytics-desc"
+                  />
+                </li>
+              )
+            }
+
+            {
+              ADS_ACTIVE && (
+                <li class="consent-panel__item">
+                  <div class="consent-panel__info">
+                    <label class="consent-panel__name" for="consent-cat-advertising">
+                      Publicitarias
+                    </label>
+                    <span class="consent-panel__desc" id="consent-cat-advertising-desc">
+                      Permiten mostrar anuncios de Google AdSense y medir su rendimiento. Solo se
+                      activan si las aceptas.
+                    </span>
+                  </div>
+                  <input
+                    id="consent-cat-advertising"
+                    class="consent-switch"
+                    type="checkbox"
+                    data-category="advertising"
+                    aria-describedby="consent-cat-advertising-desc"
+                  />
+                </li>
+              )
+            }
+          </ul>
+
+          <p class="consent-panel__legal">
+            Consulta el detalle en la <a href="/cookies">política de cookies</a>.
+          </p>
+
+          <div class="consent-panel__actions">
+            <button id="consent-reject-all-panel" class="consent__button" type="button">
+              Rechazar todas
+            </button>
+            <button id="consent-accept-all-panel" class="consent__button" type="button">
+              Aceptar todas
+            </button>
+            <button id="consent-save" class="consent__button" type="button">
+              Guardar preferencias
+            </button>
+          </div>
         </div>
       </div>
 
       <script is:inline>
         (() => {
           const banner = document.getElementById('consent-banner');
-          if (!banner) return;
+          const panel = document.getElementById('consent-panel');
+          if (!banner || !panel) return;
 
           const root = document.documentElement;
+          const api = window.__consent || {};
+          const STORAGE_KEY = api.storageKey || 'consent-preferences';
+          const hasDecision = Boolean(api.state);
+
+          let state = api.state || {
+            necessary: true,
+            analytics: false,
+            advertising: false,
+            updatedAt: null,
+          };
+
+          const toggles = Array.from(panel.querySelectorAll('input[data-category]'));
+
+          const available = (category) =>
+            toggles.some((toggle) => toggle.dataset.category === category);
 
           /*
-           * Removes the GA4 cookies. GA4 names them `_ga` and `_ga_<CONTAINER>`
-           * and uses `cookie_domain: auto`, so the cookie is scoped to the
-           * registrable domain in production and is host-only on an IP literal.
-           * Every plausible scope is attempted; a browser silently ignores the
-           * ones that do not match or are invalid.
+           * Removes every cookie the predicate matches, sweeping all plausible
+           * scopes. GA4 uses `cookie_domain: auto`, so in production the cookie
+           * is scoped to the registrable domain while on an IP literal it is
+           * host-only. Cross-domain cookies (e.g. Google's own on
+           * google.com/doubleclick.net) are not visible to `document.cookie` and
+           * cannot be removed from here.
            */
-          const purgeAnalyticsCookies = () => {
-            if (!document.cookie.includes('_ga')) return;
-
+          const purgeCookies = (isMatch) => {
             const names = document.cookie
               .split(';')
               .map((cookie) => cookie.split('=')[0].trim())
-              .filter((name) => name === '_ga' || name.startsWith('_ga_'));
+              .filter((name) => name.length > 0 && isMatch(name));
+
+            if (names.length === 0) return;
 
             const labels = location.hostname.split('.');
             const domains = [];
@@ -58,58 +204,179 @@ import { GA_ACTIVE } from '../consts';
             }
           };
 
-          const decide = (value) => {
-            // Read the previous choice before overwriting it, so we can detect a
-            // withdrawal that requires clearing cookies already set.
-            let previous = null;
+          // GA4: `_ga` and `_ga_<CONTAINER>`.
+          const purgeAnalyticsCookies = () =>
+            purgeCookies((name) => name === '_ga' || name.startsWith('_ga_'));
+
+          /*
+           * Google advertising cookies (AdSense / Google Ads): `_gcl_*`,
+           * `_gac_*`, `_gads`, `__gads`, `__gpi`, `IDE` and `DSID`. `_ga` is
+           * also swept here because Google Ads can read it for measurement.
+           */
+          const purgeAdvertisingCookies = () =>
+            purgeCookies(
+              (name) =>
+                name === '_ga' ||
+                name.startsWith('_ga_') ||
+                name === '_gads' ||
+                name === 'IDE' ||
+                name === 'DSID' ||
+                name.startsWith('_gcl_') ||
+                name.startsWith('_gac_') ||
+                name.startsWith('__gads') ||
+                name.startsWith('__gpi'),
+            );
+
+          const persist = (next) => {
+            const updated = {
+              necessary: true,
+              analytics: next.analytics === true,
+              advertising: next.advertising === true,
+              updatedAt: new Date().toISOString(),
+            };
+
+            const previous = state;
+            state = updated;
+            api.state = updated;
+
             try {
-              previous = localStorage.getItem('consent-analytics');
-              localStorage.setItem('consent-analytics', value);
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
             } catch {
-              // Storage unavailable (private mode): the page keeps working.
+              // Storage unavailable (private mode): the session still works.
             }
 
-            // Hides the notice: visibility is driven by the CSS rule on this
-            // attribute, never toggled from JavaScript.
-            root.dataset.consent = value;
+            // Hides the notice: visibility is CSS-driven off this attribute.
+            root.dataset.consent = 'set';
 
-            if (value === 'granted') {
+            if (updated.analytics) {
               document.dispatchEvent(new CustomEvent('consent:granted'));
+            }
+            if (updated.advertising) {
+              document.dispatchEvent(new CustomEvent('consent:ads-granted'));
+            }
+
+            const analyticsWithdrawn = previous.analytics === true && !updated.analytics;
+            const advertisingWithdrawn = previous.advertising === true && !updated.advertising;
+
+            if (analyticsWithdrawn) purgeAnalyticsCookies();
+            if (advertisingWithdrawn) purgeAdvertisingCookies();
+
+            /*
+             * Withdrawal after a Google tag already ran. The tag is still live on
+             * this page and keeps rewriting its cookies, so purging here can lose
+             * the race: reload once. On the reloaded page the tag is absent and
+             * the authoritative purge below runs uncontested.
+             */
+            if (analyticsWithdrawn || advertisingWithdrawn) location.reload();
+          };
+
+          const acceptAll = () =>
+            persist({ analytics: available('analytics'), advertising: available('advertising') });
+
+          const rejectAll = () => persist({ analytics: false, advertising: false });
+
+          const readToggles = () => {
+            const next = { analytics: state.analytics, advertising: state.advertising };
+            for (const toggle of toggles) {
+              const category = toggle.dataset.category;
+              if (category === 'analytics' || category === 'advertising') {
+                next[category] = toggle.checked;
+              }
+            }
+            return next;
+          };
+
+          const syncToggles = () => {
+            for (const toggle of toggles) {
+              const category = toggle.dataset.category;
+              if (category === 'analytics') toggle.checked = state.analytics;
+              if (category === 'advertising') toggle.checked = state.advertising;
+            }
+          };
+
+          const on = (id, handler) => {
+            const element = document.getElementById(id);
+            if (element) element.addEventListener('click', handler);
+          };
+
+          on('consent-accept-all', acceptAll);
+          on('consent-reject-all', rejectAll);
+          on('consent-accept-all-panel', acceptAll);
+          on('consent-reject-all-panel', rejectAll);
+          on('consent-save', () => {
+            persist(readToggles());
+            closePanel();
+          });
+
+          // --- Preferences dialog (focus management + Escape) ---
+
+          let lastFocused = null;
+
+          const focusables = () =>
+            Array.from(
+              panel.querySelectorAll(
+                'button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+              ),
+            ).filter((element) => element instanceof HTMLElement);
+
+          function closePanel() {
+            panel.hidden = true;
+            if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+          }
+
+          const openPanel = () => {
+            lastFocused =
+              document.activeElement instanceof HTMLElement ? document.activeElement : null;
+            syncToggles();
+            panel.hidden = false;
+            const closeButton = document.getElementById('consent-panel-close');
+            const first = closeButton || focusables()[0];
+            if (first instanceof HTMLElement) first.focus();
+          };
+
+          on('consent-config', openPanel);
+          on('consent-panel-close', closePanel);
+
+          panel.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+              event.preventDefault();
+              closePanel();
               return;
             }
 
-            if (previous !== 'granted') return;
+            if (event.key !== 'Tab') return;
 
-            /*
-             * Withdrawal after analytics already ran. The tag is still live on
-             * this page and keeps rewriting its cookies, so purging here can
-             * lose the race: purge as a first pass, then reload. The tag is gone
-             * on the reloaded page, where the purge below runs uncontested.
-             */
-            purgeAnalyticsCookies();
-            location.reload();
-          };
+            const items = focusables();
+            if (items.length === 0) return;
+            const first = items[0];
+            const last = items[items.length - 1];
 
-          document.getElementById('consent-accept').addEventListener('click', () => decide('granted'));
-          document.getElementById('consent-reject').addEventListener('click', () => decide('denied'));
-
-          // Lets the footer control reopen the notice without rebinding handlers.
-          document.addEventListener('consent:reopen', () => {
-            root.dataset.consent = 'pending';
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first.focus();
+            }
           });
 
+          // Clicking the backdrop dismisses the dialog without saving.
+          panel.addEventListener('click', (event) => {
+            if (event.target === panel) closePanel();
+          });
+
+          // The footer control reopens the preferences dialog directly.
+          document.addEventListener('consent:reopen', openPanel);
+
           /*
-           * Authoritative purge. A visitor who has refused must not keep any GA4
-           * cookie, so sweep on every load; the tag is never started here, so
+           * Authoritative purge. A visitor who refused (or never accepted) must
+           * not keep third-party cookies; the tag is never started here, so
            * nothing re-creates what this removes.
            */
-          let stored = null;
-          try {
-            stored = localStorage.getItem('consent-analytics');
-          } catch {
-            // Storage unavailable: there is no stored decision to act on.
+          if (hasDecision) {
+            if (!state.analytics) purgeAnalyticsCookies();
+            if (!state.advertising) purgeAdvertisingCookies();
           }
-          if (stored === 'denied') purgeAnalyticsCookies();
         })();
       </script>
     </>
@@ -154,6 +421,13 @@ import { GA_ACTIVE } from '../consts';
     color: var(--color-text);
   }
 
+  .consent__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
   /*
    * Both choices deliberately share one class and identical styling: rejecting
    * must be as prominent and as easy as accepting (EDPB guidance, no dark
@@ -174,5 +448,186 @@ import { GA_ACTIVE } from '../consts';
   .consent__button:hover {
     border-color: var(--color-text-muted);
     color: var(--color-text-muted);
+  }
+
+  /* Opening the configurator is a secondary, equally easy path. */
+  .consent__link {
+    padding: var(--space-2);
+    background: none;
+    border: 0;
+    color: var(--color-text-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    text-decoration: underline;
+    text-underline-offset: var(--underline-offset);
+    cursor: pointer;
+  }
+
+  .consent__link:hover {
+    color: var(--color-text);
+  }
+
+  /* --- Preferences dialog --- */
+
+  .consent-panel {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-consent-panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background-color: var(--color-overlay);
+  }
+
+  .consent-panel[hidden] {
+    display: none;
+  }
+
+  .consent-panel__box {
+    width: 100%;
+    max-width: var(--container);
+    max-height: calc(100vh - var(--space-6));
+    overflow-y: auto;
+    padding: var(--space-5);
+    background-color: var(--color-bg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .consent-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-3);
+  }
+
+  .consent-panel__title {
+    margin: 0;
+    font-size: var(--text-xl);
+  }
+
+  .consent-panel__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2);
+    background: none;
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .consent-panel__close:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+  }
+
+  .consent-panel__close-icon {
+    width: var(--space-4);
+    height: var(--space-4);
+    stroke-width: var(--icon-stroke);
+  }
+
+  .consent-panel__intro {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .consent-panel__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: var(--border-width) solid var(--color-border);
+  }
+
+  .consent-panel__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: var(--space-4);
+    border-bottom: var(--border-width) solid var(--color-border);
+  }
+
+  .consent-panel__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .consent-panel__name {
+    font-size: var(--text-base);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .consent-panel__desc {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .consent-panel__legal {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .consent-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+
+  /* Real checkbox styled as a switch; the control stays keyboard-accessible. */
+  .consent-switch {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    flex: 0 0 auto;
+    width: var(--space-7);
+    height: var(--space-5);
+    margin: 0;
+    background-color: var(--color-border);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .consent-switch::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: var(--space-1);
+    margin-block: auto;
+    width: var(--space-4);
+    height: var(--space-4);
+    background-color: var(--color-bg);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    transition: inset-inline-start var(--transition-fast);
+  }
+
+  .consent-switch:checked {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .consent-switch:checked::before {
+    inset-inline-start: calc(100% - var(--space-4) - var(--space-1));
+  }
+
+  .consent-switch:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 </style>

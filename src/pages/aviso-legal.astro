@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { LEGAL, SITE } from '../consts';
+
+const description = `Información legal e identificación del titular de ${SITE.title}.`;
+---
+
+<BaseLayout title="Aviso legal" description={description} noindex>
+  <div class="container">
+    <article class="prose">
+      <h1>Aviso legal</h1>
+
+      <p>Última actualización: {LEGAL.updatedLabel}.</p>
+
+      <p>
+        Este aviso legal regula el acceso y el uso del sitio web <strong>{SITE.title}</strong>. La
+        navegación por el sitio atribuye la condición de usuario e implica la aceptación de las
+        condiciones que se describen a continuación.
+      </p>
+
+      <h2>1. Identificación del titular</h2>
+
+      <p>
+        En cumplimiento del deber de información establecido en la Ley 34/2002, de Servicios de la
+        Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se indican los datos
+        identificativos del titular del sitio:
+      </p>
+
+      <ul>
+        <li><strong>Titular:</strong> {LEGAL.owner}</li>
+        <li><strong>NIF:</strong> {LEGAL.taxId}</li>
+        <li><strong>Domicilio:</strong> {LEGAL.address}</li>
+        <li>
+          <strong>Correo electrónico de contacto:</strong>
+          <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>
+        </li>
+        <li><strong>País:</strong> {LEGAL.country}</li>
+      </ul>
+
+      <h2>2. Objeto</h2>
+
+      <p>
+        {SITE.title} es un portal informativo de noticias de tecnología en español. Su finalidad es
+        publicar y difundir información de actualidad sobre inteligencia artificial, hardware,
+        software, dispositivos y la industria tecnológica en general.
+      </p>
+
+      <p>
+        El acceso al sitio es libre y gratuito y no requiere registro previo. No existe área de
+        usuarios, formularios de contacto ni servicios de pago.
+      </p>
+
+      <h2>3. Condiciones de uso</h2>
+
+      <p>El usuario se compromete a utilizar el sitio de forma lícita y conforme a este aviso. En particular, se abstendrá de:</p>
+
+      <ul>
+        <li>Realizar un uso que pueda dañar, inutilizar o sobrecargar el sitio o impedir su normal funcionamiento.</li>
+        <li>Intentar acceder a áreas restringidas, sistemas o redes vinculados al sitio sin autorización.</li>
+        <li>Reproducir, copiar o distribuir los contenidos con fines comerciales sin autorización expresa del titular.</li>
+        <li>Introducir virus, código malicioso o cualquier elemento susceptible de causar daños.</li>
+      </ul>
+
+      <h2>4. Propiedad intelectual e industrial</h2>
+
+      <p>
+        Los contenidos originales de {SITE.title} —textos, estructura, diseño, código fuente y
+        elementos gráficos propios— están protegidos por la normativa de propiedad intelectual e
+        industrial y pertenecen a su titular o se utilizan con autorización.
+      </p>
+
+      <p>
+        Las noticias publicadas se elaboran a partir de informaciones difundidas por otros medios y
+        fuentes públicas. Los textos se <strong>reescriben y resumen</strong> en español y cada
+        pieza incluye la <strong>atribución explícita</strong> al medio original del que procede la
+        información. No se reproduce de forma literal el contenido de terceros.
+      </p>
+
+      <p>
+        Las marcas, nombres comerciales, logotipos y demás signos distintivos que puedan aparecer
+        en el sitio pertenecen a sus respectivos titulares y se mencionan únicamente con finalidad
+        informativa o de identificación.
+      </p>
+
+      <h2>5. Responsabilidad</h2>
+
+      <p>
+        El titular pone el máximo cuidado en que la información publicada sea veraz y esté
+        actualizada, pero no garantiza la ausencia de errores ni la exactitud completa de los
+        contenidos, que se ofrecen con finalidad informativa general y no constituyen asesoramiento
+        profesional de ningún tipo.
+      </p>
+
+      <p>
+        El titular no se responsabiliza de las decisiones que el usuario adopte a partir de la
+        información publicada ni de los daños derivados de un uso inadecuado del sitio. Tampoco
+        responde de las interrupciones, errores o fallos técnicos ajenos a su control que puedan
+        afectar temporalmente a la disponibilidad del servicio.
+      </p>
+
+      <h2>6. Enlaces externos</h2>
+
+      <p>
+        El sitio incluye enlaces a páginas de terceros, principalmente a los medios originales que
+        sirven de fuente a las noticias. El titular no controla esos sitios ni responde de sus
+        contenidos, políticas de privacidad o prácticas. La inclusión de un enlace no implica
+        aprobación ni relación alguna con el sitio enlazado.
+      </p>
+
+      <h2>7. Legislación aplicable y jurisdicción</h2>
+
+      <p>
+        Este aviso legal se rige por la legislación española, en particular por la LSSI-CE, la Ley
+        Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales
+        (LOPDGDD), y el Reglamento (UE) 2016/679 (RGPD).
+      </p>
+
+      <p>
+        Para la resolución de cualquier controversia derivada del uso del sitio serán competentes
+        los juzgados y tribunales de {LEGAL.jurisdiction}, salvo que la normativa de consumo
+        aplicable establezca otro fuero.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

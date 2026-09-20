@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { LEGAL, SITE } from '../consts';
+
+const description = `Política de privacidad de ${SITE.title}: qué datos se tratan, con qué finalidad y cómo ejercer tus derechos.`;
+---
+
+<BaseLayout title="Política de privacidad" description={description} noindex>
+  <div class="container">
+    <article class="prose">
+      <h1>Política de privacidad</h1>
+
+      <p>Última actualización: {LEGAL.updatedLabel}.</p>
+
+      <p>
+        Esta política explica qué datos personales se tratan al visitar {SITE.title}, con qué
+        finalidad, sobre qué base jurídica y cómo puedes ejercer tus derechos. Se aplica el
+        Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).
+      </p>
+
+      <h2>1. Responsable del tratamiento</h2>
+
+      <ul>
+        <li><strong>Responsable:</strong> {LEGAL.owner}</li>
+        <li><strong>NIF:</strong> {LEGAL.taxId}</li>
+        <li><strong>Domicilio:</strong> {LEGAL.address}</li>
+        <li>
+          <strong>Correo electrónico:</strong>
+          <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>
+        </li>
+      </ul>
+
+      <h2>2. Qué datos se tratan</h2>
+
+      <p>
+        El sitio es un portal informativo estático. <strong>No hay formularios, registro, cuentas
+        de usuario ni área privada</strong>, por lo que no se solicitan ni almacenan datos
+        identificativos como nombre, documento, dirección postal o teléfono. Los datos que pueden
+        tratarse son los siguientes:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Datos de navegación y registros del servicio.</strong> Al acceder al sitio, el
+          proveedor de alojamiento registra datos técnicos de la petición, como la dirección IP, el
+          agente de usuario (navegador y sistema operativo), la página solicitada, la fecha y hora y
+          el sitio de procedencia. Se utilizan para servir el contenido, mantener la seguridad y
+          detectar abusos.
+        </li>
+        <li>
+          <strong>Analítica con Google Analytics 4 (solo con consentimiento).</strong> Si aceptas la
+          categoría analítica, se tratan identificadores en línea, páginas visitadas, duración de la
+          visita, navegador y sistema operativo, idioma y una ubicación aproximada derivada de la
+          dirección IP. Google Analytics 4 está configurado para no almacenar la dirección IP
+          completa.
+        </li>
+        <li>
+          <strong>Vercel Web Analytics.</strong> El alojamiento incluye una analítica propia que
+          funciona <strong>sin cookies</strong> y sin identificadores persistentes, y que ofrece
+          métricas agregadas (por ejemplo, número de visitas y páginas más vistas). No permite
+          identificar a una persona concreta ni hacer seguimiento entre sitios.
+        </li>
+      </ul>
+
+      <p>
+        No se tratan categorías especiales de datos ni se elaboran perfiles con fines distintos de
+        los aquí descritos.
+      </p>
+
+      <h2>3. Finalidades y bases jurídicas</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Finalidad</th>
+            <th>Base jurídica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mostrar el sitio y mantener su seguridad, disponibilidad y protección frente a usos abusivos a partir de los registros técnicos.</td>
+            <td>Interés legítimo del responsable (art. 6.1.f RGPD).</td>
+          </tr>
+          <tr>
+            <td>Medir de forma agregada el uso del sitio mediante Google Analytics 4.</td>
+            <td>Tu consentimiento (art. 6.1.a RGPD y art. 22.2 LSSI-CE).</td>
+          </tr>
+          <tr>
+            <td>Mostrar y medir publicidad mediante Google AdSense, cuando esta función esté activada.</td>
+            <td>Tu consentimiento (art. 6.1.a RGPD y art. 22.2 LSSI-CE).</td>
+          </tr>
+          <tr>
+            <td>Guardar tu decisión sobre cookies y tu preferencia de tema en el almacenamiento local del navegador.</td>
+            <td>Estrictamente necesaria para prestar el servicio solicitado, exenta de consentimiento (art. 22.2 LSSI-CE).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Puedes retirar el consentimiento en cualquier momento sin que ello afecte a la licitud del
+        tratamiento realizado antes de la retirada.
+      </p>
+
+      <h2>4. Destinatarios y transferencias internacionales</h2>
+
+      <p>Los datos pueden ser tratados por los siguientes proveedores, que actúan como encargados del tratamiento o como responsables independientes según el servicio:</p>
+
+      <ul>
+        <li>
+          <strong>Google LLC / Google Ireland Limited</strong>, por el uso de Google Analytics 4 y,
+          cuando se active, Google AdSense.
+        </li>
+        <li>
+          <strong>Vercel Inc.</strong>, por el alojamiento del sitio y la analítica web sin cookies.
+        </li>
+      </ul>
+
+      <p>
+        Estos proveedores están establecidos en Estados Unidos, por lo que pueden producirse
+        <strong>transferencias internacionales de datos fuera del Espacio Económico Europeo</strong>.
+        Dichas transferencias se amparan en el Marco de Privacidad de Datos UE–EE. UU. (EU-US Data
+        Privacy Framework), al que están adheridas las entidades certificadas, y/o en las cláusulas
+        contractuales tipo aprobadas por la Comisión Europea. Puedes consultar más información en
+        las políticas de privacidad de Google y de Vercel.
+      </p>
+
+      <p>No se ceden datos a terceros con finalidades distintas de las indicadas, salvo obligación legal.</p>
+
+      <h2>5. Plazos de conservación</h2>
+
+      <ul>
+        <li>
+          <strong>Decisión sobre cookies:</strong> se conserva en tu navegador hasta que la cambies
+          o la borres.
+        </li>
+        <li>
+          <strong>Google Analytics 4 (cookies):</strong> hasta dos años desde tu última visita,
+          según la configuración de Google.
+        </li>
+        <li>
+          <strong>Datos de eventos de Google Analytics 4:</strong> el periodo de retención
+          configurado en la herramienta (por defecto, 14 meses).
+        </li>
+        <li>
+          <strong>Registros del proveedor de alojamiento:</strong> durante el plazo técnico
+          necesario para la seguridad y el funcionamiento del servicio.
+        </li>
+        <li>
+          <strong>Vercel Web Analytics:</strong> datos agregados, sin identificadores personales,
+          conservados según la configuración del proveedor.
+        </li>
+      </ul>
+
+      <h2>6. Tus derechos</h2>
+
+      <p>
+        Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del
+        tratamiento y portabilidad escribiendo a
+        <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>. La solicitud debe indicar el derecho que
+        quieres ejercer y adjuntar la información necesaria para identificarte. Responderemos en el
+        plazo máximo de un mes.
+      </p>
+
+      <p>
+        Si consideras que el tratamiento no se ajusta a la normativa, puedes presentar una
+        reclamación ante la Agencia Española de Protección de Datos (AEPD) a través de su sede
+        electrónica, <a href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">www.aepd.es</a>,
+        especialmente si no has obtenido respuesta satisfactoria al ejercer tus derechos.
+      </p>
+
+      <h2>7. Cómo retirar el consentimiento</h2>
+
+      <p>
+        Puedes cambiar o retirar tu consentimiento en cualquier momento desde el botón
+        <strong>«Configurar cookies»</strong> del pie de página. Al rechazar las cookies analíticas o
+        publicitarias se eliminan las cookies correspondientes que ya estuvieran instaladas. Encontrarás
+        el inventario detallado en la <a href="/cookies">política de cookies</a>.
+      </p>
+
+      <h2>8. Menores de edad</h2>
+
+      <p>
+        El sitio se dirige a un público general y no está diseñado para menores de 14 años. No se
+        recogen conscientemente datos de menores de esa edad. Si eres padre, madre o tutor y crees
+        que un menor nos ha facilitado datos, escríbenos para solicitar su supresión.
+      </p>
+
+      <h2>9. Cambios en esta política</h2>
+
+      <p>
+        Esta política puede actualizarse para adaptarse a cambios normativos o técnicos. La fecha de
+        la última revisión figura al comienzo del documento. Te recomendamos consultarla
+        periódicamente.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

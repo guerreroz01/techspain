@@ -17,7 +17,11 @@ const showDevPlaceholder = import.meta.env.DEV;
 {
   ADS.enabled && (
     <aside class="ad-slot" aria-label={label}>
-      {/* AdSense unit. Requires the loader script in BaseLayout to be enabled. */}
+      {/*
+        AdSense unit. `GoogleAds.astro` loads adsbygoogle.js after the visitor
+        accepts the advertising category and pushes every `.adsbygoogle` unit,
+        so no extra script is needed here.
+      */}
       <ins
         class="adsbygoogle"
         style="display:block"
@@ -26,10 +30,6 @@ const showDevPlaceholder = import.meta.env.DEV;
         data-ad-format={format}
         data-full-width-responsive="true"
       />
-      {/*
-        AdSense requires a push call after each <ins> unit exists in the DOM:
-        <script is:inline>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      */}
     </aside>
   )
 }

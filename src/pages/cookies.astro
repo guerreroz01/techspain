@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { LEGAL, SITE } from '../consts';
+
+const description = `Política de cookies de ${SITE.title}: inventario, finalidad, base legal y cómo aceptar, rechazar o revocar el consentimiento.`;
+---
+
+<BaseLayout title="Política de cookies" description={description} noindex>
+  <div class="container">
+    <article class="prose">
+      <h1>Política de cookies</h1>
+
+      <p>Última actualización: {LEGAL.updatedLabel}.</p>
+
+      <h2>1. Qué son las cookies y tecnologías similares</h2>
+
+      <p>
+        Las cookies son pequeños archivos que un sitio web guarda en tu dispositivo y que permiten
+        recordar información entre visitas. Junto a ellas existen otras tecnologías de
+        almacenamiento local, como <code>localStorage</code>, con una finalidad equivalente.
+      </p>
+
+      <p>
+        Este sitio utiliza <code>localStorage</code> para recordar tu decisión sobre cookies y tu
+        preferencia de tema (claro u oscuro). Ese almacenamiento no se envía al servidor en cada
+        petición y no es accesible por terceros.
+      </p>
+
+      <h2>2. Base legal</h2>
+
+      <p>
+        De acuerdo con el artículo 22.2 de la Ley 34/2002 (LSSI-CE), el uso de cookies y
+        almacenamiento local que no sea estrictamente necesario para prestar el servicio solicitado
+        requiere tu consentimiento previo, informado y configurable. Ese consentimiento se recoge a
+        través del aviso de cookies y puede limitarse o retirarse por categorías.
+      </p>
+
+      <p>
+        El almacenamiento estrictamente necesario (tu decisión de cookies y la preferencia de tema)
+        está exento de consentimiento porque sin él el servicio no puede funcionar correctamente.
+      </p>
+
+      <h2>3. Inventario de cookies y almacenamiento</h2>
+
+      <h3>Necesarias (siempre activas)</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Proveedor</th>
+            <th>Finalidad</th>
+            <th>Duración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>consent-preferences</code> (localStorage)</td>
+            <td>Propio</td>
+            <td>Guarda tu decisión de consentimiento por categorías y la fecha en que la tomaste.</td>
+            <td>Hasta que la borres o la cambies.</td>
+          </tr>
+          <tr>
+            <td><code>theme</code> (localStorage)</td>
+            <td>Propio</td>
+            <td>Recuerda si prefieres el tema claro u oscuro.</td>
+            <td>Hasta que la borres.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Analíticas (solo si las aceptas)</h3>
+
+      <p>
+        Se activan únicamente si aceptas la categoría «Analíticas». Google Analytics 4 usa
+        <code>cookie_domain: auto</code>, de modo que en producción las cookies se fijan para el
+        dominio <code>.techspain24.com</code> (y no solo para el host concreto).
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Proveedor</th>
+            <th>Finalidad</th>
+            <th>Duración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>_ga</code></td>
+            <td>Google Analytics 4</td>
+            <td>Distingue a los usuarios mediante un identificador seudónimo generado aleatoriamente.</td>
+            <td>Hasta 2 años.</td>
+          </tr>
+          <tr>
+            <td><code>_ga_&lt;ID&gt;</code></td>
+            <td>Google Analytics 4</td>
+            <td>Mantiene el estado de la sesión asociado al identificador del contenedor.</td>
+            <td>Hasta 2 años.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Publicitarias (solo si se activan los anuncios y las aceptas)</h3>
+
+      <p>
+        Esta categoría solo aparece y se activa cuando la publicidad de Google AdSense está
+        habilitada en el sitio. En ese caso, y únicamente con tu consentimiento, Google puede usar
+        cookies propias y de terceros para mostrar y medir anuncios:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Proveedor</th>
+            <th>Finalidad</th>
+            <th>Duración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>_gcl_*</code>, <code>_gcl_au</code>, <code>_gac_*</code></td>
+            <td>Google Ads</td>
+            <td>Atribución de conversiones y medición de la interacción con los anuncios.</td>
+            <td>Hasta 90 días, según el tipo.</td>
+          </tr>
+          <tr>
+            <td><code>IDE</code>, <code>DSID</code></td>
+            <td>Google / DoubleClick</td>
+            <td>Medición y personalización de anuncios.</td>
+            <td>Hasta 13 meses.</td>
+          </tr>
+          <tr>
+            <td><code>__gads</code>, <code>__gpi</code>, <code>_gads</code></td>
+            <td>Google AdSense</td>
+            <td>Frecuencia, medición y control de los anuncios mostrados en el sitio.</td>
+            <td>Hasta 13 meses.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Las denominaciones y duraciones concretas pueden variar según la configuración de Google.
+        Puedes consultar el detalle en la política de cookies de Google.
+      </p>
+
+      <h3>Vercel Web Analytics</h3>
+
+      <p>
+        El proveedor de alojamiento incluye una analítica propia que <strong>no utiliza
+        cookies</strong> ni identificadores persistentes. Ofrece métricas agregadas y no permite
+        identificar ni seguir a una persona concreta entre sitios, por lo que no se incluye en el
+        inventario de cookies ni requiere consentimiento para su uso con cookies.
+      </p>
+
+      <h2>4. Cómo aceptar, rechazar o configurar</h2>
+
+      <p>
+        En la primera visita aparece un aviso con tres opciones: <strong>«Aceptar todas»</strong>,
+        <strong>«Rechazar todas»</strong> y <strong>«Configurar»</strong>. Rechazar tiene la misma
+        facilidad y visibilidad que aceptar. Desde «Configurar» puedes activar o desactivar cada
+        categoría de forma individual y guardar tus preferencias.
+      </p>
+
+      <p>
+        El sitio funciona con normalidad tanto si aceptas como si rechazas: el contenido está
+        disponible en todos los casos.
+      </p>
+
+      <h2>5. Cómo cambiar o retirar tu consentimiento</h2>
+
+      <p>
+        Puedes revisar tu elección en cualquier momento desde el botón
+        <strong>«Configurar cookies»</strong> del pie de página. Al pasar a denegado una categoría,
+        se eliminan las cookies correspondientes que ya estuvieran instaladas en el dominio del
+        sitio.
+      </p>
+
+      <p>
+        Ten en cuenta que las cookies propias de dominios de terceros (por ejemplo, las que Google
+        fija en sus propios dominios) no son visibles ni eliminables desde este sitio; puedes
+        gestionarlas desde la configuración de tu navegador. Encontrarás más información sobre el
+        tratamiento de datos en la <a href="/privacidad">política de privacidad</a>.
+      </p>
+
+      <h2>6. Cómo bloquear o eliminar cookies desde el navegador</h2>
+
+      <p>
+        Todos los navegadores permiten bloquear o eliminar cookies y datos de sitios web. La opción
+        suele encontrarse en el apartado de privacidad o seguridad de los ajustes. También puedes
+        borrar el almacenamiento local del sitio para eliminar tu preferencia de tema y tu decisión
+        de cookies.
+      </p>
+
+      <p>
+        Si bloqueas las cookies necesarias, es posible que el sitio no recuerde tu decisión ni tu
+        tema preferido. La información publicada seguirá siendo accesible.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

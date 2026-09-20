@@ -1,9 +1,11 @@
 ---
 import Analytics from '@vercel/analytics/astro';
-import { SITE, GA_ACTIVE } from '../consts';
+import { SITE, CONSENT, CONSENT_ACTIVE } from '../consts';
 import Header from '../components/Header.astro';
+import SearchBar from '../components/SearchBar.astro';
 import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleAds from '../components/GoogleAds.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
 import '../styles/global.css';
 
@@ -12,6 +14,17 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  /**
+   * Emits `<meta name="robots" content="noindex, follow">`. Used by the legal
+   * pages (`/aviso-legal`, `/privacidad`, `/cookies`), which are also filtered
+   * out of the sitemap in `astro.config.mjs`.
+   *
+   * These paths are deliberately NOT disallowed in `public/robots.txt`: a
+   * crawler that is blocked from fetching the page never reads this tag, so
+   * disallowing would keep the URLs eligible for indexing as bare links. The
+   * meta tag is the mechanism that actually keeps them out of the index.
+   */
+  noindex?: boolean;
 }
 
 const {
@@ -19,6 +32,7 @@ const {
   description = SITE.description,
   image,
   type = 'website',
+  noindex = false,
 } = Astro.props;
 
 const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
@@ -39,6 +53,7 @@ const rssHref = new URL('rss.xml', siteBase).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {noindex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content={type} />
@@ -86,21 +101,61 @@ const rssHref = new URL('rss.xml', siteBase).href;
 
     <!--
       Cookie-consent init. Runs before paint so the notice state is correct on
-      the first frame. Fail closed: if storage is unavailable we show the notice
-      and load nothing.
+      the first frame, and it is the single place where the stored decision is
+      parsed and the legacy binary key (`consent-analytics`) is migrated. Fail
+      closed: if storage is unavailable we show the notice and load nothing.
+
+      The resolved state is shared through `window.__consent.state` so the GA4,
+      AdSense and preferences scripts never re-implement the migration.
     -->
     {
-      GA_ACTIVE && (
-        <script is:inline>
+      CONSENT_ACTIVE && (
+        <script is:inline define:vars={{ storageKey: CONSENT.storageKey, legacyKey: CONSENT.legacyKey }}>
           (() => {
-            try {
-              const stored = localStorage.getItem('consent-analytics');
-              if (stored !== 'granted' && stored !== 'denied') {
-                document.documentElement.dataset.consent = 'pending';
+            const root = document.documentElement;
+
+            // Returns the stored decision or null when there is none yet.
+            const readState = () => {
+              try {
+                const raw = localStorage.getItem(storageKey);
+                if (raw) {
+                  const parsed = JSON.parse(raw);
+                  if (parsed && typeof parsed === 'object') {
+                    return {
+                      necessary: true,
+                      analytics: parsed.analytics === true,
+                      advertising: parsed.advertising === true,
+                      updatedAt: typeof parsed.updatedAt === 'string' ? parsed.updatedAt : null,
+                    };
+                  }
+                }
+
+                // Migration: the previous notice stored a single binary value.
+                const legacy = localStorage.getItem(legacyKey);
+                if (legacy !== 'granted' && legacy !== 'denied') return null;
+
+                const migrated = {
+                  necessary: true,
+                  analytics: legacy === 'granted',
+                  advertising: false,
+                  updatedAt: new Date().toISOString(),
+                };
+                localStorage.setItem(storageKey, JSON.stringify(migrated));
+                localStorage.removeItem(legacyKey);
+                return migrated;
+              } catch {
+                // Storage unavailable (private mode): behave as undecided.
+                return null;
               }
-            } catch {
-              document.documentElement.dataset.consent = 'pending';
-            }
+            };
+
+            const state = readState();
+
+            // Shared with the GA4/AdSense loaders and the preferences dialog.
+            window.__consent = { state, storageKey };
+
+            // `pending` shows the notice (CSS-driven); `set` hides it.
+            root.dataset.consent = state ? 'set' : 'pending';
           })();
         </script>
       )
@@ -108,9 +163,15 @@ const rssHref = new URL('rss.xml', siteBase).href;
 
     <!--
       Google Analytics 4. Only injects the Google tag after the visitor accepts
-      the cookie notice; no request is made and no cookie is set before that.
+      the analytics category; no request is made and no cookie is set before that.
     -->
     <GoogleAnalytics />
+
+    <!--
+      Google AdSense. Inert until `ADS.enabled` is true; when it is, the loader
+      only injects after the visitor accepts the advertising category.
+    -->
+    <GoogleAds />
 
     <!--
       Vercel Web Analytics. Requires Analytics to be enabled for the project in
@@ -124,6 +185,8 @@ const rssHref = new URL('rss.xml', siteBase).href;
 
     <Header />
 
+    <SearchBar />
+
     <main id="main">
       <slot />
     </main>
@@ -131,21 +194,5 @@ const rssHref = new URL('rss.xml', siteBase).href;
     <Footer />
 
     <ConsentBanner />
-
-    <!--
-      AdSense loader.
-
-      To activate ads:
-        1. Set `ADS.enabled = true` and `ADS.client = 'ca-pub-XXXXXXXXXXXXXXXX'`
-           in `src/consts.ts`.
-        2. Uncomment the script below and replace the client id placeholder.
-
-      <script
-        is:inline
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-        crossorigin="anonymous"
-      ></script>
-    -->
   </body>
 </html>

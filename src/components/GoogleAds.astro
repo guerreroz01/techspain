@@ -1,0 +1,51 @@
+---
+import { ADS, ADS_ACTIVE } from '../consts';
+
+// Inert until `ADS.enabled` is true AND a publisher id is set. The loader only
+// runs after the visitor accepts the advertising category, and it pushes every
+// <ins class="adsbygoogle"> unit already present on the page. Enabling ads is a
+// single switch in `src/consts.ts`; nothing here needs to be uncommented.
+---
+
+{
+  ADS_ACTIVE && (
+    <script is:inline define:vars={{ client: ADS.client }}>
+      (() => {
+        let loaded = false;
+
+        // AdSense requires one push per unit after the loader is ready.
+        const pushUnits = () => {
+          const units = document.querySelectorAll('.adsbygoogle');
+          for (let i = 0; i < units.length; i++) {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          }
+        };
+
+        const load = () => {
+          if (loaded) return;
+          loaded = true;
+
+          const tag = document.createElement('script');
+          tag.async = true;
+          tag.crossOrigin = 'anonymous';
+          tag.src =
+            'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' +
+            encodeURIComponent(client);
+          document.head.appendChild(tag);
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', pushUnits, { once: true });
+          } else {
+            pushUnits();
+          }
+        };
+
+        // Only the advertising category gates the AdSense loader.
+        const consent = window.__consent;
+        if (consent && consent.state && consent.state.advertising === true) load();
+
+        document.addEventListener('consent:ads-granted', load);
+      })();
+    </script>
+  )
+}

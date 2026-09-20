@@ -60,6 +60,10 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [
     sitemap({
+      // Legal pages are linked from the footer but deliberately kept out of the
+      // sitemap (explicit editorial request). They stay crawlable: no noindex.
+      filter: (page) =>
+        !/^\/(aviso-legal|privacidad|cookies)\/$/.test(new URL(page).pathname),
       serialize(item) {
         const { pathname } = new URL(item.url);
 
