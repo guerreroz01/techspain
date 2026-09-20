@@ -23,6 +23,7 @@ Load this skill when the user asks to write or publish a technology news article
 - Never invent facts, quotes, numbers, or dates. Every claim must trace to a source listed in `src/data/sources.json`.
 - Respect source terms: VideoCardz forbids automated scraping; use only the `rss` field where present, otherwise read the homepage manually.
 - Follow the content model in `AGENTS.md` §6 and the template in `assets/frontmatter-template.md`.
+- After drafting, run the pre-publish SEO pass on the finished `index.mdx` (the `seo-audit` skill's article contract, `references/article-seo.md`). The pass never touches `title`, `tags`, `featured`, `breaking` or `pubDate`, and never runs the build.
 
 ## Piece Types
 
@@ -55,8 +56,9 @@ Common to both piece types:
 1. Load `src/data/sources.json` and read the layer definitions.
 2. Select the pieces worth publishing. For each, create `src/content/news/<slug>/assets/` and download every content image there (first image as `cover`).
 3. Write `src/content/news/<slug>/index.mdx` using `assets/frontmatter-template.md`, referencing `./assets/<name>` for the cover and embedding extra images inline.
-4. Set `draft: false` and fill `source` with the ultimate origin.
-5. Run `npm run build` and confirm it passes. When articles are delegated, the orchestrator runs a single build at the end; a subagent never runs it.
+4. Run the pre-publish SEO pass on the finished `index.mdx`: load the resolved article SEO contract, apply the fixes it returns, and record what changed.
+5. Set `draft: false` and fill `source` with the ultimate origin.
+6. Run `npm run build` and confirm it passes. When articles are delegated, the orchestrator runs a single build at the end; a subagent never runs it.
 
 News path (`noticia`):
 
@@ -77,10 +79,11 @@ Tutorial path (`tutorial`):
 
 ## Output Contract
 
-Return: the list of created files (articles and downloaded images); for each article the ultimate origin used and the original article URL(s); and confirmation the build passed. Do not report an article as done without a valid MDX file and a passing build.
+Return: the list of created files (articles and downloaded images); for each article the ultimate origin used and the original article URL(s); the SEO changes applied, one line per change; and confirmation the build passed. Do not report an article as done without a valid MDX file and a passing build.
 
 ## References
 
 - `assets/frontmatter-template.md` — required frontmatter, body-image handling, and a worked example.
+- `seo-audit` skill, `references/article-seo.md` — single-article pre-publish SEO refinement contract.
 - `../../AGENTS.md` — §6 content model, §7 adding an article.
 - `../../src/data/sources.json` — the curated source list (6 layers).
