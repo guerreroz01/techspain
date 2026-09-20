@@ -1,16 +1,17 @@
 {
   "meta": {
     "title": "Fuentes editoriales del portal",
-    "description": "Lista curada de fuentes agrupada en 5 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
-    "updated": "2026-09-10",
-    "version": 1,
+    "description": "Lista curada de fuentes agrupada en 6 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
+    "updated": "2026-09-20",
+    "version": 2,
     "note": "Los campos 'rss' con valor null no tienen feed confirmado (o no lo publican): usar la homepage para seguimiento manual o scraping autorizado. Antes de automatizar, verificar cada feed y respetar los términos de uso de cada sitio (p. ej. VideoCardz prohíbe explícitamente el scraping programático sin consentimiento escrito).",
     "layers": {
       "tech-media": "Capa 1 — Medios técnicos en inglés (contraste y profundidad)",
       "reviews": "Capa 2 — Especializados en portátiles, monitores y periféricos (datos medidos y reviews)",
       "asia": "Capa 3 — Fuentes asiáticas (adelanto de novedades y filtraciones)",
       "es-competition": "Capa 4 — Competencia en español (vigilar saturación)",
-      "primary": "Capa 5 — Fuentes primarias: salas de prensa y blogs oficiales (confirmación de datos e imágenes)"
+      "primary": "Capa 5 — Fuentes primarias: salas de prensa y blogs oficiales (confirmación de datos e imágenes)",
+      "emulacion": "Capa 6 — Emulación de videojuegos: noticias, estado por consola (escritorio y Android) y tutoriales"
     }
   },
   "sources": [
@@ -635,6 +636,207 @@
       "rss": "https://blogs.windows.com/feed",
       "lang": "en",
       "focus": ["windows", "microsoft", "comunicados oficiales"]
+    },
+    {
+      "id": "emucr",
+      "name": "EmuCR",
+      "layer": "emulacion",
+      "homepage": "https://www.emucr.com",
+      "rss": "https://www.emucr.com/rss.xml",
+      "lang": "en",
+      "focus": ["emulación", "emuladores", "lanzamientos", "noticias"],
+      "notes": "Agregador de releases de emuladores. Muchos títulos son solo el nombre del programa, así que no todos clasifican."
+    },
+    {
+      "id": "retro-dodo",
+      "name": "Retro Dodo",
+      "layer": "emulacion",
+      "homepage": "https://retrododo.com",
+      "rss": "https://retrododo.com/rss/",
+      "lang": "en",
+      "focus": ["retro", "handhelds", "noticias", "guías"],
+      "notes": "El /feed/ original redirige a /rss/."
+    },
+    {
+      "id": "retro-handhelds",
+      "name": "Retro Handhelds",
+      "layer": "emulacion",
+      "homepage": "https://retrohandhelds.gg",
+      "rss": "https://retrohandhelds.gg/feed/",
+      "lang": "en",
+      "focus": ["handhelds", "retro", "análisis", "noticias"]
+    },
+    {
+      "id": "time-extension",
+      "name": "Time Extension",
+      "layer": "emulacion",
+      "homepage": "https://www.timeextension.com",
+      "rss": "https://www.timeextension.com/feeds/latest",
+      "lang": "en",
+      "focus": ["retro", "consolas", "noticias"]
+    },
+    {
+      "id": "retrorgb",
+      "name": "RetroRGB",
+      "layer": "emulacion",
+      "homepage": "https://retrorgb.com",
+      "rss": "https://retrorgb.com/feed",
+      "lang": "en",
+      "focus": ["retro", "hardware", "emulación"]
+    },
+    {
+      "id": "gamingonlinux",
+      "name": "GamingOnLinux",
+      "layer": "emulacion",
+      "homepage": "https://www.gamingonlinux.com",
+      "rss": "https://www.gamingonlinux.com/article_rss.php",
+      "lang": "en",
+      "focus": ["linux", "emulación", "software", "noticias"]
+    },
+    {
+      "id": "overkill-wtf",
+      "name": "overkill.wtf",
+      "layer": "emulacion",
+      "homepage": "https://overkill.wtf",
+      "rss": "https://overkill.wtf/feed/posts",
+      "lang": "en",
+      "focus": ["handhelds", "guías", "emulación"],
+      "notes": "Usar el feed de posts: el feed general mezcla notas cortas."
+    },
+    {
+      "id": "steamdeckhq",
+      "name": "SteamDeckHQ",
+      "layer": "emulacion",
+      "homepage": "https://steamdeckhq.com",
+      "rss": "https://steamdeckhq.com/feed/",
+      "lang": "en",
+      "focus": ["handhelds", "guías", "emulación"]
+    },
+    {
+      "id": "wololo",
+      "name": "Wololo.net",
+      "layer": "emulacion",
+      "homepage": "https://wololo.net",
+      "rss": "https://wololo.net/feed/",
+      "lang": "en",
+      "focus": ["homebrew", "emulación", "noticias"]
+    },
+    {
+      "id": "emugen",
+      "name": "EmuGen",
+      "layer": "emulacion",
+      "homepage": "https://www.emugen.net",
+      "rss": "https://www.emugen.net/feed/",
+      "lang": "fr",
+      "focus": ["emulación", "emuladores", "noticias"],
+      "notes": "Sitio francés, muy centrado en emulación de consolas."
+    },
+    {
+      "id": "gbatemp",
+      "name": "GBAtemp",
+      "layer": "emulacion",
+      "homepage": "https://gbatemp.net",
+      "rss": "https://gbatemp.net/forums/-/index.rss",
+      "lang": "en",
+      "focus": ["comunidad", "homebrew", "emulación"],
+      "notes": "Feed del foro completo: ruidoso e incluye off-topic. No hay feed de portada usable."
+    },
+    {
+      "id": "dolphin-blog",
+      "name": "Dolphin Blog",
+      "layer": "emulacion",
+      "homepage": "https://dolphin-emu.org/blog/",
+      "rss": "https://dolphin-emu.org/blog/feeds/",
+      "lang": "en",
+      "focus": ["emuladores", "gamecube", "wii", "noticias"],
+      "notes": "Blog oficial del emulador. Baja cadencia (publica cada varios meses)."
+    },
+    {
+      "id": "melonds",
+      "name": "melonDS",
+      "layer": "emulacion",
+      "homepage": "https://melonds.kuribo64.net",
+      "rss": "https://melonds.kuribo64.net/rss.php",
+      "lang": "en",
+      "focus": ["emuladores", "nintendo-ds", "noticias"],
+      "notes": "Blog oficial. Devuelve content-type text/html pero es XML válido. Baja cadencia."
+    },
+    {
+      "id": "elotrolado",
+      "name": "ElOtroLado",
+      "layer": "emulacion",
+      "homepage": "https://www.elotrolado.net",
+      "rss": "https://www.elotrolado.net/feed/",
+      "lang": "es",
+      "focus": ["comunidad", "consolas", "emulación", "noticias"],
+      "notes": "Portal basado en foro. Tiene subfeeds /feed/scene/ y /feed/consolas/ con menos volumen."
+    },
+    {
+      "id": "nintenderos",
+      "name": "Nintenderos",
+      "layer": "emulacion",
+      "homepage": "https://www.nintenderos.com",
+      "rss": "https://www.nintenderos.com/feed/",
+      "lang": "es",
+      "focus": ["nintendo", "gaming", "emulación", "noticias"]
+    },
+    {
+      "id": "gh-shadps4",
+      "name": "shadPS4 (releases)",
+      "layer": "emulacion",
+      "homepage": "https://shadps4.net",
+      "rss": "https://github.com/shadps4-emu/shadPS4/releases.atom",
+      "lang": "en",
+      "focus": ["emuladores", "lanzamientos", "ps4"],
+      "notes": "Releases de GitHub. Sirve porque sus títulos nombran el proyecto; los feeds de releases titulados solo 'v1.2.3' no clasifican y no se agregaron."
+    },
+    {
+      "id": "gh-winlator",
+      "name": "Winlator (releases)",
+      "layer": "emulacion",
+      "homepage": "https://winlator.org",
+      "rss": "https://github.com/brunodev85/winlator/releases.atom",
+      "lang": "en",
+      "focus": ["emuladores", "lanzamientos", "android"]
+    },
+    {
+      "id": "gh-azahar",
+      "name": "Azahar (releases)",
+      "layer": "emulacion",
+      "homepage": "https://azahar-emu.org",
+      "rss": "https://github.com/azahar-emu/azahar/releases.atom",
+      "lang": "en",
+      "focus": ["emuladores", "lanzamientos", "3ds"],
+      "notes": "Sucesor de Citra y Lime3DS."
+    },
+    {
+      "id": "gh-mame",
+      "name": "MAME (releases)",
+      "layer": "emulacion",
+      "homepage": "https://www.mamedev.org",
+      "rss": "https://github.com/mamedev/mame/releases.atom",
+      "lang": "en",
+      "focus": ["emuladores", "lanzamientos", "arcade"]
+    },
+    {
+      "id": "retro-game-corps",
+      "name": "Retro Game Corps",
+      "layer": "emulacion",
+      "homepage": "https://www.youtube.com/@RetroGameCorps",
+      "rss": null,
+      "lang": "en",
+      "focus": ["guías", "handhelds", "emulación"],
+      "notes": "Su fuerte son los tutoriales de emulación en vídeo. Su feed propio está muerto (último post 2025-10): seguimiento manual."
+    },
+    {
+      "id": "eta-prime",
+      "name": "ETA Prime",
+      "layer": "emulacion",
+      "homepage": "https://www.youtube.com/@ETAPRIME",
+      "rss": null,
+      "lang": "en",
+      "focus": ["guías", "emulación", "android", "handhelds"],
+      "notes": "Tutoriales de emulación en Android y handhelds. Su feed de YouTube responde, pero se deja manual por la convención del proyecto con los canales."
     }
   ]
 }

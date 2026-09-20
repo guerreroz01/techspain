@@ -19,8 +19,8 @@ de escribir el orquestador, se delega **un subagente por artículo**, todos en p
    - `source_name` — el medio que figura al final de la línea.
    - `slug` — kebab-case en inglés, derivado del título.
    - `vertical` — el nombre de la sección `##` en la que está (traducido al token interno:
-     `tarjetas-graficas`, `memorias`, `portatiles`, `consolas`, `componentes`, `moviles`,
-     `tutoriales`).
+     `tarjetas-graficas`, `memorias`, `portatiles`, `emuladores`, `consolas`, `componentes`,
+     `moviles`, `tutoriales`).
    - `tipo` — `tutorial` si la línea está bajo la sección `## 📘 Tutoriales` de
      `scripts/seleccion.md`; en cualquier otra sección, `noticia`.
 3. Calcular `fecha_de_hoy` con la fecha actual en el momento de delegar (`YYYY-MM-DD`).
@@ -118,6 +118,6 @@ es una tarea del redactor.
 - Si un artículo original no carga o no tiene imagen, el subagente debe seguir con el texto y avisar de la imagen ausente en su resultado (no inventar una).
 - El `vertical` de la plantilla se traduce así para el primer `tags`:
   `tarjetas-graficas` → `Tarjetas gráficas`, `memorias` → `Memorias`, `portatiles` → `Portátiles`,
-  `consolas` → `Consolas`, `componentes` → `Componentes`, `moviles` → `Móviles`,
-  `tutoriales` → `Tutoriales`.
+  `emuladores` → `Emuladores`, `consolas` → `Consolas`, `componentes` → `Componentes`,
+  `moviles` → `Móviles`, `tutoriales` → `Tutoriales`.
 - Recoger los resultados de todos los subagentes, ejecutar **un único `npm run build`** al final (los subagentes no lo ejecutan para no pisarse `dist/` y `.astro/`), y confirmar al usuario cuántos artículos quedaron listos y cuáles fallaron.

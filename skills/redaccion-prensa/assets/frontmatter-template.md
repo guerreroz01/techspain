@@ -50,7 +50,7 @@ source:
 
 ## Verticales
 
-La página cubre 7 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
+La página cubre 8 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
 
 1. Componentes
 2. Portátiles
@@ -58,9 +58,12 @@ La página cubre 7 verticales. El artículo debe encajar en una de ellas y usarl
 4. Tarjetas gráficas
 5. Memorias
 6. Móviles
-7. Tutoriales
+7. Emuladores de videojuegos
+8. Tutoriales
 
 Los tutoriales son contenido **how-to/paso a paso**. El clasificador diario los busca **primero**, así que una guía sobre una GPU se publica con `Tutoriales` como primer `tags` (gana sobre `Tarjetas gráficas`).
+
+Los emuladores también ganan sobre la consola que emulan: una noticia sobre un emulador de PS5 en Xbox va con `Emuladores` como primer `tags`, no con `Consolas`. La vertical no distingue sistema anfitrión: vale igual para emuladores de consola en Windows, macOS, Linux o Android (el host se pone como tag secundario). Una guía paso a paso sobre emuladores sigue siendo `Tutoriales`.
 
 ## Imágenes
 

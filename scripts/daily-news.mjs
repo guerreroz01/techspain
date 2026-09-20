@@ -50,6 +50,34 @@ const VERTICALS = {
     'laptop', 'notebook', 'portátil', 'portatil', 'ultrabook', 'chromebook', '2-in-1',
     'convertible', 'macbook', 'thinkpad', 'zenbook', 'ideapad', 'zephyrus', 'legion laptop',
   ],
+  // Emuladores va antes que consolas a propósito: una noticia sobre un emulador
+  // casi siempre nombra la consola anfitriona (Xbox, Switch, PS5), así que debe
+  // ganarle a `consolas` para no quedar diluida dentro de ella.
+  //
+  // Es agnóstico del sistema anfitrión: emulación de consola en Windows, macOS,
+  // Linux y Android. La plataforma anfitriona va como tag secundario, no cambia
+  // la vertical.
+  //
+  // Se incluyen el sustantivo y el acto EN ESPAÑOL (`emular`, `emulación`): la
+  // prensa en español titula con el verbo ("Xbox Series X consigue emular juegos
+  // de PS5") y sin esto la noticia cae en `consolas`.
+  //
+  // Se deja FUERA el genérico inglés (`emulation`, `emulate`, `emulated`): en el
+  // corpus de este portal el único titular con "emulation" era un teclado que
+  // imitaba un mando ("Controller Emulation"), no un emulador de consolas, y las
+  // noticias en inglés usan el sustantivo ("Emulator"), que ya está cubierto.
+  emuladores: [
+    'emulator', 'emulators', 'emulador', 'emuladores', 'emular', 'emula', 'emulando',
+    'emulación', 'emulacion',
+    // Proyectos de escritorio
+    'ryujinx', 'yuzu', 'suyu', 'sudachi', 'rpcs3', 'pcsx2', 'ppsspp', 'duckstation',
+    'dolphin', 'cemu', 'citra', 'lime3ds', 'azahar', 'melonds', 'desmume', 'mgba',
+    'snes9x', 'epsxe', 'flycast', 'redream', 'xenia', 'xemu', 'vita3k', 'shadps4',
+    'kyty', 'retroarch', 'emudeck', 'emulationstation', 'batocera', 'lakka', 'romm',
+    'mame', 'dosbox', 'scummvm',
+    // Host Android
+    'winlator', 'mobox', 'gamenative', 'aethersx2', 'nethersx2',
+  ],
   consolas: [
     'console', 'consola', 'handheld', 'playstation', 'ps5', 'ps6', 'xbox', 'nintendo', 'switch',
     'steam deck', 'steamdeck', 'rog ally', 'legion go', 'game console', 'ps4',
@@ -94,6 +122,7 @@ const VERTICAL_LABELS = {
   'tarjetas-graficas': '🎮 Tarjetas gráficas',
   memorias: '💾 Memorias',
   portatiles: '💻 Portátiles',
+  emuladores: '👾 Emuladores',
   consolas: '🕹️ Consolas',
   componentes: '🔧 Componentes',
   moviles: '📱 Móviles',

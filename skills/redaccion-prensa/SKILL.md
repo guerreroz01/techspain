@@ -15,7 +15,8 @@ Load this skill when the user asks to write or publish a technology news article
 
 - Article body AND all frontmatter copy in Spanish, neutral/professional register. No slang, no voseo.
 - Slug (the entry folder name) and any code/identifiers in English kebab-case. Each entry lives at `src/content/news/<slug>/index.mdx`.
-- Editorial scope: cover only the 7 verticals — componentes de PC, portátiles, consolas (portátiles y de sobremesa), tarjetas gráficas, memorias, móviles y tutoriales (guías how-to/paso a paso). Put the primary vertical as the first `tags` entry.
+- Editorial scope: cover only the 8 verticals — componentes de PC, portátiles, consolas (portátiles y de sobremesa), tarjetas gráficas, memorias, móviles, emuladores de videojuegos y tutoriales (guías how-to/paso a paso). Put the primary vertical as the first `tags` entry.
+- Una pieza sobre emulación de videojuegos usa `Emuladores` como vertical principal, incluso cuando trate de una consola concreta: el emulador es el tema, la consola es el huésped. La vertical es agnóstica del sistema anfitrión — cubre emuladores de consola en Windows, macOS, Linux y Android; el host va como tag secundario. Excepto si es una guía paso a paso, que va a `Tutoriales`.
 - Never copy source text verbatim: translate and rewrite in your own words. Always attribute via `source: { name, url }`.
 - Attribute the ultimate origin, not the relay: if the outlet you read cites another outlet as its source, trace and attribute the original, and read it to confirm before publishing.
 - Images: download EVERY content image from the original article into the entry's own `src/content/news/<slug>/assets/` folder. Reference the cover as `./assets/<name>`; embed extra images inline with `![alt](./assets/<name>)`. Never hotlink the source's CDN.
@@ -59,7 +60,7 @@ Common to both piece types:
 
 News path (`noticia`):
 
-1. Pull the latest items: read `rss` feeds for detection layers (`tech-media`, `asia`); for `rss: null` sources read the homepage manually.
+1. Pull the latest items: read `rss` feeds for the detection layers (`tech-media`, `asia`, and `emulacion` — emulation news, per-console state and tutorials); for `rss: null` sources read the homepage manually.
 2. For each candidate: contrast with `tech-media`/`reviews`; confirm numbers and images with `primary`.
 3. Check `es-competition` for saturation before committing to a story.
 4. Trace the origin: if the outlet cites another source, open the original and attribute it.
@@ -82,4 +83,4 @@ Return: the list of created files (articles and downloaded images); for each art
 
 - `assets/frontmatter-template.md` — required frontmatter, body-image handling, and a worked example.
 - `../../AGENTS.md` — §6 content model, §7 adding an article.
-- `../../src/data/sources.json` — the curated source list (5 layers).
+- `../../src/data/sources.json` — the curated source list (6 layers).
