@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "news": "node scripts/daily-news.mjs",
-    "news:all": "node scripts/daily-news.mjs --all"
+    "news:all": "node scripts/daily-news.mjs --all",
+    "index": "node scripts/index-published.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",

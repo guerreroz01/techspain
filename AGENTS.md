@@ -27,6 +27,8 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 | Stop / status / logs | `astro dev stop` / `astro dev status` / `astro dev logs` |
 | Build | `npm run build` |
 | Preview a build | `npm run preview` |
+| News candidates | `npm run news` (see section 16) |
+| Regenerate the published index | `npm run index` (see section 7) |
 
 - The dev server runs at **http://localhost:4321/**.
 - **Always start the dev server in background mode.** Do not run it in the foreground.
@@ -65,7 +67,9 @@ blog/
 │   ├── favicon.svg
 │   └── robots.txt                # allows crawling; references both sitemaps
 ├── scripts/
-│   └── daily-news.mjs            # RSS candidate fetcher + classifier (see section 16)
+│   ├── daily-news.mjs            # RSS candidate fetcher + classifier (see section 16)
+│   ├── index-published.mjs       # regenerates articulos-publicados.md (see section 7)
+│   └── articulos-publicados.md   # contrast index: every published article (generated)
 ├── skills/
 │   └── redaccion-prensa/         # press-writing skill + delegation playbook
 └── src/
@@ -157,8 +161,9 @@ source:
 5. Leave `featured` and `breaking` at `false`. Promotion is a newsroom call made on the whole batch by whoever runs it, never by one writer: parallel writers cannot see each other, so each would mark its own piece as the lead. The orchestrator promotes exactly one entry afterwards (see `skills/redaccion-prensa/DELEGATION.md`).
 6. Always attribute the story's original outlet via `source`. If the outlet you read cites another, trace it and attribute that one.
 7. Run `npm run build` and confirm it passes.
+8. **At the end of the publication batch, regenerate the contrast index with `npm run index`.** `scripts/articulos-publicados.md` is the list every writer must consult to avoid re-covering a story, so it is only trustworthy if it is refreshed after the batch lands. This is the closing step of a publication, not an optional chore: a stale index makes the next batch duplicate stories blind. The index is generated — never hand-edit it.
 
-Drafts (`draft: true`) render in dev but are excluded from production builds, RSS, and sitemaps.
+Drafts (`draft: true`) render in dev but are excluded from production builds, RSS, and sitemaps. They are also excluded from the contrast index.
 
 ## 8. Design system
 
@@ -292,5 +297,6 @@ Relevant guides:
 - **Press-writing skill** — `skills/redaccion-prensa/SKILL.md` encodes the daily editorial workflow: pull the latest from the detection layers, contrast with `tech-media`/`reviews`, confirm with `primary`, check `es-competition` for saturation, then write `src/content/news/<slug>/index.mdx` in neutral/professional Spanish with explicit `source` attribution. Use it whenever an article is written or the sources are reviewed.
 - **Editorial verticals** — the portal covers 8 verticals: componentes de PC, portátiles, consolas (portátiles y de escritorio), tarjetas gráficas, memorias, móviles, emuladores de videojuegos y tutoriales (guías how-to/paso a paso). Stories must fit one of them; the primary vertical goes first in `tags`. `emuladores` is host-agnostic: it covers console emulators on Windows, macOS, Linux and Android, with the host OS as a secondary tag. These are editorial focus, not URL sections (there are still no category/tag pages).
 - **Daily news script** — `scripts/daily-news.mjs` (`npm run news`) fetches the RSS feeds from `sources.json`, marks already-seen items in `scripts/.seen.json` (gitignored), classifies titles into the 8 verticals, and writes `scripts/candidates.json` plus a markdown report for manual selection. No dependencies (uses Node's global `fetch` + a built-in RSS/Atom parser). `tutoriales` is checked first in the classifier, so a how-to title wins over the hardware topic it covers — but only when the title also carries a technology signal, so entertainment guides (live-stream and movie how-tos) are not offered as tutorials. `emuladores` is checked before `consolas`, so an emulator story lands under Emuladores even when it names the host console.
+- **Contrast index** — `scripts/articulos-publicados.md` (`npm run index`) lists every published article with its URL. It is the anti-duplication step of the workflow: writers consult it before proposing a story. It is **generated** from `src/content/news/` by `scripts/index-published.mjs` and must be regenerated at the close of every publication batch (section 7, step 8) — never hand-edited. It reads the site domain from `astro.config.mjs`, so it cannot drift from canonical URLs, and it skips `draft: true` entries.
 - **Redaction delegation** — when the user selects articles and asks to redact them, delegate one subagent (`general`) per article, all in parallel, using the prompt template in `skills/redaccion-prensa/DELEGATION.md`. Each subagent writes one `src/content/news/<slug>/` folder, so there is no file overlap.
 - **Redaction SEO pass** — each delegated writer also runs the pre-publish SEO pass on its own article via the `seo-audit` skill's article contract (`references/article-seo.md`); the pass never touches the headline, tags, or promotion flags, and never runs the build.
