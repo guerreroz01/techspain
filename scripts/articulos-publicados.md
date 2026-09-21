@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente a partir de `src/content/news/`. Actualizado: 2026-09-15
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 266 artículos. Actualizado: 2026-09-21
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -71,6 +71,10 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-15 | Apple podría ampliar su familia plegable con un iPhone Duo Max, un SE o un mini | [iphone-duo-max-larger-foldable](https://techspain24.com/noticias/iphone-duo-max-larger-foldable/) |
 | 2026-09-15 | Apple prepararía un mando de juego para iPhone bajo la marca Beats | [beats-iphone-game-controller-rumor](https://techspain24.com/noticias/beats-iphone-game-controller-rumor/) |
 | 2026-09-15 | ASUS presenta los LC 360 ARGB y LC 240 ARGB, refrigeraciones líquidas AIO para el gran público | [asus-lc-360-240-aio](https://techspain24.com/noticias/asus-lc-360-240-aio/) |
+| 2026-09-15 | Cómo desactivar Apple Intelligence en iOS 27: guía para limitar la IA de Apple en tu iPhone | [disable-apple-intelligence-ios-27](https://techspain24.com/noticias/disable-apple-intelligence-ios-27/) |
+| 2026-09-15 | Cómo forzar el cierre de una aplicación en Windows paso a paso | [force-quit-windows-pc](https://techspain24.com/noticias/force-quit-windows-pc/) |
+| 2026-09-15 | Cómo saber si tus puertos USB-C pueden dar salida de vídeo | [usb-c-video-output-check](https://techspain24.com/noticias/usb-c-video-output-check/) |
+| 2026-09-15 | Crear un USB de arranque de Windows 11 con la Media Creation Tool: guía paso a paso | [windows-11-bootable-usb](https://techspain24.com/noticias/windows-11-bootable-usb/) |
 | 2026-09-15 | EE. UU. acusa a Huawei de robo de secretos comerciales a cinco empresas en un juicio que arranca tras ocho años | [huawei-us-trial-theft](https://techspain24.com/noticias/huawei-us-trial-theft/) |
 | 2026-09-15 | El conector de una RTX 5090 acaba con un agujero que fusiona dos puertos tras jugar a un indie de hace 11 años en ultra | [rtx-5090-connector-melted-indie-game](https://techspain24.com/noticias/rtx-5090-connector-melted-indie-game/) |
 | 2026-09-15 | El Dell Pro 5 16 con AMD, a prueba: un portátil empresarial modular y casi 1.000 dólares más barato que el modelo Intel | [dell-pro-5-16-amd-review](https://techspain24.com/noticias/dell-pro-5-16-amd-review/) |
@@ -104,7 +108,168 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-15 | Valve sigue sin decidir «cómo y cuándo» lanzará la Steam Deck 2 | [steam-deck-2-how-when](https://techspain24.com/noticias/steam-deck-2-how-when/) |
 | 2026-09-15 | WhatsApp prepara "Restricted Chat" para limitar ciertas conversaciones al teléfono principal | [whatsapp-limit-chats-primary-phone](https://techspain24.com/noticias/whatsapp-limit-chats-primary-phone/) |
 | 2026-09-15 | Xbox Game Pass podría eliminar los juegos del día uno y reorganizar todos sus planes | [xbox-game-pass-day-one-changes](https://techspain24.com/noticias/xbox-game-pass-day-one-changes/) |
-
-## Total
-
-- Artículos publicados: **97**
+| 2026-09-16 | Android Auto: qué es, cómo conectarlo y todo lo que puedes hacer en el coche | [android-auto-que-es](https://techspain24.com/noticias/android-auto-que-es/) |
+| 2026-09-16 | Cómo activar Siri AI o volver a Siri Classic en iOS 27: guía paso a paso | [siri-ai-ios-27](https://techspain24.com/noticias/siri-ai-ios-27/) |
+| 2026-09-16 | Cómo actualizar Android Auto manualmente paso a paso | [android-auto-actualizar-manual](https://techspain24.com/noticias/android-auto-actualizar-manual/) |
+| 2026-09-16 | Cómo conseguir la mejor calidad de audio en Spotify | [spotify-best-audio-quality](https://techspain24.com/noticias/spotify-best-audio-quality/) |
+| 2026-09-16 | Cómo evitar que la música infantil domine tu Spotify Wrapped | [spotify-wrapped-kids-music](https://techspain24.com/noticias/spotify-wrapped-kids-music/) |
+| 2026-09-16 | Cómo mejorar la calidad de audio de tu iPhone paso a paso | [mejorar-audio-iphone](https://techspain24.com/noticias/mejorar-audio-iphone/) |
+| 2026-09-16 | Cómo pescar en Valheim: guía paso a paso | [valheim-fishing-guide](https://techspain24.com/noticias/valheim-fishing-guide/) |
+| 2026-09-16 | Cómo saber si necesitas un cargador de nivel 2 para el coche eléctrico | [level-2-ev-charger-guide](https://techspain24.com/noticias/level-2-ev-charger-guide/) |
+| 2026-09-16 | Cómo ver Max vs 100 gratis en directo: plataformas, canales y horarios | [max-vs-100-live-stream](https://techspain24.com/noticias/max-vs-100-live-stream/) |
+| 2026-09-16 | Cómo ver Run Hide Fight: Infidels en streaming desde cualquier país | [run-hide-fight-streaming](https://techspain24.com/noticias/run-hide-fight-streaming/) |
+| 2026-09-16 | Dell enseña a los niños japoneses a montar un portátil: 9 piezas y 23 tornillos | [dell-pc-assembly-kit-japan](https://techspain24.com/noticias/dell-pc-assembly-kit-japan/) |
+| 2026-09-16 | El creador de PS5 Linux abandona el proyecto después de que otros reportaran a Sony su vulnerabilidad del hipervisor | [ps5-linux-creator-departs](https://techspain24.com/noticias/ps5-linux-creator-departs/) |
+| 2026-09-16 | Fire Emblem: Fortune's Weave llega como exclusivo de Switch 2 con cuatro historias entrelazadas | [nintendo-fire-emblem-new](https://techspain24.com/noticias/nintendo-fire-emblem-new/) |
+| 2026-09-16 | JustWatch lanza su propia plataforma de streaming con planes gratuitos y de pago | [justwatch-streaming-platform](https://techspain24.com/noticias/justwatch-streaming-platform/) |
+| 2026-09-16 | Microsoft publica un parche de emergencia para Windows 11 sin resolver los cuelgues de las GPU AMD | [windows-11-patch-amd-crashes](https://techspain24.com/noticias/windows-11-patch-amd-crashes/) |
+| 2026-09-16 | Perplexity lleva su agente de IA local a Windows, pero solo con una GPU RTX de 24 GB | [perplexity-portable-computer-rtx](https://techspain24.com/noticias/perplexity-portable-computer-rtx/) |
+| 2026-09-16 | PlayStation anuncia los auriculares Pulse y Pulse Edge con drivers planares y compatibilidad nativa con PS Portal | [playstation-pulse-headsets](https://techspain24.com/noticias/playstation-pulse-headsets/) |
+| 2026-09-16 | Un PC de 40.000 euros con dos RTX 5090 alcanza los 1.450 W de consumo | [dual-rtx-5090-power-draw](https://techspain24.com/noticias/dual-rtx-5090-power-draw/) |
+| 2026-09-16 | Una filtración apunta a «Neural Lighting», la respuesta de AMD a DLSS 5 en su próxima generación de GPU | [amd-neural-lighting-dlss-5](https://techspain24.com/noticias/amd-neural-lighting-dlss-5/) |
+| 2026-09-16 | Wo Long 2: Wings of Ember se lanza el 4 de marzo de 2027 con una demo Alfa en Xbox, PlayStation y PC | [wo-long-2-release-date](https://techspain24.com/noticias/wo-long-2-release-date/) |
+| 2026-09-18 | AMD habría avisado a sus socios de una subida de precios del 10 % que podría alcanzar a los Ryzen | [amd-ryzen-price-hike-2026](https://techspain24.com/noticias/amd-ryzen-price-hike-2026/) |
+| 2026-09-18 | ASUS ROG presenta la caja Cronox ARGB y los ventiladores Eurux GR120 | [asus-rog-cronox-eurux](https://techspain24.com/noticias/asus-rog-cronox-eurux/) |
+| 2026-09-18 | Cómo ver el PC Gaming Show Tokyo Direct 2026: fecha, horarios y plataformas | [pc-gaming-show-tokyo-direct-2026](https://techspain24.com/noticias/pc-gaming-show-tokyo-direct-2026/) |
+| 2026-09-18 | Corsair presenta los Nautilus II y los ventiladores RS II, con una pantalla LCD un 67 % más grande | [corsair-nautilus-ii-rs-ii](https://techspain24.com/noticias/corsair-nautilus-ii-rs-ii/) |
+| 2026-09-18 | Dentro del laboratorio donde Arm da vida a su CPU AGI para centros de datos | [arm-agi-cpu-lab](https://techspain24.com/noticias/arm-agi-cpu-lab/) |
+| 2026-09-18 | El director de Fable asegura que el juego es «vital para el ADN» de Xbox | [fable-vital-to-xbox-dna](https://techspain24.com/noticias/fable-vital-to-xbox-dna/) |
+| 2026-09-18 | El disc-to-digital de Xbox tardó 15 años: del boceto fallido de la Xbox One a la preservación de juegos | [xbox-disc-to-digital-history](https://techspain24.com/noticias/xbox-disc-to-digital-history/) |
+| 2026-09-18 | El emulador KytyPS5 ya ejecuta Astro’s Playroom, el juego preinstalado de PS5 | [astros-playroom-kyty-ps5](https://techspain24.com/noticias/astros-playroom-kyty-ps5/) |
+| 2026-09-18 | El iPhone 18 Pro Max iguala en potencia a los móviles gaming Android con bastante menos calor | [iphone-18-pro-max-vapor-chamber](https://techspain24.com/noticias/iphone-18-pro-max-vapor-chamber/) |
+| 2026-09-18 | El Ryzen 7 9800X3D cae a 320 dólares con una placa MSI X870E en un combo de Newegg | [ryzen-9800x3d-newegg-combo](https://techspain24.com/noticias/ryzen-9800x3d-newegg-combo/) |
+| 2026-09-18 | Guild Wars 3 tendrá una interfaz mucho más limpia y llegará por primera vez a PS5 y PC | [guild-wars-3-console-hud](https://techspain24.com/noticias/guild-wars-3-console-hud/) |
+| 2026-09-18 | Hyperkin abre las reservas del SupaBoy en dos acabados translúcidos y fecha de salida para el 28 de octubre | [hyperkin-supaboy-preorders](https://techspain24.com/noticias/hyperkin-supaboy-preorders/) |
+| 2026-09-18 | Intel prepararía un Raptor Lake Next con 8 P-cores como relevo del i5-14600K | [intel-raptor-lake-next-8p](https://techspain24.com/noticias/intel-raptor-lake-next-8p/) |
+| 2026-09-18 | La PS5 estrena la lista de los 10 juegos más jugados en más regiones con el firmware 26.06-14.00.00 | [ps5-firmware-top-10-most-played](https://techspain24.com/noticias/ps5-firmware-top-10-most-played/) |
+| 2026-09-18 | Physint presenta su primer póster y confirma a Bill Skarsgård como protagonista | [physint-poster-cast](https://techspain24.com/noticias/physint-poster-cast/) |
+| 2026-09-18 | RPCS3 esquiva un bug de los drivers de NVIDIA y recupera hasta un 25 % de FPS en las GeForce | [rpcs3-nvidia-driver-performance](https://techspain24.com/noticias/rpcs3-nvidia-driver-performance/) |
+| 2026-09-18 | Ugreen presenta una funda con pantalla E Ink en color para la parte trasera del iPhone 18 Pro | [ugreen-e-ink-iphone-case](https://techspain24.com/noticias/ugreen-e-ink-iphone-case/) |
+| 2026-09-18 | Un técnico que desmontó más de 1.000 Joy-Con 2 constata menos drift y apunta a las desconexiones del mando derecho | [joy-con-2-drift-teardown](https://techspain24.com/noticias/joy-con-2-drift-teardown/) |
+| 2026-09-18 | Xbox desmiente la reestructuración de Game Pass, pero no cierra la puerta a futuros cambios | [xbox-game-pass-day-one-denial](https://techspain24.com/noticias/xbox-game-pass-day-one-denial/) |
+| 2026-09-18 | Xbox resume Tokyo Game Show 2026: Modern Warfare 4, Persona 4 Revival y su hoja de ruta hasta 2027 | [xbox-tokyo-game-show-2026-resumen](https://techspain24.com/noticias/xbox-tokyo-game-show-2026-resumen/) |
+| 2026-09-19 | Akasa lanza la Newton N16, una caja fanless compacta para el ASUS NUC 16 Pro | [akasa-newton-n16-nuc-case](https://techspain24.com/noticias/akasa-newton-n16-nuc-case/) |
+| 2026-09-19 | AMD elevó cerca de un 50 % el rendimiento de sus Ryzen X3D en dos años | [amd-ryzen-single-core-ipc-50](https://techspain24.com/noticias/amd-ryzen-single-core-ipc-50/) |
+| 2026-09-19 | Apple sube el precio del cambio de batería del iPhone 18 Pro: de 119 a 129 dólares | [iphone-18-pro-battery-replacement-price](https://techspain24.com/noticias/iphone-18-pro-battery-replacement-price/) |
+| 2026-09-19 | Asetek diseña una refrigeración líquida a medida para una RTX 5070 que debuta en la TGS 2026 | [asetek-rtx-5070-tgs-2026](https://techspain24.com/noticias/asetek-rtx-5070-tgs-2026/) |
+| 2026-09-19 | Así se vivió la apertura del iPhone 18 Pro en la Apple Store de la Quinta Avenida | [iphone-18-pro-apple-store-first-in-line](https://techspain24.com/noticias/iphone-18-pro-apple-store-first-in-line/) |
+| 2026-09-19 | ASUS prepara BIOS para placas AM5 con latencia optimizada para memoria DDR5 de CXMT | [asus-am5-bios-cxmt-memory](https://techspain24.com/noticias/asus-am5-bios-cxmt-memory/) |
+| 2026-09-19 | Auto SR, el escalador con IA de Windows, llega a más portátiles Intel | [microsoft-auto-sr-intel-laptops](https://techspain24.com/noticias/microsoft-auto-sr-intel-laptops/) |
+| 2026-09-19 | Blizzard no descarta llevar Warcraft 3, WoW: Forever y Heroes of the Storm a Xbox, pero mantiene el foco en PC | [warcraft-wow-xbox-blizzard](https://techspain24.com/noticias/warcraft-wow-xbox-blizzard/) |
+| 2026-09-19 | Cómo arreglar un píxel atascado en el portátil: métodos y precauciones | [laptop-stuck-pixel-fix](https://techspain24.com/noticias/laptop-stuck-pixel-fix/) |
+| 2026-09-19 | Cómo bloquear y desbloquear un número en tu teléfono Android | [block-unblock-number-android](https://techspain24.com/noticias/block-unblock-number-android/) |
+| 2026-09-19 | Cómo cambiar entre dos teléfonos en CarPlay paso a paso | [carplay-two-phones](https://techspain24.com/noticias/carplay-two-phones/) |
+| 2026-09-19 | Cómo restablecer de fábrica una Steam Deck paso a paso | [steam-deck-factory-reset](https://techspain24.com/noticias/steam-deck-factory-reset/) |
+| 2026-09-19 | Control Resonant se atraganta en 4K: la RTX 5090 se queda en 48 fps con ray tracing | [control-resonance-rtx-5090-4k](https://techspain24.com/noticias/control-resonance-rtx-5090-4k/) |
+| 2026-09-19 | Cuatro años con una GPU refrigerada por líquido: por qué su dueño vuelve a preferir el aire | [liquid-cooled-gpu-four-years](https://techspain24.com/noticias/liquid-cooled-gpu-four-years/) |
+| 2026-09-19 | CXMT prepara su entrada en la memoria NAND con una línea de I+D en su futura fábrica de Pekín | [cxmt-nand-flash](https://techspain24.com/noticias/cxmt-nand-flash/) |
+| 2026-09-19 | DLSS 5 funciona en la gráfica integrada Intel Arc 140V gracias a un mod, pero el rendimiento es injugable | [dlss-5-intel-arc-140v-mod](https://techspain24.com/noticias/dlss-5-intel-arc-140v-mod/) |
+| 2026-09-19 | El 99 % de las empresas espera que la IA dispare el almacenamiento, pero solo el 38 % se declara preparada | [seagate-ai-storage](https://techspain24.com/noticias/seagate-ai-storage/) |
+| 2026-09-19 | El auge de la IA desvía la producción de memoria y amenaza al NOR Flash y al SLC NAND | [nor-flash-slc-nand-undersupply](https://techspain24.com/noticias/nor-flash-slc-nand-undersupply/) |
+| 2026-09-19 | El iPhone 18 Pro apenas se distingue del iPhone 17 Pro: mismo diseño exterior y fundas intercambiables | [iphone-17-18-same-design-cases](https://techspain24.com/noticias/iphone-17-18-same-design-cases/) |
+| 2026-09-19 | El iPhone 18 Pro de 1 TB, señalado por usar memoria QLC en lugar de TLC | [iphone-18-pro-1tb-qlc](https://techspain24.com/noticias/iphone-18-pro-1tb-qlc/) |
+| 2026-09-19 | El iPhone 18 Pro reparte 30.000 unidades en la primera hora de venta en China | [iphone-18-pro-china-first-hour-sales](https://techspain24.com/noticias/iphone-18-pro-china-first-hour-sales/) |
+| 2026-09-19 | El jefe de hardware de Apple defiende la bisagra del iPhone Duo y critica el uso de láminas protectoras | [apple-vp-iphone-duo](https://techspain24.com/noticias/apple-vp-iphone-duo/) |
+| 2026-09-19 | El Lenovo Yoga Slim 7x baja a 1.549,99 dólares: 550 dólares menos por uno de los portátiles más finos que TechRadar ha probado | [lenovo-yoga-slim-7x-deal](https://techspain24.com/noticias/lenovo-yoga-slim-7x-deal/) |
+| 2026-09-19 | El M64 de ModRetro devuelve el aspecto CRT de los 90 a un televisor 4K | [modern-n64-console-crt-4k](https://techspain24.com/noticias/modern-n64-console-crt-4k/) |
+| 2026-09-19 | El MacBook Pro de 14 pulgadas con M5, 24 GB de RAM y 1 TB SSD baja a 1.899 $ en B&H | [macbook-pro-m5-1tb-bh-deal](https://techspain24.com/noticias/macbook-pro-m5-1tb-bh-deal/) |
+| 2026-09-19 | El nuevo empaquetado del A20 Pro deja al nitrógeno líquido sin margen: menos del 3 % de mejora | [apple-a20-pro-packaging-vapor-chamber](https://techspain24.com/noticias/apple-a20-pro-packaging-vapor-chamber/) |
+| 2026-09-19 | El primer desmontaje del iPhone 18 Pro deja dudas: apertura variable áspera, un píxel muerto y menos AnTuTu que el XRING O3 | [iphone-18-pro-teardown-critique](https://techspain24.com/noticias/iphone-18-pro-teardown-critique/) |
+| 2026-09-19 | El primer lanzamiento del iPhone bajo el nuevo CEO de Apple podría ser solo el comienzo | [apple-new-ceo-iphone-18-launch](https://techspain24.com/noticias/apple-new-ceo-iphone-18-launch/) |
+| 2026-09-19 | El Redmi K100 estándar pasa por certificación en China con la vista puesta en una batería de 10.000 mAh | [redmi-k100-large-battery](https://techspain24.com/noticias/redmi-k100-large-battery/) |
+| 2026-09-19 | Fallout 76 recibe por fin soporte nativo en Xbox Series X\|S con el parche The Slasher | [fallout-76-xbox-series-native](https://techspain24.com/noticias/fallout-76-xbox-series-native/) |
+| 2026-09-19 | Final Fantasy VII Revelation rondará los 200 GB de almacenamiento en PC y consolas | [ff7-revelation-200gb](https://techspain24.com/noticias/ff7-revelation-200gb/) |
+| 2026-09-19 | GameNative estrena un cliente de Steam sin interfaz y ya mueve GTA V y RDR2 en Android | [gamenative-steam-android-gta5](https://techspain24.com/noticias/gamenative-steam-android-gta5/) |
+| 2026-09-19 | Gears of War: E-Day revela sus requisitos finales para PC: una RTX 5070 Ti para 4K y Ray Tracing obligatorio | [gears-of-war-e-day-pc-requirements](https://techspain24.com/noticias/gears-of-war-e-day-pc-requirements/) |
+| 2026-09-19 | GeForce NOW suma Aniimo, Active Matter y Outer Wilds entre once juegos nuevos | [geforce-now-new-games-september-2026](https://techspain24.com/noticias/geforce-now-new-games-september-2026/) |
+| 2026-09-19 | Honor adelanta un dispositivo de tinta electrónica de su marca HONOR Life | [honor-life-eink-device](https://techspain24.com/noticias/honor-life-eink-device/) |
+| 2026-09-19 | Honor presenta el AXB35, una estación de trabajo de 2 litros con Intel, AMD o NVIDIA | [honor-2-liter-ai-workstation](https://techspain24.com/noticias/honor-2-liter-ai-workstation/) |
+| 2026-09-19 | Intel enfría el entusiasmo por CXL: no reemplazará a HBM y quedará como almacenamiento secundario | [intel-cxl-vs-hbm](https://techspain24.com/noticias/intel-cxl-vs-hbm/) |
+| 2026-09-19 | Intel publica los controladores Arc 101.9030 Beta con soporte Game Ready para EA SPORTS FC 27, SILENT HILL: Townfall y Aniimo | [intel-arc-drivers-101-9030](https://techspain24.com/noticias/intel-arc-drivers-101-9030/) |
+| 2026-09-19 | Kioxia muestra en FMS 2026 el XL1, una unidad de memoria XL-FLASH de 512 GB conectada por CXL | [kioxia-xl1-cxl-xl-flash](https://techspain24.com/noticias/kioxia-xl1-cxl-xl-flash/) |
+| 2026-09-19 | La apertura variable del iPhone 18 Pro, a prueba: una sola foto basta para notar la diferencia | [iphone-18-pro-variable-aperture-hands-on](https://techspain24.com/noticias/iphone-18-pro-variable-aperture-hands-on/) |
+| 2026-09-19 | La caja Hyte X50 baja 50 dólares: cristal curvo y hasta E-ATX por 99,99 dólares | [hyte-x50-deal](https://techspain24.com/noticias/hyte-x50-deal/) |
+| 2026-09-19 | La GPU del M5 Ultra aparece en Geekbench: un 41 % más que el M3 Ultra en Metal | [apple-m5-ultra-gpu-geekbench](https://techspain24.com/noticias/apple-m5-ultra-gpu-geekbench/) |
+| 2026-09-19 | La GPU Xiyun C de MetaX completa la adaptación «Day 0» del modelo Xing4.0 de China Telecom | [xiyun-c-gpu-china-telecom](https://techspain24.com/noticias/xiyun-c-gpu-china-telecom/) |
+| 2026-09-19 | La memoria se quedará con el 64 % del gasto mundial en IA en 2027, según UBS | [ai-cost-memory-2027](https://techspain24.com/noticias/ai-cost-memory-2027/) |
+| 2026-09-19 | La PS5 Pro seguiría escaseando hasta principios de 2027 por una estrategia de suministro cauta de Sony | [ps5-pro-supply-shortage-2027](https://techspain24.com/noticias/ps5-pro-supply-shortage-2027/) |
+| 2026-09-19 | La Radeon RX 9050 de 4 GB rinde hasta un 35 % menos que la de 8 GB en las pruebas independientes | [radeon-rx-9050-4gb-vs-8gb](https://techspain24.com/noticias/radeon-rx-9050-4gb-vs-8gb/) |
+| 2026-09-19 | Marvel''s Wolverine vende 1,9 millones de copias en tres días y supera a todos los exclusivos de PS5 desde Spider-Man 2 | [wolverine-sales-record](https://techspain24.com/noticias/wolverine-sales-record/) |
+| 2026-09-19 | Moto Tag 2, análisis: el localizador UWB de Motorola que convence en Android y deja fuera al iPhone | [motorola-moto-tag-2-review](https://techspain24.com/noticias/motorola-moto-tag-2-review/) |
+| 2026-09-19 | Mouse X2: un portátil con Ryzen AI de 12,2 pulgadas y 981 gramos que no saldrá de Japón | [mouse-12-inch-ryzen-ai-laptop](https://techspain24.com/noticias/mouse-12-inch-ryzen-ai-laptop/) |
+| 2026-09-19 | OPPO prepara un kit de teleconvertidor Hasselblad para la serie Find X10 | [oppo-find-x10-hasselblad-teleconverter](https://techspain24.com/noticias/oppo-find-x10-hasselblad-teleconverter/) |
+| 2026-09-19 | Palit presenta la RTX 5060 Ti RiTONA, su primera gráfica protagonizada por su mascota anime | [rtx-5060-ti-ritona](https://techspain24.com/noticias/rtx-5060-ti-ritona/) |
+| 2026-09-19 | RatHat: el troyano para Android que usa IA para controlar el móvil y se reinstala si lo borras | [android-ai-malware-self-healing](https://techspain24.com/noticias/android-ai-malware-self-healing/) |
+| 2026-09-19 | Reviven un Celeron 1200 de hace 25 años reconstruyendo a mano un pin arrancado en el sustrato | [celeron-substrate-repair-overclock](https://techspain24.com/noticias/celeron-substrate-repair-overclock/) |
+| 2026-09-19 | Samsung estrena la sincronización de su galería con Google Photos | [samsung-google-photos-sync](https://techspain24.com/noticias/samsung-google-photos-sync/) |
+| 2026-09-19 | Samsung planea externalizar la producción adicional de módulos DDR5 y SSD para liberar espacio para la HBM | [samsung-outsourcing-ddr5-ssd](https://techspain24.com/noticias/samsung-outsourcing-ddr5-ssd/) |
+| 2026-09-19 | Samsung respalda a Euclyd, una startup neerlandesa que quiere competir con Nvidia en chips de inferencia | [euclyd-samsung-inference-chip](https://techspain24.com/noticias/euclyd-samsung-inference-chip/) |
+| 2026-09-19 | Sapphire prepara una Nitro+ Radeon RX 9070 XT OC en edición Valor Mortis | [sapphire-nitro-rx-9070-xt-valor-mortis](https://techspain24.com/noticias/sapphire-nitro-rx-9070-xt-valor-mortis/) |
+| 2026-09-19 | Un disipador de RTX 4090 sobre una RTX 3060: 8 °C menos y el rendimiento intacto | [rtx-4090-cooler-on-rtx-3060](https://techspain24.com/noticias/rtx-4090-cooler-on-rtx-3060/) |
+| 2026-09-19 | Un investigador de OpenAI cuestiona el air-gap: dos equipos aislados pueden comunicarse con calor | [openai-thermal-morse-code-air-gap](https://techspain24.com/noticias/openai-thermal-morse-code-air-gap/) |
+| 2026-09-19 | Un Lenovo Chromebook táctil reacondicionado baja a 79,99 dólares | [lenovo-chromebook-80-deal](https://techspain24.com/noticias/lenovo-chromebook-80-deal/) |
+| 2026-09-19 | Un mes con la Huawei MatePad Air: la pantalla que su autor quiere para el próximo iPad Air | [huawei-matepad-air-review](https://techspain24.com/noticias/huawei-matepad-air-review/) |
+| 2026-09-19 | Un mod de path tracing y DLSS 5 lleva Dark Souls 3 a otro nivel visual (y no es un remaster oficial) | [dark-souls-3-path-tracing-dlss-5](https://techspain24.com/noticias/dark-souls-3-path-tracing-dlss-5/) |
+| 2026-09-19 | Un PC de cobre con estética steampunk esconde un Ryzen 7 9800X3D y una RX 9070 XT | [copper-steampunk-pc-build](https://techspain24.com/noticias/copper-steampunk-pc-build/) |
+| 2026-09-19 | Un tercer cable PCIe improvisado acaba con una fuente be quiet! de 15 años | [be-quiet-psu-modular-cables-smoke](https://techspain24.com/noticias/be-quiet-psu-modular-cables-smoke/) |
+| 2026-09-19 | Un truco permite usar DeX en la pantalla interior del Galaxy Z Fold 8 | [galaxy-z-fold-8-dex-inner-screen](https://techspain24.com/noticias/galaxy-z-fold-8-dex-inner-screen/) |
+| 2026-09-19 | Un usuario exprime un ASUS ROG Zephyrus G16 hasta los 215 W con una utilidad experimental | [thin-gaming-laptops-215w](https://techspain24.com/noticias/thin-gaming-laptops-215w/) |
+| 2026-09-19 | Una app de terceros desbloquea el ajuste fino de la apertura variable del iPhone 18 Pro | [iphone-18-pro-variable-aperture-mod](https://techspain24.com/noticias/iphone-18-pro-variable-aperture-mod/) |
+| 2026-09-19 | Valve libera Lepton, la capa que ejecuta juegos Android en el Steam Frame | [valve-steam-frame-android-tool](https://techspain24.com/noticias/valve-steam-frame-android-tool/) |
+| 2026-09-20 | AX Gaming presenta una RTX 5070 con aromatizante que perfuma la habitación al arrancar | [ax-rtx-5070-fragrance](https://techspain24.com/noticias/ax-rtx-5070-fragrance/) |
+| 2026-09-20 | Cemu-nx, un port homebrew que lleva el emulador de Wii U a Nintendo Switch | [cemu-wii-u-switch-port](https://techspain24.com/noticias/cemu-wii-u-switch-port/) |
+| 2026-09-20 | Cómo devolver el aspecto CRT a tus juegos retro con un shader NTSC en RetroArch | [retroarch-ntsc-shader](https://techspain24.com/noticias/retroarch-ntsc-shader/) |
+| 2026-09-20 | Cómo grabar audio en tu iPhone con la app Voice Memos paso a paso | [record-audio-iphone](https://techspain24.com/noticias/record-audio-iphone/) |
+| 2026-09-20 | Cómo solucionar los problemas más comunes de Google Wallet | [google-wallet-problems-fixes](https://techspain24.com/noticias/google-wallet-problems-fixes/) |
+| 2026-09-20 | Compró un Ryzen 7 9800X3D en tienda y recibió una falsificación: la caja estaba sellada y le negaron el reembolso | [fake-9800x3d-official-store](https://techspain24.com/noticias/fake-9800x3d-official-store/) |
+| 2026-09-20 | Convertir una consola portátil en servidor multimedia doméstico: la experiencia de un redactor de XDA | [gaming-handheld-home-media-server](https://techspain24.com/noticias/gaming-handheld-home-media-server/) |
+| 2026-09-20 | DXOMARK puntúa la cámara del iPhone 18 Pro con 172 puntos, a tres del Huawei Pura 80 Ultra | [iphone-18-pro-dxo-172](https://techspain24.com/noticias/iphone-18-pro-dxo-172/) |
+| 2026-09-20 | El GPD WIN 5 añade una variante con Ryzen AI Max+ 388 que conserva la Radeon 8060S completa | [gpd-win-5-ryzen-ai-max-388](https://techspain24.com/noticias/gpd-win-5-ryzen-ai-max-388/) |
+| 2026-09-20 | El iPhone Duo se estrenará con iOS 27.1 de fábrica y se saltará iOS 27 | [iphone-duo-ios-27-1-launch](https://techspain24.com/noticias/iphone-duo-ios-27-1-launch/) |
+| 2026-09-20 | Gigabyte amplía su catálogo AM5 con la B850 AORUS ELITE X3D: VRM 16+2+2 y cuatro ranuras M.2 | [gigabyte-b850-aorus-elite-x3d](https://techspain24.com/noticias/gigabyte-b850-aorus-elite-x3d/) |
+| 2026-09-20 | Hygon presentará su serie 1000 de CPU el 22 de septiembre en Shenzhen | [hygon-1000-series-cpu](https://techspain24.com/noticias/hygon-1000-series-cpu/) |
+| 2026-09-20 | La ranura PCIe 3.0 no es el motivo para cambiar de placa base | [gpu-legacy-pcie-slot](https://techspain24.com/noticias/gpu-legacy-pcie-slot/) |
+| 2026-09-20 | MAME4droid 1.41.2 pone el foco en el NetPlay: el rollback llega a CPS-3 y a las partidas que antes se rompían | [mame4droid-mame-0-289](https://techspain24.com/noticias/mame4droid-mame-0-289/) |
+| 2026-09-20 | Mando de Xbox con cable o inalámbrico: cuándo conviene cada uno | [xbox-controller-wired-wireless](https://techspain24.com/noticias/xbox-controller-wired-wireless/) |
+| 2026-09-20 | Microsoft celebrará un evento de Surface y Windows 11 el 7 de octubre centrado en la IA local | [microsoft-surface-event-2026](https://techspain24.com/noticias/microsoft-surface-event-2026/) |
+| 2026-09-20 | NitroGrafx 0.9.1 añade audio CD-ROM a su emulador de PC Engine para Nintendo DS | [nitrografx-pc-engine-emulator](https://techspain24.com/noticias/nitrografx-pc-engine-emulator/) |
+| 2026-09-20 | OPPO desvela los accesorios del Find X10: baterías magnéticas y cargadores de hasta 80 W | [oppo-find-x10-accessories-launch](https://techspain24.com/noticias/oppo-find-x10-accessories-launch/) |
+| 2026-09-20 | OPPO Watch S2: ColorOS Watch 17 y retransmisión de frecuencia cardíaca al móvil | [oppo-watch-s2-coloros-watch-17](https://techspain24.com/noticias/oppo-watch-s2-coloros-watch-17/) |
+| 2026-09-20 | Qué mirar al comprar un móvil Android para jugar | [android-gaming-phone-buying-guide](https://techspain24.com/noticias/android-gaming-phone-buying-guide/) |
+| 2026-09-20 | Rune quiere convertir el excedente solar en centros de datos para GPU en semanas, no en años | [solar-plants-gpu-data-centers](https://techspain24.com/noticias/solar-plants-gpu-data-centers/) |
+| 2026-09-20 | Solidigm estudia levantar su primera fábrica de NAND en Estados Unidos, según un informe | [solidigm-first-us-nand-fab](https://techspain24.com/noticias/solidigm-first-us-nand-fab/) |
+| 2026-09-20 | Un iPhone 18 Pro mueve en local un modelo de IA de 27 000 millones de parámetros al doble de velocidad que el iPhone 17 Pro | [apple-a20-pro-on-device-27b-model](https://techspain24.com/noticias/apple-a20-pro-on-device-27b-model/) |
+| 2026-09-20 | Un port experimental de KytyPS5 lleva juegos de PS5 a la Xbox Series X | [xbox-series-x-ps5-emulator-quake-2](https://techspain24.com/noticias/xbox-series-x-ps5-emulator-quake-2/) |
+| 2026-09-20 | Un ventilador Noctua enfría la cámara anti-IA CAIM1 para que no pierda fotogramas | [noctua-caim1-anti-ai-camera](https://techspain24.com/noticias/noctua-caim1-anti-ai-camera/) |
+| 2026-09-20 | Usuarios reportan cuelgues y reinicios en el iPhone 18 Pro por el fenómeno «Panic Full» | [iphone-18-pro-freeze-bug](https://techspain24.com/noticias/iphone-18-pro-freeze-bug/) |
+| 2026-09-20 | Winlator 11.2 apunta a los servicios en primer plano y afina su capa gráfica en Android | [winlator-11-2](https://techspain24.com/noticias/winlator-11-2/) |
+| 2026-09-21 | Apple abre las reclamaciones del acuerdo por Siri: hasta 95 dólares por iPhone en Estados Unidos | [apple-siri-settlement-payout](https://techspain24.com/noticias/apple-siri-settlement-payout/) |
+| 2026-09-21 | Azahar 2126.1.2 corrige el cuelgue de RetroArch al salir de un juego de 3DS | [azahar-2126-1-2](https://techspain24.com/noticias/azahar-2126-1-2/) |
+| 2026-09-21 | Cómo activar iPhone Handoff y usar el mismo número en dos iPhone | [iphone-handoff-two-phones](https://techspain24.com/noticias/iphone-handoff-two-phones/) |
+| 2026-09-21 | Cómo elegir la distancia focal correcta para retratar personas con el iPhone | [iphone-photos-focal-length](https://techspain24.com/noticias/iphone-photos-focal-length/) |
+| 2026-09-21 | Cómo personalizar el botón lateral de tu Samsung Galaxy paso a paso | [samsung-side-button-customize](https://techspain24.com/noticias/samsung-side-button-customize/) |
+| 2026-09-21 | Cómo unirte a una llamada de FaceTime desde Android o Windows paso a paso | [facetime-from-android-and-windows](https://techspain24.com/noticias/facetime-from-android-and-windows/) |
+| 2026-09-21 | Cómo usar ChatGPT para crear stickers para iMessage y WhatsApp paso a paso | [chatgpt-stickers-imessage-whatsapp](https://techspain24.com/noticias/chatgpt-stickers-imessage-whatsapp/) |
+| 2026-09-21 | Cómo usar el modo Xbox en tu PC con Windows 11 paso a paso | [xbox-mode-windows-pc](https://techspain24.com/noticias/xbox-mode-windows-pc/) |
+| 2026-09-21 | CXMT produce en masa su plataforma DRAM de quinta generación y estrena LPDDR5X de 24 Gb | [cxmt-5th-gen-dram-mass-production](https://techspain24.com/noticias/cxmt-5th-gen-dram-mass-production/) |
+| 2026-09-21 | Dekopon, un port de Azahar que lleva la emulación de 3DS a Nintendo Switch | [dekopon-3ds-emulation-switch](https://techspain24.com/noticias/dekopon-3ds-emulation-switch/) |
+| 2026-09-21 | El ASUS LC 360 ARGB ya tiene precio: 549 yuanes en China | [asus-lc-360-argb-aio](https://techspain24.com/noticias/asus-lc-360-argb-aio/) |
+| 2026-09-21 | El DGX Spark se vende ya por encima de su precio oficial ante la llegada del RTX Spark | [nvidia-dgx-spark-price-hike](https://techspain24.com/noticias/nvidia-dgx-spark-price-hike/) |
+| 2026-09-21 | El iPhone 18 Pro estrena el «Glitchgate»: fallos gráficos, tirones y reinicios | [iphone-18-pro-glitchgate](https://techspain24.com/noticias/iphone-18-pro-glitchgate/) |
+| 2026-09-21 | El iPhone 18 Pro Max de 1 TB cae a 79 MB/s en escritura sostenida, por debajo de muchas microSD | [iphone-18-pro-max-storage-test](https://techspain24.com/noticias/iphone-18-pro-max-storage-test/) |
+| 2026-09-21 | El iPhone Duo arranca su mes final con solo un 60 % de tasa de producción | [iphone-duo-yield-foxconn](https://techspain24.com/noticias/iphone-duo-yield-foxconn/) |
+| 2026-09-21 | El Killswitch de Dbrand para la Switch 2 convence en protección y ergonomía, pero se paga caro | [dbrand-killswitch-switch-2-review](https://techspain24.com/noticias/dbrand-killswitch-switch-2-review/) |
+| 2026-09-21 | El ordenador de ADN más rápido hasta la fecha funciona con una gota de agua y sin alimentación continua | [dna-molecular-computer](https://techspain24.com/noticias/dna-molecular-computer/) |
+| 2026-09-21 | El rumor de que la PS6 supera a una RTX 5080 tendría un error de cálculo: se contó dos veces la misma característica | [ps6-vs-rtx-5080-miscalculation](https://techspain24.com/noticias/ps6-vs-rtx-5080-miscalculation/) |
+| 2026-09-21 | Filtran las pantallas del iPhone 20 Pro: 6,41 y 6,96 pulgadas con diseño sin bordes | [iphone-20-pro-bezel-less-display](https://techspain24.com/noticias/iphone-20-pro-bezel-less-display/) |
+| 2026-09-21 | Gemini Notebook se convierte en tutor personal: voz en tiempo real y cuestionarios sobre tus apuntes | [gemini-notebook-personal-tutor](https://techspain24.com/noticias/gemini-notebook-personal-tutor/) |
+| 2026-09-21 | iFixit desmonta el iPhone 18 Pro y Pro Max: 7/10 en reparabilidad y un marco de pantalla frágil | [iphone-18-pro-ifixit-teardown](https://techspain24.com/noticias/iphone-18-pro-ifixit-teardown/) |
+| 2026-09-21 | La demo de Stellar Blade ya está en Switch 2 y una comparativa con PS5 muestra un port muy cercano | [stellar-blade-switch-2](https://techspain24.com/noticias/stellar-blade-switch-2/) |
+| 2026-09-21 | La RTX 5090 pierde 147 fps en The Last of Us Part II al activar DLSS 5 | [rtx-5090-last-of-us-2-dlss-5](https://techspain24.com/noticias/rtx-5090-last-of-us-2-dlss-5/) |
+| 2026-09-21 | Loongson y Kunpeng alcanzan el nivel III de seguridad, la certificación más alta para una CPU china | [loongson-kunpeng-security-levels](https://techspain24.com/noticias/loongson-kunpeng-security-levels/) |
+| 2026-09-21 | Los Redmi Buds 8S llegan el 22 de septiembre con 4,2 g por auricular y un 70 % más de cancelación de ruido | [redmi-buds-8s](https://techspain24.com/noticias/redmi-buds-8s/) |
+| 2026-09-21 | Microsoft patenta un sistema que congela los juegos para insertar anuncios al estilo de los free-to-play móviles | [microsoft-game-ads-patent](https://techspain24.com/noticias/microsoft-game-ads-patent/) |
+| 2026-09-21 | NetherSX2 llega a Nintendo Switch: emulación de PS2 sin instalar Android | [nethersx2-switch-port](https://techspain24.com/noticias/nethersx2-switch-port/) |
+| 2026-09-21 | Una Intel Arc A750 reciclada corre Gemma-4-E4B a 33 tokens por segundo como servidor de LLM | [intel-arc-local-llm-server](https://techspain24.com/noticias/intel-arc-local-llm-server/) |
+| 2026-09-21 | Una RTX 5080 de un mes falla tras inyectar DLSS 5 con un mod en GTA 5 | [rtx-5080-dlss-5-mod-failure](https://techspain24.com/noticias/rtx-5080-dlss-5-mod-failure/) |
+| 2026-09-21 | Xiaomi fija el 23 de septiembre para presentar la serie Xiaomi 18 Pro | [xiaomi-18-pro-launch-date](https://techspain24.com/noticias/xiaomi-18-pro-launch-date/) |

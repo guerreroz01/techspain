@@ -1,0 +1,34 @@
+---
+title: 'Azahar 2126.1.2 corrige el cuelgue de RetroArch al salir de un juego de 3DS'
+description: 'Azahar corrige en su versión 2126.1.2 el cuelgue de RetroArch al salir de un juego de 3DS; el parche solo toca los núcleos de libretro, no la app independiente.'
+pubDate: '2026-09-21'
+author: 'Redacción Tecnología Hoy'
+tags: ['Emuladores', 'Nintendo 3DS', 'RetroArch']
+featured: false
+breaking: false
+source:
+  name: 'Azahar'
+  url: 'https://github.com/azahar-emu/azahar/releases/tag/2126.1.2'
+---
+
+**Azahar**, el emulador de código abierto de **Nintendo 3DS** que continúa el legado de Citra y Lime3DS, ha publicado la versión **2126.1.2**. Se trata de un parche sin cita previa —el propio proyecto lo describe como un *fix release* no programado— centrado en un único problema: un fallo que podía dejar **RetroArch completamente congelado o cerrarlo de golpe al salir de un juego**. La corrección llega nueve días después de la 2126.1.1 y solo afecta a los núcleos de libretro; el resto de versiones de Azahar no cambian.
+
+## Azahar y sus dos caminos: aplicación independiente o núcleo de RetroArch
+
+Azahar no es solo un programa que se abre en el escritorio. El proyecto distribuye su emulador de dos maneras: como **aplicación independiente** para Windows, macOS, Linux y Android, y como **núcleo compatible con libretro**, la interfaz que permite ejecutar emuladores dentro de RetroArch y de otros frontends similares. En esta segunda vía, los binarios que acompañan a esta misma publicación cubren Linux, macOS, Android, iOS y tvOS.
+
+Esa doble vida explica por qué una nota de versión puede ser relevante sin tocar el renderizador, el audio ni la compatibilidad de juegos. Un problema en el núcleo de libretro no aparece al usar el programa por separado, pero sí afecta a cualquiera que haya integrado Azahar en una biblioteca tipo RetroArch. Si ese es tu caso, ya sabrás que [ajustar la experiencia de RetroArch con shaders](/noticias/retroarch-ntsc-shader/) es una de las ventajas de ese frontend; ahora conviene además que cerrar una partida no acabe en un bloqueo.
+
+## Qué corrige la versión 2126.1.2
+
+El registro de cambios es tan breve como concreto. Bajo el epígrafe **libretro**, la única entrada indica que se ha corregido un fallo que podía hacer que **RetroArch se quedara completamente bloqueado o se cerrara al salir de un juego**. La contribución la firma **@Razor221** en la solicitud de fusión **#2572**.
+
+No hay más cambios: no se tocan los renderizadores Vulkan u OpenGL, ni la gestión de los estados guardados, ni los ajustes de la aplicación. Para quien venía sufriendo ese cuelgue al cerrar una partida desde RetroArch, el síntoma era molesto por el momento en que aparecía —el final de la sesión, justo antes de guardar o de cambiar de juego—, aunque no comprometía la partida en sí.
+
+## Qué cambia para quien emula 3DS
+
+El matiz importante está en la propia nota: **para el resto de versiones de Azahar, esta actualización es idéntica a la 2126.1.1**. Es decir, quien use la aplicación independiente en Windows, macOS, Linux o Android y ya tenga instalada la 2126.1.1 no encontrará nada nuevo en la 2126.1.2. La actualización solo tiene sentido si se usa Azahar como núcleo dentro de RetroArch o de otro frontend compatible con libretro.
+
+Tampoco es un salto aislado. La 2126.1 llegó el 9 de septiembre como una entrega de mantenimiento volcada en la estabilidad, y la 2126.1.1 hizo lo propio dos días después corrigiendo cierres en equipos con un soporte de Vulkan limitado. Esta 2126.1.2 cierra la serie atacando un problema específico de la integración con RetroArch, y el proyecto la señala como la versión más reciente para todas las plataformas.
+
+Como en cualquier emulador, conviene recordar que **Azahar no incluye juegos**: cada usuario aporta sus propios volcados de sus cartuchos, y una actualización de este tipo no cambia ese punto de partida. La descarga está disponible en el repositorio oficial del proyecto.
