@@ -199,7 +199,7 @@ How content becomes discoverable by search engines:
 
 - **XML sitemap** — `@astrojs/sitemap` generates `sitemap-index.xml` → `sitemap-0.xml` with every route. Needs `site` in `astro.config.mjs` to build absolute URLs. The legal pages (`/aviso-legal/`, `/privacidad/`, `/cookies/`) are excluded through the `filter` option and additionally emit `<meta name="robots" content="noindex, follow">` via the `noindex` prop of `BaseLayout`. Both are deliberate. They are **not** disallowed in `public/robots.txt`: a crawler blocked from fetching a page never reads its `noindex` tag, which would leave the URL eligible to be indexed as a bare link. They are linked from the footer.
 - **Google News sitemap** — `src/pages/sitemap-news.xml.ts` emits `news:news` entries. **Google only accepts articles published in the last 48 hours**; the endpoint filters to that window and falls back to the 10 most recent when nothing qualifies (so the demo is never empty).
-- **robots.txt** — `public/robots.txt` allows crawling and points to both sitemaps. **Its URLs are hardcoded to `https://techspain24.com`** and must be updated together with `site`.
+- **robots.txt** — `public/robots.txt` allows crawling and points to both sitemaps. **Its URLs are hardcoded to `https://www.techspain24.com`** and must be updated together with `site`.
 - **Structured data** — article pages inject JSON-LD `NewsArticle` (headline, description, dates, author, image, publisher, `inLanguage: "es"`) through the `head` slot in `BaseLayout`.
 - **RSS** — `/rss.xml`, linked from `<head>` via `rel="alternate"`.
 - **Per-page metadata** — `BaseLayout` sets canonical URL, description, Open Graph, and Twitter card tags.
@@ -207,8 +207,10 @@ How content becomes discoverable by search engines:
 
 ### Indexing gotchas
 
-- The `site` value in `astro.config.mjs` is set to the real domain `https://techspain24.com`. **Canonical URLs, sitemaps, and RSS links depend on it.**
+- The `site` value in `astro.config.mjs` is set to the real domain `https://www.techspain24.com`. **Canonical URLs, sitemaps, and RSS links depend on it.**
+- **The declared `site` must be the host that actually serves 200.** In Vercel, `www.techspain24.com` is the primary domain and the bare apex `techspain24.com` 308-redirects to it. Pointing `site` at the apex made every canonical, every sitemap entry (277 of them) and both `robots.txt` sitemap references advertise a redirecting URL, and Google Search Console reported the whole site as "page with redirect". If the primary domain ever changes in Vercel, `astro.config.mjs`, `public/robots.txt` and the `SITE.url` fallback in `src/consts.ts` must change with it — that is the one place where the three can silently drift.
 - `public/robots.txt` references the same domain — keep both files in sync if it ever changes.
+- `/noticias/<slug>` and `/noticias/<slug>/` both return 200 (Astro's default `trailingSlash: 'ignore'`). The trailing-slash form is the canonical one, so the duplicate is resolved by the `canonical` tag rather than by a redirect.
 - The 48-hour news window means a quiet site will produce a near-empty news sitemap. That is expected behavior, not a bug.
 
 ## 11. Ads & Analytics
@@ -257,7 +259,7 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 
 ## 13. Deployment (Vercel)
 
-1. The domain is set to `https://techspain24.com` in **both** `astro.config.mjs` (`site`) and `public/robots.txt`.
+1. The domain is set to `https://www.techspain24.com` in **both** `astro.config.mjs` (`site`) and `public/robots.txt`, and it must match the primary domain configured in Vercel (see the indexing gotchas in section 10).
 2. Update `SITE` in `src/consts.ts` (name, description, author).
 3. Push the repository to a Git remote and import it in Vercel (Astro is auto-detected; `npm run build`, output `dist/`).
 4. The `@astrojs/vercel` adapter also writes `.vercel/output/`. Output remains static.

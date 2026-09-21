@@ -9,7 +9,9 @@ export const SITE = {
     'Noticias de tecnología en español: inteligencia artificial, hardware, software y la industria que las mueve.',
   author: 'Redacción Tecnología Hoy',
   // `import.meta.env.SITE` comes from the `site` option in astro.config.mjs.
-  url: import.meta.env.SITE ?? 'https://techspain24.com',
+  // The fallback repeats that same `www` host on purpose: if it ever diverges,
+  // canonical URLs would point at the apex, which only 308-redirects here.
+  url: import.meta.env.SITE ?? 'https://www.techspain24.com',
   lang: 'es',
 } as const;
 

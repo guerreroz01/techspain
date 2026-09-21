@@ -56,7 +56,12 @@ const newestEntryDate = [...entryDates.values()].sort((a, b) => b - a)[0];
 export default defineConfig({
   // Real domain. Required by @astrojs/sitemap and the RSS feed to build
   // absolute URLs.
-  site: 'https://techspain24.com',
+  //
+  // `www` is the host that serves 200 in Vercel; the bare apex 308-redirects
+  // here. Every absolute URL the site declares (canonical, og:url, sitemaps,
+  // RSS, robots.txt) must therefore use `www`, or the site ends up pointing its
+  // own canonical at a redirecting URL. See section 10 of AGENTS.md.
+  site: 'https://www.techspain24.com',
   adapter: vercel(),
   integrations: [
     sitemap({
