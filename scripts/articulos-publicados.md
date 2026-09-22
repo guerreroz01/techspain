@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 266 artículos. Actualizado: 2026-09-21
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 305 artículos. Actualizado: 2026-09-22
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -273,3 +273,42 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-21 | Una Intel Arc A750 reciclada corre Gemma-4-E4B a 33 tokens por segundo como servidor de LLM | [intel-arc-local-llm-server](https://www.techspain24.com/noticias/intel-arc-local-llm-server/) |
 | 2026-09-21 | Una RTX 5080 de un mes falla tras inyectar DLSS 5 con un mod en GTA 5 | [rtx-5080-dlss-5-mod-failure](https://www.techspain24.com/noticias/rtx-5080-dlss-5-mod-failure/) |
 | 2026-09-21 | Xiaomi fija el 23 de septiembre para presentar la serie Xiaomi 18 Pro | [xiaomi-18-pro-launch-date](https://www.techspain24.com/noticias/xiaomi-18-pro-launch-date/) |
+| 2026-09-22 | Alibaba publica su hoja de ruta de CPU Yitian: tres generaciones hasta 2027 | [alibaba-tthead-cpu-roadmap](https://www.techspain24.com/noticias/alibaba-tthead-cpu-roadmap/) |
+| 2026-09-22 | AMD reduce la VRAM del ray tracing de 80 GB a 1,7 GB con su técnica «Tetrahedral Cages» | [amd-tetrahedral-cages](https://www.techspain24.com/noticias/amd-tetrahedral-cages/) |
+| 2026-09-22 | Apple culpa al dueño de un MacBook Air M5 de un daño por líquido que él niega haber causado | [m5-macbook-air-liquid-damage](https://www.techspain24.com/noticias/m5-macbook-air-liquid-damage/) |
+| 2026-09-22 | ASUS condona una reparación de 1.100 dólares de la placa base de una ROG Strix G16 y sella el cortocircuito con cinta | [asus-rog-strix-g16-repair-waiver](https://www.techspain24.com/noticias/asus-rog-strix-g16-repair-waiver/) |
+| 2026-09-22 | Cinco apps Android de código abierto que un redactor de XDA prefiere a sus rivales de masas | [open-source-android-apps](https://www.techspain24.com/noticias/open-source-android-apps/) |
+| 2026-09-22 | Cloudflare vuelve a ahorrar 100 TB de RAM recortando un 90 % los hashes de sus servidores | [cloudflare-ram-savings](https://www.techspain24.com/noticias/cloudflare-ram-savings/) |
+| 2026-09-22 | Cómo convertir un PC antiguo con Windows en un Chromebook con ChromeOS Flex | [windows-pc-to-chromebook](https://www.techspain24.com/noticias/windows-pc-to-chromebook/) |
+| 2026-09-22 | Cómo desactivar el historial de ubicaciones de Google Maps paso a paso | [google-location-history-off](https://www.techspain24.com/noticias/google-location-history-off/) |
+| 2026-09-22 | Cómo elegir un adaptador de USB-A a USB-C: velocidad, carga y seguridad | [usb-to-usb-c-adapter-guide](https://www.techspain24.com/noticias/usb-to-usb-c-adapter-guide/) |
+| 2026-09-22 | Cómo revertir los ajustes más molestos de iOS 27: guía paso a paso | [ios-27-settings-rollback](https://www.techspain24.com/noticias/ios-27-settings-rollback/) |
+| 2026-09-22 | Cuktech pone a la venta una tarjeta GaN de 60 W AVS para el iPhone 18 Pro por 129 yuanes | [iphone-18-pro-60w-charging](https://www.techspain24.com/noticias/iphone-18-pro-60w-charging/) |
+| 2026-09-22 | El CEO de Acer minimiza la escasez de memoria: «Es imposible que dure hasta 2030» | [acer-ceo-ram-crisis](https://www.techspain24.com/noticias/acer-ceo-ram-crisis/) |
+| 2026-09-22 | El Honor Magic 8 Pro y el Honor 600 Pro tienen hardware para plantar cara a Apple, pero su diseño imita al iPhone | [honor-magic-8-pro-600-pro](https://www.techspain24.com/noticias/honor-magic-8-pro-600-pro/) |
+| 2026-09-22 | El Lenovo Yoga 9i 2026, a prueba: Panther Lake y una pantalla OLED que repiten como baza ganadora | [lenovo-yoga-9i-2026-review](https://www.techspain24.com/noticias/lenovo-yoga-9i-2026-review/) |
+| 2026-09-22 | Google Pixel 11 Pro XL, a análisis: cámaras de referencia y mucha IA con un rendimiento discutido | [google-pixel-11-pro-xl-review](https://www.techspain24.com/noticias/google-pixel-11-pro-xl-review/) |
+| 2026-09-22 | Huawei amplía el Ascend 960 hasta 15.488 chips y lo reserva para el mercado chino | [huawei-ascend-960-superpod](https://www.techspain24.com/noticias/huawei-ascend-960-superpod/) |
+| 2026-09-22 | Intel presenta PISA, una ISA virtual para que el software de sus GPU no dependa de la generación de hardware | [intel-pisa-virtual-isa](https://www.techspain24.com/noticias/intel-pisa-virtual-isa/) |
+| 2026-09-22 | La CPU NVIDIA Vera supera a la Xeon 6 en bases de datos con menos núcleos y un 48 % más de rendimiento | [nvidia-vera-cpu-benchmark](https://www.techspain24.com/noticias/nvidia-vera-cpu-benchmark/) |
+| 2026-09-22 | La emulación de PS3 gana hasta un 37 % de FPS al sortear un bug de los drivers de NVIDIA | [ps3-emulation-nvidia-bug](https://www.techspain24.com/noticias/ps3-emulation-nvidia-bug/) |
+| 2026-09-22 | La IA desborda las previsiones de NAND: la subida esperada para el cuarto trimestre pasa del 2 % al 17 % | [nand-price-hike-2026](https://www.techspain24.com/noticias/nand-price-hike-2026/) |
+| 2026-09-22 | La ROG Xbox Ally gana atractivo frente a una Steam Deck que ya no es la opción barata | [rog-xbox-ally-vs-steam-deck](https://www.techspain24.com/noticias/rog-xbox-ally-vs-steam-deck/) |
+| 2026-09-22 | La RTX 60 de NVIDIA se retrasaría hasta 2028 por la escasez de memoria y el auge de la IA | [rtx-60-delayed-2028](https://www.techspain24.com/noticias/rtx-60-delayed-2028/) |
+| 2026-09-22 | Las GPU de segunda mano suben un 5,7 % en seis semanas: la RTX 5080 y la RX 7900 XTX se disparan un 27 % | [used-gpu-prices-surge](https://www.techspain24.com/noticias/used-gpu-prices-surge/) |
+| 2026-09-22 | Lenovo presenta el IdeaPad 5 15 en versión convertible: hasta Core 5 315 y 16 GB de memoria | [lenovo-ideapad-5-15-convertible](https://www.techspain24.com/noticias/lenovo-ideapad-5-15-convertible/) |
+| 2026-09-22 | Loongson estrena su plataforma de cómputo acelerado con soporte para OpenCL 3.0 y CUDA | [loongson-gpu-compute-platform](https://www.techspain24.com/noticias/loongson-gpu-compute-platform/) |
+| 2026-09-22 | Los Googlebook ya tienen catálogo y precio: cinco modelos desde 899 dólares | [googlebook-launch](https://www.techspain24.com/noticias/googlebook-launch/) |
+| 2026-09-22 | Los Ryzen 5 5500F y 7500 ya se venden en Amazon por encima de su precio recomendado | [ryzen-5-5500f-7500-msrp](https://www.techspain24.com/noticias/ryzen-5-5500f-7500-msrp/) |
+| 2026-09-22 | MediaTek presenta el Dimensity CX C10 Max, su chip de 3 nm para portátiles prémium | [mediatek-dimensity-cx-c10-max](https://www.techspain24.com/noticias/mediatek-dimensity-cx-c10-max/) |
+| 2026-09-22 | miniCDi, un emulador experimental de Philips CD-i para Wii, Wii U, GameCube y 3DS | [minicdi-philips-cd-i-emulator](https://www.techspain24.com/noticias/minicdi-philips-cd-i-emulator/) |
+| 2026-09-22 | MSI lanza en silencio el mini PC EdgeMesa N AI+ con el RTX Spark N1X y 128 GB unificados | [msi-edgemesa-n-rtx-spark](https://www.techspain24.com/noticias/msi-edgemesa-n-rtx-spark/) |
+| 2026-09-22 | Phantom Blade Zero: fecha, precio y todo lo confirmado del wuxia de S-GAME para PS5 y PC | [phantom-blade-zero](https://www.techspain24.com/noticias/phantom-blade-zero/) |
+| 2026-09-22 | Qué tarjetas gráficas de segunda mano siguen valiendo la pena con la crisis de la DRAM | [old-gpus-dram-crisis](https://www.techspain24.com/noticias/old-gpus-dram-crisis/) |
+| 2026-09-22 | Samsung Galaxy Z Flip8, análisis: ser un buen plegable ya no basta | [samsung-galaxy-z-flip8-review](https://www.techspain24.com/noticias/samsung-galaxy-z-flip8-review/) |
+| 2026-09-22 | Sony patenta un sistema de IA que permitiría a las consolas PlayStation repararse solas | [sony-self-repairing-console-patent](https://www.techspain24.com/noticias/sony-self-repairing-console-patent/) |
+| 2026-09-22 | Sony patenta un sistema para pagar juegos digitales directamente desde el mando DualSense | [dualsense-payment-patent](https://www.techspain24.com/noticias/dualsense-payment-patent/) |
+| 2026-09-22 | Ubisoft regala For Honor para siempre tras vetar a los jugadores de Linux y Steam Deck | [for-honor-linux-ban-free](https://www.techspain24.com/noticias/for-honor-linux-ban-free/) |
+| 2026-09-22 | Un aficionado diseña su propia placa base para revivir un servidor HP de 15 años con un Raspberry Pi CM5 | [raspberry-pi-cm5-server-motherboard](https://www.techspain24.com/noticias/raspberry-pi-cm5-server-motherboard/) |
+| 2026-09-22 | Vivo presenta el X500 Pro Max: triple cámara Zeiss, 200 MP y kit de teleconvertidores | [vivo-x500-pro-max-camera](https://www.techspain24.com/noticias/vivo-x500-pro-max-camera/) |
+| 2026-09-22 | Xbox prepararía cientos de despidos esta semana y la fusión de varios estudios, según The Information | [xbox-layoffs-studio-mergers](https://www.techspain24.com/noticias/xbox-layoffs-studio-mergers/) |
