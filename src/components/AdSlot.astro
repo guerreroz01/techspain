@@ -1,5 +1,5 @@
 ---
-import { ADS } from '../consts';
+import { ADS, ADS_ACTIVE } from '../consts';
 
 interface Props {
   slot?: string;
@@ -9,13 +9,17 @@ interface Props {
 
 const { slot = '', format = 'auto', label = 'Espacio publicitario' } = Astro.props;
 
-// In production nothing is rendered while ADS.enabled is false, so the layout
-// stays clean. In dev a subtle placeholder makes the slot visible.
-const showDevPlaceholder = import.meta.env.DEV;
+// A unit renders only when ads are live AND the caller passed a real slot id.
+// Pushing an <ins> with an empty `data-ad-slot` logs a TagError in the console
+// and stays blank, so it is never emitted.
+const showUnit = ADS_ACTIVE && slot.length > 0;
+
+// In dev a subtle placeholder marks the slot whenever no real unit is emitted.
+const showDevPlaceholder = import.meta.env.DEV && !showUnit;
 ---
 
 {
-  ADS.enabled && (
+  showUnit && (
     <aside class="ad-slot" aria-label={label}>
       {/*
         AdSense unit. `GoogleAds.astro` loads adsbygoogle.js after the visitor
@@ -35,7 +39,7 @@ const showDevPlaceholder = import.meta.env.DEV;
 }
 
 {
-  !ADS.enabled && showDevPlaceholder && (
+  showDevPlaceholder && (
     <aside class="ad-slot ad-slot--placeholder" aria-label={label}>
       <span>{label}</span>
     </aside>

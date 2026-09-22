@@ -1,6 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro';
-import { SITE, CONSENT, CONSENT_ACTIVE } from '../consts';
+import { SITE, CONSENT, CONSENT_ACTIVE, ADS, ADS_ACTIVE } from '../consts';
 import Header from '../components/Header.astro';
 import SearchBar from '../components/SearchBar.astro';
 import Footer from '../components/Footer.astro';
@@ -77,6 +77,15 @@ const rssHref = new URL('rss.xml', siteBase).href;
       title={`${SITE.title} — RSS`}
       href={rssHref}
     />
+
+    <!--
+      AdSense site-ownership verification. AdSense requires its code (or this
+      meta tag) inside <head> to connect the site, but its crawler does not
+      accept the cookie notice, so the consent-gated loader in `GoogleAds.astro`
+      is invisible to it. This meta tag sets no cookie and needs no consent, so
+      it is emitted on every page while the ad loader stays gated.
+    -->
+    {ADS_ACTIVE && <meta name="google-adsense-account" content={ADS.client} />}
 
     <!-- Per-page structured data (e.g. NewsArticle JSON-LD). -->
     <slot name="head" />

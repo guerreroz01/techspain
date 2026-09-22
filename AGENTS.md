@@ -229,9 +229,12 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 
 ### Ads
 
-- `src/components/AdSlot.astro` renders nothing in production while `ADS.enabled === false` (it shows a labeled placeholder only in dev).
+- `src/components/AdSlot.astro` renders nothing in production until ads are live *and* the caller passes a real slot id; in dev it shows a labeled placeholder whenever no real unit is emitted.
 - **Enabling AdSense is a single switch**: set `ADS.enabled = true` and `ADS.client = 'ca-pub-…'` in `src/consts.ts`. Nothing needs to be uncommented. `ADS_ACTIVE` becomes true, which (a) renders the ad slots, (b) adds the advertising category to the consent dialog, and (c) makes `GoogleAds.astro` emit a loader that injects `adsbygoogle.js` only after the advertising category is accepted and then pushes every `.adsbygoogle` unit.
+- **Site verification is a separate concern from ad serving.** AdSense requires its code — or the verification meta tag — inside `<head>` to connect the site, and **its crawler does not accept the cookie notice**, so a consent-gated loader is invisible to it and the site reads as "ad code not found". `BaseLayout.astro` therefore emits `<meta name="google-adsense-account" content={ADS.client}>` on every page whenever `ADS_ACTIVE`; it sets no cookie and needs no consent. In AdSense, select **Meta tag** as the verification method. **Do not "fix" a verification error by pasting the raw `adsbygoogle.js` `<script>` unconditionally into `<head>`** — that loads Google before consent, breaks the RGPD/LSSI model the consent banner and `/cookies` document, and contradicts them. The publisher id is currently `ca-pub-5346680680468175`.
+- **A manual unit needs a real slot id**: `<AdSlot slot="1234567890" />`. The three current instances (home ×2, article ×1) pass none, so they render nothing until the ad units exist in AdSense. Pushing an `<ins>` with an empty `data-ad-slot` logs a TagError and stays blank, which is why `AdSlot.astro` guards on `ADS_ACTIVE && slot`.
 - Ad slots are placed on the home (two) and on article pages (one).
+- **Open item:** AdSense requires a **Google-certified CMP** to serve ads to EEA/UK users, and this site's own banner is not one. Resolve this (e.g. through AdSense's own Privacy & messaging CMP, reconciled with the existing banner) before relying on ad revenue from Spanish traffic.
 
 ### Web Analytics
 

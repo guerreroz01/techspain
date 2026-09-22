@@ -30,14 +30,13 @@ export const SOCIAL = [
 
 /**
  * AdSense configuration.
- * Keep `enabled: false` until you have a real publisher id.
- * Enabling ads is a single switch: set `enabled: true` and `client` to
- * something like `ca-pub-0000000000000000`. Everything else (the loader, the
+ * `client` is the publisher id from the AdSense account. Ads are live only when
+ * `enabled` is true AND `client` is set. Everything else (the loader, the
  * consent category and the ad slots) reacts to these two values.
  */
 export const ADS = {
-  enabled: false,
-  client: '',
+  enabled: true,
+  client: 'ca-pub-5346680680468175',
 } as const;
 
 /** Ads only run when the switch is on AND a publisher id is set. */
