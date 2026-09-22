@@ -9,7 +9,7 @@
  *   node scripts/daily-news.mjs --limit 30 # tope de artículos a mostrar en consola
  *
  * Lee src/data/sources.json, descarga los feeds (campo `rss`), descarta lo ya visto
- * (scripts/.seen.json) y clasifica cada artículo en las 7 verticales. Escribe
+ * (scripts/.seen.json) y clasifica cada artículo en los verticales editoriales. Escribe
  * scripts/candidates.json y un informe en markdown por consola.
  *
  * Sin dependencias: usa `fetch` (global en Node 18+) y un parser RSS/Atom propio.
@@ -37,6 +37,48 @@ const VERTICALS = {
     'how to', 'how-to', 'tutorial', 'tutoriales', 'walkthrough', 'step by step',
     'step-by-step', 'guide', 'guía', 'guia', 'paso a paso', 'trucos', 'consejos',
     'cómo', 'como hacer', 'aprende', 'aprender', 'instalar', 'configurar',
+  ],
+  // Wearables va antes que `moviles` a propósito: un titular como "Samsung
+  // Galaxy Watch 8" también coincide con `moviles` por "galaxy", y uno de
+  // "Pixel Watch" por "pixel", así que el reloj debe ganarles para no quedar
+  // diluido dentro de la telefonía. Es un bloque editorial único (relojes,
+  // anillos y gafas inteligentes); ver AGENTS.md §16.
+  //
+  // Se deja FUERA el paraguas genérico de realidad virtual (`vr`, `virtual
+  // reality`, `vr game`): un titular de juego de VR ("Echoes of Mora VR llega a
+  // Steam") entraría en wearables y no es un artículo de hardware ponible. Solo
+  // entra el XR cuando nombra el producto o las siglas AR de gafas.
+  //
+  // También se deja fuera 'watch' y 'ring' a secas: son palabras demasiado
+  // comunes ("watch the trailer", "ring") y ensuciarían el vertical. Las
+  // familias se listan siempre con su marca delante.
+  wearables: [
+    // Genérico
+    'wearable', 'wearables', 'ponible', 'ponibles',
+    // Relojes
+    'smartwatch', 'smartwatches', 'smart watch', 'smart watches',
+    'reloj inteligente', 'relojes inteligentes',
+    'apple watch', 'watchos', 'watch os', 'galaxy watch', 'pixel watch',
+    'huawei watch', 'honor watch', 'oneplus watch', 'xiaomi watch',
+    'redmi watch', 'watch gt', 'watch fit', 'watch ultra',
+    // Pulseras y monitores de actividad
+    'pulsera de actividad', 'pulsera inteligente', 'banda de actividad',
+    'fitness tracker', 'activity tracker', 'fitbit',
+    // Anillos
+    'smart ring', 'smart rings', 'anillo inteligente', 'anillos inteligentes',
+    'galaxy ring', 'oura', 'ringconn', 'ultrahuman', 'whoop',
+    // Gafas inteligentes y XR de hardware
+    'smart glasses', 'smartglasses', 'smartglass', 'ar glasses', 'xr glasses',
+    'gafas inteligentes', 'gafas de sol inteligentes', 'gafas de realidad',
+    'ray-ban', 'rayban', 'rayneo', 'xreal', 'vuzix', 'rokid', 'even realities',
+    'spectacles', 'vision pro', 'meta quest', 'augmented reality', 'realidad aumentada',
+    // Marcas de relojes deportivos (aparecen en titulares de prensa general).
+    // 'polar' a secas queda FUERA a propósito: en prensa de ciencia en español
+    // "polar" es vocabulario corriente (vórtice polar, amplificación polar,
+    // osos polares) y metía artículos de clima en Wearables. Se listan sus
+    // familias de producto, que es lo que aparece en un titular de review.
+    'garmin', 'amazfit', 'suunto',
+    'polar vantage', 'polar grit', 'polar pacer', 'polar ignite', 'polar verity',
   ],
   'tarjetas-graficas': [
     'gpu', 'graphics card', 'tarjeta gráfica', 'tarjeta grafica', 'geforce', 'rtx', 'radeon',
@@ -126,6 +168,7 @@ const VERTICAL_LABELS = {
   consolas: '🕹️ Consolas',
   componentes: '🔧 Componentes',
   moviles: '📱 Móviles',
+  wearables: '⌚ Wearables',
 };
 
 /* ------------------------------------------------------------------ */

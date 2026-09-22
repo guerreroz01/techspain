@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 305 artículos. Actualizado: 2026-09-22
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 334 artículos. Actualizado: 2026-09-22
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -274,41 +274,70 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-21 | Una RTX 5080 de un mes falla tras inyectar DLSS 5 con un mod en GTA 5 | [rtx-5080-dlss-5-mod-failure](https://www.techspain24.com/noticias/rtx-5080-dlss-5-mod-failure/) |
 | 2026-09-21 | Xiaomi fija el 23 de septiembre para presentar la serie Xiaomi 18 Pro | [xiaomi-18-pro-launch-date](https://www.techspain24.com/noticias/xiaomi-18-pro-launch-date/) |
 | 2026-09-22 | Alibaba publica su hoja de ruta de CPU Yitian: tres generaciones hasta 2027 | [alibaba-tthead-cpu-roadmap](https://www.techspain24.com/noticias/alibaba-tthead-cpu-roadmap/) |
+| 2026-09-22 | Amazfit prepara controles separados para decidir qué datos suben a la nube | [amazfit-zepp-cloud-data-controls](https://www.techspain24.com/noticias/amazfit-zepp-cloud-data-controls/) |
 | 2026-09-22 | AMD reduce la VRAM del ray tracing de 80 GB a 1,7 GB con su técnica «Tetrahedral Cages» | [amd-tetrahedral-cages](https://www.techspain24.com/noticias/amd-tetrahedral-cages/) |
 | 2026-09-22 | Apple culpa al dueño de un MacBook Air M5 de un daño por líquido que él niega haber causado | [m5-macbook-air-liquid-damage](https://www.techspain24.com/noticias/m5-macbook-air-liquid-damage/) |
+| 2026-09-22 | Apple sincroniza su segunda ola de betas: iOS 27.2, macOS Golden Gate 27.2 y watchOS 27.2 llegan a la vez | [apple-beta-2-wave-watchos-27-2](https://www.techspain24.com/noticias/apple-beta-2-wave-watchos-27-2/) |
+| 2026-09-22 | Apple Watch Series 12 y Ultra 4 añaden los pasos en vivo a la esfera: una función discreta que engancha | [apple-watch-series-12-fitness-feature](https://www.techspain24.com/noticias/apple-watch-series-12-fitness-feature/) |
+| 2026-09-22 | Apple Watch Series 12 y Ultra 4 estrenan un ajuste para el pulso continuo en Modo Teatro | [apple-watch-series-12-ultra-4-theater-mode](https://www.techspain24.com/noticias/apple-watch-series-12-ultra-4-theater-mode/) |
 | 2026-09-22 | ASUS condona una reparación de 1.100 dólares de la placa base de una ROG Strix G16 y sella el cortocircuito con cinta | [asus-rog-strix-g16-repair-waiver](https://www.techspain24.com/noticias/asus-rog-strix-g16-repair-waiver/) |
+| 2026-09-22 | Australia amplía el veto a las gafas inteligentes: Sídney y las escuelas de Australia Occidental se suman | [australia-smart-glasses-ban-expansion](https://www.techspain24.com/noticias/australia-smart-glasses-ban-expansion/) |
 | 2026-09-22 | Cinco apps Android de código abierto que un redactor de XDA prefiere a sus rivales de masas | [open-source-android-apps](https://www.techspain24.com/noticias/open-source-android-apps/) |
 | 2026-09-22 | Cloudflare vuelve a ahorrar 100 TB de RAM recortando un 90 % los hashes de sus servidores | [cloudflare-ram-savings](https://www.techspain24.com/noticias/cloudflare-ram-savings/) |
 | 2026-09-22 | Cómo convertir un PC antiguo con Windows en un Chromebook con ChromeOS Flex | [windows-pc-to-chromebook](https://www.techspain24.com/noticias/windows-pc-to-chromebook/) |
 | 2026-09-22 | Cómo desactivar el historial de ubicaciones de Google Maps paso a paso | [google-location-history-off](https://www.techspain24.com/noticias/google-location-history-off/) |
 | 2026-09-22 | Cómo elegir un adaptador de USB-A a USB-C: velocidad, carga y seguridad | [usb-to-usb-c-adapter-guide](https://www.techspain24.com/noticias/usb-to-usb-c-adapter-guide/) |
+| 2026-09-22 | Cómo fijar música en la parte superior de la biblioteca de tu Apple Watch | [pin-music-apple-watch-library](https://www.techspain24.com/noticias/pin-music-apple-watch-library/) |
 | 2026-09-22 | Cómo revertir los ajustes más molestos de iOS 27: guía paso a paso | [ios-27-settings-rollback](https://www.techspain24.com/noticias/ios-27-settings-rollback/) |
+| 2026-09-22 | Cuatro alternativas al Apple Watch Series 12: la selección de MovilZona y en qué se diferencian | [smartwatch-alternatives-apple-watch-series-12](https://www.techspain24.com/noticias/smartwatch-alternatives-apple-watch-series-12/) |
 | 2026-09-22 | Cuktech pone a la venta una tarjeta GaN de 60 W AVS para el iPhone 18 Pro por 129 yuanes | [iphone-18-pro-60w-charging](https://www.techspain24.com/noticias/iphone-18-pro-60w-charging/) |
+| 2026-09-22 | El Amazfit BIP Max estrena un modo HYROX: estaciones, simulacros y entrenamiento guiado | [amazfit-bip-max-budget-smartwatch](https://www.techspain24.com/noticias/amazfit-bip-max-budget-smartwatch/) |
+| 2026-09-22 | El Amazfit T-Rex 3 Pro reta a los Garmin Fénix: 304 € y argumentos de gama alta | [amazfit-t-rex-3-pro-garmin-rival](https://www.techspain24.com/noticias/amazfit-t-rex-3-pro-garmin-rival/) |
+| 2026-09-22 | El Apple Watch Ultra 4 se estrena con sus primeras rebajas en Amazon | [apple-watch-ultra-4-airpods-pro-3-deals](https://www.techspain24.com/noticias/apple-watch-ultra-4-airpods-pro-3-deals/) |
 | 2026-09-22 | El CEO de Acer minimiza la escasez de memoria: «Es imposible que dure hasta 2030» | [acer-ceo-ram-crisis](https://www.techspain24.com/noticias/acer-ceo-ram-crisis/) |
+| 2026-09-22 | El conmutador de apps vuelve en watchOS 27.2 con un gesto distinto | [watchos-27-2-app-switcher-returns](https://www.techspain24.com/noticias/watchos-27-2-app-switcher-returns/) |
+| 2026-09-22 | El Fenix 9 Pro renuncia al microLED: Garmin vuelve al AMOLED por autonomía y precio | [garmin-fenix-9-pro-microled-skip](https://www.techspain24.com/noticias/garmin-fenix-9-pro-microled-skip/) |
+| 2026-09-22 | El Fitbit Charge 7 asoma en la FCC: qué apunta a su lanzamiento y qué falta por confirmar | [fitbit-charge-7-launch](https://www.techspain24.com/noticias/fitbit-charge-7-launch/) |
 | 2026-09-22 | El Honor Magic 8 Pro y el Honor 600 Pro tienen hardware para plantar cara a Apple, pero su diseño imita al iPhone | [honor-magic-8-pro-600-pro](https://www.techspain24.com/noticias/honor-magic-8-pro-600-pro/) |
 | 2026-09-22 | El Lenovo Yoga 9i 2026, a prueba: Panther Lake y una pantalla OLED que repiten como baza ganadora | [lenovo-yoga-9i-2026-review](https://www.techspain24.com/noticias/lenovo-yoga-9i-2026-review/) |
+| 2026-09-22 | Garmin Fénix 8 a 698 €: por qué el deportivo de gama alta sigue siendo la compra sensata | [garmin-fenix-8-price-drop](https://www.techspain24.com/noticias/garmin-fenix-8-price-drop/) |
+| 2026-09-22 | Garmin lanza CIRQA, su primera pulsera sin pantalla y sin cuota mensual | [garmin-cirqa-screenless-band](https://www.techspain24.com/noticias/garmin-cirqa-screenless-band/) |
 | 2026-09-22 | Google Pixel 11 Pro XL, a análisis: cámaras de referencia y mucha IA con un rendimiento discutido | [google-pixel-11-pro-xl-review](https://www.techspain24.com/noticias/google-pixel-11-pro-xl-review/) |
+| 2026-09-22 | H. Moser & Cie. Off-Grid: el reloj híbrido de lujo que elige no ser un smartwatch | [h-moser-cie-off-grid-review](https://www.techspain24.com/noticias/h-moser-cie-off-grid-review/) |
 | 2026-09-22 | Huawei amplía el Ascend 960 hasta 15.488 chips y lo reserva para el mercado chino | [huawei-ascend-960-superpod](https://www.techspain24.com/noticias/huawei-ascend-960-superpod/) |
 | 2026-09-22 | Intel presenta PISA, una ISA virtual para que el software de sus GPU no dependa de la generación de hardware | [intel-pisa-virtual-isa](https://www.techspain24.com/noticias/intel-pisa-virtual-isa/) |
+| 2026-09-22 | La cámara que vendió las gafas inteligentes se ha vuelto su mayor problema | [smart-glasses-camera-privacy-opinion](https://www.techspain24.com/noticias/smart-glasses-camera-privacy-opinion/) |
 | 2026-09-22 | La CPU NVIDIA Vera supera a la Xeon 6 en bases de datos con menos núcleos y un 48 % más de rendimiento | [nvidia-vera-cpu-benchmark](https://www.techspain24.com/noticias/nvidia-vera-cpu-benchmark/) |
 | 2026-09-22 | La emulación de PS3 gana hasta un 37 % de FPS al sortear un bug de los drivers de NVIDIA | [ps3-emulation-nvidia-bug](https://www.techspain24.com/noticias/ps3-emulation-nvidia-bug/) |
+| 2026-09-22 | La glucosa continua salta a la muñeca: Sugar Sense lleva el FreeStyle Libre al Garmin y al Apple Watch | [sugar-sense-freestyle-libre-watch](https://www.techspain24.com/noticias/sugar-sense-freestyle-libre-watch/) |
 | 2026-09-22 | La IA desborda las previsiones de NAND: la subida esperada para el cuarto trimestre pasa del 2 % al 17 % | [nand-price-hike-2026](https://www.techspain24.com/noticias/nand-price-hike-2026/) |
 | 2026-09-22 | La ROG Xbox Ally gana atractivo frente a una Steam Deck que ya no es la opción barata | [rog-xbox-ally-vs-steam-deck](https://www.techspain24.com/noticias/rog-xbox-ally-vs-steam-deck/) |
 | 2026-09-22 | La RTX 60 de NVIDIA se retrasaría hasta 2028 por la escasez de memoria y el auge de la IA | [rtx-60-delayed-2028](https://www.techspain24.com/noticias/rtx-60-delayed-2028/) |
+| 2026-09-22 | Las gafas inteligentes crecen un 263 % y Meta copa el 94 % de los envíos sin pantalla | [smart-glasses-market-doubles-meta](https://www.techspain24.com/noticias/smart-glasses-market-doubles-meta/) |
 | 2026-09-22 | Las GPU de segunda mano suben un 5,7 % en seis semanas: la RTX 5080 y la RX 7900 XTX se disparan un 27 % | [used-gpu-prices-surge](https://www.techspain24.com/noticias/used-gpu-prices-surge/) |
 | 2026-09-22 | Lenovo presenta el IdeaPad 5 15 en versión convertible: hasta Core 5 315 y 16 GB de memoria | [lenovo-ideapad-5-15-convertible](https://www.techspain24.com/noticias/lenovo-ideapad-5-15-convertible/) |
 | 2026-09-22 | Loongson estrena su plataforma de cómputo acelerado con soporte para OpenCL 3.0 y CUDA | [loongson-gpu-compute-platform](https://www.techspain24.com/noticias/loongson-gpu-compute-platform/) |
 | 2026-09-22 | Los Googlebook ya tienen catálogo y precio: cinco modelos desde 899 dólares | [googlebook-launch](https://www.techspain24.com/noticias/googlebook-launch/) |
 | 2026-09-22 | Los Ryzen 5 5500F y 7500 ya se venden en Amazon por encima de su precio recomendado | [ryzen-5-5500f-7500-msrp](https://www.techspain24.com/noticias/ryzen-5-5500f-7500-msrp/) |
 | 2026-09-22 | MediaTek presenta el Dimensity CX C10 Max, su chip de 3 nm para portátiles prémium | [mediatek-dimensity-cx-c10-max](https://www.techspain24.com/noticias/mediatek-dimensity-cx-c10-max/) |
+| 2026-09-22 | Meta planea gafas inteligentes sin cámara ante el rechazo por privacidad | [meta-smart-glasses-without-camera](https://www.techspain24.com/noticias/meta-smart-glasses-without-camera/) |
 | 2026-09-22 | miniCDi, un emulador experimental de Philips CD-i para Wii, Wii U, GameCube y 3DS | [minicdi-philips-cd-i-emulator](https://www.techspain24.com/noticias/minicdi-philips-cd-i-emulator/) |
+| 2026-09-22 | Motorola sube de gama: el Moto Watch Ultra suma LTE y las métricas de Polar a Wear OS | [moto-watch-ultra-lte](https://www.techspain24.com/noticias/moto-watch-ultra-lte/) |
 | 2026-09-22 | MSI lanza en silencio el mini PC EdgeMesa N AI+ con el RTX Spark N1X y 128 GB unificados | [msi-edgemesa-n-rtx-spark](https://www.techspain24.com/noticias/msi-edgemesa-n-rtx-spark/) |
 | 2026-09-22 | Phantom Blade Zero: fecha, precio y todo lo confirmado del wuxia de S-GAME para PS5 y PC | [phantom-blade-zero](https://www.techspain24.com/noticias/phantom-blade-zero/) |
+| 2026-09-22 | Qué es 3DoF en unas gafas AR y qué cambia al girar la cabeza | [what-is-3dof-ar-glasses](https://www.techspain24.com/noticias/what-is-3dof-ar-glasses/) |
 | 2026-09-22 | Qué tarjetas gráficas de segunda mano siguen valiendo la pena con la crisis de la DRAM | [old-gpus-dram-crisis](https://www.techspain24.com/noticias/old-gpus-dram-crisis/) |
+| 2026-09-22 | Readiness scores: el hueco científico que Garmin, Oura, Whoop y Apple no han cerrado | [wearable-readiness-scores-evidence-gap](https://www.techspain24.com/noticias/wearable-readiness-scores-evidence-gap/) |
+| 2026-09-22 | Rokid abre AIUI Studio a nivel global para crear agentes en sus gafas sin programar | [rokid-aiui-studio-ai-glasses](https://www.techspain24.com/noticias/rokid-aiui-studio-ai-glasses/) |
 | 2026-09-22 | Samsung Galaxy Z Flip8, análisis: ser un buen plegable ya no basta | [samsung-galaxy-z-flip8-review](https://www.techspain24.com/noticias/samsung-galaxy-z-flip8-review/) |
+| 2026-09-22 | Siri AI no convence en el Apple Watch: cinco fricciones que marcan su estreno | [siri-frustrations-iphone-apple-watch](https://www.techspain24.com/noticias/siri-frustrations-iphone-apple-watch/) |
+| 2026-09-22 | Snap demuestra en vivo sus gafas AR Specs y se adelanta a Meta y Apple | [snap-specs-ar-glasses-demo](https://www.techspain24.com/noticias/snap-specs-ar-glasses-demo/) |
 | 2026-09-22 | Sony patenta un sistema de IA que permitiría a las consolas PlayStation repararse solas | [sony-self-repairing-console-patent](https://www.techspain24.com/noticias/sony-self-repairing-console-patent/) |
 | 2026-09-22 | Sony patenta un sistema para pagar juegos digitales directamente desde el mando DualSense | [dualsense-payment-patent](https://www.techspain24.com/noticias/dualsense-payment-patent/) |
+| 2026-09-22 | Ternus defiende el Vision Pro con la analogía de los primeros ordenadores | [john-ternus-vision-pro-defense](https://www.techspain24.com/noticias/john-ternus-vision-pro-defense/) |
 | 2026-09-22 | Ubisoft regala For Honor para siempre tras vetar a los jugadores de Linux y Steam Deck | [for-honor-linux-ban-free](https://www.techspain24.com/noticias/for-honor-linux-ban-free/) |
 | 2026-09-22 | Un aficionado diseña su propia placa base para revivir un servidor HP de 15 años con un Raspberry Pi CM5 | [raspberry-pi-cm5-server-motherboard](https://www.techspain24.com/noticias/raspberry-pi-cm5-server-motherboard/) |
 | 2026-09-22 | Vivo presenta el X500 Pro Max: triple cámara Zeiss, 200 MP y kit de teleconvertidores | [vivo-x500-pro-max-camera](https://www.techspain24.com/noticias/vivo-x500-pro-max-camera/) |
+| 2026-09-22 | WhatsApp lleva al Apple Watch todo el catálogo de emojis de watchOS | [whatsapp-apple-watch-emoji-reactions](https://www.techspain24.com/noticias/whatsapp-apple-watch-emoji-reactions/) |
 | 2026-09-22 | Xbox prepararía cientos de despidos esta semana y la fusión de varios estudios, según The Information | [xbox-layoffs-studio-mergers](https://www.techspain24.com/noticias/xbox-layoffs-studio-mergers/) |
+| 2026-09-22 | ZuckOff localiza gafas con cámara por Bluetooth: la clave está en lo que la app no promete | [zuckoff-detects-camera-glasses-bluetooth](https://www.techspain24.com/noticias/zuckoff-detects-camera-glasses-bluetooth/) |

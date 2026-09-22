@@ -1,0 +1,38 @@
+---
+title: 'Amazfit prepara controles separados para decidir qué datos suben a la nube'
+description: 'El APK de Zepp 10.8.6 incluye ajustes para sincronizar salud, entrenamiento y perfil por separado, y avisos sobre las funciones que dejarían de funcionar.'
+pubDate: '2026-09-22'
+author: 'Redacción Tecnología Hoy'
+tags: ['Wearables', 'Privacidad']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Reloj inteligente Amazfit Bip 6, de la gama de Zepp Health'
+source:
+  name: 'Gadgets & Wearables'
+  url: 'https://gadgetsandwearables.com/2026/09/20/amazfit-zepp-cloud-sync-privacy-controls/'
+---
+
+La aplicación **Zepp** podría dejar de tratar la sincronización con la nube como un único interruptor. Un análisis del APK de su versión **10.8.6 para Android** ha encontrado cadenas de texto y componentes que apuntan a **controles separados por tipo de dato**: salud, entrenamiento y perfil pasarían a configurarse por separado, además de una opción para desactivar todo el envío. Por ahora se trata únicamente de lo hallado dentro de la aplicación, sin confirmación oficial de Zepp Health.
+
+## Tres controles para la nube que prepara Zepp
+
+Según las cadenas localizadas en la aplicación, los controles aparecen como «Sync Health Data to the Cloud», «Sync Fitness Data to the Cloud» y «Sync Profile Data to the Cloud» —datos de salud, de entrenamiento y de perfil, respectivamente—, junto a una cuarta opción etiquetada «Turn Off All Data Sync». Cada categoría tendría además su propio aviso explicando qué ocurre cuando se desactiva.
+
+El reparto propuesto separa dos bloques que hoy viajan juntos. Los **datos de entrenamiento** cubrirían registros de entrenamientos, frecuencia cardiaca durante el ejercicio, PAI, carga de entrenamiento, VO₂ máximo, umbral de lactato e información de coaching. Los **datos de salud** corresponden al lado más amplio de bienestar de la plataforma. Y los cambios no se quedan en los textos: el APK incorpora componentes de privacidad, entre ellos una actividad llamada `EquipmentPrivacyRestrictedActivity`, lo que sugiere que se está construyendo interfaz y restricciones alrededor de estos ajustes.
+
+## Desconectar la nube tiene consecuencias
+
+El matiz importante es que buena parte de la experiencia Zepp parece depender del servidor. Si se desactiva la sincronización de perfil, la aplicación podría mostrar mensajes como «Contactos no disponibles» y «Gestión de equipos limitada». Los retos también podrían dejar de estar disponibles o de actualizarse cuando los datos necesarios dejan de subirse.
+
+El ejemplo más claro es **LifeLoad**. El APK contiene un mensaje que explica que la app ha recibido una grabación de voz de LifeLoad desde el reloj, pero no puede enviarla a la nube para interpretarla porque la sincronización de datos de salud está desactivada. Es decir, la grabación nace en el reloj, mientras que su interpretación ocurre en línea. El mismo código indica que desactivar la sincronización de salud puede impedir que los eventos de LifeLoad se usen en HybridCharge.
+
+Que Zepp detalle las consecuencias antes de que el usuario apague los interruptores es coherente con ese diseño: el almacenamiento local da más control, pero algunos servicios que dependen de procesamiento en servidor dejarían de funcionar con normalidad.
+
+## Qué cambia para el usuario (y qué no)
+
+Si Zepp Health activa finalmente estos controles, la sincronización dejaría de ser un todo o nada: se podría mantener parte de la información en local mientras se sigue subiendo otras categorías. Es un cambio de enfoque relevante en un segmento donde el detalle de configuración sobre los datos rara vez se anuncia a bombo y platillo, y donde el debate sobre qué se hace con las métricas de salud y sueño sigue abierto. Ya lo vimos con las [puntuaciones de readiness de Garmin, Oura, Whoop y Apple](/noticias/wearable-readiness-scores-evidence-gap/): la interpretación de estos datos es tan discutible como su recogida.
+
+Conviene no leer esto como una promesa de privacidad total, porque no lo es. Todo procede de un análisis del APK (*APK teardown*): el código de una aplicación puede revelar funciones en desarrollo que después se activan, permanecen ocultas o desaparecen antes del lanzamiento. No hay confirmación oficial ni fecha, y no está claro qué datos seguirían procesándose en servidores aunque el interruptor correspondiente esté apagado.
+
+Para quien ya tiene un Amazfit —o valora uno como el [T-Rex 3 Pro frente a los Garmin Fénix](/noticias/amazfit-t-rex-3-pro-garmin-rival/)—, la lectura práctica es la de siempre: más control granular es una buena señal, pero cuánto se comparte dependerá de lo que finalmente se publique y de la letra pequeña de cada servicio.

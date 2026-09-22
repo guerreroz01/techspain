@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Fuentes editoriales del portal",
-    "description": "Lista curada de fuentes agrupada en 6 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
-    "updated": "2026-09-20",
-    "version": 2,
+    "description": "Lista curada de fuentes agrupada en 7 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
+    "updated": "2026-09-22",
+    "version": 3,
     "note": "Los campos 'rss' con valor null no tienen feed confirmado (o no lo publican): usar la homepage para seguimiento manual o scraping autorizado. Antes de automatizar, verificar cada feed y respetar los términos de uso de cada sitio (p. ej. VideoCardz prohíbe explícitamente el scraping programático sin consentimiento escrito).",
     "layers": {
       "tech-media": "Capa 1 — Medios técnicos en inglés (contraste y profundidad)",
@@ -11,7 +11,8 @@
       "asia": "Capa 3 — Fuentes asiáticas (adelanto de novedades y filtraciones)",
       "es-competition": "Capa 4 — Competencia en español (vigilar saturación)",
       "primary": "Capa 5 — Fuentes primarias: salas de prensa y blogs oficiales (confirmación de datos e imágenes)",
-      "emulacion": "Capa 6 — Emulación de videojuegos: noticias, estado por consola (escritorio y Android) y tutoriales"
+      "emulacion": "Capa 6 — Emulación de videojuegos: noticias, estado por consola (escritorio y Android) y tutoriales",
+      "wearables": "Capa 7 — Wearables: relojes, anillos y gafas inteligentes (lanzamientos, reviews y tutoriales)"
     }
   },
   "sources": [
@@ -450,9 +451,10 @@
       "name": "ComputerHoy",
       "layer": "es-competition",
       "homepage": "https://computerhoy.com",
-      "rss": "https://computerhoy.com/rss.xml",
+      "rss": "https://computerhoy.20minutos.es/rss",
       "lang": "es",
-      "focus": ["tecnología", "consumo", "noticias"]
+      "focus": ["tecnología", "consumo", "noticias"],
+      "notes": "El feed antiguo (computerhoy.com/rss.xml) devuelve HTTP 200 pero NO es XML de feed: es una página HTML. El correcto es el de 20minutos, verificado con 76 items."
     },
     {
       "id": "muycomputer",
@@ -837,6 +839,462 @@
       "lang": "en",
       "focus": ["guías", "emulación", "android", "handhelds"],
       "notes": "Tutoriales de emulación en Android y handhelds. Su feed de YouTube responde, pero se deja manual por la convención del proyecto con los canales."
+    },
+
+    {
+      "id": "androidcentral-wearables",
+      "name": "Android Central · Wearables",
+      "layer": "wearables",
+      "homepage": "https://www.androidcentral.com/wearables",
+      "rss": "https://www.androidcentral.com/feeds/tag/wearables",
+      "lang": "en",
+      "focus": ["wearables", "reviews", "noticias"],
+      "notes": "Feed del tag Wearables: el más directo del lote para relojes, anillos y gafas."
+    },
+    {
+      "id": "androidcentral-wearos",
+      "name": "Android Central · Wear OS",
+      "layer": "wearables",
+      "homepage": "https://www.androidcentral.com/wear-os",
+      "rss": "https://www.androidcentral.com/feeds/tag/wear-os",
+      "lang": "en",
+      "focus": ["relojes", "wear-os", "reviews"]
+    },
+    {
+      "id": "tomsguide-wearables",
+      "name": "Tom's Guide · Wearables",
+      "layer": "wearables",
+      "homepage": "https://www.tomsguide.com/wearables",
+      "rss": "https://www.tomsguide.com/feeds/tag/wearables",
+      "lang": "en",
+      "focus": ["wearables", "reviews", "guías"]
+    },
+    {
+      "id": "androidheadlines-wearables",
+      "name": "AndroidHeadlines · Wearables",
+      "layer": "wearables",
+      "homepage": "https://www.androidheadlines.com/category/wearables",
+      "rss": "https://www.androidheadlines.com/category/wearables/feed/",
+      "lang": "en",
+      "focus": ["wearables", "noticias", "reviews"]
+    },
+    {
+      "id": "gadgets-and-wearables",
+      "name": "Gadgets & Wearables",
+      "layer": "wearables",
+      "homepage": "https://www.gadgetsandwearables.com",
+      "rss": "https://www.gadgetsandwearables.com/feed/",
+      "lang": "en",
+      "focus": ["wearables", "reviews", "noticias"],
+      "notes": "Sitio dedicado exclusivamente a wearables: relojes, anillos y pulseras."
+    },
+    {
+      "id": "dcrainmaker",
+      "name": "DC Rainmaker",
+      "layer": "wearables",
+      "homepage": "https://www.dcrainmaker.com",
+      "rss": "https://www.dcrainmaker.com/feed",
+      "lang": "en",
+      "focus": ["relojes", "running", "reviews", "mediciones"],
+      "notes": "Referencia absoluta en relojes deportivos: reviews largas y con datos medidos. Cadencia baja, pero cada pieza es material de primer nivel."
+    },
+    {
+      "id": "the5krunner",
+      "name": "the5krunner",
+      "layer": "wearables",
+      "homepage": "https://the5krunner.com",
+      "rss": "https://the5krunner.com/feed/",
+      "lang": "en",
+      "focus": ["relojes", "running", "reviews"],
+      "notes": "Volumen alto (400 items en el feed) y mucho titular corto: filtrar antes de seleccionar."
+    },
+    {
+      "id": "runnersworld",
+      "name": "Runner's World",
+      "layer": "wearables",
+      "homepage": "https://www.runnersworld.com",
+      "rss": "https://www.runnersworld.com/rss/all.xml/",
+      "lang": "en",
+      "focus": ["running", "relojes", "reviews"]
+    },
+    {
+      "id": "smartwatch-specifications",
+      "name": "Smartwatch Specifications",
+      "layer": "wearables",
+      "homepage": "https://www.smartwatchspecifications.com",
+      "rss": "https://www.smartwatchspecifications.com/feed/",
+      "lang": "en",
+      "focus": ["relojes", "especificaciones"],
+      "notes": "Cadencia muy baja (3 items en el feed); útil sobre todo para fichas técnicas."
+    },
+    {
+      "id": "androidpolice",
+      "name": "Android Police",
+      "layer": "wearables",
+      "homepage": "https://www.androidpolice.com",
+      "rss": "https://www.androidpolice.com/feed/",
+      "lang": "en",
+      "focus": ["android", "wearables", "noticias"]
+    },
+    {
+      "id": "androidauthority",
+      "name": "Android Authority",
+      "layer": "wearables",
+      "homepage": "https://www.androidauthority.com",
+      "rss": "https://www.androidauthority.com/feed/",
+      "lang": "en",
+      "focus": ["android", "wearables", "reviews"]
+    },
+    {
+      "id": "9to5google",
+      "name": "9to5Google",
+      "layer": "wearables",
+      "homepage": "https://9to5google.com",
+      "rss": "https://9to5google.com/feed/",
+      "lang": "en",
+      "focus": ["wear-os", "relojes", "noticias"],
+      "notes": "Cobertura muy fuerte de Wear OS y Pixel Watch."
+    },
+    {
+      "id": "9to5mac",
+      "name": "9to5Mac",
+      "layer": "wearables",
+      "homepage": "https://9to5mac.com",
+      "rss": "https://9to5mac.com/feed/",
+      "lang": "en",
+      "focus": ["apple-watch", "relojes", "noticias"]
+    },
+    {
+      "id": "macrumors",
+      "name": "MacRumors",
+      "layer": "wearables",
+      "homepage": "https://www.macrumors.com",
+      "rss": "https://feeds.macrumors.com/MacRumors-All",
+      "lang": "en",
+      "focus": ["apple-watch", "relojes", "rumores"],
+      "notes": "Feed completo del sitio: Apple Watch es una parte, no el todo."
+    },
+    {
+      "id": "sammobile",
+      "name": "SamMobile",
+      "layer": "wearables",
+      "homepage": "https://www.sammobile.com",
+      "rss": "https://www.sammobile.com/feed/",
+      "lang": "en",
+      "focus": ["galaxy-watch", "galaxy-ring", "noticias"],
+      "notes": "Especializado en Samsung: cubre Galaxy Watch y Galaxy Ring."
+    },
+    {
+      "id": "gsmarena",
+      "name": "GSMArena",
+      "layer": "wearables",
+      "homepage": "https://www.gsmarena.com",
+      "rss": "https://www.gsmarena.com/rss-news-reviews.php3",
+      "lang": "en",
+      "focus": ["móviles", "wearables", "fichas técnicas"]
+    },
+    {
+      "id": "gizmochina",
+      "name": "GizmoChina",
+      "layer": "wearables",
+      "homepage": "https://www.gizmochina.com",
+      "rss": "https://www.gizmochina.com/feed/",
+      "lang": "en",
+      "focus": ["china", "wearables", "noticias"],
+      "notes": "Cobertura temprana de marcas chinas de relojes, anillos y gafas."
+    },
+    {
+      "id": "stuff",
+      "name": "Stuff",
+      "layer": "wearables",
+      "homepage": "https://www.stuff.tv",
+      "rss": "https://www.stuff.tv/feed/",
+      "lang": "en",
+      "focus": ["wearables", "reviews", "consumo"]
+    },
+    {
+      "id": "t3",
+      "name": "T3",
+      "layer": "wearables",
+      "homepage": "https://www.t3.com",
+      "rss": "https://www.t3.com/feeds.xml",
+      "lang": "en",
+      "focus": ["wearables", "reviews", "guías de compra"]
+    },
+    {
+      "id": "trustedreviews",
+      "name": "Trusted Reviews",
+      "layer": "wearables",
+      "homepage": "https://www.trustedreviews.com",
+      "rss": "https://www.trustedreviews.com/feed",
+      "lang": "en",
+      "focus": ["wearables", "reviews"]
+    },
+    {
+      "id": "techadvisor",
+      "name": "Tech Advisor",
+      "layer": "wearables",
+      "homepage": "https://www.techadvisor.com",
+      "rss": "https://www.techadvisor.com/feed/",
+      "lang": "en",
+      "focus": ["wearables", "reviews", "guías"]
+    },
+    {
+      "id": "gizmodo",
+      "name": "Gizmodo",
+      "layer": "wearables",
+      "homepage": "https://gizmodo.com",
+      "rss": "https://gizmodo.com/feed",
+      "lang": "en",
+      "focus": ["consumo", "wearables", "noticias"]
+    },
+
+    {
+      "id": "uploadvr",
+      "name": "UploadVR",
+      "layer": "wearables",
+      "homepage": "https://uploadvr.com",
+      "rss": "https://uploadvr.com/feed/",
+      "lang": "en",
+      "focus": ["gafas", "xr", "noticias"],
+      "notes": "Capa XR. Mezcla hardware con lanzamientos de juegos VR, que NO son vertibles como wearables."
+    },
+    {
+      "id": "roadtovr",
+      "name": "Road to VR",
+      "layer": "wearables",
+      "homepage": "https://www.roadtovr.com",
+      "rss": "https://www.roadtovr.com/feed/",
+      "lang": "en",
+      "focus": ["gafas", "xr", "análisis"]
+    },
+    {
+      "id": "the-ghost-howls",
+      "name": "The Ghost Howls",
+      "layer": "wearables",
+      "homepage": "https://skarredghost.com",
+      "rss": "https://skarredghost.com/feed/",
+      "lang": "en",
+      "focus": ["gafas", "xr", "análisis"],
+      "notes": "Blog de autor (Antony Vitillo), muy crítico con la industria XR."
+    },
+    {
+      "id": "ar-insider",
+      "name": "AR Insider",
+      "layer": "wearables",
+      "homepage": "https://arinsider.co",
+      "rss": "https://arinsider.co/feed/",
+      "lang": "en",
+      "focus": ["gafas", "realidad aumentada", "industria"]
+    },
+    {
+      "id": "auganix",
+      "name": "Auganix",
+      "layer": "wearables",
+      "homepage": "https://auganix.org",
+      "rss": "https://auganix.org/feed/",
+      "lang": "en",
+      "focus": ["gafas", "realidad aumentada", "industria"]
+    },
+    {
+      "id": "mixed-news",
+      "name": "Mixed",
+      "layer": "wearables",
+      "homepage": "https://mixed-news.com/en",
+      "rss": "https://mixed-news.com/en/feed/",
+      "lang": "en",
+      "focus": ["xr", "gafas", "noticias"]
+    },
+
+    {
+      "id": "meta-blog",
+      "name": "Meta · Blog",
+      "layer": "wearables",
+      "homepage": "https://www.meta.com/blog",
+      "rss": "https://www.meta.com/blog/rss/",
+      "lang": "en",
+      "focus": ["ray-ban", "quest", "lanzamientos", "comunicados oficiales"],
+      "notes": "Fuente primaria de las gafas Ray-Ban Meta y de Quest."
+    },
+    {
+      "id": "meta-newsroom",
+      "name": "Meta Newsroom",
+      "layer": "wearables",
+      "homepage": "https://about.fb.com/news",
+      "rss": "https://about.fb.com/news/feed/",
+      "lang": "en",
+      "focus": ["meta", "wearables", "comunicados oficiales"]
+    },
+    {
+      "id": "google-wear-os",
+      "name": "Google · Wear OS",
+      "layer": "wearables",
+      "homepage": "https://blog.google/products/wear-os",
+      "rss": "https://blog.google/products/wear-os/rss/",
+      "lang": "en",
+      "focus": ["wear-os", "relojes", "comunicados oficiales"],
+      "notes": "Fuente primaria de Wear OS y Pixel Watch."
+    },
+    {
+      "id": "apple-newsroom",
+      "name": "Apple Newsroom",
+      "layer": "wearables",
+      "homepage": "https://www.apple.com/newsroom",
+      "rss": "https://www.apple.com/newsroom/rss-feed.rss",
+      "lang": "en",
+      "focus": ["apple-watch", "vision-pro", "comunicados oficiales"]
+    },
+    {
+      "id": "samsung-newsroom",
+      "name": "Samsung Newsroom",
+      "layer": "wearables",
+      "homepage": "https://news.samsung.com/global",
+      "rss": "https://news.samsung.com/global/feed",
+      "lang": "en",
+      "focus": ["galaxy-watch", "galaxy-ring", "comunicados oficiales"],
+      "notes": "Los wearables son una parte del feed global, no el foco."
+    },
+    {
+      "id": "garmin-newsroom",
+      "name": "Garmin Newsroom",
+      "layer": "wearables",
+      "homepage": "https://www.garmin.com/en-US/newsroom",
+      "rss": "https://www.garmin.com/en-US/newsroom/feed/",
+      "lang": "en",
+      "focus": ["relojes", "gps", "comunicados oficiales"],
+      "notes": "Mezcla mucho comunicado corporativo y de aviación con el producto de consumo."
+    },
+    {
+      "id": "oura-blog",
+      "name": "Oura Blog",
+      "layer": "wearables",
+      "homepage": "https://ouraring.com/blog",
+      "rss": "https://ouraring.com/blog/feed/",
+      "lang": "en",
+      "focus": ["anillos", "salud", "comunicados oficiales"],
+      "notes": "Fuente primaria de referencia en anillos inteligentes."
+    },
+    {
+      "id": "ringconn",
+      "name": "RingConn",
+      "layer": "wearables",
+      "homepage": "https://ringconn.com",
+      "rss": "https://ringconn.com/blogs/news.atom",
+      "lang": "en",
+      "focus": ["anillos", "lanzamientos", "comunicados oficiales"]
+    },
+    {
+      "id": "polar-blog",
+      "name": "Polar Blog",
+      "layer": "wearables",
+      "homepage": "https://www.polar.com/blog",
+      "rss": "https://www.polar.com/blog/feed/",
+      "lang": "en",
+      "focus": ["relojes", "deporte", "comunicados oficiales"]
+    },
+    {
+      "id": "amazfit",
+      "name": "Amazfit",
+      "layer": "wearables",
+      "homepage": "https://us.amazfit.com",
+      "rss": "https://us.amazfit.com/blogs/news.atom",
+      "lang": "en",
+      "focus": ["relojes", "pulseras", "lanzamientos"],
+      "notes": "Cadencia baja (159 días sin publicar en el momento de la verificación)."
+    },
+    {
+      "id": "rayneo",
+      "name": "RayNeo",
+      "layer": "wearables",
+      "homepage": "https://www.rayneo.com",
+      "rss": "https://www.rayneo.com/blogs/news.atom",
+      "lang": "en",
+      "focus": ["gafas", "lanzamientos", "comunicados oficiales"]
+    },
+    {
+      "id": "rokid",
+      "name": "Rokid",
+      "layer": "wearables",
+      "homepage": "https://global.rokid.com",
+      "rss": "https://global.rokid.com/blogs/news.atom",
+      "lang": "en",
+      "focus": ["gafas", "lanzamientos", "comunicados oficiales"],
+      "notes": "Cadencia baja (110 días sin publicar en el momento de la verificación)."
+    },
+    {
+      "id": "snap-newsroom",
+      "name": "Snap Newsroom",
+      "layer": "wearables",
+      "homepage": "https://newsroom.snap.com",
+      "rss": "https://newsroom.snap.com/feed",
+      "lang": "en",
+      "focus": ["spectacles", "gafas", "comunicados oficiales"],
+      "notes": "El feed responde, pero algunos títulos salen genéricos (p. ej. 'Page') y no clasifican. Spectacles es su producto de gafas."
+    },
+
+    {
+      "id": "andro4all",
+      "name": "Andro4all",
+      "layer": "wearables",
+      "homepage": "https://andro4all.com",
+      "rss": "https://andro4all.com/feed",
+      "lang": "es",
+      "focus": ["android", "wearables", "noticias"],
+      "notes": "Usar el dominio SIN www: www.andro4all.com devuelve HTTP 525."
+    },
+    {
+      "id": "xataka-movil",
+      "name": "Xataka Móvil",
+      "layer": "wearables",
+      "homepage": "https://www.xatakamovil.com",
+      "rss": "https://www.xatakamovil.com/index.xml",
+      "lang": "es",
+      "focus": ["móviles", "wearables", "noticias"]
+    },
+    {
+      "id": "topesdegama",
+      "name": "Topes de Gama",
+      "layer": "wearables",
+      "homepage": "https://topesdegama.com",
+      "rss": "https://topesdegama.com/feed",
+      "lang": "es",
+      "focus": ["wearables", "reviews", "noticias"]
+    },
+    {
+      "id": "eloutput",
+      "name": "El Output",
+      "layer": "wearables",
+      "homepage": "https://eloutput.com",
+      "rss": "https://eloutput.com/feed/",
+      "lang": "es",
+      "focus": ["tecnología", "wearables", "tutoriales"]
+    },
+    {
+      "id": "hipertextual",
+      "name": "Hipertextual",
+      "layer": "wearables",
+      "homepage": "https://hipertextual.com",
+      "rss": "https://hipertextual.com/feed",
+      "lang": "es",
+      "focus": ["tecnología", "wearables", "noticias"]
+    },
+    {
+      "id": "movilzona",
+      "name": "MovilZona",
+      "layer": "wearables",
+      "homepage": "https://www.movilzona.es",
+      "rss": "https://www.movilzona.es/feed/",
+      "lang": "es",
+      "focus": ["android", "wearables", "tutoriales"]
+    },
+    {
+      "id": "gizmodo-es",
+      "name": "Gizmodo en Español",
+      "layer": "wearables",
+      "homepage": "https://es.gizmodo.com",
+      "rss": "https://es.gizmodo.com/rss",
+      "lang": "es",
+      "focus": ["tecnología", "wearables", "noticias"]
     }
   ]
 }
