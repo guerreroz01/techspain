@@ -1,0 +1,115 @@
+---
+title: 'Cómo elegir y configurar una app autoalojada para montar tu propio servidor'
+description: 'Guía paso a paso para elegir una aplicación autoalojada y desplegarla con Docker en tu propio servidor, ya sea por SSH, panel de control o una plantilla.'
+pubDate: '2026-09-23'
+author: 'Redacción TechSpain24'
+tags: ['Tutoriales', 'Servidores']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Persona sentada frente a un escritorio mientras programa una aplicación'
+source:
+  name: 'TechRadar'
+  url: 'https://www.techradar.com/pro/how-to-pick-and-set-up-a-self-hosted-app-to-run-your-own-server'
+---
+
+Autoalojar una aplicación consiste en ejecutarla en un servidor que controlas tú, en lugar de depender del servicio en la nube de un tercero. La ventaja es doble: tus datos se quedan en hardware sobre el que tienes acceso de administrador y dejas de pagar una suscripción por cada herramienta. Esta guía resume cómo elegir una aplicación y ponerla en marcha con Docker, tanto por línea de comandos como desde un panel o una plantilla prefabricada.
+
+## Por qué usar Docker para autoalojar
+
+Docker empaqueta cada aplicación en su propio contenedor: una unidad que incluye el código, el entorno de ejecución, las librerías y la configuración. Como los contenedores no comparten nada entre sí, instalar una app no puede tumbar otra. A cambio de esa comodidad, tu único gasto recurrente pasa a ser el plan de alojamiento.
+
+El ahorro tiene sentido porque el precio de un servidor privado se sitúa en torno a los 15-20 dólares al mes, y un servidor privado virtual (VPS) pequeño, capaz de mover varias aplicaciones ligeras, puede costar entre 5 y 20 dólares al mes. Una sola suscripción de software suele costar entre 20 y 60 dólares mensuales por herramienta, así que la diferencia se agranda al sustituir varias por un único servidor.
+
+## Requisitos previos
+
+- Un servidor Linux, una estación de trabajo o un NAS en funcionamiento. Si no tienes ninguno, puedes contratar un plan de alojamiento, [reutilizar un portátil viejo como servidor doméstico](/noticias/old-laptop-home-server/) o incluso una Raspberry Pi.
+- Acceso al servidor por SSH o mediante el panel de control de tu proveedor.
+- Conocer la dirección IP del servidor, disponible en los ajustes de SSH del proveedor de alojamiento.
+
+## Paso 1: elegir la aplicación
+
+Docker mantiene una biblioteca pública de imágenes llamada Docker Hub, con instaladores listos para usar y las instrucciones de configuración de cada aplicación compatible. Busca en esa base de datos la función o la herramienta que necesitas, localiza la app que quieres instalar y sigue el resto del tutorial con ella.
+
+## Paso 2: conectarte al servidor por SSH
+
+SSH da acceso directo al servidor sin restricciones, lo que lo convierte en la opción más flexible si te manejas con la línea de comandos. Desde tu equipo, abre Terminal o el símbolo del sistema y escribe:
+
+```
+ssh tu-usuario@ip-de-tu-servidor
+```
+
+## Paso 3: instalar Docker
+
+Instala Docker en el servidor con el gestor de paquetes de tu distribución. En Ubuntu o Debian se usan estos comandos:
+
+```
+sudo apt update
+sudo apt install docker.io docker-compose-plugin -y
+```
+
+## Paso 4: crear la aplicación y su archivo Compose
+
+Crea una carpeta para la aplicación y un archivo Compose que la defina. Docker Compose permite describir los contenedores, las redes y el almacenamiento en un solo archivo YAML, sin tener que escribir a mano largos comandos `docker run`.
+
+```
+mkdir ~/myapp && cd ~/myapp
+nano docker-compose.yml
+```
+
+Un archivo Compose básico indica la imagen que quieres ejecutar, asigna un puerto del servidor a un puerto del contenedor y define las variables de entorno que necesite la app, como la contraseña de una base de datos o el correo del administrador. La mayoría de aplicaciones autoalojadas publican un ejemplo de este archivo en su documentación, que normalmente aparece en su ficha de Docker Hub. Un ejemplo para NGINX sería:
+
+```
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+
+  database:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: your-secure-password
+```
+
+Sustituye `nginx:latest` por el nombre de la imagen de la aplicación que quieras instalar y cambia la contraseña de PostgreSQL por una más segura.
+
+## Paso 5: poner en marcha la aplicación
+
+Una vez guardado el archivo Compose, activa la aplicación con:
+
+```
+docker compose up -d
+```
+
+El indicador `-d` ejecuta los contenedores en segundo plano, de modo que siguen funcionando aunque cierres la sesión de terminal.
+
+## Alternativa: usar un panel de control con Docker
+
+Si prefieres evitar la terminal, algunos paneles de alojamiento permiten gestionar contenedores de forma visual.
+
+- **cPanel**, el panel más extendido, no incorpora gestión nativa de Docker, así que obliga a pasar por SSH.
+- **Plesk** cuenta con una extensión oficial de Docker que permite explorar imágenes de Docker Hub, desplegar contenedores y administrarlos desde una sección propia del menú lateral.
+- **CyberPanel**, gratuito y de código abierto sobre OpenLiteSpeed, también incluye gestión de Docker integrada como alternativa a SSH.
+
+En estos paneles basta con buscar la imagen o pegar tu propio archivo YAML, revisar los recursos y puertos que solicita la aplicación y confirmar el despliegue. El panel descarga la imagen, arranca el contenedor y suele mostrar registros en vivo si algo falla. Además, normalmente se encarga de los registros DNS y los certificados SSL, lo que evita configurar a mano un proxy inverso o la renovación de certificados.
+
+## Alternativa: plantillas precodificadas del proveedor
+
+La vía más rápida es el catálogo de plantillas ya preparadas del proveedor de alojamiento, pensado para no tener que escribir un archivo Compose desde cero. Entra en el panel de tu proveedor y busca una sección de marketplace, catálogo de aplicaciones o «apps de un clic». Las herramientas autoalojadas populares, como plataformas de automatización, aplicaciones de notas o servicios de sincronización de archivos, suelen estar disponibles así.
+
+Al elegir una plantilla se abre un formulario breve: seleccionas el tamaño del servidor, la región del centro de datos más cercana a tus usuarios y las credenciales necesarias, como la contraseña de administrador. Al confirmar, el proveedor aprovisiona un servidor con Docker y la aplicación ya configurada y en marcha. Es el método más rápido, pero con menos control sobre la configuración de los contenedores y con plantillas que pueden ir por detrás de la última versión de la app.
+
+## Cómo verificar que funcionó
+
+Abre el navegador y visita la dirección IP de tu servidor junto al puerto que hayas asignado. Si la aplicación responde, el despliegue se completó correctamente. Si algo falla, revisa los registros del contenedor para localizar el error.
+
+## Advertencias y limitaciones
+
+Autoalojar traslada la responsabilidad del equipo de soporte del proveedor a ti: las actualizaciones de seguridad, los parches y las copias de seguridad dejan de ser automáticos. Si olvidas actualizar la imagen de un contenedor durante meses, puedes estar ejecutando software con una vulnerabilidad conocida y nadie te avisará antes de que el servidor se vea comprometido.
+
+La disponibilidad también pasa a ser tu problema. Un producto SaaS gestionado suele tener un equipo vigilando su infraestructura las 24 horas; una aplicación autoalojada en un único servidor no tiene esa red de seguridad salvo que la montes tú, con software de monitorización, copias de seguridad automatizadas o un servidor de respaldo.
+
+Hay además un coste que se subestima con facilidad: leer documentación, resolver problemas de contenedores y llevar la cuenta de qué puertos y volúmenes pertenecen a cada aplicación consume tiempo. Para una única herramienta de bajo riesgo es una molestia menor; para un negocio con varias aplicaciones autoalojadas puede convertirse en un trabajo a tiempo parcial.
+
+Por último, más barato no significa gratis. Un servidor sin estrategia de copias ni monitorización no ahorra nada si se cae, se pierden datos o se dedica un fin de semana a arreglarlo. El autoalojamiento es un intercambio: pagas menos en dinero a cambio de asumir el trabajo operativo que antes hacía el proveedor. Si prefieres empezar con hardware que ya tienes, puedes [convertir una consola portátil en un servidor multimedia doméstico](/noticias/gaming-handheld-home-media-server/) como primer paso.

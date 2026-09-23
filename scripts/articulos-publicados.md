@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 342 artículos. Actualizado: 2026-09-23
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 362 artículos. Actualizado: 2026-09-23
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -341,11 +341,31 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-22 | WhatsApp lleva al Apple Watch todo el catálogo de emojis de watchOS | [whatsapp-apple-watch-emoji-reactions](https://www.techspain24.com/noticias/whatsapp-apple-watch-emoji-reactions/) |
 | 2026-09-22 | Xbox prepararía cientos de despidos esta semana y la fusión de varios estudios, según The Information | [xbox-layoffs-studio-mergers](https://www.techspain24.com/noticias/xbox-layoffs-studio-mergers/) |
 | 2026-09-22 | ZuckOff localiza gafas con cámara por Bluetooth: la clave está en lo que la app no promete | [zuckoff-detects-camera-glasses-bluetooth](https://www.techspain24.com/noticias/zuckoff-detects-camera-glasses-bluetooth/) |
+| 2026-09-23 | Análisis de los Arctis GameBuds para Xbox: los auriculares premium de SteelSeries llegan en Matcha | [arctis-gamebuds-for-xbox-review-steelseries-premium-gaming-earbuds](https://www.techspain24.com/noticias/arctis-gamebuds-for-xbox-review-steelseries-premium-gaming-earbuds/) |
 | 2026-09-23 | Apple estudiaría una pulsera de fitness sin pantalla al estilo Whoop | [apple-pulsera-fitness-sin-pantalla](https://www.techspain24.com/noticias/apple-pulsera-fitness-sin-pantalla/) |
+| 2026-09-23 | Apple Reference Image: la función de cámara del iPhone que casi nadie conoce | [apple-reference-image-is-the-best-iphone-camera-feature](https://www.techspain24.com/noticias/apple-reference-image-is-the-best-iphone-camera-feature/) |
+| 2026-09-23 | Cómo arreglar un juego que no arranca en Steam Deck, Steam Machine y SteamOS | [guide-steam-deck-steam-machine-steamos-game-won-t](https://www.techspain24.com/noticias/guide-steam-deck-steam-machine-steamos-game-won-t/) |
+| 2026-09-23 | Cómo comprobar qué apps del iPhone acceden a tu ubicación y cómo retirarles el acceso | [how-to-check-which-iphone-apps-are-accessing-your](https://www.techspain24.com/noticias/how-to-check-which-iphone-apps-are-accessing-your/) |
+| 2026-09-23 | Cómo elegir unas gafas con IA según tu día a día | [what-can-ai-glasses-actually-do-a-scenario-guide](https://www.techspain24.com/noticias/what-can-ai-glasses-actually-do-a-scenario-guide/) |
+| 2026-09-23 | Cómo elegir y configurar una app autoalojada para montar tu propio servidor | [how-to-pick-and-set-up-a-self-hosted](https://www.techspain24.com/noticias/how-to-pick-and-set-up-a-self-hosted/) |
+| 2026-09-23 | Cómo optimizar y cuidar la batería de tu iPhone paso a paso | [guia-completa-para-optimizar-y-cuidar-la-bateria-de](https://www.techspain24.com/noticias/guia-completa-para-optimizar-y-cuidar-la-bateria-de/) |
+| 2026-09-23 | Dentro de los laboratorios de Huawei: cómo se calibran los sensores de sus smartwatch y qué viene después | [un-viaje-al-corazon-de-huawei-de-la-innovacion](https://www.techspain24.com/noticias/un-viaje-al-corazon-de-huawei-de-la-innovacion/) |
 | 2026-09-23 | El Amazfit T-Rex Dual Solar lleva la carga solar al AMOLED y se puede llevar del revés | [amazfit-solar-amoled-smartwatch](https://www.techspain24.com/noticias/amazfit-solar-amoled-smartwatch/) |
 | 2026-09-23 | El Mac mini M6 y M5 Pro vuelve al SSD soldado: sin ampliación y con el 256 GB a media velocidad | [mac-mini-m6-m5-pro-ssd-soldado](https://www.techspain24.com/noticias/mac-mini-m6-m5-pro-ssd-soldado/) |
 | 2026-09-23 | El shooter de StarCraft no será exclusivo, según Blizzard: la puerta a PS6 queda abierta | [starcraft-revival-shooter-ps6](https://www.techspain24.com/noticias/starcraft-revival-shooter-ps6/) |
+| 2026-09-23 | Googlebook frente a Chromebook: qué cambia con el portátil Android de Google | [googlebook-vs-chromebook-what-changes-with-googles-android-laptop](https://www.techspain24.com/noticias/googlebook-vs-chromebook-what-changes-with-googles-android-laptop/) |
+| 2026-09-23 | Huawei Watch D3, a prueba: presión arterial con brazalete real en un reloj casi convencional | [huawei-watch-d3-review-cuff-based-blood-pressure-monitoring](https://www.techspain24.com/noticias/huawei-watch-d3-review-cuff-based-blood-pressure-monitoring/) |
+| 2026-09-23 | La filtración más completa de la Galaxy Tab S12 Ultra: mismo diseño y notch semicircular | [our-best-look-yet-at-the-galaxy-tab-s12](https://www.techspain24.com/noticias/our-best-look-yet-at-the-galaxy-tab-s12/) |
+| 2026-09-23 | La memoria ya vale como el oro: la DRAM ya supera a los chips de TSMC a 2 nm en valor por mm² | [la-memoria-ya-vale-como-el-oro-la-dram](https://www.techspain24.com/noticias/la-memoria-ya-vale-como-el-oro-la-dram/) |
+| 2026-09-23 | Las mejores gafas AR de RayNeo para jugar en PC: compatibilidad y frecuencia de refresco | [best-ar-glasses-for-pc-gaming-compatibility-and-refresh](https://www.techspain24.com/noticias/best-ar-glasses-for-pc-gaming-compatibility-and-refresh/) |
+| 2026-09-23 | Los mejores juegos de dinosaurios para Nintendo Switch 2 en 2026 y 2027 | [los-mejores-juegos-de-dinosaurios-para-nintendo-switch-2](https://www.techspain24.com/noticias/los-mejores-juegos-de-dinosaurios-para-nintendo-switch-2/) |
 | 2026-09-23 | Motorola presenta el Signature 27, uno de los primeros móviles con el Snapdragon 8 Elite Extreme Gen 6 | [motorola-signature-27-snapdragon-8-elite-extreme](https://www.techspain24.com/noticias/motorola-signature-27-snapdragon-8-elite-extreme/) |
+| 2026-09-23 | Qualcomm cruza la barrera de los 5 GHz con el Snapdragon 8 Elite Extreme Gen 6 | [qualcomm-rompe-los-5-ghz-con-el-snapdragon-8](https://www.techspain24.com/noticias/qualcomm-rompe-los-5-ghz-con-el-snapdragon-8/) |
+| 2026-09-23 | Qualcomm estrena Adreno Neural Fusion: IA para ganar resolución y fluidez en los juegos de Android | [qualcomm-adreno-neural-fusion-android](https://www.techspain24.com/noticias/qualcomm-adreno-neural-fusion-android/) |
+| 2026-09-23 | Qualcomm estudia mejorar la emulación de juegos de PC en Android con drivers oficiales | [qualcomm-could-finally-fix-a-major-issue-with-pc](https://www.techspain24.com/noticias/qualcomm-could-finally-fix-a-major-issue-with-pc/) |
 | 2026-09-23 | Qualcomm presenta los Snapdragon 8 Elite Extreme Gen 6 y 8 Elite Gen 6, sus primeros chips de 2 nm | [qualcomm-snapdragon-8-elite-extreme-gen-6-oficial](https://www.techspain24.com/noticias/qualcomm-snapdragon-8-elite-extreme-gen-6-oficial/) |
+| 2026-09-23 | Qué gafas inteligentes tienen la mejor pantalla: brillo, campo de visión y densidad de píxeles | [which-smart-glasses-have-the-best-display-nits-fov](https://www.techspain24.com/noticias/which-smart-glasses-have-the-best-display-nits-fov/) |
 | 2026-09-23 | Raspberry Pi bloquea por firmware la memoria de sus placas al tamaño de fábrica | [raspberry-pi-firmware-bloqueo-ram](https://www.techspain24.com/noticias/raspberry-pi-firmware-bloqueo-ram/) |
 | 2026-09-23 | shadPS4 lanza una pre-release sin notas y remite a su changelog de 107 commits | [shadps4-pre-release-2026-09-23](https://www.techspain24.com/noticias/shadps4-pre-release-2026-09-23/) |
+| 2026-09-23 | Spotify trabaja en un límite de caché para que su app de Android no devore el almacenamiento del móvil | [spotify-could-soon-fix-a-major-storage-issue-that](https://www.techspain24.com/noticias/spotify-could-soon-fix-a-major-storage-issue-that/) |
+| 2026-09-23 | Vivo X500, X500 Pro y X500 Pro Max: las diferencias clave entre los tres modelos | [vivo-x500-vs-x500-pro-vs-pro-max-key](https://www.techspain24.com/noticias/vivo-x500-vs-x500-pro-vs-pro-max-key/) |
