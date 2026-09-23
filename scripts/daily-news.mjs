@@ -36,7 +36,11 @@ const VERTICALS = {
   tutoriales: [
     'how to', 'how-to', 'tutorial', 'tutoriales', 'walkthrough', 'step by step',
     'step-by-step', 'guide', 'guía', 'guia', 'paso a paso', 'trucos', 'consejos',
-    'cómo', 'como hacer', 'aprende', 'aprender', 'instalar', 'configurar',
+    'como hacer', 'aprende', 'aprender', 'improve your',
+    // El «cómo» interrogativo suelto NO marca tutorial (enganchaba noticias como
+    // «cómo y cuándo»). Solo cuenta la construcción «cómo + verbo», resuelta por
+    // TUTORIAL_HOWTO_RX junto a WORD_CHARS. Por el mismo motivo se retiran
+    // 'instalar' y 'configurar' a secas: «sin instalar Android» no es un tutorial.
   ],
   // Wearables va antes que `moviles` a propósito: un titular como "Samsung
   // Galaxy Watch 8" también coincide con `moviles` por "galaxy", y uno de
@@ -79,18 +83,38 @@ const VERTICALS = {
     // familias de producto, que es lo que aparece en un titular de review.
     'garmin', 'amazfit', 'suunto',
     'polar vantage', 'polar grit', 'polar pacer', 'polar ignite', 'polar verity',
+    // Chino: 智能手表 (reloj), 智能手环/手环 (pulsera), 智能眼镜 (gafas), 穿戴 (ponible).
+    '智能手表', '智能手环', '手环', '智能眼镜', '穿戴',
+    // Gafas con IA/de cámara y marcas que aún no estaban.
+    'ai glasses', 'camera glasses', 'ai pendant', 'smartband', 'eyewear',
+    'coros', 'viture',
+    // Paráfrasis en español para gafas de cámara/IA.
+    'gafas ar', 'gafas con camara', 'gafas con cámara', 'gafas con ia',
   ],
   'tarjetas-graficas': [
-    'gpu', 'graphics card', 'tarjeta gráfica', 'tarjeta grafica', 'geforce', 'rtx', 'radeon',
+    'gpu', 'graphics card', 'tarjeta gráfica', 'tarjeta grafica', 'tarjetas gráficas',
+    'tarjetas graficas', 'geforce', 'rtx', 'radeon',
     'arc gpu', 'dlss', 'ray tracing', 'raytracing', 'video card', 'dx12', 'vulkan', 'fsr',
+    // Chino: 显卡 (tarjeta gráfica), 显存 (VRAM). El plural español es irregular
+    // (tarjetas gráficas), por eso se listan las dos formas.
+    '显卡', '显存', 'intel arc', 'game ready', 'rx 7900',
   ],
   memorias: [
     'ram', 'dram', 'ddr4', 'ddr5', 'ddr6', 'memory module', 'módulo de memoria', 'ssd', 'nvme',
-    'nand', 'storage', 'almacenamiento', 'hbm', 'memory chip', 'sram', 'feram', 'lpcamm',
+    'nand', 'storage', 'almacenamiento', 'hbm', 'hbm2', 'hbm3', 'hbm4', 'memory chip',
+    'sram', 'feram', 'lpcamm', 'lpddr5', 'lpddr6', 'gddr7',
+    // Chino: 内存 (RAM), 闪存 (flash), 固态硬盘 (SSD), 长江存储 (YMTC), 长鑫 (CXMT).
+    '内存', '闪存', '固态硬盘', '长江存储', '长鑫', '存储芯片',
+    // Marcas que aparecen a secas en los titulares.
+    'cxmt', 'hynix', 'kioxia', 'micron',
   ],
   portatiles: [
     'laptop', 'notebook', 'portátil', 'portatil', 'ultrabook', 'chromebook', '2-in-1',
     'convertible', 'macbook', 'thinkpad', 'zenbook', 'ideapad', 'zephyrus', 'legion laptop',
+    // Googlebooks (familia de portátiles de Google) y marcas de gama baja.
+    'googlebook', 'vaio', 'xmg', 'lenovo yoga',
+    // Chino: 笔记本/笔记本电脑 (portátil), 轻薄本/游戏本 (ultraligero/gaming).
+    '笔记本', '笔记本电脑', '轻薄本', '游戏本',
   ],
   // Emuladores va antes que consolas a propósito: una noticia sobre un emulador
   // casi siempre nombra la consola anfitriona (Xbox, Switch, PS5), así que debe
@@ -116,25 +140,60 @@ const VERTICALS = {
     'dolphin', 'cemu', 'citra', 'lime3ds', 'azahar', 'melonds', 'desmume', 'mgba',
     'snes9x', 'epsxe', 'flycast', 'redream', 'xenia', 'xemu', 'vita3k', 'shadps4',
     'kyty', 'retroarch', 'emudeck', 'emulationstation', 'batocera', 'lakka', 'romm',
-    'mame', 'dosbox', 'scummvm',
+    'mame', 'mame4droid', 'dosbox', 'scummvm',
+    // Chino: 模拟器 (emulador).
+    '模拟器',
+    // Proyectos y frontends que aún no estaban.
+    'winuae', 'winvice', 'padforge', 'nextendo', 'visualboyadvance', 'ymir',
+    'pureikyubu', 'pcsx', 'sharpemu', 'recompilation',
+    // Consolas portátiles de emulación.
+    'retroid', 'ayaneo', 'anbernic', 'powkiddy',
+    // Recreativas FPGA que emulan consolas (ver «FPGA GAME BOY»).
+    'fpga',
     // Host Android
     'winlator', 'mobox', 'gamenative', 'aethersx2', 'nethersx2',
   ],
   consolas: [
     'console', 'consola', 'handheld', 'playstation', 'ps5', 'ps6', 'xbox', 'nintendo', 'switch',
     'steam deck', 'steamdeck', 'rog ally', 'legion go', 'game console', 'ps4',
+    // Retro y consolas portátiles.
+    'neogeo', 'neo geo', 'game boy', 'gameboy', 'hyperkin', 'supaboy', 'modretro',
+    'n64', 'ps2', 'ps3', 'gamecube', 'dreamcast', 'sega saturn', 'mega drive', 'wii u', 'wiiu',
+    'gta',
+    // Mandos de consola que aparecen a secas.
+    'dualsense', 'joy-con', 'joycon',
+    // Chino: 手柄 (mando), 掌机 (consola portátil), 游戏机 (videoconsola).
+    '手柄', '掌机', '游戏机',
   ],
   componentes: [
     'cpu', 'processor', 'procesador', 'motherboard', 'placa base', 'mainboard', 'psu',
     'fuente de alimentación', 'power supply', 'cooling', 'refrigeración', 'refrigeracion',
-    'cooler', 'disipador', 'heatsink', 'aio', 'case', 'caja', 'chassis', 'power connector',
-    'chipset', 'x870', 'b850', 'z890', 'b760', 'am5', 'lga', 'ryzen', 'core ultra', 'apu',
+    'cooler', 'disipador', 'heatsink', 'aio', 'case', 'caja', 'chasis', 'chassis',
+    'power connector', 'chipset', 'x870', 'b850', 'z890', 'b760', 'am4', 'am5', 'lga',
+    'ryzen', 'core ultra', 'apu', 'mlcc',
+    // Mac mini / Mac Studio son sobremesas: entran en componentes. Un MacBook ya
+    // gana antes por `macbook` en portátiles, así que `mac` no lo adelanta.
+    'mac', 'mini pc', 'gaming desktop', 'ventilador', 'corsair', 'noctua', 'nzxt',
+    'celeron', 'raptor lake',
+    // Chino: 主板 (placa base), 电源 (fuente), 液冷 (refrigeración líquida),
+    // 机箱 (caja), 超节点 (supernodo IA), 封装载板 (sustrato), 处理器 (CPU).
+    '主板', '电源', '液冷', '机箱', '超节点', '封装载板', '处理器',
   ],
   moviles: [
     'phone', 'smartphone', 'móvil', 'movil', 'teléfono', 'telefono', 'iphone', 'android',
     'pixel', 'galaxy', 'xiaomi', 'redmi', 'poco', 'oneplus', 'oppo', 'realme', 'honor',
     'huawei', 'motorola', 'nokia', 'snapdragon', 'mediatek', 'dimensity', 'exynos',
     'foldable', 'plegable',
+    // Marcas que aparecen sin el apellido de producto.
+    'redmagic', 'red magic', 'iqoo', 'doogee', 'originos', 'vivo x', 'vivo v',
+    // Chino: 骁龙 (Snapdragon), 天玑 (Dimensity), 一加 (OnePlus), 摩托罗拉,
+    // 高通 (Qualcomm), 联发科 (MediaTek), 红米 (Redmi),
+    // 手机芯片/旗舰手机/安卓手机/电竞手机 (móvil de gama alta/juegos).
+    '骁龙', '天玑', '一加', '摩托罗拉', '高通', '联发科', '红米',
+    '手机芯片', '旗舰手机', '安卓手机', '电竞手机',
+    // «小米» a secas queda FUERA: en las fuentes chinas aparece en titulares de
+    // electrodomésticos y coches (ninguna). Los modelos de móvil concretos sí.
+    '小米18', '小米 18', '小米17', '小米 17',
   ],
 };
 
@@ -156,7 +215,7 @@ const TECH_SIGNAL = [
   'cloud', 'nube', 'servidor', 'server', 'internet', 'datos', 'pc', 'ordenador',
   'computadora', 'computer', 'escritorio', 'pantalla', 'monitor', 'teclado',
   'ratón', 'raton', 'impresora', 'telegram', 'whatsapp', 'notificaciones',
-  'correo', 'email',
+  'correo', 'email', 'spotify', 'clipchamp', 'carplay', 'roku',
 ];
 
 const VERTICAL_LABELS = {
@@ -238,14 +297,13 @@ function truncate(text, n = 180) {
 
 function classify(text) {
   const t = text.toLowerCase();
-  const matchesAny = (keywords) =>
-    keywords.some((k) =>
-      new RegExp(`(^|[^${WORD_CHARS}])${escapeRegex(k)}(?=$|[^${WORD_CHARS}])`, 'i').test(t),
-    );
+  const matchesAny = (keywords) => keywords.some((k) => keywordMatches(t, k));
 
   const hits = [];
   for (const [v, kws] of Object.entries(VERTICALS)) {
-    if (!matchesAny(kws)) continue;
+    const matched =
+      v === 'tutoriales' ? matchesAny(kws) || TUTORIAL_HOWTO_RX.test(t) : matchesAny(kws);
+    if (!matched) continue;
     // A guide about something outside technology is not one of this portal's
     // tutorials; see TECH_SIGNAL.
     if (v === 'tutoriales' && !matchesAny(TECH_SIGNAL)) continue;
@@ -258,6 +316,47 @@ const WORD_CHARS = 'a-z0-9áéíóúüñ';
 function escapeRegex(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+
+// Los términos en chino no tienen fronteras de palabra como el latín: 骁龙 debe
+// coincidir dentro de «骁龙8», así que se buscan como subcadena literal (dentro
+// de una palabra china más larga el término sigue siendo la señal correcta). El
+// resto usa la frontera de WORD_CHARS y además admite el plural (-s / -es),
+// salvo las bases de NO_PLURAL, donde el plural es una palabra común distinta
+// ("pixels", "pocos", "cases") y abriría falsos positivos.
+const CJK_RX = /[\u3400-\u9fff\uf900-\ufaff]/;
+const NO_PLURAL = new Set(['pixel', 'poco', 'case', 'notebook']);
+function keywordMatches(t, k) {
+  if (CJK_RX.test(k)) return t.includes(k.toLowerCase());
+  const plural = NO_PLURAL.has(k) ? '' : '(?:s|es)?';
+  // Tras la clave también vale un dígito: los modelos se pegan al nombre
+  // ("Vivo X500", "Vivo V80"), y sin esto `vivo x` nunca casaría.
+  return new RegExp(
+    `(^|[^${WORD_CHARS}])${escapeRegex(k)}${plural}(?=$|[^${WORD_CHARS}]|\\d)`,
+    'i',
+  ).test(t);
+}
+
+// «cómo» solo marca tutorial cuando encabeza una construcción «cómo + verbo».
+// Un «cómo» interrogativo suelto («cómo y cuándo») no es una marca de tutorial.
+const TUTORIAL_VERBS = [
+  'actualizar', 'activar', 'agregar', 'añadir', 'abrir', 'acelerar', 'aprovechar',
+  'arreglar', 'bloquear', 'borrar', 'buscar', 'cambiar', 'cerrar', 'comparar',
+  'compartir', 'comprobar', 'conectar', 'configurar', 'conseguir', 'convertir',
+  'crear', 'desactivar', 'descargar', 'desbloquear', 'devolver', 'elegir',
+  'eliminar', 'emparejar', 'encontrar', 'escanear', 'escoger', 'evitar',
+  'exportar', 'fijar', 'forzar', 'grabar', 'guardar', 'hacer', 'identificar',
+  'importar', 'instalar', 'jugar', 'limpiar', 'maximizar', 'medir', 'mejorar',
+  'montar', 'ocultar', 'optimizar', 'personalizar', 'pescar', 'potenciar',
+  'programar', 'proteger', 'recuperar', 'reducir', 'reparar', 'restablecer',
+  'restaurar', 'revertir', 'saber', 'seleccionar', 'sincronizar', 'solucionar',
+  'transferir', 'unir', 'unirte', 'usar', 'utilizar', 'ver', 'verificar',
+  'vincular',
+];
+// El pronombre enclítico no debe romper la marca: «cómo conectarlo/usarla».
+const TUTORIAL_HOWTO_RX = new RegExp(
+  `(^|[^${WORD_CHARS}])cómo\\s+(?:${TUTORIAL_VERBS.join('|')})(?:lo|la|los|las|le|les|me|te|se|nos)?(?=$|[^${WORD_CHARS}])`,
+  'i',
+);
 
 function parseArgs(argv) {
   const num = (flag) => {
