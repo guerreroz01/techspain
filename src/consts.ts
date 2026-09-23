@@ -4,10 +4,10 @@
  */
 
 export const SITE = {
-  title: 'TechSpain',
+  title: 'TechSpain24',
   description:
     'Noticias de tecnología en español: inteligencia artificial, hardware, software y la industria que las mueve.',
-  author: 'Redacción Tecnología Hoy',
+  author: 'Redacción TechSpain24',
   // `import.meta.env.SITE` comes from the `site` option in astro.config.mjs.
   // The fallback repeats that same `www` host on purpose: if it ever diverges,
   // canonical URLs would point at the apex, which only 308-redirects here.
@@ -20,12 +20,12 @@ export const NAV = [
   { label: 'Inicio', href: '/' },
   { label: 'Noticias', href: '/noticias' },
   { label: 'Acerca', href: '/acerca' },
+  { label: 'Contacto', href: '/contacto' },
 ] as const;
 
-/** Social profiles shown in the footer. Replace the placeholder URLs. */
+/** Social profiles shared by the footer and the contact page. */
 export const SOCIAL = [
   { label: 'GitHub', href: 'https://github.com/guerreroz01' },
-  { label: 'X', href: 'https://x.com/usuario' },
 ] as const;
 
 /**

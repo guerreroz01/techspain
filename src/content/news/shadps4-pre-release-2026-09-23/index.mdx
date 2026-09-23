@@ -1,0 +1,47 @@
+---
+title: 'shadPS4 lanza una pre-release sin notas y remite a su changelog de 107 commits'
+description: 'La pre-release del emulador de PS5 shadPS4 del 23 de septiembre no trae notas escritas: solo enlaza al changelog acumulado desde la versión estable 0.18.0.'
+pubDate: '2026-09-23'
+author: 'Redacción TechSpain24'
+tags: ['Emuladores', 'Windows', 'Linux', 'macOS']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Captura de la página del release pre-release de shadPS4 del 23 de septiembre de 2026 con los cuatro binarios descargables'
+source:
+  name: 'shadPS4'
+  url: 'https://github.com/shadps4-emu/shadPS4/releases/tag/Pre-release-shadPS4-2026-09-23-eeecd103f648572b249b422e759e76799274b34c'
+---
+
+El emulador de PlayStation 5 de código abierto **shadPS4** publicó el 23 de septiembre una nueva compilación **pre-release** —etiquetada así en GitHub, no como versión estable— identificada como **Pre-release-shadPS4-2026-09-23-eeecd10**. La particularidad no está en lo que añade, sino en lo que documenta: esta publicación **no incluye notas de versión escritas**. Su cuerpo se reduce a una sola línea con el enlace al **changelog completo** entre la versión **0.18.0** y el commit **eeecd10**.
+
+Para quien sigue de cerca el proyecto, eso cambia por completo cómo hay que leer el anuncio. No hay un resumen curado de novedades, ni una lista de juegos que hayan mejorado, ni una cifra de rendimiento que citar. Lo único verificable es el enlace al histórico de cambios que el propio release ofrece.
+
+## Una pre-release sin notas: solo un enlace al changelog de shadPS4
+
+La página del lanzamiento, firmada por **georgemoralis**, muestra la etiqueta **Pre-release** y cuatro binarios para escritorio: **Windows de 64 bits con SDL**, **Linux con SDL**, **Ubuntu de 64 bits** y **macOS con SDL**. En esta entrega no hay compilación para Android, que no figura entre los archivos publicados.
+
+El texto del release se limita a la línea *Full Changelog* apuntando a la comparación entre **v.0.18.0** y el commit de esta compilación. Es decir: shadPS4 distribuye el binario, pero delega por completo la explicación de los cambios en ese enlace. Para el lector, eso significa que cualquier "lista de mejoras" habría que reconstruirla leyendo el changelog, no las notas, y conviene hacerlo con cautela: un commit puede haberse introducido en esta compilación o llevar semanas dentro del historial.
+
+## Qué contiene el changelog enlazado
+
+Ese changelog acumula **107 commits** desde la versión estable **0.18.0** —publicada el 18 de agosto— hasta esta compilación, y su contenido es marcadamente técnico. Los temas que se repiten en los títulos de los commits son los siguientes:
+
+- **Trofeos en línea (shadNet)**: el soporte de trofeos a través de shadNet, junto a una corrección posterior en la visualización del nombre del trofeo.
+- **Decodificación de vídeo**: soporte para **H.265/HEVC** en el componente `vdec2`, ajustes en la lógica de decodificación y stubs para `libSceVdecsw`.
+- **Cámara**: mapeo del sistema para los datos de fotograma de la cámara, una implementación simulada de `sceCameraGetCalibData` y la corrección de una fuga de memoria cuando la cámara configurada no es válida.
+- **Interfaz**: cambios en el uso de **Dear ImGui**, la biblioteca que dibuja ventanas y menús del emulador, con arreglos posteriores en el límite del atlas de fuentes, en cierres inesperados y en los menús contextuales.
+- **Recompilador de shaders y GPU**: buena parte del trabajo se concentra aquí —reestructuración del SSA, registros virtuales, buffers de almacenamiento, instrucciones de 64 bits y su rebaja a *wave32*, entre otros—, junto a correcciones de dibujado como el tratamiento de `QuadStrip` o los atributos de coordenadas en GPU que no son AMD.
+- **Memoria y sistema de archivos**: un nuevo gestor de buffers basado en *sparse arenas*, `userfaultfd` configurable en tiempo de ejecución y la apertura de archivos del sistema anfitrión con compartición completa al estilo POSIX.
+- **Red**: correcciones en HTTP/2, ajustes varios del módulo de red y una primera implementación de `np_utility`.
+- **Estabilidad y diagnóstico**: la corrección de un cuelgue al intentar cerrar el emulador con normalidad y aserciones para detectar volcados corruptos.
+
+La lista no incluye, en cambio, ninguna tabla de compatibilidad de juegos ni una promesa de más fotogramas por segundo. Son cambios de ingeniería: la clase de trabajo que sostiene la emulación y que solo se traduce en resultados visibles cuando un título concreto se apoya en la función que se ha tocado.
+
+## Qué cambia (y qué no) para quien usa shadPS4
+
+El matiz más importante es el alcance del changelog. Al comparar con la **0.18.0**, el historial no describe lo añadido *únicamente* en esta pre-release, sino todo lo acumulado desde la última versión estable. Quien ya use una compilación reciente no debería asumir que este binario incorpora 107 novedades respecto al que tiene instalado: parte de ese trabajo ya venía en entregas anteriores.
+
+Dicho eso, la utilidad real del enlace es otra: sirve como **avance de hacia dónde va la próxima versión estable**. Los trofeos en línea, el vídeo HEVC, la cámara o el nuevo gestor de memoria apuntan a las áreas que el proyecto está empujando antes de un futuro 0.18.1. Para quien se quedó en la 0.18.0, el conjunto de commits es una muestra bastante completa del rumbo reciente del emulador.
+
+No conviene perder de vista el contexto: la emulación de PS5 sigue en una fase temprana y otros proyectos de la escena, como [KytyPS5](/noticias/astros-playroom-kyty-ps5/), avanzan en paralelo con resultados desiguales según el título. shadPS4 tampoco incluye juegos: cada usuario aporta sus propios volcados de discos que posee. Y, como cualquier *pre-release*, esta compilación está menos probada que una versión estable, así que quien busque fiabilidad hará bien en esperar a la próxima release. Los cuatro binarios están disponibles en el repositorio oficial del proyecto.

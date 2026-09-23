@@ -3,7 +3,7 @@ name: redaccion-prensa
 description: "Trigger: redactar artículo, noticia, artículo de prensa, tutorial, guía paso a paso, cubrir novedad, daily news, revisar fuentes. Redacta noticias y tutoriales de tecnología en español desde las fuentes de src/data/sources.json."
 license: Apache-2.0
 metadata:
-  author: "techspain"
+  author: "techspain24"
   version: "1.2"
 ---
 

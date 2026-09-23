@@ -281,7 +281,7 @@ async function fetchFeed(source) {
       signal: controller.signal,
       redirect: 'follow',
       headers: {
-        'User-Agent': 'techspain-newsbot/1.0 (+editorial)',
+        'User-Agent': 'techspain24-newsbot/1.0 (+editorial)',
         Accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*',
       },
     });

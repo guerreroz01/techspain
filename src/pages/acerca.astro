@@ -1,45 +1,148 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE } from '../consts';
 ---
 
-<BaseLayout title="Acerca" description={`Sobre ${SITE.title} y cómo trabajamos.`}>
+<BaseLayout
+  title="Acerca"
+  description="TechSpain24 es un medio digital independiente sobre tecnología, innovación e inteligencia artificial. Así trabajamos y este es nuestro criterio editorial."
+>
   <div class="container">
     <article class="prose">
-      <h1>Acerca de {SITE.title}</h1>
+      <h1>Acerca de TechSpain24</h1>
 
       <p>
-        {SITE.title} es un portal de noticias de tecnología en español. Cubrimos inteligencia
-        artificial, hardware, software y las decisiones de la industria que afectan al día a día de
-        quienes usan y construyen tecnología.
+        TechSpain24 es un medio digital independiente sobre tecnología, innovación e inteligencia
+        artificial.
       </p>
 
       <p>
-        Nuestro enfoque es simple: explicar qué pasó, por qué importa y qué cambia para el lector.
-        Sin ruido, sin tecnicismos innecesarios y sin dejar de lado el contexto que suele faltar en
-        los titulares.
+        Nuestro objetivo es acercar la actualidad tecnológica a los lectores en español de una forma
+        clara, rigurosa y útil. No queremos limitarnos a contar qué ha ocurrido: buscamos explicar
+        por qué importa, qué cambia y cómo puede afectar al usuario.
       </p>
 
-      <h2>Qué publicamos</h2>
+      <h2>Qué encontrarás en TechSpain24</h2>
+
+      <p>
+        Publicamos noticias, análisis, guías y contenidos explicativos sobre algunas de las áreas
+        que están transformando la tecnología:
+      </p>
 
       <ul>
-        <li>Lanzamientos de productos y servicios con impacto real.</li>
-        <li>Avances en inteligencia artificial y su aplicación práctica.</li>
-        <li>Hardware, semiconductores y la cadena que los produce.</li>
-        <li>Seguridad, privacidad y regulación de la industria.</li>
+        <li>Inteligencia artificial</li>
+        <li>Ordenadores y hardware</li>
+        <li>Smartphones y dispositivos</li>
+        <li>Software y sistemas operativos</li>
+        <li>Ciberseguridad y privacidad</li>
+        <li>Internet y servicios digitales</li>
+        <li>Semiconductores y nuevas tecnologías</li>
+        <li>Empresas y actualidad de la industria</li>
       </ul>
+
+      <p>
+        También publicamos tutoriales y contenidos prácticos destinados a resolver problemas,
+        entender nuevas funciones y ayudar a tomar decisiones informadas sobre productos y servicios
+        tecnológicos.
+      </p>
 
       <h2>Cómo trabajamos</h2>
 
       <p>
-        Cada noticia se basa en fuentes públicas en inglés y se reescribe en español con atribución
-        explícita al medio original. Cuando el tema lo permite, añadimos contexto y explicamos las
-        implicaciones para el lector hispanohablante.
+        Para elaborar nuestros contenidos consultamos fuentes primarias siempre que están
+        disponibles, como comunicados oficiales, documentación técnica, publicaciones de
+        fabricantes, organismos públicos y declaraciones de las compañías implicadas.
       </p>
 
       <p>
-        Si encontrás un error o querés sugerir un tema, podés escribirnos a través de los enlaces
-        del pie de página.
+        También utilizamos medios especializados y otras fuentes públicas para contrastar y
+        contextualizar la información.
+      </p>
+
+      <p>
+        A partir de esas fuentes elaboramos contenido propio en español, seleccionando los datos
+        relevantes y añadiendo contexto, explicaciones y análisis cuando resulta útil para
+        comprender mejor la noticia.
+      </p>
+
+      <p>
+        Cuando una información todavía no está confirmada oficialmente, procuramos indicarlo
+        claramente y diferenciar los hechos conocidos de rumores, filtraciones, estimaciones o
+        interpretaciones.
+      </p>
+
+      <p>
+        Siempre que es posible, enlazamos o identificamos las fuentes relevantes para que el lector
+        pueda consultar la información original.
+      </p>
+
+      <h2>Nuestro criterio editorial</h2>
+
+      <p>La tecnología cambia rápidamente y no todas las novedades tienen la misma importancia.</p>
+
+      <p>Por eso intentamos responder tres preguntas fundamentales en cada contenido:</p>
+
+      <h3>¿Qué ha ocurrido?</h3>
+
+      <p>Explicamos los hechos principales de forma directa y comprensible.</p>
+
+      <h3>¿Por qué importa?</h3>
+
+      <p>
+        Ponemos la información en contexto y explicamos su relevancia tecnológica o para el
+        mercado.
+      </p>
+
+      <h3>¿Qué cambia para el usuario?</h3>
+
+      <p>
+        Analizamos las posibles consecuencias prácticas: nuevas funciones, compatibilidad,
+        rendimiento, privacidad, precios, disponibilidad o cualquier otro aspecto relevante.
+      </p>
+
+      <p>
+        Nuestro objetivo es evitar titulares engañosos, exageraciones innecesarias y conclusiones
+        que no estén respaldadas por la información disponible.
+      </p>
+
+      <h2>Independencia y transparencia</h2>
+
+      <p>TechSpain24 es un proyecto editorial independiente.</p>
+
+      <p>
+        La existencia de publicidad, enlaces de afiliación, colaboraciones comerciales o contenidos
+        patrocinados no debe determinar nuestras conclusiones editoriales. Cuando un contenido tenga
+        naturaleza comercial o patrocinada, procuraremos identificarlo claramente.
+      </p>
+
+      <p>
+        Los enlaces de afiliación pueden generar una comisión para TechSpain24 si el lector realiza
+        una compra, sin incrementar por ello el precio del producto.
+      </p>
+
+      <h2>Correcciones</h2>
+
+      <p>
+        La información tecnológica puede cambiar rápidamente. Empresas pueden actualizar productos,
+        modificar especificaciones o proporcionar nuevos datos después de la publicación de un
+        artículo.
+      </p>
+
+      <p>
+        Cuando detectamos un error relevante o recibimos nueva información que modifica
+        sustancialmente un contenido, procuramos actualizarlo para mantenerlo preciso.
+      </p>
+
+      <p>
+        Si detectas un error, puedes avisarnos desde la <a href="/contacto">página de contacto</a>.
+      </p>
+
+      <h2>Nuestra misión</h2>
+
+      <p>Internet está lleno de información tecnológica. Nuestro objetivo no es simplemente añadir más.</p>
+
+      <p>
+        Queremos construir un medio en español que ayude a entender mejor la tecnología, separando
+        los hechos del ruido y convirtiendo información compleja en contenido útil y accesible.
       </p>
     </article>
   </div>

@@ -61,7 +61,7 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
 - Descarga TODAS las imágenes del artículo original a `assets/` con curl (añade `-A` con un User-Agent de navegador). La principal como `cover` (`./assets/cover.jpg` o `.png` según extensión); el resto embebidas con `![alt](./assets/x.jpg)`.
 - No copies verbatim: traduce y reescribe con tus palabras. No inventes datos, citas ni cifras.
 - Atribuye el origen real en `source: { name, url }`. Si el medio cita a otro, atribuye al original.
-- `pubDate: {fecha_de_hoy}`, `author: 'Redacción Tecnología Hoy'`.
+- `pubDate: {fecha_de_hoy}`, `author: 'Redacción TechSpain24'`.
 - Tras redactar, ejecutá la pasada de SEO pre-publicación (`{seo_contract_path}`) sobre el `index.mdx` terminado. La pasada NO toca `title`, `tags`, `featured`, `breaking` ni `pubDate`, y NO ejecuta el build.
 
 **Pasos:**

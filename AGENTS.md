@@ -53,7 +53,6 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 ```
 blog/
 ├── AGENTS.md                     # this file
-├── CLAUDE.md                     # scaffolder-generated (Claude Code)
 ├── README.md
 ├── astro.config.mjs              # site URL, Vercel adapter, sitemap + mdx
 ├── package.json                  # scripts + deps
@@ -100,6 +99,7 @@ blog/
     │   ├── acerca.astro          # /acerca
     │   ├── aviso-legal.astro     # /aviso-legal (LSSI-CE identification)
     │   ├── buscar.json.ts        # /buscar.json (search index of published articles)
+    │   ├── contacto.astro        # /contacto (mailto channel + social profiles)
     │   ├── cookies.astro         # /cookies (cookie inventory + revocation)
     │   ├── index.astro           # / (home)
     │   ├── noticias/
@@ -140,7 +140,7 @@ title: 'Titular de la noticia'
 description: 'Bajada de una o dos frases.'
 pubDate: 2026-09-10
 # updatedDate: 2026-09-11
-author: 'Redacción Tecnología Hoy'
+author: 'Redacción TechSpain24'
 tags: ['Inteligencia Artificial']
 featured: false
 breaking: false
@@ -184,6 +184,7 @@ Token groups: `--color-*`, `--font-*`, `--text-*`, `--leading-*`, `--measure`, `
 | `/noticias/` · `/noticias/<page>/` | `src/pages/noticias/[...page].astro` | Paginated archive of published articles |
 | `/noticias/<slug>/` | `src/pages/noticias/[slug].astro` | Article page (JSON-LD `NewsArticle`, source block) |
 | `/acerca` | `src/pages/acerca.astro` | About |
+| `/contacto` | `src/pages/contacto.astro` | Contact: `mailto:` channel (`LEGAL.email`) + social profiles |
 | `/aviso-legal` | `src/pages/aviso-legal.astro` | Legal notice + owner identification (LSSI-CE) |
 | `/privacidad` | `src/pages/privacidad.astro` | Privacy policy (RGPD/LOPDGDD) |
 | `/cookies` | `src/pages/cookies.astro` | Cookie policy + inventory + revocation |
@@ -254,7 +255,7 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 
 - `SITE` — `title`, `description`, `author` (the byline used across every article), `url`, `lang`.
 - `NAV` — header navigation.
-- `SOCIAL` — footer links (placeholder URLs).
+- `SOCIAL` — social profiles shared by the footer and `/contacto` (GitHub only; no placeholder URLs left).
 - `ADS` — ad toggle and publisher id, plus `ADS_ACTIVE`.
 - `GA` — Google Analytics 4 toggle and measurement id, plus `GA_ACTIVE`.
 - `CONSENT` — consent storage keys (`storageKey`, `legacyKey`) and per-category availability, plus `CONSENT_ACTIVE` (see section 11).

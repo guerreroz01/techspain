@@ -19,7 +19,7 @@ title: 'Titular de la noticia o título de la guía'
 description: 'Bajada de una o dos frases.'
 pubDate: 'YYYY-MM-DD'  # fecha de hoy
 # updatedDate: 'YYYY-MM-DD'
-author: 'Redacción Tecnología Hoy'
+author: 'Redacción TechSpain24'
 tags: ['<Vertical principal>', '<tag secundario opcional>']
 featured: false
 breaking: false
@@ -101,7 +101,7 @@ src/content/news/
 title: 'Un nuevo proceso de 2 nm promete más autonomía en portátiles'
 description: 'El fabricante arrancó la producción en serie del nodo, con mejoras de eficiencia que podrían alargar la batería de los próximos equipos.'
 pubDate: 'YYYY-MM-DD'  # fecha de hoy
-author: 'Redacción Tecnología Hoy'
+author: 'Redacción TechSpain24'
 tags: ['Componentes', 'Semiconductores']
 cover: './assets/chips.svg'
 coverAlt: 'Ilustración abstracta de un chip'
@@ -141,7 +141,7 @@ src/content/news/
 title: 'Cómo crear un USB de arranque de Windows 11 paso a paso'
 description: 'Guía práctica para preparar una unidad de arranque con Windows 11 usando solo herramientas oficiales de Microsoft.'
 pubDate: 'YYYY-MM-DD'  # fecha de hoy
-author: 'Redacción Tecnología Hoy'
+author: 'Redacción TechSpain24'
 tags: ['Tutoriales', 'Componentes']
 cover: './assets/cover.jpg'
 coverAlt: 'Unidad USB conectada a un puerto del equipo'

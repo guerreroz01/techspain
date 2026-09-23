@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 334 artículos. Actualizado: 2026-09-22
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 342 artículos. Actualizado: 2026-09-23
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -341,3 +341,11 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-22 | WhatsApp lleva al Apple Watch todo el catálogo de emojis de watchOS | [whatsapp-apple-watch-emoji-reactions](https://www.techspain24.com/noticias/whatsapp-apple-watch-emoji-reactions/) |
 | 2026-09-22 | Xbox prepararía cientos de despidos esta semana y la fusión de varios estudios, según The Information | [xbox-layoffs-studio-mergers](https://www.techspain24.com/noticias/xbox-layoffs-studio-mergers/) |
 | 2026-09-22 | ZuckOff localiza gafas con cámara por Bluetooth: la clave está en lo que la app no promete | [zuckoff-detects-camera-glasses-bluetooth](https://www.techspain24.com/noticias/zuckoff-detects-camera-glasses-bluetooth/) |
+| 2026-09-23 | Apple estudiaría una pulsera de fitness sin pantalla al estilo Whoop | [apple-pulsera-fitness-sin-pantalla](https://www.techspain24.com/noticias/apple-pulsera-fitness-sin-pantalla/) |
+| 2026-09-23 | El Amazfit T-Rex Dual Solar lleva la carga solar al AMOLED y se puede llevar del revés | [amazfit-solar-amoled-smartwatch](https://www.techspain24.com/noticias/amazfit-solar-amoled-smartwatch/) |
+| 2026-09-23 | El Mac mini M6 y M5 Pro vuelve al SSD soldado: sin ampliación y con el 256 GB a media velocidad | [mac-mini-m6-m5-pro-ssd-soldado](https://www.techspain24.com/noticias/mac-mini-m6-m5-pro-ssd-soldado/) |
+| 2026-09-23 | El shooter de StarCraft no será exclusivo, según Blizzard: la puerta a PS6 queda abierta | [starcraft-revival-shooter-ps6](https://www.techspain24.com/noticias/starcraft-revival-shooter-ps6/) |
+| 2026-09-23 | Motorola presenta el Signature 27, uno de los primeros móviles con el Snapdragon 8 Elite Extreme Gen 6 | [motorola-signature-27-snapdragon-8-elite-extreme](https://www.techspain24.com/noticias/motorola-signature-27-snapdragon-8-elite-extreme/) |
+| 2026-09-23 | Qualcomm presenta los Snapdragon 8 Elite Extreme Gen 6 y 8 Elite Gen 6, sus primeros chips de 2 nm | [qualcomm-snapdragon-8-elite-extreme-gen-6-oficial](https://www.techspain24.com/noticias/qualcomm-snapdragon-8-elite-extreme-gen-6-oficial/) |
+| 2026-09-23 | Raspberry Pi bloquea por firmware la memoria de sus placas al tamaño de fábrica | [raspberry-pi-firmware-bloqueo-ram](https://www.techspain24.com/noticias/raspberry-pi-firmware-bloqueo-ram/) |
+| 2026-09-23 | shadPS4 lanza una pre-release sin notas y remite a su changelog de 107 commits | [shadps4-pre-release-2026-09-23](https://www.techspain24.com/noticias/shadps4-pre-release-2026-09-23/) |

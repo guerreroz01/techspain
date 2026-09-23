@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, LEGAL, SOCIAL } from '../consts';
+---
+
+<BaseLayout
+  title="Contacto"
+  description={`Escríbenos: correcciones, sugerencias de temas, comunicados de prensa y consultas sobre los contenidos de ${SITE.title}.`}
+>
+  <div class="container">
+    <article class="prose">
+      <h1>Contacto</h1>
+
+      <p>
+        ¿Has detectado un error, quieres sugerir un tema o necesitas hablar con la redacción?
+        Escríbenos por correo electrónico: es el canal que utilizamos para todo lo relacionado con
+        el contenido del sitio.
+      </p>
+
+      <h2>Correo electrónico</h2>
+
+      <p>
+        <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>
+      </p>
+
+      <p>
+        Cuanto más concreta sea la información —el artículo afectado, el dato en cuestión y la
+        fuente que lo respalda—, más rápido podremos revisarlo.
+      </p>
+
+      <h2>Para qué puedes escribirnos</h2>
+
+      <ul>
+        <li>
+          <strong>Correcciones.</strong> Si detectas un error o una información desactualizada en
+          alguno de nuestros artículos, indícanos la URL y el punto concreto.
+        </li>
+        <li>
+          <strong>Sugerencias de temas.</strong> Novedades tecnológicas que creas que deberíamos
+          cubrir.
+        </li>
+        <li>
+          <strong>Comunicados y prensa.</strong> Notas de fabricantes, organismos públicos y
+          empresas del sector.
+        </li>
+        <li>
+          <strong>Derechos de privacidad.</strong> Para ejercer tus derechos de acceso,
+          rectificación, supresión u oposición, tal como se describe en la <a
+            href="/privacidad">política de privacidad</a>.
+        </li>
+      </ul>
+
+      <h2>Otros canales</h2>
+
+      <ul>
+        {
+          SOCIAL.map((item) => (
+            <li>
+              <a href={item.href} rel="me noopener noreferrer" target="_blank">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Propuestas comerciales</h2>
+
+      <p>
+        Si tu mensaje es una propuesta comercial, de colaboración o de contenido patrocinado,
+        indícalo expresamente en el asunto. En <a href="/acerca">Acerca de {SITE.title}</a>
+        explicamos cómo tratamos ese tipo de acuerdos y por qué no condicionan nuestras conclusiones
+        editoriales.
+      </p>
+    </article>
+  </div>
+</BaseLayout>
