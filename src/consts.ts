@@ -29,6 +29,47 @@ export const SOCIAL = [
 ] as const;
 
 /**
+ * Brand and social-card images.
+ *
+ * These live in `public/` on purpose: Astro does not process that folder, so
+ * every file listed here is already a resized and compressed derivative of the
+ * source kit kept in `public/techspain/` (1–2 MB PNGs that must never be served
+ * as-is). Regenerate the derivatives with ImageMagick if the kit changes.
+ *
+ * - `logo` is the square mark, square, used by the `publisher` structured data.
+ * - `socialBanner` carries the wordmark, so it is the default card for the
+ *   site-level pages (`/`, `/noticias/`, `/acerca`, the legal pages).
+ * - `socialPool` are the generic unbranded covers. They back articles that ship
+ *   without a cover of their own, so a shared link is never bare.
+ */
+export const BRAND = {
+  logo: '/logo-512.png',
+  socialBanner: '/og/techspain-banner.jpg',
+  socialPool: [
+    '/og/portada-1.jpg',
+    '/og/portada-2.jpg',
+    '/og/portada-3.jpg',
+    '/og/portada-4.jpg',
+    '/og/portada-5.jpg',
+  ],
+} as const;
+
+/**
+ * Deterministic pick from `BRAND.socialPool`.
+ *
+ * The same id must always resolve to the same image: crawlers and chat apps
+ * cache by URL, so a rotating pick would make every re-share look like a new
+ * asset and could serve a stale image after a rebuild.
+ */
+export function socialPoolImageFor(id: string): string {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+  }
+  return BRAND.socialPool[hash % BRAND.socialPool.length];
+}
+
+/**
  * AdSense configuration.
  * `client` is the publisher id from the AdSense account. Ads are live only when
  * `enabled` is true AND `client` is set. Everything else (the loader, the

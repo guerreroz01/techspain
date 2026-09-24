@@ -35,6 +35,21 @@ svg {
   max-width: 100%;
 }
 
+/*
+ * `max-width: 100%` alone does not preserve the aspect ratio of an image that
+ * carries the `width` and `height` attributes (Astro's markdown pipeline emits
+ * them for every inline article image). Without an explicit height the browser
+ * keeps the attribute height as a presentational hint, so constraining the
+ * width stretches the image vertically on narrow viewports. `height: auto`
+ * lets the intrinsic ratio drive the height instead.
+ *
+ * The cover and thumbnail components are unaffected: they set their own
+ * `aspect-ratio` + `object-fit` and carry no size attributes.
+ */
+img {
+  height: auto;
+}
+
 input,
 button,
 textarea,

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props {
   /**
@@ -41,10 +42,11 @@ const items = entries.map((entry) => ({
         {items.map((item) => (
           <li class="story-list__item">
             {item.cover && (
-              <img
+              <Image
                 class="story-list__thumb"
-                src={item.cover.src}
+                src={item.cover}
                 alt={item.coverAlt ?? ''}
+                width={216}
                 loading="lazy"
                 decoding="async"
               />

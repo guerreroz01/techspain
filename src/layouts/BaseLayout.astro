@@ -1,6 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro';
-import { SITE, CONSENT, CONSENT_ACTIVE, ADS, ADS_ACTIVE } from '../consts';
+import { SITE, CONSENT, CONSENT_ACTIVE, ADS, ADS_ACTIVE, BRAND } from '../consts';
 import Header from '../components/Header.astro';
 import SearchBar from '../components/SearchBar.astro';
 import Footer from '../components/Footer.astro';
@@ -12,6 +12,11 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  /**
+   * Social card. Defaults to the branded `BRAND.socialBanner`, so every page
+   * ships an `og:image`: before that default existed, `/`, `/noticias/` and
+   * `/acerca` emitted none and fell back to a small `summary` card.
+   */
   image?: string;
   type?: string;
   /**
@@ -30,7 +35,7 @@ interface Props {
 const {
   title,
   description = SITE.description,
-  image,
+  image = BRAND.socialBanner,
   type = 'website',
   noindex = false,
 } = Astro.props;
@@ -38,7 +43,7 @@ const {
 const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
 const siteBase = Astro.site ?? new URL(SITE.url);
 const canonical = new URL(Astro.url.pathname, siteBase).href;
-const ogImage = image ? new URL(image, siteBase).href : undefined;
+const ogImage = new URL(image, siteBase).href;
 const rssHref = new URL('rss.xml', siteBase).href;
 ---
 
@@ -52,7 +57,9 @@ const rssHref = new URL('rss.xml', siteBase).href;
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {noindex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Open Graph -->
@@ -62,13 +69,13 @@ const rssHref = new URL('rss.xml', siteBase).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="es_ES" />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage} />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Feed -->
     <link

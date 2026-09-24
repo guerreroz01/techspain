@@ -59,6 +59,10 @@
   /* Layout */
   --container: 44rem;
   --container-wide: 64rem;
+  /* Brand mark in the header. The PNG keeps its alpha on purpose: the flattened
+     white logo used by the structured data would show as a white square on the
+     dark theme. */
+  --brand-mark-size: 2rem;
 
   /* Media */
   /* Aspect ratio for the lead story cover / placeholder frame. */
@@ -88,7 +92,10 @@
   --tracking-tight: -0.01em;
   --tracking-wide: 0.08em;
   --text-code: 0.9em;
-  /* Stacking order: notice above the skip link, dialog above the notice. */
+  /* Stacking order: notice above the skip link, dialog above the notice. The
+     mobile navigation dropdown floats over page content but stays below the
+     skip link, so the keyboard escape hatch is never covered by it. */
+  --z-nav-panel: 90;
   --z-skip-link: 100;
   --z-consent-banner: 200;
   --z-consent-panel: 300;

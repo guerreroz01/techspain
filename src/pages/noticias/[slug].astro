@@ -1,10 +1,11 @@
 ---
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import StoryList from '../../components/StoryList.astro';
-import { SITE } from '../../consts';
+import { BRAND, SITE, socialPoolImageFor } from '../../consts';
 
 export async function getStaticPaths() {
   const allNews = await getCollection('news');
@@ -150,8 +151,24 @@ const formattedUpdated = updatedDate ? dateFormatter.format(updatedDate) : undef
 
 const siteBase = Astro.site ?? new URL(SITE.url);
 const canonical = new URL(`/noticias/${entry.id}/`, siteBase).href;
-const coverSrc = cover?.src;
-const image = coverSrc ? new URL(coverSrc, siteBase).href : undefined;
+
+// Never feed `cover.src` to the output. Astro keys its asset bookkeeping by the
+// image's output URL and only keeps an original whose recorded source path was
+// referenced while rendering, so when another image in the same entry claims
+// the same URL the cover's file is deleted and every reference to it 404s. An
+// explicitly requested transform is always emitted, so the hero and the share
+// card are built from those instead.
+const heroImage = cover ? await getImage({ src: cover, width: 1200, format: 'webp' }) : undefined;
+const shareImage = cover ? await getImage({ src: cover, width: 1200, format: 'jpeg' }) : undefined;
+
+const image = shareImage ? new URL(shareImage.src, siteBase).href : undefined;
+
+// Share card. `BaseLayout` already defaults to the branded banner, but an
+// article deserves its own cover; when it has none it draws from the generic
+// pool so the shared link is never bare and never borrows another article's
+// photo. This is presentation only — `image` above stays the factual
+// `Article.image` in the structured data and is omitted when there is no cover.
+const socialImage = shareImage?.src ?? socialPoolImageFor(entry.id);
 
 // Tutorials live in the same `news` collection but are how-to guides, not news,
 // so they must not be typed as NewsArticle. `Article` is the correct parent
@@ -173,6 +190,14 @@ const jsonLd = {
   publisher: {
     '@type': 'Organization',
     name: SITE.title,
+    // Publisher logo, required for the organisation to be eligible for the
+    // knowledge panel / rich results. Square 512x512 derivative of the mark.
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL(BRAND.logo, siteBase).href,
+      width: 512,
+      height: 512,
+    },
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -183,7 +208,7 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={title} description={description} type="article" image={coverSrc}>
+<BaseLayout title={title} description={description} type="article" image={socialImage}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
@@ -218,12 +243,14 @@ const jsonLd = {
     </header>
 
     {
-      cover ? (
+      cover && heroImage ? (
         <figure class="article__figure">
           <img
             class="article__cover"
-            src={coverSrc}
+            src={heroImage.src}
             alt={coverAlt ?? ''}
+            width={heroImage.attributes.width}
+            height={heroImage.attributes.height}
             loading="eager"
             decoding="async"
           />

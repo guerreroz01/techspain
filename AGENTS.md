@@ -8,7 +8,7 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 
 - Single editorial line: technology news. **No sections, no categories, no tag pages.**
 - Static output by default (fastest). SSR is available per-route if ever needed.
-- Near-zero client JavaScript: the two theme scripts plus the cookie-consent init/preferences scripts, the conditional GA4 and AdSense loaders (see section 11), the Vercel Web Analytics component and the title search bar (see section 14). Google Analytics 4 stays off until the visitor accepts the analytics category.
+- Near-zero client JavaScript: the two theme scripts plus the cookie-consent init/preferences scripts, the conditional GA4 and AdSense loaders (see section 11), the Vercel Web Analytics component, the title search bar and the mobile navigation toggle (see section 14). Google Analytics 4 stays off until the visitor accepts the analytics category.
 - Ad-ready (Google AdSense) but **ads are disabled by default**. Enabling them is a single switch in `src/consts.ts` (see section 11).
 - Cookie consent is **granular** (necessary / analytics / advertising) and the legal pages (`/aviso-legal`, `/privacidad`, `/cookies`) are excluded from the sitemap on purpose (see sections 9 and 11).
 - Styling is a **token-based design system** — see section 8.
@@ -58,12 +58,18 @@ blog/
 ├── package.json                  # scripts + deps
 ├── tsconfig.json
 ├── public/                       # served as-is at the site root
+│   ├── apple-touch-icon.png      # 180x180, flattened on white (iOS renders alpha as black)
 │   ├── covers/                   # local SVG article covers
 │   │   ├── chips.svg
 │   │   ├── ia.svg
 │   │   └── software.svg
-│   ├── favicon.ico
-│   ├── favicon.svg
+│   ├── favicon-96x96.png
+│   ├── favicon.ico               # multi-size 16/32/48
+│   ├── logo-512.png              # square mark, used by the publisher structured data
+│   ├── logo-mark-96.png          # transparent mark for the header (dark-theme safe)
+│   ├── og/                       # 1200x630 social cards (see section 10)
+│   │   ├── techspain-banner.jpg  # branded wordmark, default for site-level pages
+│   │   └── portada-1..5.jpg      # generic unbranded covers, article fallbacks
 │   └── robots.txt                # allows crawling; references both sitemaps
 ├── scripts/
 │   ├── daily-news.mjs            # RSS candidate fetcher + classifier (see section 16)
@@ -78,7 +84,7 @@ blog/
     │   ├── Footer.astro
     │   ├── GoogleAds.astro       # AdSense loader; injects only after ads consent
     │   ├── GoogleAnalytics.astro # GA4 loader; injects the tag only after consent
-    │   ├── Header.astro          # site title + nav + theme toggle
+    │   ├── Header.astro          # brand mark + site title + nav + mobile menu toggle + theme toggle
     │   ├── LeadStory.astro       # home lead story + secondary stories
     │   ├── NewsCard.astro        # list item in "Últimas noticias"
     │   ├── StoryList.astro       # related + random recommendation blocks
@@ -174,7 +180,7 @@ Drafts (`draft: true`) render in dev but are excluded from production builds, RS
 - Dark mode: `[data-theme="dark"]` overrides, plus a `@media (prefers-color-scheme: dark)` fallback for `html:not([data-theme])`.
 - `global.css` holds the reset, base element styles, `.container` / `.container--wide`, `.skip-link`, `.sr-only`, focus states, and `.prose` (article typography).
 
-Token groups: `--color-*`, `--font-*`, `--text-*`, `--leading-*`, `--measure`, `--space-*`, `--radius-*`, `--container*`, `--transition-*`, `--shadow-*`, plus `--aspect-cover`, `--aspect-thumb`, `--thumb-width`, `--thumb-width-sm`, `--border-width`, `--focus-*`, `--tracking-*`, `--underline-offset`, `--text-code`, `--icon-stroke`, `--color-overlay`, `--z-skip-link`, `--z-consent-banner`, `--z-consent-panel`.
+Token groups: `--color-*`, `--font-*`, `--text-*`, `--leading-*`, `--measure`, `--space-*`, `--radius-*`, `--container*`, `--transition-*`, `--shadow-*`, plus `--aspect-cover`, `--aspect-thumb`, `--thumb-width`, `--thumb-width-sm`, `--brand-mark-size`, `--border-width`, `--focus-*`, `--tracking-*`, `--underline-offset`, `--text-code`, `--icon-stroke`, `--color-overlay`, `--z-nav-panel`, `--z-skip-link`, `--z-consent-banner`, `--z-consent-panel`.
 
 ## 9. Routes
 
@@ -201,7 +207,9 @@ How content becomes discoverable by search engines:
 - **XML sitemap** — `@astrojs/sitemap` generates `sitemap-index.xml` → `sitemap-0.xml` with every route. Needs `site` in `astro.config.mjs` to build absolute URLs. The legal pages (`/aviso-legal/`, `/privacidad/`, `/cookies/`) are excluded through the `filter` option and additionally emit `<meta name="robots" content="noindex, follow">` via the `noindex` prop of `BaseLayout`. Both are deliberate. They are **not** disallowed in `public/robots.txt`: a crawler blocked from fetching a page never reads its `noindex` tag, which would leave the URL eligible to be indexed as a bare link. They are linked from the footer.
 - **Google News sitemap** — `src/pages/sitemap-news.xml.ts` emits `news:news` entries. **Google only accepts articles published in the last 48 hours**; the endpoint filters to that window and falls back to the 10 most recent when nothing qualifies (so the demo is never empty).
 - **robots.txt** — `public/robots.txt` allows crawling and points to both sitemaps. **Its URLs are hardcoded to `https://www.techspain24.com`** and must be updated together with `site`.
-- **Structured data** — article pages inject JSON-LD `NewsArticle` (headline, description, dates, author, image, publisher, `inLanguage: "es"`) through the `head` slot in `BaseLayout`.
+- **Structured data** — article pages inject JSON-LD `NewsArticle` (headline, description, dates, author, image, publisher, `inLanguage: "es"`) through the `head` slot in `BaseLayout`. The `publisher` node carries a `logo` (`public/logo-512.png`); without it the organisation is not eligible for the knowledge panel.
+- **Social card** — `BaseLayout` emits `og:image` and `twitter:image` on **every** page and `twitter:card` is always `summary_large_image`. The `image` prop defaults to `BRAND.socialBanner` (the branded 1200×630 card). Article pages pass a 1200px JPEG transform of their own cover, built with `getImage()`; an article with no cover falls back to `socialPoolImageFor(entry.id)`, a deterministic pick from `BRAND.socialPool`. Determinism matters: crawlers cache by URL, so a rotating pick would make every re-share look like a new asset.
+- **Favicons** — `favicon.ico` (16/32/48), `favicon-96x96.png` and `apple-touch-icon.png` are generated from the brand kit. There is **no `favicon.svg`**: the file that used to be linked here was a leftover from another project (a "C" for "Cuaderno"), not this site's mark. If a real vector is ever produced, add it back ahead of the raster fallbacks.
 - **RSS** — `/rss.xml`, linked from `<head>` via `rel="alternate"`.
 - **Per-page metadata** — `BaseLayout` sets canonical URL, description, Open Graph, and Twitter card tags.
 - **Language** — `<html lang="es">` plus `og:locale` `es_ES`.
@@ -259,6 +267,7 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 - `ADS` — ad toggle and publisher id, plus `ADS_ACTIVE`.
 - `GA` — Google Analytics 4 toggle and measurement id, plus `GA_ACTIVE`.
 - `CONSENT` — consent storage keys (`storageKey`, `legacyKey`) and per-category availability, plus `CONSENT_ACTIVE` (see section 11).
+- `BRAND` — the square `logo`, the default `socialBanner` and the generic `socialPool`, plus `socialPoolImageFor(id)` for the deterministic pick (see section 10).
 - `LEGAL` — legal identification of the owner (name, NIF, address, email, country, jurisdiction) and the last-updated date. The three legal pages read from here, so the data is never hardcoded twice.
 
 ## 13. Deployment (Vercel)
@@ -273,12 +282,17 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 - **Astro 7 content config path**: the file must be `src/content.config.ts`. The legacy `src/content/config.ts` throws `LegacyContentConfigError`.
 - **Content Layer API**: use `glob` from `astro/loaders` and `z` from `astro/zod` (Zod v4). Each entry is a folder `<slug>/index.mdx`; `generateId` maps the folder to `id` (the slug). There is **no `slug` field**.
 - **Colocated images**: the `cover` field uses the `image()` helper from `astro:assets` and resolves relative to the entry folder (`./assets/...`). Inline body images use relative markdown paths. Article images are NOT placed in `public/`.
+- **Inline article images and `height: auto` — do not "clean up" this rule.** Astro's markdown pipeline emits `width` and `height` attributes on every inline body image. Those attributes are a presentational hint, so a reset with only `max-width: 100%` constrained the width while the attribute height stayed fixed: on mobile every inline image rendered vertically stretched (measured 342×1672 px for a 1920×1672 source, roughly 5.6× too tall). `img { height: auto }` in `global.css` is what preserves the intrinsic ratio. It cannot be dropped while the attributes are present, and it is inert for the cover/thumbnail components because those set their own `aspect-ratio` + `object-fit` and carry no size attributes.
 - **Rendering**: use `getCollection('news')`, `getEntry('news', id)`, and `render(entry)` from `astro:content`.
 - **Heading levels in cards**: `NewsCard.astro` and `StoryCard.astro` hardcode `<h2>`, so neither can be reused inside an article page — the article title is already the `h1` and the body carries `h2`s, so a card's stray `h2` would corrupt the heading hierarchy. `StoryList.astro` is the shared recommendation block used instead: it takes `{ id, title, entries }`, renders a section `h2` plus one `h3` per item, and backs both the "Noticias relacionadas" and "Otras noticias" blocks on article pages. Its random trio is resolved at **build time** (Fisher–Yates over the non-related entries inside `getStaticPaths`), so it changes per deploy, not per visit — that non-determinism is intentional and requires no client JS (see §1 and the Client JS bullet below).
 - **Endpoints**: `src/pages/rss.xml.js` and `sitemap-news.xml.ts` use `export async function GET(context)`.
-- **Client JS**: any script that must not be bundled uses `is:inline`. Keep client JS to the absolute minimum (currently the two theme scripts, the consent init/preferences scripts, the conditional GA4 and AdSense loaders, the Vercel Analytics component and the search bar). The search bar uses a regular `<script>` (not `is:inline`) so it goes through the build graph and is type-checked by Astro — not for paint-critical reasons. Note that Astro inlines into every page any script below Vite's `assetsInlineLimit` (4 KB): the search script currently ships inline, exactly like the Vercel Analytics one, so do not assume it is a separately cached file.
+- **Client JS**: any script that must not be bundled uses `is:inline`. Keep client JS to the absolute minimum (currently the two theme scripts, the consent init/preferences scripts, the conditional GA4 and AdSense loaders, the Vercel Analytics component, the search bar and the mobile navigation toggle). The search bar uses a regular `<script>` (not `is:inline`) so it goes through the build graph and is type-checked by Astro — not for paint-critical reasons. Note that Astro inlines into every page any script below Vite's `assetsInlineLimit` (4 KB): the search script currently ships inline, exactly like the Vercel Analytics one, so do not assume it is a separately cached file.
+- **Mobile navigation is a progressive enhancement — do not "fix" the fallback.** `Header.astro` carries an `is:inline` script that sets `document.documentElement.dataset.nav = 'enhanced'` and only then does the stylesheet collapse the links behind the `.nav-toggle` button. That marker is the switch on purpose: the collapsed state is defined **only** under `html[data-nav='enhanced']` inside a `max-width: 47.999rem` block, so without JS the links keep the always-visible desktop-style layout. Navigation is the one feature a news site cannot lose to a failed script — do not move the collapsed state into the unscoped default rules, and do not replace the marker with a `<script>` that runs after the nav has already painted (it would flash the expanded menu). The panel is an overlay anchored under the header bar with `--z-nav-panel`, deliberately below the skip link.
 - **Client-side state via `data-*` on `<html>`**: theme and consent are coordinated through `document.documentElement.dataset.*` (`theme`, `consent`), set by `is:inline` scripts in `<head>` and reacted to from CSS. The consent notice is shown only by `html[data-consent='pending']` and is never toggled from JavaScript; after a decision it is `set`. `--z-consent-panel` (300) must stay above `--z-consent-banner` (200), which must stay above `--z-skip-link` (100).
 - **Cookie-consent storage**: the decision lives in `localStorage['consent-preferences']` (JSON, see section 11). The legacy `consent-analytics` key is migrated by the `BaseLayout` init script and must not be read anywhere else.
+- **Never render `cover.src` (nor any `ImageMetadata.src`) into the output — go through the image API.** Astro keys its asset bookkeeping by the image's **output URL** and only keeps an original whose recorded source path was referenced while rendering. When two images in the same entry claim the same output URL, the cover's file is deleted at build time (`Deleting … as it's not referenced outside of image processing`) and **every** reference to it 404s: the article hero, its `og:image` and its listing thumbnails. That is why `[slug].astro` builds the hero and the share card with `getImage()` and why `LeadStory`, `NewsCard`, `StoryCard` and `StoryList` render through `<Image>`: an explicitly requested transform is always emitted. This is not only a correctness fix — before it, the home shipped **5.9 MB** of images and `/noticias/` **9.3 MB**, because every hero and every 72px thumbnail downloaded the full-size original (now 187 KB and 410 KB). Two articles were broken in production this way and the same collision was already latent on a third.
+- **Article body images are optimized but not responsive.** Astro's markdown pipeline emits one full-resolution variant per inline image (a 3000×2400 body image ships as a ~528 KB webp). That is the remaining image weight on an article page; making them responsive would need a rehype step.
+- **`public/` is NOT optimized by Astro — every byte there ships verbatim.** A file dropped in `public/` is copied to `dist/` and to the Vercel output as-is, and Astro's image pipeline never touches it. Anything large must be resized and compressed **before** it lands there: that is why the brand cards in `public/og/` are pre-built 1200×630 JPEGs (~120–176 KB) rather than the 1–2 MB PNGs they come from. The **unprocessed brand kit is deliberately NOT kept in `public/`** — it used to live there and shipped ≈14 MB that no template referenced. The originals live outside the repo; only the derivatives in `public/og/` and the root icons are tracked. Regenerate them with `magick <src> -resize 1200x630^ -gravity center -extent 1200x630 -strip -quality 84 <out>.jpg` if the kit changes.
 - **Do not commit** `node_modules/`, `dist/`, or `.vercel/` (see `.gitignore`).
 - **No CSS framework.** Do not add Tailwind or a component library.
 - **No sections/taxonomy.** This is a single-topic portal by design; do not reintroduce a `section` field or category pages without an explicit request.
