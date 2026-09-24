@@ -1,0 +1,54 @@
+---
+title: 'Xenia Manager 5.0.0 estrena explorador de archivos de juego y un modo de consola para mando'
+description: 'La versión 5.0.0 del gestor para Xenia añade un navegador de archivos multidisco, gestión de logros desde el disco y un modo Big Screen manejable con mando.'
+pubDate: 2026-09-24
+author: 'Redacción TechSpain24'
+tags: ['Emuladores', 'Xbox 360']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Logotipo de Xenia, el emulador de Xbox 360'
+source:
+  name: 'EmuCR'
+  url: 'https://www.emucr.com/2026/09/xenia-manager-v500.html'
+---
+
+Xenia Manager ha alcanzado la versión 5.0.0, una actualización mayor del gestor que acompaña al emulador experimental de Xbox 360 Xenia. La herramienta existe para retirar la parte más árida del emulador: facilita jugar a los títulos y aplicar parches concretos, y ofrece una interfaz clara para ajustar los parámetros de Xenia sin editar archivos de configuración a mano.
+
+![Logotipo de Xenia, el emulador de Xbox 360](./assets/cover.png)
+
+Se trata de una release amplia, con novedades funcionales, correcciones de errores y una reorganización interna del proyecto en varias librerías. Todo llega en un momento en que la emulación de la séptima generación sigue avanzando a buen ritmo, como también demuestran los avances recientes en [la emulación de PS3](/noticias/ps3-emulation-nvidia-bug/).
+
+## Un explorador de archivos de juego sin salir de Xenia Manager
+
+La incorporación más visible es el *Game Files Explorer*, que sustituye a la antigua acción "Open Game Location". En lugar de abrir la carpeta del juego en el sistema operativo, el gestor integra un navegador de solo lectura del contenedor del título, accesible desde el menú contextual de la biblioteca y compatible con juegos de varios discos.
+
+A la izquierda se muestra un árbol que prioriza los directorios, con búsqueda en vivo, opción de revelar en el árbol y selección múltiple. A la derecha, un panel de detalles reúne los metadatos XEX que se han podido interpretar (identificadores de título y medio, versión, disco, tamaño de imagen y flags de módulo), el resumen SPA (título, número de logros, *gamerscore* e icono), los metadatos STFS con miniatura para paquetes CON/LIVE/PIRS, las previsualizaciones de imágenes incrustadas (PNG/JPG/BMP) y todos los logros SPA con su nombre y descripción localizados, icono y distintivo de *gamerscore*. Un panel inferior resume el formato del contenedor, el número de archivos y el tamaño total.
+
+El doble clic abre cada archivo según su tipo: el texto en un visor con información de codificación, los `.gpd` en un visor de solo lectura con logros y tabla de entradas, y los archivos desconocidos se sondean en busca de la firma STFS. El diálogo de detalles XEX se carga en dos fases cancelables y permite exportar el icono a PNG. Cualquier selección puede extraerse con escrituras protegidas contra rutas maliciosas y un diálogo de progreso que informa de los archivos extraídos y fallidos. La carpeta del juego sigue pudiéndose abrir en el Explorador de Windows.
+
+La gestión de logros también cambia. Un nuevo backend rellena los GPD de logros que faltan a partir de los datos SPA del propio disco, usando la cuenta y el idioma seleccionados con respaldo, y crea la entrada de título FFFE07D1. Tanto la aplicación de escritorio como el modo *Big Screen* incorporan un botón *Fetch* (la tecla Y en *Big Screen*) que genera un GPD ausente, descarga las imágenes de logros y vuelve a leer nombres y descripciones sin alterar el estado de desbloqueo; en juegos con varios discos se pregunta cuál leer. Los logros bloqueados con ilustración se pintan en blanco y negro, mientras que los desbloqueados mantienen el color.
+
+En el apartado gráfico, al añadir un juego se busca primero el arte incrustado (miniaturas STFS, cabecera y datos de SVOD GOD e iconos SPA/XDBF de XEX extraídos mediante un decodificador LZX gestionado con descifrado AES-CBC), antes de recurrir a la descarga desde XboxDatabase y, en último término, a la plantilla local. Todo ello lo controla el nuevo ajuste `UseEmbeddedArtwork`, activado por defecto. También se rastrean los contenedores sin distinguir mayúsculas en busca del `nxebg.jpg` de un paquete `nxeart` interno, que se usa como fondo prioritario, y el editor de juegos puede volver a obtener el arte desde los archivos del juego o desde x360db.
+
+## Big Screen Mode, pensado para el mando
+
+La versión 5.0.0 añade un modo de consola construido sobre Avalonia que se maneja por completo con un mando. Incluye un panel de inicio con tarjetas de juego (con conmutador entre carátula e icono), fondos dinámicos y estadísticas en la cabecera; una biblioteca con vistas de cuadrícula y lista, ordenación y selección de disco; una ficha de juego con el contenido instalado, logros, descarga de parches, ajustes XConfig por versión y capturas; una galería con miniaturas y filtrado por versión; y unos ajustes con gestión de perfiles, tarjetas de mando y controles deslizantes RGB.
+
+La entrada se basa en SDL con un asignador de botones, además de caché de mapas de bits y carga en segundo plano con hilos. Se incorpora un ajuste de escala de interfaz del 25 % al 200 % y la opción "Start in Big Screen" para arrancar directamente en este modo.
+
+## Instalación de contenido y nuevos formatos
+
+Dado que las versiones recientes de xenia-canary pueden cargar paquetes CON/LIVE/PIRS intactos en el directorio de contenido, el antiguo botón único de instalación se divide ahora en *Install (Extract)* e *Install (Package)*. La instalación como paquete copia el archivo tal cual en el árbol de contenido con progreso byte a byte, lista las entradas mediante los metadatos STFS incrustados y elimina el archivo cuando se borra la entrada; la extracción sigue siendo la opción recomendada para versiones antiguas de Xenia y para los *forks*. Actualizar la interfaz también vuelve a escanear la carpeta de juegos, de modo que las incorporaciones recientes aparecen sin reiniciar, y el menú de contenido instalado se divide en cuatro entradas por tipo. Las filas de contenido muestran ahora el tamaño instalado y la versión en lugar del nombre de archivo a secas.
+
+Bajo el capó se añade un nuevo analizador SVOD/GOD integrado en la detección de juegos, y STFS y SVOD alcanzan la paridad con el contrato de navegación de ISO/ZAR tras un único punto de entrada `IGameFileSource`. También llega un análisis completo de XDBF/SPA (cabeceras de título, tablas de cadenas por idioma con respaldo en inglés, contextos, propiedades, presencia, emparejamiento, estadísticas y *gamerscore* total), soporte de XLAST, una API pública de navegación de ISO, soporte de XEX1/XEX25 con información de seguridad por formato y claves de retail y devkit, más firmas de `FileIdentifier` ampliadas. El análisis de XEX es solo de cabecera y con topes de descompresión, para que abrir un juego no obligue a extraerlo entero.
+
+## Correcciones, librerías internas y wiki oficial
+
+El changelog dedica un bloque extenso a los arreglos. Entre ellos, mezclar accesos directos creados por el gestor y por Steam ya no borra los títulos de todos los accesos; se corrigen el decodificador LZX, el análisis de almacenamiento y discos (cadena de hashes STFS, sondeo de ISO, disposición SVOD/XSF y rangos ZAR), los offsets STFS de 64 bits, los errores de truncamiento y la extracción en flujo. También se reparan el descubrimiento de ISO divididas y los offsets de `title_id`, se protege la lectura de cabeceras cortas y el escaneo de XEX se limita a la cabecera, descartando los paquetes rechazados para evitar fugas. En *Big Screen*, el idioma sigue ahora al de la aplicación de escritorio y se localizan las cadenas que quedaban fijas.
+
+El código se reorganiza en librerías de clases (`XeniaManager.Files`, `XeniaManager.Database` y `XeniaManager.Logging`), con espacios de nombres y rutas comunes unificados y una batería de pruebas reestructurada que cubre formatos de archivo, bases de datos y conversores. Las mejoras de rendimiento pasan por la carga de paquetes STFS respaldada en flujos, la memoización de búsquedas, el análisis perezoso de cabeceras XEX y la carga de contenido fuera del hilo de interfaz.
+
+En el plano de la documentación, el proyecto estrena una wiki oficial en `xenia-manager.github.io/wiki`, construida con Zensical y desplegada mediante GitHub Pages, que recoge tanto las funciones nuevas como las antiguas. El equipo agradece la contribución de la comunidad, con mención especial a @SBUplakankus por el modo *Big Screen* con navegación por mando y por su ayuda con la wiki.
+
+Xenia Manager 5.0.0 está disponible en el repositorio oficial del proyecto en GitHub, de donde puede descargarse el paquete de la release.

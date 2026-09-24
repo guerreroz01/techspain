@@ -1,0 +1,34 @@
+---
+title: 'PrismML y Qualcomm logran IA local cuatro veces mayor en gafas inteligentes con cuantización de 1 bit'
+description: 'PrismML lleva su modelo Bonsai de 1 bit al Snapdragon AR1 Gen 1: 2.000 millones de parámetros que permiten IA local más capaz y eficiente en gafas inteligentes.'
+pubDate: '2026-09-24'
+author: 'Redacción TechSpain24'
+tags: ['Wearables', 'Inteligencia Artificial']
+featured: false
+breaking: false
+cover: './assets/cover.webp'
+coverAlt: 'Gafas inteligentes RayNeo iO con montura oscura y patillas gruesas'
+source:
+  name: 'AndroidHeadlines'
+  url: 'https://www.androidheadlines.com/2026/09/prismml-1-bit-ai-smart-glasses-qualcomm-snapdragon.html'
+---
+
+La firma de inteligencia artificial PrismML y Qualcomm han presentado un modelo capaz de ejecutarse en local sobre gafas inteligentes basadas en la plataforma Snapdragon AR1 Gen 1. El anuncio se produjo en la Snapdragon Summit celebrada en Pasadena (California) y ataca uno de los cuellos de botella clásicos del sector: conseguir que un wearable tan ligero procese imagen y voz sin depender de la nube. La clave técnica está en la cuantización de 1 bit, una forma extrema de comprimir un modelo para que quepa en la memoria disponible.
+
+## Qué es la cuantización de 1 bit
+
+Un modelo de IA se compone de miles de millones de parámetros, que son valores numéricos ajustados durante el entrenamiento. Guardar cada uno de esos valores con mucha precisión ocupa más memoria y exige más cómputo, así que una práctica habitual es la cuantización: reducir el número de bits con los que se representa cada peso. Se puede pasar de 16 bits a 8 o a 4 con una pérdida de calidad controlada.
+
+La propuesta de PrismML lleva esa idea a su extremo: codificar cada parámetro con un solo bit, es decir, con apenas dos valores posibles. El resultado es que el modelo ocupa una fracción del espacio y se ejecuta con operaciones mucho más baratas. Su modelo 1-bit Bonsai es un sistema de visión y lenguaje de 2.000 millones de parámetros construido sobre una versión anterior llamada Bonsai 1.7B. Según la compañía, mantiene la capacidad de razonamiento conversacional y visual de un modelo tradicional de 4 bits, pero con un uso de memoria unas cuatro veces menor y una generación de texto más del doble de rápida.
+
+## El problema físico de las gafas: memoria, calor y batería
+
+Diseñar IA para unas gafas inteligentes es un ejercicio de equilibrios. A diferencia de un móvil o un portátil, unas gafas apenas tienen espacio para una batería grande ni para refrigeración pasiva, por lo que el procesamiento local debe consumir muy poca energía sin recalentar la montura. Ese límite físico es el que condiciona la memoria que puede reservarse a un modelo, un factor que también pesa en el resto del hardware del dispositivo, como recoge nuestra [comparativa de pantallas de gafas inteligentes](/noticias/smart-glasses-display-comparison/).
+
+Para encajar en ese margen, PrismML colaboró directamente con Qualcomm y optimizó la arquitectura neuronal y los pesos de Bonsai para la NPU Hexagon de Qualcomm. El resultado es que un mismo espacio de memoria ahora admite cuatro veces más parámetros que antes, lo que permite subir de categoría el modelo que corre en las gafas sin cambiar el hardware.
+
+## Qué cambia para el usuario
+
+Procesar la cámara y el audio en el propio dispositivo, en lugar de enviarlos de ida y vuelta a un servidor, tiene una consecuencia práctica inmediata: la respuesta llega antes y el contexto visual personal no sale de las gafas. Ziad Asghar, vicepresidente sénior de Qualcomm, señaló que llevar estos modelos de 1 bit a la plataforma Snapdragon AR1 Gen 1 habilita una asistencia visual ágil y mantiene la privacidad de lo que ve el usuario en el propio dispositivo.
+
+Por su parte, el consejero delegado de PrismML, Babak Hassibi, insistió en que diseñar los modelos junto al hardware concreto es la vía para que la IA personal deje los centros de datos y aterrice en wearables de uso cotidiano. Ambas compañías prevén ampliar su colaboración y afinar futuras iteraciones de Bonsai para exprimir el silicio ya existente. Para el usuario, la promesa es una IA más capaz en unas gafas que, además, seguirá funcionando aunque no haya conexión.

@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 361 artículos. Actualizado: 2026-09-23
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 400 artículos. Actualizado: 2026-09-24
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -368,3 +368,42 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-23 | shadPS4 lanza una pre-release sin notas y remite a su changelog de 107 commits | [shadps4-pre-release-2026-09-23](https://www.techspain24.com/noticias/shadps4-pre-release-2026-09-23/) |
 | 2026-09-23 | Spotify trabaja en un límite de caché para que su app de Android no devore el almacenamiento del móvil | [spotify-cache-limit-android](https://www.techspain24.com/noticias/spotify-cache-limit-android/) |
 | 2026-09-23 | Vivo X500, X500 Pro y X500 Pro Max: las diferencias clave entre los tres modelos | [vivo-x500-vs-x500-pro-vs-pro-max](https://www.techspain24.com/noticias/vivo-x500-vs-x500-pro-vs-pro-max/) |
+| 2026-09-24 | Apple confirma que una actualización de iOS 27 corregirá los reinicios del iPhone 18 Pro | [ios-27-fix-reinicio-iphone-18-pro](https://www.techspain24.com/noticias/ios-27-fix-reinicio-iphone-18-pro/) |
+| 2026-09-24 | Apple lanza watchOS 27.0.1 para corregir los reinicios inesperados del Watch Series 12 y Ultra 4 | [apple-watchos-27-0-1-fix](https://www.techspain24.com/noticias/apple-watchos-27-0-1-fix/) |
+| 2026-09-24 | Cómo saber si tu operadora podrá darte el internet que promete | [como-saber-operadora-internet](https://www.techspain24.com/noticias/como-saber-operadora-internet/) |
+| 2026-09-24 | Dolphin 2609 estrena NetPlay en Android y un indicador de resolución en pantalla | [dolphin-progress-report-2609](https://www.techspain24.com/noticias/dolphin-progress-report-2609/) |
+| 2026-09-24 | El mod NVSmooth30 lleva Smooth Motion a las GeForce RTX 30 | [nvidia-smooth-motion-rtx-30](https://www.techspain24.com/noticias/nvidia-smooth-motion-rtx-30/) |
+| 2026-09-24 | El NAS Beelink ME Pro sube al Intel Core Ultra X7 358H con gráficos Arc B390 | [beelink-me-pro-nas](https://www.techspain24.com/noticias/beelink-me-pro-nas/) |
+| 2026-09-24 | El zócalo LGA1954 aparece en AliExpress por 16 dólares y acerca la producción del Intel Nova Lake-S | [intel-lga-1954-nova-lake](https://www.techspain24.com/noticias/intel-lga-1954-nova-lake/) |
+| 2026-09-24 | GPU-Z ya mide la temperatura del hotspot en las RTX 50 | [rtx-50-gpu-z-hotspot](https://www.techspain24.com/noticias/rtx-50-gpu-z-hotspot/) |
+| 2026-09-24 | GrapheneOS confirma su primer móvil compatible que no es un Pixel: el Motorola Signature 27 | [grapheneos-primer-movil-no-pixel](https://www.techspain24.com/noticias/grapheneos-primer-movil-no-pixel/) |
+| 2026-09-24 | Guía de actividades secundarias y minijuegos de GTA 6: todo lo que se puede hacer en Leonida | [gta-6-actividades-secundarias](https://www.techspain24.com/noticias/gta-6-actividades-secundarias/) |
+| 2026-09-24 | iPhone Air vs iPhone 18 Pro: guía para elegir cuál comprar | [iphone-air-vs-iphone-18-pro](https://www.techspain24.com/noticias/iphone-air-vs-iphone-18-pro/) |
+| 2026-09-24 | La Realme 16 Pro 5G Harry Potter Edition se agota en India en menos de 24 horas | [realme-16-pro-harry-potter](https://www.techspain24.com/noticias/realme-16-pro-harry-potter/) |
+| 2026-09-24 | Las Meta Ray-Ban Display llegan por fin a Europa: precio, fecha y nuevas funciones | [meta-ray-ban-display-europa](https://www.techspain24.com/noticias/meta-ray-ban-display-europa/) |
+| 2026-09-24 | Los Retroid Pocket 5 y Pocket Flip 2 esconden una pantalla de 120 Hz que su software no activa | [retroid-pocket-upgrade-sorpresa](https://www.techspain24.com/noticias/retroid-pocket-upgrade-sorpresa/) |
+| 2026-09-24 | Meta dejará de entrenar su IA con los datos visuales de las gafas, pero solo si el usuario se da de baja | [meta-deja-entrenar-datos-visuales](https://www.techspain24.com/noticias/meta-deja-entrenar-datos-visuales/) |
+| 2026-09-24 | Meta lleva la mejora auditiva con aval de la FDA a sus gafas inteligentes | [meta-gafas-mejora-auditiva-fda](https://www.techspain24.com/noticias/meta-gafas-mejora-auditiva-fda/) |
+| 2026-09-24 | Meta presenta las Ray-Ban Meta Audio, sus primeras gafas sin cámara | [ray-ban-meta-audio-sin-camara](https://www.techspain24.com/noticias/ray-ban-meta-audio-sin-camara/) |
+| 2026-09-24 | Meta presenta las Ray-Ban Meta Gen 3: más autonomía, diseño más fino y un precio más alto | [ray-ban-meta-gen-3](https://www.techspain24.com/noticias/ray-ban-meta-gen-3/) |
+| 2026-09-24 | Meta presenta sus VR Glasses: 100 gramos de realidad virtual con la potencia en un puck externo | [meta-vr-glasses-anuncio](https://www.techspain24.com/noticias/meta-vr-glasses-anuncio/) |
+| 2026-09-24 | Micron descontinúa sus chips GDDR7 de 2 GB: qué cambia para las tarjetas gráficas | [micron-descontinua-gddr7-2gb](https://www.techspain24.com/noticias/micron-descontinua-gddr7-2gb/) |
+| 2026-09-24 | Microsoft renueva el Surface Pro de 12 pulgadas y el Surface Laptop de 13 con Snapdragon X2 Plus | [surface-pro-12-laptop-13-snapdragon-x2](https://www.techspain24.com/noticias/surface-pro-12-laptop-13-snapdragon-x2/) |
+| 2026-09-24 | Muse, el agente de IA de Meta, se prepara para llegar a las gafas inteligentes | [meta-muse-ai-gafas](https://www.techspain24.com/noticias/meta-muse-ai-gafas/) |
+| 2026-09-24 | Nintendo Switch 2 Welcome Tour recibe el parche 1.1.1 para corregir varios problemas | [switch-2-welcome-tour-1-1-1](https://www.techspain24.com/noticias/switch-2-welcome-tour-1-1-1/) |
+| 2026-09-24 | NVIDIA publica RTX Kit 2026.3 y el SDK RTX Mega Geometry 2.0 para desarrolladores | [nvidia-rtx-kit-mega-geometry-2](https://www.techspain24.com/noticias/nvidia-rtx-kit-mega-geometry-2/) |
+| 2026-09-24 | NZXT recupera su serie S con las cajas S5 RGB y S5 RGB Deluxe | [nzxt-s5-rgb](https://www.techspain24.com/noticias/nzxt-s5-rgb/) |
+| 2026-09-24 | OnePlus confirma la cámara del OnePlus 16: sensor principal de 200 MP y tres modos Pro | [oneplus-16-camara-200mp](https://www.techspain24.com/noticias/oneplus-16-camara-200mp/) |
+| 2026-09-24 | PrismML y Qualcomm logran IA local cuatro veces mayor en gafas inteligentes con cuantización de 1 bit | [prismml-qualcomm-modelos-1-bit-gafas](https://www.techspain24.com/noticias/prismml-qualcomm-modelos-1-bit-gafas/) |
+| 2026-09-24 | Qualcomm lleva Linux a los Snapdragon X2 con Debian y Ubuntu | [qualcomm-snapdragon-x2-soporte-linux](https://www.techspain24.com/noticias/qualcomm-snapdragon-x2-soporte-linux/) |
+| 2026-09-24 | Qualcomm presenta Snapdragon Sound Elite Gen 2, su plataforma de audio con IA para auriculares | [qualcomm-snapdragon-sound-elite-gen-2](https://www.techspain24.com/noticias/qualcomm-snapdragon-sound-elite-gen-2/) |
+| 2026-09-24 | Thermal Grizzly lanza los Mycro Pro Stainless Steel, bloques de CPU más asequibles para AMD e Intel | [thermal-grizzly-mycro-pro](https://www.techspain24.com/noticias/thermal-grizzly-mycro-pro/) |
+| 2026-09-24 | Titan Quest II pone fecha a su versión final: 19 de enero de 2027 en PC y consolas | [titan-quest-ii-enero-2027](https://www.techspain24.com/noticias/titan-quest-ii-enero-2027/) |
+| 2026-09-24 | Un tribunal alemán falla a favor de YMTC y dicta medidas cautelares contra Micron por patentes de NAND | [ymtc-gana-patentes-micron](https://www.techspain24.com/noticias/ymtc-gana-patentes-micron/) |
+| 2026-09-24 | Una reimplementación open source lleva DLSS 5 a Vulkan, a las RTX 40 y al navegador | [dlss-5-reimplementacion-vulkan-open-source](https://www.techspain24.com/noticias/dlss-5-reimplementacion-vulkan-open-source/) |
+| 2026-09-24 | Vivo V80: toma de contacto y muestras de cámara desde Bangkok | [vivo-v80-analisis](https://www.techspain24.com/noticias/vivo-v80-analisis/) |
+| 2026-09-24 | Xenia Manager 5.0.0 estrena explorador de archivos de juego y un modo de consola para mando | [xenia-manager-5](https://www.techspain24.com/noticias/xenia-manager-5/) |
+| 2026-09-24 | Xiaomi 18 Pro y 18 Pro Max: pantalla trasera, privacidad de hardware y hasta 8.500 mAh | [xiaomi-18-pro-lanzamiento](https://www.techspain24.com/noticias/xiaomi-18-pro-lanzamiento/) |
+| 2026-09-24 | Xiaomi Pad 9 Pro y Pad 9: pantallas 3.2K de 144 Hz y chips Snapdragon | [xiaomi-pad-9-pro](https://www.techspain24.com/noticias/xiaomi-pad-9-pro/) |
+| 2026-09-24 | Xiaomi Watch S5 Transparent Edition: cuerpo de cristal, 47 mm y solo 5.000 unidades | [xiaomi-watch-s5-transparent](https://www.techspain24.com/noticias/xiaomi-watch-s5-transparent/) |
+| 2026-09-24 | XMG sube hasta 300 euros el precio de sus portátiles por la crisis de la memoria | [xmg-sube-precios-portatiles-ram](https://www.techspain24.com/noticias/xmg-sube-precios-portatiles-ram/) |

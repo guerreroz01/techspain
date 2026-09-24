@@ -1,0 +1,53 @@
+---
+title: 'Una reimplementación open source lleva DLSS 5 a Vulkan, a las RTX 40 y al navegador'
+description: 'El proyecto OpenDLSS-NR recrea en Vulkan la red neuronal de DLSS 5 Neural Rendering, con resultados que su autor dice idénticos, y añade una versión WebGPU.'
+pubDate: '2026-09-24'
+author: 'Redacción TechSpain24'
+tags: ['Tarjetas gráficas', 'NVIDIA']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Gráfico de DLSS 5 Neural Rendering con los rótulos "Now on Vulkan and WebGPU" y "OpenDLSS-NR" sobre una escena arquitectónica'
+source:
+  name: 'Wccftech'
+  url: 'https://wccftech.com/nvidia-dlss-5-gets-open-source-vulkan-reimplementation-runs-on-rtx-40-gpus-and-even-in-web-browsers/'
+---
+
+DLSS 5 Neural Rendering acaba de salir, sobre el papel, del terreno exclusivo del software y el hardware propietarios de NVIDIA. El desarrollador conocido como **MAAN** ha publicado [OpenDLSS-NR](https://github.com/maanHimself/OpenDLSS-NR), una reimplementación de código abierto del modelo de renderizado neuronal de DLSS 5 que funciona sobre **Vulkan** y que, según su autor, reproduce la red original con resultados idénticos. Es importante subrayar desde el principio que **no es un lanzamiento de NVIDIA**: es un proyecto de la comunidad, alojado en GitHub bajo licencia MIT y sin ningún tipo de afiliación con el fabricante.
+
+## Una reimplementación de la comunidad, no un anuncio de NVIDIA
+
+El proyecto recrea la red neuronal de 71 bloques que aparece en la versión 310.8.0 del runtime y la DLL de DLSS-NR, es decir, el modelo real que ejecuta la tecnología en los equipos compatibles. El autor afirma haber hecho ingeniería inversa de la arquitectura "hasta el último redondeo" y asegura que, con la misma entrada, la salida de OpenDLSS-NR coincide con la de la implementación de NVIDIA. Su pretensión va más allá de la imagen final: sostiene que los productos intermedios de la red también se reproducen byte a byte.
+
+Ese es, por ahora, el punto más delicado del anuncio. La exactitud es una **afirmación del desarrollador**, no un dato verificado de forma independiente ni confirmado por NVIDIA, así que conviene leerla como tal. El anuncio original se publicó en una publicación de MAAN en X el 21 de septiembre de 2026.
+
+## Qué reproduce OpenDLSS-NR
+
+Conviene no confundirlo con DLSS Super Resolution. Mientras que la reconstrucción de imagen parte de fotogramas a menor resolución para generar una salida mayor, DLSS 5 Neural Rendering opera sobre un fotograma **ya renderizado** y vuelve a dibujarlo con detalle generado por IA, además de ajustar la iluminación, los materiales y los rasgos faciales. La resolución de entrada y de salida es la misma: no es un escalador.
+
+OpenDLSS-NR reproduce ese proceso con una arquitectura U-Net de bloques transformer de ventana desplazada (Swin) y un Vision Transformer (ViT) global en la base. La red suma 71 bloques repartidos en seis niveles de agrupación, con activaciones de 8 bits en formato FP8 (E4M3) y acumulación en FP16, y unos 141 MiB de pesos. Para acelerarla, el proyecto incluye kernels PTX optimizados para los Tensor Cores de NVIDIA junto a shaders de cómputo escritos en GLSL.
+
+## Rendimiento: de las RTX 40 al navegador
+
+El autor publicó mediciones preliminares sobre una **RTX 4070 SUPER**, una GPU de la generación Ada que NVIDIA no sitúa en la lista oficial de DLSS 5 (la compatibilidad oficial está en las RTX 50, con las RTX 40 previstas más adelante). Las cifras corresponden al tiempo mínimo registrado en 40 fotogramas, no al promedio, que según el autor resulta algo superior:
+
+| Resolución | Tiempo |
+| --- | --- |
+| 768 × 768 | 2,8 ms |
+| 1920 × 1080 | 7,8 ms |
+| 2560 × 1440 | 12,6 ms |
+| 3840 × 2160 | 29,3 ms |
+
+Lo más llamativo es que el repositorio incluye una segunda implementación independiente en **WebGPU**, capaz de reproducir la misma red neuronal sin Tensor Cores ni soporte nativo de FP8. Eso abre la puerta a ejecutarla en otras arquitecturas de GPU y en otras plataformas, aunque a un coste muy superior: 72 ms a 512 × 512, frente a los 2,7 ms de la ruta nativa optimizada en la misma resolución.
+
+![Comparativa del port WebGPU de OpenDLSS-NR a 2048 × 1152: a la izquierda la escena original y a la derecha el resultado con DLSS 5 Neural Rendering activado](./assets/comparativa-webgpu-nr.jpg)
+
+## Qué cambia (y qué no) para el usuario
+
+El valor de OpenDLSS-NR es técnico: demuestra que el modelo de renderizado neuronal de DLSS 5 puede reimplementarse fuera del ecosistema cerrado de NVIDIA, igual que antes se ha visto con el [port de la técnica a la gráfica integrada Intel Arc 140V](/noticias/dlss-5-intel-arc-140v-mod/). Como proyecto abierto, marca un límite y da material a otros desarrolladores para seguir explorando.
+
+Ahora bien, hoy no hay nada que instalar y disfrutar. El repositorio **no distribuye los pesos propietarios de NVIDIA**, que cada usuario debe aportar por su cuenta, y OpenDLSS-NR es una implementación autónoma, no un mod listo para inyectar en juegos existentes. Incluye un renderizador de demostración basado en el motor Filament, con vectores de movimiento y realimentación temporal, pero no implementa DLSS Super Resolution, que es una red distinta. Además, la ruta nativa exige Windows, una GPU NVIDIA Ada o posterior y controladores con varias extensiones de Vulkan específicas.
+
+En resumen: una demostración técnica valiosa para seguir de cerca, y una señal más de que la comunidad no piensa esperar a que el fabricante decida cuándo abre sus tecnologías de renderizado neuronal.
+
+*Imágenes: Wccftech (portada) y OpenDLSS-NR / GitHub (comparativa).*
