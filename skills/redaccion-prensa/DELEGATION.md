@@ -17,12 +17,27 @@ de escribir el orquestador, se delega **un subagente por artículo**, todos en p
 2. Por cada marcado, derivar:
    - `article_url` — el enlace de la línea.
    - `source_name` — el medio que figura al final de la línea.
-   - `slug` — kebab-case en inglés, derivado del título.
+   - `slug` — kebab-case en inglés, derivado del título. Verificalo con
+     `npm run slug -- <slug>`: si sale `ocupado`, usá el sufijo que sugiere.
+     **Nunca listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo):
+     son cientos de entradas y cada listado quema ~12 KB de contexto.
    - `vertical` — el nombre de la sección `##` en la que está (traducido al token interno:
      `tarjetas-graficas`, `memorias`, `portatiles`, `emuladores`, `consolas`, `componentes`,
      `moviles`, `wearables`, `tutoriales`).
    - `tipo` — `tutorial` si la línea está bajo la sección `## 📘 Tutoriales` de
      `scripts/seleccion.md`; en cualquier otra sección, `noticia`.
+
+   **Antes de delegar, confirmá que el tema NO esté publicado.** Es el paso que
+   frena el duplicado, y va acá, no después de redactar. Por cada marcado corré
+   `npm run find -- <términos distintivos>` (nombres propios, modelos, siglas;
+   evitá palabras comunes, que dan ruido). Si devuelve **cualquier** coincidencia,
+   descartá el candidato.
+
+   Ojo con la trampa: `npm run slug` valida el **slug**, no el **tema**. Un slug
+   nuevo y una fuente distinta pueden esconder una historia ya publicada; el
+   índice de contrastación (`scripts/articulos-publicados.md`) solo guarda título
+   y URL, así que un nombre de proyecto que aparezca únicamente en la descripción
+   no se ve con un grep ahí. `npm run find` sí lo ve.
 3. Calcular `fecha_de_hoy` con la fecha actual en el momento de delegar (`YYYY-MM-DD`).
    Nunca uses una fecha literal fija.
 4. Resolver `seo_contract_path`: la ruta absoluta al contrato de SEO de artículo del skill
@@ -59,6 +74,7 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
 - Cuerpo y frontmatter en español neutro/profesional (sin voseo, sin slang). El slug y los identificadores en inglés.
 - Estructura por directorio: `src/content/news/{slug}/index.mdx` + `src/content/news/{slug}/assets/`.
 - Descarga TODAS las imágenes del artículo original a `assets/` con curl (añade `-A` con un User-Agent de navegador). La principal como `cover` (`./assets/cover.jpg` o `.png` según extensión); el resto embebidas con `![alt](./assets/x.jpg)`.
+- **No listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo): son cientos de entradas y cada listado quema ~12 KB de contexto. Tu slug y tu carpeta ya vienen dados. Para ver si un tema ya está cubierto, usá `npm run find -- <términos distintivos>`. **Si tu pieza ya está publicada, pará y reportalo: no la escribas.**
 - No copies verbatim: traduce y reescribe con tus palabras. No inventes datos, citas ni cifras.
 - Atribuye el origen real en `source: { name, url }`. Si el medio cita a otro, atribuye al original.
 - `pubDate: {fecha_de_hoy}`, `author: 'Redacción TechSpain24'`.

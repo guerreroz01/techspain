@@ -12,7 +12,9 @@
     "astro": "astro",
     "news": "node scripts/daily-news.mjs",
     "news:all": "node scripts/daily-news.mjs --all",
-    "index": "node scripts/index-published.mjs"
+    "index": "node scripts/index-published.mjs",
+    "slug": "node scripts/slug-check.mjs",
+    "find": "node scripts/find-published.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",
