@@ -1,0 +1,34 @@
+---
+title: 'El soporte de GPU Intel en Proton mejora con el nuevo DXVK-IGDEXT'
+description: 'El proyecto DXVK-IGDEXT de Intel traslada sus extensiones D3D11 a DXVK bajo Wine y ya se integra en las builds beta de Proton Experimental para las GPU Arc.'
+pubDate: '2026-09-24'
+author: 'Redacción TechSpain24'
+tags: ['Tarjetas gráficas', 'Intel']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Logotipo de Intel sobre un fondo degradado azul'
+source:
+  name: 'GamingOnLinux'
+  url: 'https://www.gamingonlinux.com/2026/09/intel-gpu-support-with-proton-should-get-better-with-dxvk-igdext/'
+---
+
+Intel ha presentado [DXVK-IGDEXT](https://github.com/GameTechDev/dxvk-igdext), un proyecto que busca que Proton y Wine aprovechen mejor las funciones de sus tarjetas gráficas. Se trata del equivalente para Intel de lo que DXVK-NVAPI representa para NVIDIA: una pieza que expone al juego capacidades del hardware que, de otro modo, quedarían fuera de su alcance en Linux.
+
+## Qué es DXVK-IGDEXT y qué ha cambiado
+
+El componente central es `igdext64.dll`, una biblioteca pensada para Wine y DXVK que permite a los juegos usar las extensiones gráficas D3D11 de Intel (solapamiento de UAV, MultiDrawIndirect y límites de profundidad) en entornos Wine. La clave está en cómo lo hace: en lugar de dejar que el juego recurra por su cuenta al comportamiento D3D11 estándar —más lento— cuando esas extensiones no aparecen, la biblioteca las redirige a la implementación nativa de DXVK.
+
+Según la documentación del propio repositorio, de momento el proyecto es **solo para Linux y Wine**, no para Windows nativo. Su código es abierto y se publica bajo licencia MIT.
+
+## Por qué importa
+
+En Linux, el camino de un juego de Windows pasa casi siempre por Proton, que traduce las llamadas gráficas de Direct3D a Vulkan a través de DXVK. Cuando un título espera capacidades concretas del driver de Intel y no las encuentra, suele degradar a un modo genérico que rinde menos. DXVK-IGDEXT cubre esa brecha: son precisamente esas extensiones las que permiten mover más geometría en menos llamadas o acelerar ciertas fases de renderizado, terreno en el que la [Arc 140V ya mostró sus límites con cargas avanzadas](/noticias/dlss-5-intel-arc-140v-mod/).
+
+El movimiento encaja en una tendencia más amplia: los grandes fabricantes de GPU están dejando de tratar a Linux como una plataforma secundaria y publican sus propias capas de compatibilidad. Intel lo hace ahora con un proyecto de código abierto que sigue el modelo que NVIDIA ya validó años atrás.
+
+## Qué cambia para el lector
+
+La noticia importante para quien juega es la comodidad. Según GamingOnLinux, DXVK-IGDEXT ya está incluido en las compilaciones beta *bleeding-edge* de Proton Experimental, lo que apunta a que acabará integrándose de serie igual que la herramienta de NVIDIA. En la práctica, quien tenga una GPU Intel Arc no tendrá que instalar ni copiar nada a mano: la mejora llegará sola con la actualización de Proton.
+
+Quien prefiera no esperar dispone de la vía manual, que es más laboriosa: requiere colocar el archivo DLL en la ruta de la DriverStore del prefix de Wine y contar con un Proton lo bastante reciente, ya que el truco depende de parches de Wine y de DXVK que definen el UMD falso de Intel. Para quien se enfrente a juegos que no arrancan bajo Proton en general, conviene empezar por lo básico antes de tocar prefix a mano; el diagnóstico habitual está cubierto en la guía para [arreglar un juego que no arranca en Steam Deck y SteamOS](/noticias/steam-deck-game-wont-launch-fix/).

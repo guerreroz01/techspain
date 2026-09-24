@@ -1,0 +1,48 @@
+---
+title: 'virtio-nvgpu: cuatro máquinas virtuales comparten una GPU NVIDIA con rendimiento casi nativo'
+description: 'El proyecto virtio-nvgpu lleva el acceso a GPU NVIDIA en KVM cerca del rendimiento nativo: pérdida por debajo del 2 % y cuatro máquinas virtuales por tarjeta.'
+pubDate: '2026-09-24'
+author: 'Redacción TechSpain24'
+tags: ['Tarjetas gráficas', 'Virtualización', 'Linux']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Página del repositorio nestrilabs/virtio-nvgpu en GitHub, con su descripción y sus métricas'
+source:
+  name: 'MyDrivers'
+  url: 'https://news.mydrivers.com/1/1153/1153793.htm'
+---
+
+Un proyecto experimental llamado **virtio-nvgpu** promete resolver una de las asignaturas pendientes de la virtualización: que una máquina virtual de KVM use una GPU NVIDIA con un rendimiento casi idéntico al de ejecutar el mismo trabajo directamente sobre el hardware físico. El desarrollo lo publica en GitHub **nestrilabs** y lo ha difundido el medio chino MyDrivers. La propuesta cambia la forma en que el sistema invitado habla con la tarjeta y, en las pruebas del propio proyecto, la pérdida de rendimiento se queda por debajo del 2 % frente al anfitrión.
+
+## Qué propone virtio-nvgpu: traducir en el driver y no en la API
+
+La diferencia está en dónde se traduce. Las soluciones más habituales, como virtio-gpu con Venus, trabajan a nivel de API: serializan cada llamada a Vulkan u OpenGL en el invitado, la envían al anfitrión y la reproducen allí. virtio-nvgpu actúa un escalón más abajo, en el ABI del driver del kernel, y se limita a reenviar las instrucciones `ioctl` que el controlador de NVIDIA procesa sobre `/dev/nvidia*`. Así, el invitado ejecuta la pila de usuario de NVIDIA sin modificarla, incluidos Vulkan, CUDA y el codificador NVENC.
+
+La consecuencia práctica es que los búferes de comandos se construyen en la memoria local del invitado, de modo que la inmensa mayoría de las órdenes de dibujo nunca cruzan la frontera entre máquina virtual y anfitrión. El proyecto lo ilustra con un dato: a lo largo de 813.691 fotogramas, el backend solo atendió 13.792 mensajes, es decir, un cruce cada 59 fotogramas y casi todos ellos de configuración del dispositivo.
+
+## Rendimiento medido: dentro del 2 % del metal
+
+Las cifras publicadas por nestrilabs proceden de una RTX 3060 con el driver 595.99.02, comparando la máquina virtual contra el mismo anfitrión en metal y con una carga Vulkan headless idéntica. La pérdida depende de cuánto tarda el fotograma: cuanto más pesado, más se diluye el coste de virtualizar.
+
+| Tiempo por fotograma en el anfitrión | Diferencia del invitado |
+| --- | --- |
+| 39 ms | −0,4 % (por delante del metal, dentro del margen de error) |
+| 9,9 ms | −0,7 % |
+| 2,0 ms | +1,7 % |
+| 0,5 ms | +7,1 % |
+| 0,05 ms | +40,8 % |
+
+El resumen del proyecto es que, por encima de unos 2 ms por fotograma —el terreno de cualquier juego—, la máquina virtual se mantiene dentro del 2 % del metal. El coste de CPU acompaña esa igualdad: en una prueba sin límite de fotogramas a unos 100 fps durante 12 segundos, el invitado consumió 0,37 segundos de CPU frente a los 0,40 del anfitrión.
+
+![Imagen de archivo con líneas de hashes sobre fondo oscuro](./assets/imagen-2.jpg)
+
+La parte que interesa a la nube es el reparto. Cuatro máquinas virtuales sobre la misma RTX 3060 con idéntica carga rindieron 25,84, 26,49, 25,57 y 25,79 fps: un total de 103,7 fps frente a los 102,9 de una sola, con tiempos de fotograma del percentil 50 de 39,165, 39,164, 39,168 y 39,165 ms. Según el proyecto, el total no se mueve al añadir invitados y el reparto es uniforme hasta el cuarto decimal. Las cuatro pudieron además codificar H.264 a la vez a 60 Hz sin tocar el límite de sesiones de NVENC.
+
+![Ilustración de un chip central conectado a varios módulos](./assets/imagen-3.png)
+
+## Límites y qué cambia para el lector
+
+Conviene no confundir una demostración prometedora con un producto terminado. Todo el rendimiento medido corresponde a vkcube a 720p; el proyecto no ha probado más de cuatro máquinas virtuales a la vez ni cargas más exigentes. Solo hay perfiles de ABI preparados para los drivers 535.129.03, 580.178.04 y 595.71.05, y cualquier versión anterior se rechaza. CUDA se reenvía, pero no se ha validado más allá de la enumeración del dispositivo. Además, la pieza que aislaría el acceso a los descriptores de la GPU en un proceso aparte —el componente `isolate`— está diseñada pero todavía no escrita: hoy el backend sostiene esos descriptores dentro del propio proceso del VMM, algo que importa a quien piense en un despliegue multiusuario.
+
+El objetivo declarado no es el escritorio con monitor, sino el streaming sin cabeza: la máquina virtual renderiza, compone y codifica en su propia GPU, y solo sale el vídeo comprimido. Esa arquitectura encaja con el juego en la nube y con los escritorios remotos, donde que una tarjeta de consumo pueda atender a varios inquilinos sin repartir el rendimiento a la mitad es justamente lo que sostiene el negocio. virtio-nvgpu no es todavía una alternativa lista para producción, pero sí un camino distinto para un problema en el que NVIDIA no tenía equivalente: Intel y AMD cuentan con DRM native context y NVIDIA, no. El proyecto cubre ese hueco desde fuera, con licencias repartidas —GPL-2.0 para el driver del invitado, Apache-2.0 para el dispositivo y BSD-3-Clause para el protocolo— y toma como referencia explícita el `nvproxy` de gVisor. El movimiento encaja en una tendencia más amplia por desacoplar el software del silicio, como la [ISA virtual con la que Intel quiere independizar el software de sus GPU de cada generación de hardware](/noticias/intel-pisa-virtual-isa/).
