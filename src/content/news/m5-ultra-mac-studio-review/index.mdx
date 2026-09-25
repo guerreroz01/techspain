@@ -1,0 +1,119 @@
+---
+title: 'Análisis del M5 Ultra Mac Studio: potencia para IA local a precio de data center'
+description: 'El nuevo Mac Studio con M5 Ultra salta dos generaciones, alcanza 1,2 TB/s de ancho de banda y sube de precio más de un 25 %: ¿a quién le compensa comprarlo?'
+pubDate: '2026-09-25'
+author: 'Redacción TechSpain24'
+tags: ['Componentes', 'Apple']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Mac Studio con chip M5 Ultra, el equipo analizado'
+source:
+  name: 'Ars Technica'
+  url: 'https://arstechnica.com/gadgets/2026/09/review-apples-hyper-pricey-m5-ultra-mac-studio-made-me-into-a-vibe-coder/'
+---
+
+Apple confirmó esta primavera el final del Mac Pro, su torre ampliable. Con Apple Silicon, la CPU, la GPU y la interfaz de memoria conviven dentro de un mismo encapsulado, de modo que ampliar por piezas no solo resulta superfluo, sino incompatible con las ventajas del diseño. El relevo en la gama profesional lo asume el Mac Studio, y su configuración más alta, la que monta el nuevo **M5 Ultra**, es la que el medio estadounidense Ars Technica ha analizado en profundidad.
+
+El análisis llega en un contexto poco habitual. Según el medio, Apple se vio sorprendida por la demanda de estos equipos entre quienes ejecutan modelos abiertos y agentes en local, una demanda que, junto a la escasez de memoria impulsada por la IA, ha mantenido al Mac Studio casi imposible de comprar durante meses.
+
+## Mismo diseño, más puertos y un chip de cuatro piezas
+
+El Mac Studio conserva el aspecto que ya tenía en 2022, cuando llegó con los M1 Max y M1 Ultra: una caja baja y compacta, con la misma huella de 19,5 centímetros de lado que el antiguo Mac mini, pero más alta. Las versiones Max y Ultra son idénticas por fuera, aunque la Ultra pesa alrededor de un kilogramo más porque recurre a cobre en el disipador, más pesado pero también más conductor.
+
+En la parte trasera encontramos cuatro puertos Thunderbolt 5 (120 Gbps), uno Ethernet de 10 Gbps, un HDMI 2.1 y dos USB-A de 5 Gbps. Delante hay un lector de tarjetas SD UHS-II y, según el modelo, dos USB-C de 10 Gbps en el Max o dos Thunderbolt 5 adicionales en el Ultra. La Ultra también admite hasta ocho pantallas externas frente a las cinco del Max, eso sí, con matices según resolución y frecuencia.
+
+![Mac Studio junto a un Mac mini para comparar tamaños](./assets/mac-studio-design.jpg)
+
+El M5 Max es una pieza ya conocida, presente en el MacBook Pro desde marzo: añade núcleos «super» a la CPU, sube el ancho de banda de memoria de 546 a 614 GB/s y estrena aceleradores neuronales en cada núcleo gráfico. El M5 Ultra es otra historia. No hubo M4 Ultra, así que este salto equivale a dos generaciones de procesador, y su construcción ha cambiado: si los M1, M2 y M3 Ultra eran básicamente dos chips Max unidos, los M5 Pro y M5 Max ya son de por sí dos chiplets conectados por silicio, por lo que el M5 Ultra reúne en realidad **cuatro piezas de silicio** en un solo encapsulado.
+
+![Vista trasera del Mac Studio con su batería de puertos](./assets/mac-studio-io.jpg)
+
+La ficha suma hasta 12 núcleos de CPU «super», 24 núcleos de rendimiento, 80 núcleos gráficos, 32 núcleos de Neural Engine, dos motores de decodificación y cuatro de codificación de vídeo, y algo más de 1,2 TB/s de ancho de banda, una cifra que duplica la del M5 Max.
+
+![Detalle de los puertos traseros y frontales del Mac Studio](./assets/mac-studio-ports.jpg)
+
+El precio de este enfoque es que el rendimiento no escala de forma perfectamente lineal con el número de núcleos: la comunicación entre trozos de silicio no es tan rápida como dentro de un mismo dado, un límite que arrastran todas las generaciones Ultra.
+
+| Chip | CPU (S/P/E) | Núcleos GPU | Memoria | Ancho de banda |
+| --- | --- | --- | --- | --- |
+| M5 Ultra (básico) | 10S/20P | 64 | 96 / 256 GB | 1.228,8 GB/s |
+| M5 Ultra (alto) | 12S/24P | 80 | 96 / 256 / 512 GB (previsto) | 1.228,8 GB/s |
+| M3 Ultra (alto) | 24P/8E | 80 | hasta 512 GB | 819,2 GB/s |
+| M2 Ultra (alto) | 16P/8E | 76 | hasta 192 GB | 819,2 GB/s |
+| M1 Ultra (alto) | 16P/4E | 32 | hasta 128 GB | 819,2 GB/s |
+
+![Tabla de soporte de pantallas externas de los Mac Studio con M5 Max y M5 Ultra](./assets/mac-studio-displays.png)
+
+![Base del Mac Studio con el nombre del equipo grabado](./assets/mac-studio-bottom.jpg)
+
+## IA local: por qué el Mac Studio importa ahora
+
+Para ejecutar modelos de IA en local hay dos cifras que pesan por encima del resto: la memoria disponible para la GPU, que determina el tamaño de los modelos que se pueden cargar, y el ancho de banda, que marca la velocidad a la que esa memoria se comunica con el resto del sistema. Al primero se suma la memoria de contexto, la información que un agente puede mantener en la cabeza durante una tarea larga, algo crítico cuando se programa una aplicación completa y no solo se mantiene una conversación.
+
+Los Mac con Apple Silicon han encontrado aquí su hueco. No igualan el ancho de banda de una tarjeta gráfica dedicada —Ars Technica recuerda que una RTX 3060 de 12 GB ofrece 360 GB/s, casi un 20 % más que un M5 Pro, y una RTX 5070 de 12 GB llega a 672 GB/s, por encima de un M5 Max—, pero un Mac de 64 GB pone a disposición de la GPU más memoria que cualquier tarjeta de consumo, con un consumo eléctrico muy inferior al de una RTX 5090 o un par de RTX 3090. Las configuraciones de 96, 128, 256 y 512 GB abren la puerta a modelos de mayor tamaño.
+
+A esto se añade que el framework MLX de Apple está razonablemente optimizado y que herramientas como LM Studio Bionic facilitan el trabajo. En la generación M5, los aceleradores neuronales integrados en la GPU reducen además el tiempo hasta el primer token (TTFT), lo que hace que un modelo local responda con más soltura.
+
+![Interfaz web «Bankee Doodle», la aplicación creada por el redactor durante su experiencia con programación asistida por IA](./assets/bankee-doodle.png)
+
+El propio autor lo probó de primera mano con LM Studio Bionic y el modelo abierto Qwen 3.8 27B, publicado bajo licencia Apache 2.0. En sus mediciones, un Mac Studio M2 de uso diario se quedó en unos 18 a 20 tokens por segundo, una cifra idéntica a la de un Framework Desktop con plataforma Ryzen AI Max+ y ROCm sobre Ubuntu 26.06. El M5 Max subió a unos 31 tokens por segundo y el M5 Ultra superó los 50. Esa diferencia de ancho de banda explica también, según el análisis, por qué un Mac mini con M5 Pro resulta menos adecuado para este tipo de trabajo.
+
+## Rendimiento del M5 Ultra y precios al alza
+
+En casi todas las pruebas, el M5 Ultra es el procesador de Apple Silicon más rápido fabricado hasta la fecha. Solo pierde en rendimiento de un solo núcleo, y por un margen estrecho, frente al humilde M6 del Mac mini. En cómputo general, la CPU supera al M5 Max entre un 80 % y un 90 %, y la GPU es entre un 50 % y un 80 % más rápida. Frente al M3 Ultra al que sustituye, el medio mide en torno a un 30 % más en un núcleo, un 50 % más en varios y entre un 33 % y un 66 % más en gráficos, según la prueba.
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-001.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-002.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-003.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-004.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-005.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-006.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-007.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-008.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-009.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-010.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-011.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-012.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-013.png)
+
+![Resultados de rendimiento del M5 Ultra Mac Studio publicados en el análisis](./assets/benchmark-014.png)
+
+No todo cuadra. El rendimiento multinúcleo del Ultra en Geekbench apenas supera en un 26 % al del Max, y en la prueba de codificación H.264 con Handbrake el Max termina antes que el Ultra (y es marginalmente más lento en H.265). El análisis apunta a una posible limitación de potencia: ambos chips consumen unos 75 W de media durante la transcodificación, la misma cifra que el M3 Ultra Mac Studio, cuando históricamente los Max han gastado menos que los Ultra. La otra hipótesis es un error de software, porque el Monitor de Actividad no muestra todos los núcleos al 100 % y las frecuencias sostenidas son idénticas a las del Max. El medio lo ha comunicado a Apple y queda a la espera de respuesta.
+
+Y luego está el precio, que sube en toda la gama. El Mac Studio M4 Max básico costaba 1.999 dólares; el M5 Max arranca en 2.499, 500 más. Un M3 Ultra con chip recortado, 96 GB de RAM y 1 TB partía de 3.999 dólares; esa misma configuración con M5 Ultra pasa a costar 5.499, 1.500 más. Un M5 Max completo con 64 GB y 1 TB se queda en 3.799 dólares, 900 más de lo que habría costado su equivalente M4 Max. Y el modelo de 256 GB de RAM y 1 TB que hace 18 meses costaba 5.599 dólares ahora se va a 9.499. Habrá una versión de 512 GB, pero Apple no ha desvelado su precio; dado que el M3 Ultra de 512 GB partía de 9.499, el medio da por hecho que la nueva generación superará los 20.000 dólares. La unidad analizada, tal cual, cuesta 12.299 dólares.
+
+## Conclusión: para quién tiene sentido
+
+El Mac Studio Ultra sigue siendo un producto de nicho para un público reducido: quien puede gastar varios miles de dólares, quiere trabajar con modelos de IA y acepta velocidades buenas sin ser punteras con tal de no pagar por cada token en la nube. Ars Technica considera que ese público existe y que la versión M5 Max sigue siendo una gran máquina para fotógrafos, editores de vídeo, streamers y desarrolladores; para quien use sobre todo IA en la nube, quedarse en 36 o 48 GB de RAM no supone un sacrificio, e incluso podría bastar con un Mac mini M5 Pro.
+
+![Mac Studio con M5 Ultra visto en detalle](./assets/mac-studio-ultra.jpg)
+
+Lo que no encaja son los precios de las versiones altas. Los modelos de 64, 96 y 128 GB se mueven entre 3.500 y 5.500 dólares, una cifra elevada pero aún lejos de las cinco cifras si el equipo va a ser la estación de trabajo principal durante años. El problema es el extremo superior: como resume el propio análisis, el M5 Ultra es el Apple Silicon más capaz hasta la fecha, pero duplica los recursos del M5 Max sin llegar a duplicar su velocidad, y lo hace con subidas de precio de al menos el 25 % de una generación a otra. Para el lector hispanohablante que se plantee IA local, el mensaje es claro: conviene mirar las configuraciones intermedias antes de decidir, teniendo en cuenta que [la primera aparición de la GPU del M5 Ultra en Geekbench](/noticias/apple-m5-ultra-gpu-geekbench/) ya anticipaba parte de estas cifras.
+
+### Lo bueno
+
+- El Mac Studio mantiene sus mejores bazas: pequeño, rápido, silencioso y eficiente.
+- La generación M5 supone un salto sólido frente al M4 Max y el M3 Ultra.
+- Es casi ideal para cargas de IA y aprendizaje automático en local, incluidos modelos de programación competentes.
+
+### Lo malo
+
+- Las subidas de precio arrancan en un 25 % entre generaciones y siguen subiendo.
+- El M5 Ultra duplica los recursos del M5 Max, pero no suele ofrecer el doble de velocidad.
+
+### Lo feo
+
+- La perspectiva de un ordenador de sobremesa de consumo que cuesta 20.000 dólares.

@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 493 artículos. Actualizado: 2026-09-25
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 513 artículos. Actualizado: 2026-09-25
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -438,6 +438,9 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-25 | Airbus dirige un prototipo del rover marciano ExoMars con una Steam Deck modificada | [steam-deck-mars-rover-prototype](https://www.techspain24.com/noticias/steam-deck-mars-rover-prototype/) |
 | 2026-09-25 | Alien Breed celebra su 35.º aniversario con una colección ya disponible en PC, PS5 y Xbox | [alien-breed-35th-collection-pc-ps5-xbox](https://www.techspain24.com/noticias/alien-breed-35th-collection-pc-ps5-xbox/) |
 | 2026-09-25 | Alphacool lanza sus distro plates Apex para las cajas Hyte Y70 y Y70 Touch Infinite | [alphacool-apex-distro-hyte-y70](https://www.techspain24.com/noticias/alphacool-apex-distro-hyte-y70/) |
+| 2026-09-25 | Análisis del M5 Ultra Mac Studio: potencia para IA local a precio de data center | [m5-ultra-mac-studio-review](https://www.techspain24.com/noticias/m5-ultra-mac-studio-review/) |
+| 2026-09-25 | Android 17 QPR2 Beta 6 corrige errores molestos y retira funciones de forma temporal | [android-17-qpr2-beta-6](https://www.techspain24.com/noticias/android-17-qpr2-beta-6/) |
+| 2026-09-25 | Android Auto prepara una GameSnacks a pantalla completa, según un análisis del APK | [android-auto-gamesnacks-pantalla-completa](https://www.techspain24.com/noticias/android-auto-gamesnacks-pantalla-completa/) |
 | 2026-09-25 | Anker Prime Power Bank: 26.250 mAh y 300 W para cargar el portátil, la tableta y el móvil a la vez | [anker-prime-power-bank-300w](https://www.techspain24.com/noticias/anker-prime-power-bank-300w/) |
 | 2026-09-25 | Anthropic y OpenAI competirán con NVIDIA, AMD, Intel y Qualcomm por el suministro de memoria desde 2027 | [anthropic-openai-memory-supply-ram](https://www.techspain24.com/noticias/anthropic-openai-memory-supply-ram/) |
 | 2026-09-25 | AnyPS5 quiere llevar los juegos de PS5 a Windows y Linux sin emular la consola | [anyps5-windows-linux-sin-emular](https://www.techspain24.com/noticias/anyps5-windows-linux-sin-emular/) |
@@ -457,15 +460,25 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-25 | El almacenamiento de la Raspberry Pi es un cuello de botella mayor de lo que parece: un mini PC como alternativa | [raspberry-pi-storage-bottleneck-alternative](https://www.techspain24.com/noticias/raspberry-pi-storage-bottleneck-alternative/) |
 | 2026-09-25 | El Galaxy S27 usaría memoria UFS 5.1 con 12 o 16 GB de RAM, según una filtración | [galaxy-s27-ufs-5-1-leak](https://www.techspain24.com/noticias/galaxy-s27-ufs-5-1-leak/) |
 | 2026-09-25 | El hilo de referencia de GBAtemp sobre el cartucho MIG Switch reúne guías, firmware y dumper | [switch-flashcart-mig-thread](https://www.techspain24.com/noticias/switch-flashcart-mig-thread/) |
+| 2026-09-25 | El HMD Vibe2 Pro llegará el 29 de septiembre con chip Dimensity 6400 y batería de 6.000 mAh | [hmd-vibe2-pro-mediatek](https://www.techspain24.com/noticias/hmd-vibe2-pro-mediatek/) |
+| 2026-09-25 | El iQOO Pad Ultra tendrá una pantalla OLED de 8,8 pulgadas, 165 Hz y 4500 nits | [iqoo-pad-ultra-8-8-oled](https://www.techspain24.com/noticias/iqoo-pad-ultra-8-8-oled/) |
 | 2026-09-25 | El jefe de Wardogs defiende su subida de precio en acceso anticipado y avisa: GTA 6 sale demasiado barato y eso puede dañar a la industria | [gta6-precio-bajo-dana-industria](https://www.techspain24.com/noticias/gta6-precio-bajo-dana-industria/) |
 | 2026-09-25 | El Lenovo Googlebook 2 en 1 reaparece en una filtración con diseño de tableta y teclado separable | [lenovo-googlebook-duet-leak-2in1](https://www.techspain24.com/noticias/lenovo-googlebook-duet-leak-2in1/) |
 | 2026-09-25 | El museo de Game Boy se mete en un cartucho: todo el catálogo, navegable en hardware real | [game-boy-museum-cartridge-meta](https://www.techspain24.com/noticias/game-boy-museum-cartridge-meta/) |
 | 2026-09-25 | El Vivo S2 FE filtrado apuntaría a 10.000 mAh y chip Dimensity 7300e | [vivo-s2-fe-10000mah-leak](https://www.techspain24.com/noticias/vivo-s2-fe-10000mah-leak/) |
+| 2026-09-25 | El vivo Y600i llega con batería de 8000 mAh y pantalla de 6,87 pulgadas | [vivo-y600i-8000mah](https://www.techspain24.com/noticias/vivo-y600i-8000mah/) |
+| 2026-09-25 | Fallen Tear: The Ascension y otros seis juegos concretan sus fechas en Switch y Switch 2 | [juegos-switch-2-fechas-fallen-tear](https://www.techspain24.com/noticias/juegos-switch-2-fechas-fallen-tear/) |
 | 2026-09-25 | GBAtemp centraliza en un hilo los trucos de Nintendo Switch que funcionan en emuladores | [switch-cheat-codes-emulators-thread](https://www.techspain24.com/noticias/switch-cheat-codes-emulators-thread/) |
 | 2026-09-25 | GeForce NOW suma Control Resonant desde su lanzamiento y otros ocho juegos | [geforce-now-control-resonant-9-games](https://www.techspain24.com/noticias/geforce-now-control-resonant-9-games/) |
 | 2026-09-25 | Google detalla Create My Widget: widgets generativos para el móvil y los Googlebook | [android-create-my-widget-app](https://www.techspain24.com/noticias/android-create-my-widget-app/) |
+| 2026-09-25 | Google estudia devolver Contactos a la barra de la app Teléfono | [google-phone-app-contacts-navegacion](https://www.techspain24.com/noticias/google-phone-app-contacts-navegacion/) |
 | 2026-09-25 | Googlebook, la oportunidad de Google para construir el Android de escritorio que nadie más puede hacer | [googlebook-android-opportunity](https://www.techspain24.com/noticias/googlebook-android-opportunity/) |
+| 2026-09-25 | Health Guardian llega gratis al Pixel Watch, pero el Fitbit Air lo ata a la suscripción Premium | [pixel-watch-health-guardian-gratis](https://www.techspain24.com/noticias/pixel-watch-health-guardian-gratis/) |
+| 2026-09-25 | INMO retira sus gafas Air 3 en EE. UU. y Canadá por riesgo de quemaduras | [inmo-air-3-gafas-recall](https://www.techspain24.com/noticias/inmo-air-3-gafas-recall/) |
 | 2026-09-25 | Insert Coin Cube: la ranura de monedas física que devuelve el ritual del arcade a los emuladores | [coin-slot-arcade-emulators](https://www.techspain24.com/noticias/coin-slot-arcade-emulators/) |
+| 2026-09-25 | IOENGINE demanda a Samsung por cinco patentes de conectividad del Galaxy S23 Ultra y Watch Ultra | [galaxy-s23-watch-ultra-demanda-patentes](https://www.techspain24.com/noticias/galaxy-s23-watch-ultra-demanda-patentes/) |
+| 2026-09-25 | iOS 27.2 Beta 2 estrena «Restrict Motion Data», el interruptor que bloquea los anuncios shake en el iPhone | [iphone-anuncios-shake-bloqueados](https://www.techspain24.com/noticias/iphone-anuncios-shake-bloqueados/) |
+| 2026-09-25 | Karate Champ de NES se une hoy a los Console Archives de Hamster | [nes-karate-champ-console-archives](https://www.techspain24.com/noticias/nes-karate-champ-console-archives/) |
 | 2026-09-25 | La crisis de la memoria RAM deja los PC de oficina en 16 GB: hace dos años partían de 64 GB | [office-pc-16gb-ram-price-crisis](https://www.techspain24.com/noticias/office-pc-16gb-ram-price-crisis/) |
 | 2026-09-25 | La funda de cuero de Bellroy para el Pixel 11 Pro XL convence tras tres semanas de uso | [bellroy-pixel-11-pro-leather-case](https://www.techspain24.com/noticias/bellroy-pixel-11-pro-leather-case/) |
 | 2026-09-25 | La GPU china Lisuan 7G100 promete una RTX 4060 y rinde como una GTX 1060 en juegos | [lx-7g100-china-gpu-rtx-4060-gtx-1060](https://www.techspain24.com/noticias/lx-7g100-china-gpu-rtx-4060-gtx-1060/) |
@@ -487,16 +500,23 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-25 | PlayStation Portal limitará la carga al 80 % para cuidar la batería | [playstation-portal-charging-battery-life](https://www.techspain24.com/noticias/playstation-portal-charging-battery-life/) |
 | 2026-09-25 | Policán, Fazbear Fanverse y seis anuncios más llegan a Nintendo Switch y Switch 2 | [polician-fazbear-fanverse-switch-anuncios](https://www.techspain24.com/noticias/polician-fazbear-fanverse-switch-anuncios/) |
 | 2026-09-25 | Qualcomm no descarta una consola portátil con Snapdragon X2 | [snapdragon-x2-gaming-handhelds-qualcomm](https://www.techspain24.com/noticias/snapdragon-x2-gaming-handhelds-qualcomm/) |
+| 2026-09-25 | Qualcomm y Apple renuevan su licencia global de patentes a partir de 2027 | [qualcomm-apple-licencia-patentes-2027](https://www.techspain24.com/noticias/qualcomm-apple-licencia-patentes-2027/) |
 | 2026-09-25 | Rockstar vende por 399,99 dólares una caja coleccionista de GTA 6 que no incluye el juego | [gta-6-vice-city-box-399-no-game](https://www.techspain24.com/noticias/gta-6-vice-city-box-399-no-game/) |
 | 2026-09-25 | RuneScape: Dragonwilds promete mejoras visuales en Nintendo Switch 2 tras las quejas por la imagen borrosa | [runescape-dragonwilds-switch-2-mejoras](https://www.techspain24.com/noticias/runescape-dragonwilds-switch-2-mejoras/) |
+| 2026-09-25 | Samsung Galaxy S26 FE, análisis: un buen móvil que ya no es tan barato | [galaxy-s26-fe-review](https://www.techspain24.com/noticias/galaxy-s26-fe-review/) |
 | 2026-09-25 | SanDisk lanza las tarjetas Optimus GX C50 para Xbox Series con precios que rompen el mercado de 2026 | [xbox-expansion-cards-ssd-prices-2026](https://www.techspain24.com/noticias/xbox-expansion-cards-ssd-prices-2026/) |
+| 2026-09-25 | Se filtra un teleobjetivo externo para el Huawei Mate 90 Pro Max con sensor de 1 pulgada y zoom óptico 10x | [huawei-mate-90-pro-max-teleconverter-leak](https://www.techspain24.com/noticias/huawei-mate-90-pro-max-teleconverter-leak/) |
 | 2026-09-25 | SteamOS 3.8.28 llega al canal estable con mejoras para Steam Deck, Steam Machine y más dispositivos | [steamos-3-8-28-stable-deck-machine](https://www.techspain24.com/noticias/steamos-3-8-28-stable-deck-machine/) |
 | 2026-09-25 | Thunderobot AI Master M7000: un portátil que usa el SSD como memoria para ejecutar modelos de IA de 120B parámetros | [thunderobot-ai-master-m7000-ram-ssd-ai](https://www.techspain24.com/noticias/thunderobot-ai-master-m7000-ram-ssd-ai/) |
+| 2026-09-25 | Todos los Galaxy S Ultra repiten la misma batería de 5.000 mAh desde 2020, pero eso está a punto de cambiar | [galaxy-s-ultra-bateria-cambio](https://www.techspain24.com/noticias/galaxy-s-ultra-bateria-cambio/) |
 | 2026-09-25 | Turtle Beach Rematch para Switch 2: el mando con licencia oficial que apuesta por los sticks TMR y el diseño | [turtle-beach-rematch-switch-2-review](https://www.techspain24.com/noticias/turtle-beach-rematch-switch-2-review/) |
 | 2026-09-25 | Un artista 3D compra una RTX 5090 de segunda mano y descubre que es una pieza única firmada por Jensen Huang | [huang-signed-rtx-5090-used-marketplace](https://www.techspain24.com/noticias/huang-signed-rtx-5090-used-marketplace/) |
 | 2026-09-25 | Un osciloscopio de 38 kilos esconde un PC completo: EPYC de 12 núcleos, Nvidia T1000 y 96 GB de RAM | [tektronix-dpo-oscilloscope-rtx-t1000-epyc](https://www.techspain24.com/noticias/tektronix-dpo-oscilloscope-rtx-t1000-epyc/) |
+| 2026-09-25 | Una oferta de empleo de Ubisoft apunta a Nintendo Switch 2 para Assassin's Creed Hexe | [assassins-creed-hexe-switch-2-oferta-empleo](https://www.techspain24.com/noticias/assassins-creed-hexe-switch-2-oferta-empleo/) |
 | 2026-09-25 | Una RTX 5090 se quema en reposo y PNY deniega la garantía por no usar su cable | [rtx-5090-idle-burnout-warranty-denied](https://www.techspain24.com/noticias/rtx-5090-idle-burnout-warranty-denied/) |
 | 2026-09-25 | Veinte años de teletrabajo: lo imprescindible en la mochila del portátil | [remote-work-laptop-bag-essentials](https://www.techspain24.com/noticias/remote-work-laptop-bag-essentials/) |
 | 2026-09-25 | WiCi One: eGPU inalámbrica por Wi-Fi 7 con SSD de 4 TB para IA local por 1.999 dólares | [wifi-7-egpu-4tb-ssd-ai](https://www.techspain24.com/noticias/wifi-7-egpu-4tb-ssd-ai/) |
+| 2026-09-25 | Xbox apunta a 1.000 millones de jugadores diarios con una identidad cada vez más difusa | [xbox-1000-millones-personas-dia](https://www.techspain24.com/noticias/xbox-1000-millones-personas-dia/) |
 | 2026-09-25 | Xbox desmiente que las reservas de GTA 6 estén concentradas en PS5: «Estamos muy contentos» | [xbox-gta-6-reservas-ps5-desmentido](https://www.techspain24.com/noticias/xbox-gta-6-reservas-ps5-desmentido/) |
 | 2026-09-25 | Xbox sufre una «adquisición inversa»: sus editoras compradas absorben a sus estudios propios, según Van Dreunen | [xbox-reverse-acquired-publishers-dreunen](https://www.techspain24.com/noticias/xbox-reverse-acquired-publishers-dreunen/) |
+| 2026-09-25 | Xiaomi Smart Band 11: más fina, hasta 21 días de autonomía y más salud | [xiaomi-smart-band-11-watch-s5](https://www.techspain24.com/noticias/xiaomi-smart-band-11-watch-s5/) |
