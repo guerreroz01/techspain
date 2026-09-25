@@ -17,8 +17,12 @@ de escribir el orquestador, se delega **un subagente por artículo**, todos en p
 2. Por cada marcado, derivar:
    - `article_url` — el enlace de la línea.
    - `source_name` — el medio que figura al final de la línea.
-   - `slug` — kebab-case en inglés, derivado del título. Verificalo con
-     `npm run slug -- <slug>`: si sale `ocupado`, usá el sufijo que sugiere.
+   - `slug` — **en español**, kebab-case, minúsculas y ASCII (sin acentos, `ñ` → `n`),
+     derivado del titular en español (no del título inglés ni chino de la fuente).
+     Verificalo con `npm run slug -- <slug>`: avisa si no cumple kebab-case ASCII
+     y, si sale `ocupado`, sugiere el sufijo libre.
+     **Nunca renombres el slug de un artículo ya publicado**: esa URL está indexada,
+     así que los slugs viejos en inglés se quedan como están.
      **Nunca listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo):
      son cientos de entradas y cada listado quema ~12 KB de contexto.
    - `vertical` — el nombre de la sección `##` en la que está (traducido al token interno:
@@ -65,13 +69,13 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
 **Tu artículo:**
 - Tipo de pieza: `{tipo}` (`noticia` | `tutorial`)
 - URL original: `{article_url}`
-- Slug (carpeta, kebab-case en inglés): `{slug}`
+- Slug (carpeta, kebab-case **en español**, minúsculas y ASCII): `{slug}`
 - Vertical (primer elemento de `tags`): `{vertical}`
 - Fuente a atribuir en `source`: `{source_name}`
 - Fecha de hoy (`pubDate`): `{fecha_de_hoy}` — calculada al delegar, nunca un literal fijo.
 
 **Reglas no negociables:**
-- Cuerpo y frontmatter en español neutro/profesional (sin voseo, sin slang). El slug y los identificadores en inglés.
+- Cuerpo y frontmatter en español neutro/profesional (sin voseo, sin slang). El slug va en español (es la URL); los identificadores de código, en inglés.
 - Estructura por directorio: `src/content/news/{slug}/index.mdx` + `src/content/news/{slug}/assets/`.
 - Descarga TODAS las imágenes del artículo original a `assets/` con curl (añade `-A` con un User-Agent de navegador). La principal como `cover` (`./assets/cover.jpg` o `.png` según extensión); el resto embebidas con `![alt](./assets/x.jpg)`.
 - **No listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo): son cientos de entradas y cada listado quema ~12 KB de contexto. Tu slug y tu carpeta ya vienen dados. Para ver si un tema ya está cubierto, usá `npm run find -- <términos distintivos>`. **Si tu pieza ya está publicada, pará y reportalo: no la escribas.**

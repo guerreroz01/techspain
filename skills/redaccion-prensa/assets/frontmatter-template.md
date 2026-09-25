@@ -1,10 +1,10 @@
 # Frontmatter template — artículos de prensa
 
-Cada entrada es un directorio propio: `src/content/news/<slug>/` con su `index.mdx` y su carpeta `assets/`. El nombre de la carpeta **es** el slug de la URL (`entry.id`). Usar kebab-case sin acentos.
+Cada entrada es un directorio propio: `src/content/news/<slug>/` con su `index.mdx` y su carpeta `assets/`. El nombre de la carpeta **es** el slug de la URL (`entry.id`). Usar kebab-case **en español**, minúsculas y ASCII: sin acentos y con `ñ` → `n`. Los slugs en inglés ya publicados no se renombran.
 
 ```
 src/content/news/
-└── my-article/
+└── mi-articulo/
     ├── index.mdx
     └── assets/
         ├── cover.jpg
@@ -89,7 +89,7 @@ Los emuladores también ganan sobre la consola que emulan: una noticia sobre un 
 
 ```
 src/content/news/
-└── 2nm-node-process/
+└── proceso-2nm/
     ├── index.mdx
     └── assets/
         ├── chips.svg
@@ -129,7 +129,7 @@ paso a paso: intro breve, requisitos previos, pasos numerados y verificación.
 
 ```
 src/content/news/
-└── windows-11-bootable-usb/
+└── usb-arranque-windows-11/
     ├── index.mdx
     └── assets/
         ├── cover.jpg

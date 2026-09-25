@@ -1,0 +1,37 @@
+---
+title: 'shadPS4 prepara la rama 0.18.1 con una pre-release de 130 cambios'
+description: 'La compilación previa apunta a la futura versión 0.18.1 del emulador de PS4, con ajustes en señales, vídeo, Vulkan y herramientas internas tras 130 commits.'
+pubDate: '2026-09-25'
+author: 'Redacción TechSpain24'
+tags: ['Emuladores', 'PlayStation 4']
+featured: false
+breaking: false
+draft: false
+cover: './assets/cover.png'
+coverAlt: 'Tarjeta social generada por GitHub con el nombre y la descripción del emulador shadPS4'
+source:
+  name: 'shadPS4 (releases)'
+  url: 'https://github.com/shadps4-emu/shadPS4/compare/v.0.18.0...127aec66d0df4b69b47092bc3860eb39a0b39e7a'
+---
+
+shadPS4 ha publicado una nueva compilación previa asociada al identificador `127aec6`, un corte de desarrollo que aparece 130 commits por delante de la versión estable 0.18.0. No es una versión final: en el propio código el proyecto ya identifica la rama como `0.18.1 WIP` y mantiene desactivado el indicador de lanzamiento estable.
+
+La publicación encaja con el ritmo reciente del emulador de PlayStation 4. Hace apenas unos días, otra [pre-release de shadPS4](/noticias/shadps4-pre-release-2026-09-23/) ya remitía a un changelog amplio en lugar de a una lista de cambios redactada como versión estable.
+
+## Qué cambia en esta pre-release de shadPS4
+
+El registro comparado frente a `v.0.18.0` reúne cambios de bajo nivel y de mantenimiento. Entre los puntos más relevantes figuran una reescritura de la emulación de señales, nuevas comprobaciones para detectar volcados corruptos, una corrección para cierres normales que podían quedarse colgados y ajustes en la gestión de atributos `BaryCoord` en GPU no AMD.
+
+También aparecen cambios en dependencias y compilación: Abseil pasa a estar incluido como submódulo, ImGui cambia de ruta externa, y se retocan varios elementos de CMake. Son modificaciones menos visibles para el usuario final, pero importantes para reducir fricción en el desarrollo y en las compilaciones reproducibles del emulador.
+
+## Por qué importa para la emulación de PS4
+
+En un emulador como shadPS4, muchas mejoras llegan antes como trabajo de infraestructura que como una lista clara de juegos compatibles. La emulación de señales, los cambios en Vulkan, las mejoras en vídeo y los ajustes en librerías internas pueden afectar a estabilidad, arranque de títulos y comportamiento de errores, aunque no todos se traduzcan de inmediato en una novedad fácil de medir.
+
+El hecho de que el corte siga marcado como `WIP` es clave: conviene interpretarlo como una fotografía de desarrollo hacia shadPS4 0.18.1, no como una actualización recomendada para todos los usuarios. Quienes prueben estas compilaciones deberían esperar posibles regresiones y consultar el changelog antes de sustituir una versión estable.
+
+## Qué debe tener en cuenta el usuario
+
+La pre-release no viene acompañada de notas editoriales extensas, sino de un comparador de cambios. Eso limita la lectura práctica: se puede confirmar el volumen de commits y varias áreas tocadas, pero no afirmar una mejora concreta en un juego salvo que el proyecto la documente de forma explícita.
+
+Para usuarios de shadPS4, la señal es clara: la rama 0.18.1 avanza con trabajo en núcleo, vídeo, Vulkan, herramientas de depuración y dependencias. Para quien solo quiera jugar con menos riesgo, la recomendación sigue siendo esperar a una versión estable o probar la compilación previa en una instalación separada.

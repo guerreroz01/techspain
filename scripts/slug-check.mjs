@@ -14,6 +14,13 @@
  * Salida (una línea por slug):
  *   libre   <slug>
  *   ocupado <slug>  -> libre: <slug>-2
+ *   aviso   <slug> no es kebab-case ASCII -> usa: <slug-normalizado>
+ *
+ * Convención de slugs: los artículos van en **español** (el nombre de la carpeta ES
+ * la URL), en kebab-case, minúsculas y ASCII. Un slug con mayúsculas, acentos, `ñ` o
+ * cualquier carácter fuera de `[a-z0-9-]` recibe un aviso con su versión normalizada,
+ * que es la que hay que usar. Los slugs en inglés ya publicados no se renombran:
+ * están indexados.
  *
  * Siempre sale con código 0 (salvo uso incorrecto): es una consulta informativa,
  * no un chequeo que deba cortar una cadena de comandos.
@@ -47,6 +54,20 @@ function nextFree(slug, taken) {
   return null;
 }
 
+/**
+ * Slug de artículo: español, kebab-case, minúsculas y ASCII.
+ * Quita diacríticos (`á` → `a`, `ñ` → `n`), baja a minúsculas y colapsa todo lo que
+ * no sea `[a-z0-9]` en guiones. Solo se usa para avisar: no renombra nada.
+ */
+function normalizeSlug(slug) {
+  return slug
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 function main() {
   // npm pasa los argumentos después de `--`; se ignora un `--` suelto por si
   // alguna versión lo reenvía.
@@ -66,13 +87,23 @@ function main() {
   }
 
   for (const slug of args) {
-    if (!taken.has(slug)) {
-      process.stdout.write(`libre   ${slug}\n`);
+    const normalized = normalizeSlug(slug);
+    if (normalized !== slug) {
+      process.stdout.write(
+        `aviso   ${slug} no es kebab-case ASCII -> usa: ${normalized || '(vacío)'}\n`,
+      );
+    }
+    // Si el slug venía mal formado se consulta la versión normalizada, que es la
+    // que el artículo acabará usando.
+    const effective = normalized || slug;
+
+    if (!taken.has(effective)) {
+      process.stdout.write(`libre   ${effective}\n`);
       continue;
     }
-    const suggestion = nextFree(slug, taken);
+    const suggestion = nextFree(effective, taken);
     process.stdout.write(
-      `ocupado ${slug}${suggestion ? `  -> libre: ${suggestion}` : ''}\n`,
+      `ocupado ${effective}${suggestion ? `  -> libre: ${suggestion}` : ''}\n`,
     );
   }
 }

@@ -15,9 +15,11 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 
 ## 2. Language rules
 
-- **Code**: identifiers, folder names, collection names, variable names, and comments are **English**.
+- **Code**: identifiers, collection names, variable names, and comments are **English**. Files under `src/` (except the articles), `scripts/` and the config keep English names.
 - **User-facing copy and content**: **Spanish** (neutral/professional register, no slang).
-- This split is intentional. Do not translate identifiers to Spanish, and do not write article copy in English.
+- **Article URLs (slugs)**: **Spanish**. An article's folder name *is* its URL, so it is content, not code: derive it from the Spanish headline, in kebab-case, lowercase and ASCII (no accents, `ñ` becomes `n`). See section 7.
+- This split is intentional. Do not translate code identifiers to Spanish, and do not write article copy in English.
+- **Never rename a published slug.** The older English slugs are indexed by Google and stay exactly as they are; the Spanish rule applies only to new articles. Do not "normalize" or translate existing folders.
 
 ## 3. Commands
 
@@ -150,7 +152,7 @@ author: 'Redacción TechSpain24'
 tags: ['Inteligencia Artificial']
 featured: false
 breaking: false
-cover: '/covers/ia.svg'
+cover: './assets/cover.jpg'
 coverAlt: 'Descripción de la imagen'
 source:
   name: 'The Verge'
@@ -160,7 +162,7 @@ source:
 
 ## 7. Adding a news article
 
-1. Check the slug is free with `npm run slug -- <slug>` (it answers `libre`/`ocupado` and suggests the next free one), then create the folder `src/content/news/<slug>/` with `index.mdx` inside (the folder name **is** the URL slug: `entry.id`).
+1. Derive the slug from the **Spanish headline** (never from the source outlet's English or Chinese title): kebab-case, lowercase and ASCII — accents are dropped and `ñ` becomes `n`. Check it is free with `npm run slug -- <slug>` (it answers `libre`/`ocupado`, warns when a slug is not lowercase-ASCII kebab-case, and suggests the next free one), then create the folder `src/content/news/<slug>/` with `index.mdx` inside (the folder name **is** the URL slug: `entry.id`). **Never rename a slug that is already published**: the older English slugs stay as they are because they are indexed.
 2. Fill the frontmatter per the table in section 6.
 3. Write the body in **Spanish**. Markdown/MDX is fully supported (headings, lists, tables, blockquotes, code).
 4. Put the article's images in `src/content/news/<slug>/assets/`. Reference the cover as `./assets/<file>` and embed extra images inline as `![alt](./assets/<file>)`.
