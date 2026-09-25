@@ -1,0 +1,38 @@
+---
+title: 'WiCi One: eGPU inalámbrica por Wi-Fi 7 con SSD de 4 TB para IA local por 1.999 dólares'
+description: 'WiCi One presenta una GPU remota como local por Wi-Fi 7 con un SSD de 4 TB para modelos de IA; la base con RTX 5060 Ti de 16 GB parte de 1.999 dólares.'
+pubDate: '2026-09-25'
+author: 'Redacción TechSpain24'
+tags: ['Memorias', 'Tarjetas gráficas', 'Inteligencia Artificial']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Unidad externa WiCi One para GPU con conectividad inalámbrica Wi-Fi 7'
+source:
+  name: "Tom's Hardware"
+  url: 'https://www.tomshardware.com/pc-components/gpus/wici-one-unveils-wireless-wi-fi-7-egpu-with-built-in-4tb-ssd-for-local-ai-usd1-999-box-leverages-wifi-7-to-present-a-remote-card-as-local'
+---
+
+La eGPU inalámbrica WiCi One quiere llevar la aceleración de IA local a varios equipos sin cables: una caja con GPU dedicada y SSD PCIe 5.0 de 4 TB que se presenta al sistema como una tarjeta local a través de Wi-Fi 7. Según la información publicada por Tom's Hardware, la configuración base con una GeForce RTX 5060 Ti de 16 GB partirá de 1.999 dólares para los primeros registros y de 2.599 dólares después, con una vista previa prevista para el cuarto trimestre de 2026 y sin fecha de lanzamiento definitiva.
+
+## Cómo WiCi One presenta una GPU remota como local por Wi-Fi 7
+
+El planteamiento rompe con la eGPU tradicional, que depende de un cable Thunderbolt, USB4 u OCuLink entre el portátil y la caja externa. WiCi One transmite los datos por red Wi-Fi 7 e instala en cada equipo cliente un controlador que hace creer al sistema operativo que dispone de una GPU convencional, cuando en realidad las peticiones viajan por el aire hasta la caja remota.
+
+El problema técnico es la latencia: la comunicación entre CPU y GPU es muy intensiva en intercambios cortos, algo que con PCIe 5.0 se resuelve en tiempos inferiores al microsegundo pero que por red inalámbrica podría convertir consultas de estado básicas en esperas de varios segundos y cálculos grandes en procesos inviables. Según Tom's Hardware, la respuesta de WiCi es un controlador que aplica caché de datos, deduplicación y compresión, y que decide qué peticiones se resuelven en local y cuáles deben cruzar la red.
+
+Esa separación permite, al menos en teoría, compartir una misma GPU entre varias máquinas. La compañía ofrece librerías de Python para pasar WiCi One a los modelos de lenguaje como cualquier otra GPU, además de una API HTTP estándar para el acceso por red, lo que apunta a un uso multi-cliente sin configuración especial.
+
+## SSD de 4 TB para los pesos de los modelos de IA local
+
+El segundo pilar del equipo es el almacenamiento: un SSD PCIe 5.0 de 4 TB integrado en la propia caja, destinado a guardar los pesos de los modelos. Ejecutar un modelo de lenguaje en local exige mover grandes volúmenes de datos de forma continua, y las arquitecturas actuales de mezcla de expertos (MoE) pueden apoyarse en un SSD como memoria de respaldo cuando la VRAM no alcanza.
+
+WiCi aprovecha esa idea para que la caja admita modelos más grandes y, de paso, reduzca el tráfico que debe cruzar la red inalámbrica: si los pesos ya están junto a la GPU, hay menos datos que enviar y recibir. Es el mismo cuello de botella que explica [los exigentes requisitos de VRAM de la IA local en Windows](/noticias/perplexity-portable-computer-rtx/), donde las soluciones de consumo quedan rápidamente limitadas por la memoria disponible.
+
+## Precio, configuraciones y límites en juegos
+
+La configuración base incluye una RTX 5060 Ti de 16 GB y un SSD de 4 TB, con la vista previa fijada para el cuarto trimestre de 2026. WiCi planea además una variante con RTX 5090 y sus 32 GB de VRAM, aunque no ha comunicado ni fecha ni precio para esa versión.
+
+El precio anunciado es de 1.999 dólares para los registros anticipados y de 2.599 dólares como tarifa general. Tom's Hardware hace el cálculo con precios de referencia en Newegg: una RTX 5060 Ti de 16 GB parte de unos 800 dólares, un NVMe PCIe 5.0 de 4 TB ronda los 850 dólares, y sumando unos 100 dólares de fuente de alimentación más otros 100 de caja y componentes, el conjunto equivalente ya alcanzaría unos 1.850 dólares antes del desarrollo del software.
+
+Sobre juegos, la compañía afirma que la tarjeta puede ejecutar títulos sin modificaciones, pero la documentación solo menciona Vulkan y Direct3D y advierte que no todas las API estarán completas desde el primer día. El matiz es relevante: el Wi-Fi es una mala base para una tarea en tiempo real como entregar 60 imágenes por segundo en 16,67 ms, por lo que los jugadores exigentes seguirán mejor servidos con una eGPU convencional por cable.

@@ -1,0 +1,60 @@
+---
+title: 'Cómo añadir tus propias canciones a Let''s Sing 2025 en PS4 paso a paso'
+description: 'Guía para ampliar el catálogo de Let''s Sing 2025 en PS4 con tus propias canciones: convierte partituras UltraStar en un paquete que se instala como un DLC.'
+pubDate: 2026-09-25
+author: 'Redacción TechSpain24'
+tags: ['Tutoriales', 'Consolas']
+featured: false
+breaking: false
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/tutorial-lets-sing-2025-on-ps4-put-your-own-songs-in-it.683596/'
+---
+
+Let's Sing 2025 en PS4 llega con unas pocas docenas de canciones, y es fácil que falte justo la que piden los niños (la de la película) o la que quieren los amigos (la de 2003). El DLC oficial que la incluye puede costar más que el propio juego. Esta guía explica el método publicado en GBAtemp para meter tus propias canciones en el juego, con letras, puntuación y duetos funcionando igual que en las oficiales.
+
+La idea es sencilla: los aficionados al karaoke llevan veinte años escribiendo partituras para **UltraStar** (notas, tiempos y letras), un archivo gratuito con decenas de miles de canciones disponible en usdb.animux.de. El método convierte una de esas partituras más tu propio archivo de audio en un paquete que la consola instala como cualquier otro DLC. El autor del tutorial declara 216 canciones funcionando en su consola, con una tanda de 191 convertidas de una sola vez sin fallos.
+
+## Requisitos previos
+
+- Let's Sing 2025 en una PS4 con jailbreak, con GoldHEN en ejecución.
+- Un ordenador con macOS, Linux o Windows (los tres sirven).
+- Python y ffmpeg instalados. No hace falta nada más.
+- Tus propios archivos de música: el método convierte partituras, no sirve para conseguir el DLC de pago.
+- Una copia de seguridad del DLC original, para poder revertir el proceso.
+
+## Pasos
+
+### 1. Descarga la herramienta y lee su documentación
+
+El tutorial se distribuye como un archivo adjunto al hilo original (código fuente más documentación de cada formato implicado: las partituras resultaron ser XML plano y el catálogo de canciones JSON plano). Léelo antes de empezar: los pasos de empaquetado importan y hay tres trampas que producen una salida silenciosamente incorrecta en lugar de un error.
+
+### 2. Consigue la partitura UltraStar de cada canción
+
+Busca la canción en usdb.animux.de y descarga su partitura (notas, tiempos y letra). Ten en cuenta que las partituras las escriben desconocidos en internet y su calidad varía: algunas están sincronizadas con mimo y otras son aproximadas. Además, una partitura solo contiene lo que su autor transcribió: varias canciones de Disney, por ejemplo, solo recogen la parte de un personaje, así que las líneas de dúo simplemente no existen.
+
+### 3. Reúne cada canción en una carpeta con tu propio audio
+
+Prepara una carpeta con tus canciones, cada una con su partitura UltraStar y tu propio archivo de música. No se incluye ningún archivo del juego, ni música, ni paquetes: todo el material de audio lo aportas tú desde tu colección.
+
+### 4. Genera el paquete con el script
+
+Apunta el script a la carpeta de canciones:
+
+```sh
+./build.sh ~/my-songs mypack
+```
+
+El proceso convierte el lote completo (el autor convirtió 191 canciones en una sola ejecución). Los vídeos de fondo son opcionales y lentos de codificar, unos seis minutos por canción: sin vídeo, la canción suena sobre un fondo negro y todo lo demás funciona.
+
+### 5. Instala tus canciones en Let's Sing 2025 como un DLC
+
+Instala el paquete generado igual que cualquier otro DLC. El juego no se parchea ni se modifica: el manejo de micrófonos, la puntuación y toda la interfaz quedan intactos, y solo cambia la biblioteca de canciones. Guarda la copia del DLC original: reinstalarla devuelve la consola exactamente a su estado anterior, ya que el juego base no se toca nunca.
+
+## Cómo verificar que funcionó
+
+Abre Let's Sing 2025 y busca tus canciones en la biblioteca: deben aparecer junto a las oficiales, con la letra sincronizada, la puntuación activa y los duetos disponibles cuando la partitura los incluya.
+
+## Advertencias
+
+El proceso exige una PS4 con jailbreak y GoldHEN, con lo que ello implica. Las partituras varían en calidad y algunas carecen de las líneas de dúo. Los vídeos de fondo multiplican el tiempo de conversión (unos seis minutos por canción) y la mayoría de usuarios prescinde de ellos. El método no sirve para obtener el DLC de pago: convierte partituras y requiere tu propia música. Por último, el archivo adjunto está alojado en un servicio externo y al menos un lector posterior ya pidió una resubida porque el enlace no funcionaba: verifica que la descarga esté activa antes de empezar.

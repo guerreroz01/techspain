@@ -1,0 +1,34 @@
+---
+title: 'Thunderobot AI Master M7000: un portátil que usa el SSD como memoria para ejecutar modelos de IA de 120B parámetros'
+description: 'El Thunderobot AI Master M7000 une un Ryzen AI Max+ 395, 64 GB de RAM y una caché SSD de 85 GB para ejecutar en local modelos de IA de 120B parámetros.'
+pubDate: 2026-09-25
+author: 'Redacción TechSpain24'
+tags: ['Memorias', 'Portátiles', 'Inteligencia Artificial']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Portátil Thunderobot AI Master M7000 con iluminación RGB sobre un escritorio'
+source:
+  name: 'TechRadar'
+  url: 'https://www.techradar.com/pro/thunderobot-just-launched-a-laptop-that-uses-a-special-ram-like-ssd-to-boost-ai-performance-ai-master-m7000-packs-ryzen-ai-max-395-with-64gb-ram-runs-120b-moe-models'
+---
+
+Thunderobot ha presentado el AI Master M7000, una estación de trabajo móvil de 16 pulgadas que combina un procesador AMD Ryzen AI Max+ 395 con 64 GB de memoria LPDDR5X-8000 y un truco poco habitual en el almacenamiento: una caché de 85 GB dentro del SSD que actúa como apoyo de la memoria en cargas de inteligencia artificial. Según recoge TechRadar a partir de VideoCardz, el equipo es capaz de ejecutar en local el modelo GPT-OSS-120B pese a contar con 64 GB de memoria física.
+
+## Un Ryzen AI Max+ 395 con memoria unificada y caché SSD de 85 GB
+
+El M7000 se construye alrededor del Ryzen AI Max+ 395, con 16 núcleos y 32 hilos, frecuencias de hasta 5,1 GHz y gráficos integrados Radeon 8060S de hasta 40 unidades de cómputo. La NPU XDNA 2 aporta 50 TOPS para cargas aceleradas. La memoria es LPDDR5X-8000 en arquitectura unificada, de modo que CPU y GPU comparten el mismo espacio y pueden mover grandes volúmenes de datos del modelo sin copiarlos entre memorias separadas.
+
+La peculiaridad está en el almacenamiento: la unidad de 768 GB reserva una capa de caché de 85 GB basada en la tecnología aiDAPTIV+ de Phison. Cuando la memoria unificada se queda corta durante una carga exigente, el sistema conserva en el SSD información que la aplicación puede necesitar de nuevo, como la caché de clave-valor (KV cache), los componentes menos activos de los modelos de mezcla de expertos (MoE) y otros datos del modelo en proceso. No funciona como memoria RAM convencional, sino como un desahogo para los momentos en que 64 GB no bastan.
+
+## Por qué importa este enfoque de memoria para la IA en local
+
+El límite de la memoria disponible es uno de los principales cuellos de botella para ejecutar modelos grandes fuera del centro de datos: un modelo MoE de 120.000 millones de parámetros no cabe entero en 64 GB junto al sistema operativo y las aplicaciones. La propuesta de Thunderobot y Phison consiste en estirar esa memoria con almacenamiento rápido en lugar de obligar al usuario a dar el salto a equipos mucho más caros con 128 o 192 GB, como el [primer portátil con Ryzen AI Max+ Pro 495 y 192 GB de memoria unificada](/noticias/amd-ryzen-ai-max-pro-495-laptop/).
+
+Phison ya ha demostrado este mismo planteamiento en equipos con aún menos memoria, incluido un portátil de 32 GB ejecutando el mismo modelo de 120B parámetros. Con todo, conviene mantener las expectativas bajo control: como advierte la propia cobertura original, esta caché no rinde como memoria real adicional y su efecto se nota solo en determinadas cargas de inferencia.
+
+## Qué cambia para el lector: precio y disponibilidad
+
+El resto del equipo acompaña el perfil de estación de trabajo móvil: perfil térmico de 160 W con dos ventiladores y tres caloductos, pantalla de 2560×1600 a 165 Hz con 500 nits y cobertura sRGB completa, batería de 99 Wh y un peso de 2,45 kg. En conectividad incluye OCuLink, USB-C de 40 Gbps, HDMI 2.1 FRL, Ethernet de 2,5 Gb y lector microSD UHS-II, con OCuLink como vía de expansión hacia hardware externo compatible.
+
+Thunderobot anuncia el M7000 en China por 24.999 yuanes, unos 3.733 dólares al cambio actual, una cifra muy por encima de un portátil de juego convencional pese a que la marca procede históricamente de ese segmento. El posicionamiento es claramente el de un portátil para IA en local. Por ahora no hay información sobre su llegada a España ni a Europa, así que al lector interesado le toca esperar a un anuncio internacional antes de hacer planes.

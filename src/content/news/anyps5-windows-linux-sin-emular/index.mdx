@@ -1,0 +1,36 @@
+---
+title: 'AnyPS5 quiere llevar los juegos de PS5 a Windows y Linux sin emular la consola'
+description: 'AnyPS5 adapta los ejecutables de PS5 para correr de forma nativa en PC, con un relinker y shaders recompilados a Vulkan. De momento solo muestra un fotograma.'
+pubDate: '2026-09-25'
+author: 'Redacción TechSpain24'
+tags: ['Emuladores', 'Windows', 'Linux']
+featured: false
+breaking: false
+cover: './assets/cover.webp'
+coverAlt: 'Ilustración de un mando de PlayStation junto a un ordenador con Windows y Linux'
+source:
+  name: 'ComputerHoy'
+  url: 'https://computerhoy.20minutos.es/gaming/asi-funciona-anyps5-herramienta-para-jugar-juegos-ps5-windows-linux-sin-emular_7040671_0.html'
+---
+
+AnyPS5 es un proyecto que intenta algo que hasta ahora parecía fuera de alcance: ejecutar juegos de PlayStation 5 en Windows y Linux sin recurrir a un emulador. En lugar de simular la consola dentro del ordenador, la herramienta adapta los ejecutables de los juegos para que puedan funcionar directamente sobre el sistema operativo del PC.
+
+La idea parte de un hecho conocido: la PS5 y la mayoría de los ordenadores comparten una arquitectura de procesador x86-64. Aun así, un juego de la consola no se puede abrir en Windows sin más, porque depende de bibliotecas y servicios propios del sistema de Sony que no existen en el PC. AnyPS5 trabaja precisamente en cubrir ese hueco.
+
+## El relinker de AnyPS5: adaptar el ejecutable en lugar de simular la consola
+
+La pieza central del proyecto es el llamado *relinker*, encargado de convertir el formato del ejecutable de PS5 al que necesita el sistema operativo de destino. Sobre esa base, AnyPS5 implementa las bibliotecas que el juego espera encontrar en la consola, pero adaptadas a Windows o Linux.
+
+Ahí está la diferencia frente a un emulador clásico como los que ya permiten [probar el remake de Demon's Souls en PC](/noticias/demons-souls-remake-ps5-emulator-30fps/): no se reproduce una PS5 completa en tiempo real, sino que se adapta el código del juego para que se ejecute de forma nativa en el ordenador.
+
+## Los gráficos, el reto pendiente: de RDNA a Vulkan con SPIR-V
+
+El obstáculo mayor está en el apartado gráfico. Los juegos de PS5 utilizan instrucciones gráficas de la arquitectura RDNA que un PC no entiende tal cual, así que el proyecto incluye un recompilador de *shaders* que las transforma en código SPIR-V, utilizable después con la API Vulkan.
+
+Las pruebas públicas han logrado llegar a la fase de renderizado y mostrar un primer fotograma en pantalla, aunque todavía con errores gráficos. Es un hito técnico relevante, pero queda lejos de cargar un escenario completo con personajes, texturas, iluminación, sonido, físicas y controles funcionando a la vez.
+
+## Sin versión pública ni requisitos conocidos
+
+AnyPS5 no tiene por ahora ninguna versión lista para descargar y usar: el código puede consultarse para seguir la evolución del desarrollo, pero el responsable del proyecto se ha marcado como objetivo conseguir que al menos un juego arranque y sea jugable antes de publicar las primeras versiones.
+
+Tampoco se conocen los requisitos de hardware que pedirá. Que un juego llegue a arrancar no garantiza que funcione a 60 imágenes por segundo ni con la estabilidad de la consola original; eso solo se sabrá cuando haya una versión funcional y se compruebe qué procesador y qué tarjeta gráfica necesita cada juego en una partida real.

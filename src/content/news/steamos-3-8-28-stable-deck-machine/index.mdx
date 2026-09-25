@@ -1,0 +1,46 @@
+---
+title: 'SteamOS 3.8.28 llega al canal estable con mejoras para Steam Deck, Steam Machine y más dispositivos'
+description: 'SteamOS 3.8.28 ya es estable: nuevo Mesa con mejor trazado de rayos, VRAM renovada y más soporte para Steam Deck, Steam Machine y otros portátiles.'
+pubDate: '2026-09-25'
+author: 'Redacción TechSpain24'
+tags: ['Consolas', 'Steam Deck', 'SteamOS']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Steam Deck mostrando el aviso de actualización de SteamOS lista para instalar'
+source:
+  name: 'Valve'
+  url: 'https://steamcommunity.com/games/1675200/announcements/detail/711161056325534553'
+---
+
+Valve ha publicado SteamOS 3.8.28 en el canal estable para todos los dispositivos. La actualización incluye mejoras para la Steam Deck y la Steam Machine, además de un bloque amplio de compatibilidad con portátiles de terceros como MSI Claw, OneXPlayer, AYANEO y Legion Go. El registro de cambios lo ha recogido GamingOnLinux a partir del anuncio oficial de Valve.
+
+Es una de esas actualizaciones que tocan casi todos los frentes del sistema: gráficos, audio, mandos, red y firmware. Quien tenga una Steam Deck la recibirá como una actualización normal del sistema; quienes usen SteamOS en un portátil de otra marca notarán sobre todo el esfuerzo de compatibilidad.
+
+## Gráficos: nuevo Mesa y mejor gestión de la VRAM
+
+El cambio más relevante para el rendimiento está en la pila gráfica. SteamOS 3.8.28 incorpora una nueva versión mayor del controlador Mesa, que aporta mejoras de rendimiento en trazado de rayos además de otras mejoras de rendimiento y funcionalidad. Acompaña a ese salto una gestión de la VRAM muy mejorada, que eleva el rendimiento y la estabilidad en los casos donde la memoria de vídeo disponible es limitada.
+
+En el apartado de desarrollador, la actualización sube el núcleo Linux a la versión 6.18.50.
+
+## Steam Machine, audio y correcciones del sistema
+
+La Steam Machine de sobremesa también recibe atención propia. El logotipo de arranque aparece ahora mucho más rápido tras encender el equipo, y el firmware 108 corrige dos problemas de suspensión: despertares inmediatos tras entrar en reposo y un deterioro ocasional del rendimiento de la CPU al reanudar.
+
+El audio suma una opción para restablecer toda la configuración a los valores del sistema desde Ajustes, correcciones para cortes de audio HDMI en algunas combinaciones de juegos y televisores, una detección de conexión HDMI más fiable y la posibilidad de preferir códecs Bluetooth de menor latencia.
+
+Entre las correcciones generales destacan la eliminación de un retardo de arranque de 20 a 30 segundos en algunos juegos en dispositivos de terceros sin fuentes de audio, el inicio tardío de algunos juegos bajo Proton cuando no hay dispositivo de captura, y las pantallas en negro en ciertos lanzadores, incluidos los de Zenless Zone Zero y FINAL FANTASY XIV Online. También se corrigen bloqueos al conectar pantallas HDMI en el modo escritorio, conexiones wifi lentas o atascadas con ciertos adaptadores, congelamientos de Firefox a pantalla completa en el escritorio y un problema que impedía aplicar actualizaciones anteriores de SteamOS a algunos usuarios.
+
+## SteamOS 3.8.28 amplía el soporte de portátiles de terceros
+
+El bloque de dispositivos de otras marcas es el más largo del registro. Hay mejor soporte para variantes de MSI Claw y OneXPlayer, y soporte inicial de mando para la MSI Claw 8 EX AI+, la Konkr FIT y la AYANEO Pocket S2, además de compatibilidad actualizada para la OneXPlayer Apex con firmware nuevo y para modelos OneXPlayer F1 y OneXPlayer 2 Special Edition que carecían de ella.
+
+También se corrigen varias regresiones: los botones Guide y de acceso rápido en algunas MSI Claw con firmware reciente, el giroscopio en Legion Go 1 con firmware de mando antiguo y el rumble con baja frecuencia de sondeo en OneXPlayer F1. En este último caso hay una contrapartida documentada: el botón adicional M1 (izquierdo) deja de funcionar. Se suman además la corrección del indicador de batería en los Legion Go y de un congelamiento de la MSI Claw al reanudar con tarjeta SD insertada.
+
+En mandos, la actualización añade la activación desde el adaptador inalámbrico del Steam Controller de 2015, soporte preliminar para el adaptador inalámbrico del Steam Frame y compatibilidad del Steam Controller de 2026 con el controlador `hid_steam` integrado, lo que permite usarlo con aplicaciones nativas de mando cuando Steam no está en ejecución. También se corrige la inestabilidad Bluetooth con el mando Switch Pro de primera generación.
+
+## Qué cambia para el lector
+
+En la práctica, conviene actualizar en cuanto el sistema la ofrezca: el nuevo Mesa y la gestión de VRAM pueden traducirse en juegos más estables en la Steam Deck, y quienes jueguen en un portátil compatible de otra marca obtienen un soporte de mandos y batería más sólido. La mirada ya está puesta en SteamOS 3.9, que acumula dos versiones preliminares y debería mejorar la compatibilidad con el Steam Frame, el visor para el que Valve liberó [la capa Lepton con la que ejecuta juegos Android](/noticias/valve-steam-frame-android-tool/). Y si algún juego se resiste incluso con el sistema al día, la [guía para arreglar un juego que no arranca en Steam Deck](/noticias/steam-deck-game-wont-launch-fix/) repasa los pasos de resolución de problemas.
+
+El registro completo está publicado en el anuncio oficial de Valve en la comunidad de Steam.

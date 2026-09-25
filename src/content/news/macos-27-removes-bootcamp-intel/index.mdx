@@ -1,0 +1,38 @@
+---
+title: 'macOS 27 elimina Boot Camp y pone fin a la era de los Mac con Intel'
+description: 'macOS 27 solo funciona en Mac con chip de Apple. Repaso de las seis funciones eliminadas, de Boot Camp a Time Capsule, y qué hacer si aún dependes de ellas.'
+pubDate: '2026-09-25'
+author: 'Redacción TechSpain24'
+tags: ['Componentes', 'Portátiles']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'MacBook con el escritorio de macOS 27 junto al emblema con el número 27'
+source:
+  name: 'MacRumors'
+  url: 'https://www.macrumors.com/2026/09/24/macos-golden-gate-features-removed/'
+---
+
+macOS 27 Golden Gate es la primera versión del sistema de Apple que solo funciona en Mac con chip propio, y con ese corte llegan varias bajas definitivas: el asistente Boot Camp desaparece, Rosetta 2 entra en su último año de vida y se jubilan reliquias de red como AFP, Time Capsule y la utilidad AirPort. Esto es lo que se pierde y a quién afecta.
+
+## macOS 27 cierra la era Intel y se lleva Boot Camp por delante
+
+Golden Gate exige un chip M1 o posterior, así que ningún Mac con procesador Intel puede instalarlo: esos equipos se quedan como máximo en macOS 26 Tahoe. La lista de damnificados incluye el MacBook Pro de 13 pulgadas de 2020 (el de cuatro puertos Thunderbolt 3), el MacBook Pro de 16 pulgadas de 2019, el iMac de 27 pulgadas de 2020 y el Mac Pro de 2019. Apple mantendrá actualizaciones de seguridad para esos equipos hasta el otoño de 2028, pero no recibirán ninguna novedad más.
+
+La otra víctima directa del corte es el asistente Boot Camp, que solo tenía sentido en máquinas Intel. En un Mac con chip Apple nunca existió el arranque dual nativo con Windows, y eso no cambia: quien necesite Windows en un Mac actual tendrá que pasar por software de virtualización como Parallels o VMware Fusion.
+
+## Rosetta 2 tiene los días contados
+
+Rosetta 2, la capa de traducción que permite ejecutar en los chip M las aplicaciones compiladas para Intel, sigue disponible en macOS 27, pero es la última versión del sistema que la incluirá de forma completa. Al actualizar, el sistema la desinstala, aunque se puede volver a instalar si alguna aplicación la necesita.
+
+Apple ya avisa al usuario: al abrir una aplicación que dependa de Rosetta aparece una advertencia de que dejará de funcionar en el futuro. Para auditar el parque instalado, el sistema incluye una lista en Ajustes > General > Información > Aplicaciones basadas en Intel, con el detalle de cada programa afectado. Según el calendario previsto, macOS 28, esperado para el otoño de 2027, retirará Rosetta 2 salvo para algunos juegos antiguos sin mantenimiento, así que la mayoría de las aplicaciones que dependan de la traducción no se abrirán.
+
+## Limpieza de reliquias: AFP, Time Capsule y AirPort
+
+El tercer bloque de bajas es la limpieza de tecnologías de red heredadas. El protocolo Apple Filing Protocol (AFP), que Apple ya había declarado obsoleto en macOS Sequoia 15.5, desaparece por completo: Golden Gate no incluye ningún cliente AFP, sustituido hace años por SMB.
+
+Sin AFP cae también Time Capsule: la base con disco para copias Time Machine depende de AFP o de SMBv1, mientras que Time Machine ahora exige SMBv2 o SMBv3. Ningún modelo de Time Capsule funciona con macOS 27 en su configuración de fábrica. Y la utilidad AirPort deja de venir preinstalada con el sistema; quien la tuviera instalada podrá seguir abriéndola, pero Apple no garantiza que funcione, ya que sirve para gestionar unas estaciones base que la compañía dejó de fabricar en 2018.
+
+## Qué hacer si todavía dependes de lo que desaparece
+
+Si conservas un Mac con Intel, la decisión es sencilla: quédate en Tahoe con sus parches de seguridad o planifica el salto a un equipo con chip Apple, porque no habrá más versiones para tu máquina. Si ya usas un Mac con chip propio, revisa la lista de aplicaciones basadas en Intel antes de que llegue macOS 28 y busca alternativas nativas o actualizaciones de sus desarrolladores. Y si tu copia de seguridad depende de una Time Capsule, toca migrar a un disco externo o a un NAS moderno antes de actualizar, además de revisar utilidades del sistema como la [fecha de fabricación del Mac](/noticias/check-mac-manufacture-date-macos-27/), que en macOS 27 se consulta en un nuevo apartado de los ajustes.
