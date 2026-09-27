@@ -1,0 +1,34 @@
+---
+title: 'ProsperoEden lleva los juegos de Nintendo Switch a la PS5 modificada en fase alpha'
+description: 'ProsperoEden, un port no oficial de Eden, ejecuta juegos de Switch de forma nativa en PS5 con jailbreak: Cuphead rondaría los 60 FPS, aunque sigue en alpha.'
+pubDate: '2026-09-27'
+author: 'Redacción TechSpain24'
+tags: ['Emuladores', 'Consolas']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Tabla de compatibilidad de ProsperoEden con juegos de Nintendo Switch y sus tasas de frames'
+source:
+  name: 'El Chapuzas Informático'
+  url: 'https://elchapuzasinformatico.com/2026/09/prosperoeden-emulador-nintendo-switch-ps5/'
+---
+
+ProsperoEden es un port no oficial del emulador Eden que ejecuta juegos de Nintendo Switch de forma nativa en una PlayStation 5 modificada, sin pasar por Linux. El proyecto, publicado en GitHub por el desarrollador BlackBearReloaded ([repositorio oficial de ProsperoEden](https://github.com/blackbearreloaded/ProsperoEden)), se encuentra en fase alpha: varios títulos comerciales ya arrancan, pero la compatibilidad y el rendimiento varían mucho entre juegos.
+
+## Qué ofrece ProsperoEden en esta primera versión alpha
+
+La versión v1.000.010, publicada el 25 de septiembre, funciona directamente sobre el entorno homebrew de una PS5 con jailbreak. Según la tabla de compatibilidad del proyecto, Cuphead alcanzaría los 60 FPS y Metroid Dread rondaría los 40 FPS, mientras que Super Mario 3D World aparece como jugable en las secciones probadas y Mario Kart 8 Deluxe ya entra en carrera, con una media medida de unos 39,5 FPS frente a los 60 originales. Son cifras de una fase muy temprana y deben leerse con cautela: los propios responsables advierten de que varias mediciones corresponden a menús o pantallas de título, no a partidas completas garantizadas.
+
+El port utiliza OpenGL como único backend gráfico, sin soporte de Vulkan por el momento, y las pruebas recientes se realizaron sobre todo en una PS5 con firmware 6.02. La versión incluye soporte del mando DualSense, partidas guardadas, un indicador de rendimiento en pantalla y la posibilidad de configurar cada juego en modo portátil o sobremesa de Switch. Entre los problemas conocidos figuran cuelgues al cambiar de juego y un rendimiento todavía muy bajo en Pokémon Legends Z-A.
+
+## Por qué importa que funcione sin Linux
+
+Hasta ahora, emular otras consolas en PS5 solía exigir arrancar un entorno Linux completo; hacerlo de forma nativa dentro del sistema homebrew de la consola reduce la fricción y demuestra el margen del hardware de Sony. El núcleo del emulador procede de Eden, un proyecto abierto de emulación de Switch derivado a su vez de la base de Yuzu, una familia de emuladores que ya ha protagonizado [el salto hacia el rendimiento nativo en PC](/noticias/suyu-switch-emulator-native/). Que ese mismo linaje corra ahora sobre PS5 confirma la madurez que ha alcanzado la escena homebrew de la consola.
+
+El margen de mejora también es relevante: con solo OpenGL y en alpha, el proyecto todavía tiene recorrido en renderizado, compatibilidad y estabilidad antes de poder valorarse como una opción real de juego.
+
+## Qué cambia para el lector: cautela y requisitos
+
+De momento, nada cambia para quien tenga una PS5 convencional: ProsperoEden exige una consola compatible con jailbreak y, como recuerda el propio proyecto, cada usuario debe aportar las claves, el firmware y los juegos extraídos legalmente de hardware propio, material que el emulador no incluye. El código fuente aún no se ha publicado y los autores piden ayuda con pruebas de compatibilidad.
+
+En resumen, se trata de un hito técnico interesante de la emulación en consolas, pero no de una forma recomendable de jugar al catálogo de Switch hoy: conviene seguir su evolución durante las próximas semanas antes de esperar una experiencia estable.

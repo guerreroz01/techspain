@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 524 artículos. Actualizado: 2026-09-25
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 572 artículos. Actualizado: 2026-09-27
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -531,3 +531,51 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-25 | Xbox desmiente que las reservas de GTA 6 estén concentradas en PS5: «Estamos muy contentos» | [xbox-gta-6-reservas-ps5-desmentido](https://www.techspain24.com/noticias/xbox-gta-6-reservas-ps5-desmentido/) |
 | 2026-09-25 | Xbox sufre una «adquisición inversa»: sus editoras compradas absorben a sus estudios propios, según Van Dreunen | [xbox-reverse-acquired-publishers-dreunen](https://www.techspain24.com/noticias/xbox-reverse-acquired-publishers-dreunen/) |
 | 2026-09-25 | Xiaomi Smart Band 11: más fina, hasta 21 días de autonomía y más salud | [xiaomi-smart-band-11-watch-s5](https://www.techspain24.com/noticias/xiaomi-smart-band-11-watch-s5/) |
+| 2026-09-27 | Apple trabaja en un Vision Pro más ligero y estudia nuevos formatos | [apple-vision-pro-ligero-nuevos-formatos](https://www.techspain24.com/noticias/apple-vision-pro-ligero-nuevos-formatos/) |
+| 2026-09-27 | Apple Watch Series 12 frente al Garmin Fenix 9 Pro: coinciden en pulso, discrepan en calorías | [apple-watch-series-12-garmin-fenix-9-pro-comparativa](https://www.techspain24.com/noticias/apple-watch-series-12-garmin-fenix-9-pro-comparativa/) |
+| 2026-09-27 | Apple Watch Series 12, una semana después: lo que de verdad cambia en el día a día | [apple-watch-series-12-semana-despues](https://www.techspain24.com/noticias/apple-watch-series-12-semana-despues/) |
+| 2026-09-27 | Apple Watch Ultra 4 frente a Series 12: el software empata y el hardware decide | [ultra-4-series-12-comparativa](https://www.techspain24.com/noticias/ultra-4-series-12-comparativa/) |
+| 2026-09-27 | Celly TrainerWatch: un reloj deportivo básico con llamadas Bluetooth y precio ajustado | [celly-trainerwatch-deportivo-barato](https://www.techspain24.com/noticias/celly-trainerwatch-deportivo-barato/) |
+| 2026-09-27 | Cómo compartir tu ubicación en tiempo real por WhatsApp, paso a paso | [compartir-ubicacion-tiempo-real-whatsapp](https://www.techspain24.com/noticias/compartir-ubicacion-tiempo-real-whatsapp/) |
+| 2026-09-27 | Cómo mejorar la seguridad de tu router en 10 minutos | [seguridad-router-10-minutos](https://www.techspain24.com/noticias/seguridad-router-10-minutos/) |
+| 2026-09-27 | Cómo ocultar conversaciones de WhatsApp con el bloqueo de chats y el código secreto | [ocultar-conversaciones-whatsapp-guia](https://www.techspain24.com/noticias/ocultar-conversaciones-whatsapp-guia/) |
+| 2026-09-27 | Cómo ocultar el nombre y la foto de perfil del menú Inicio de Windows 11 | [ocultar-nombre-foto-perfil-windows-11](https://www.techspain24.com/noticias/ocultar-nombre-foto-perfil-windows-11/) |
+| 2026-09-27 | Cómo restablecer un Google Home Mini a valores de fábrica paso a paso | [restablecer-home-mini-fabrica](https://www.techspain24.com/noticias/restablecer-home-mini-fabrica/) |
+| 2026-09-27 | Cómo solucionar el ruido y el calentamiento del dock de Nintendo Switch 2 paso a paso | [switch-2-ruido-calor-dock-solucion](https://www.techspain24.com/noticias/switch-2-ruido-calor-dock-solucion/) |
+| 2026-09-27 | Cómo tener una puntuación de readiness en un Apple Watch antiguo paso a paso | [readiness-score-apple-watch-antiguo](https://www.techspain24.com/noticias/readiness-score-apple-watch-antiguo/) |
+| 2026-09-27 | Cómo usar aplicaciones de Android en un PC con Windows paso a paso | [apps-android-windows-pc](https://www.techspain24.com/noticias/apps-android-windows-pc/) |
+| 2026-09-27 | Cómo usar el modo escritorio de Android para convertir el móvil en un mini PC | [modo-escritorio-android-movil-pc](https://www.techspain24.com/noticias/modo-escritorio-android-movil-pc/) |
+| 2026-09-27 | Cómo usar el modo Running de Spotify en iOS y Android paso a paso | [modo-running-spotify-ios-android](https://www.techspain24.com/noticias/modo-running-spotify-ios-android/) |
+| 2026-09-27 | Cómo usar Live Text en el iPhone para copiar, traducir y actuar sobre cualquier texto | [live-text-iphone-como-usarlo](https://www.techspain24.com/noticias/live-text-iphone-como-usarlo/) |
+| 2026-09-27 | Coros Pace 4 Pro a prueba: pantalla de 3.500 nits y 60 horas de GPS por 449 €, con ausencias que pesan | [coros-pace-4-pro-analisis-precio](https://www.techspain24.com/noticias/coros-pace-4-pro-analisis-precio/) |
+| 2026-09-27 | El A20 Pro iguala a la GTX 1650 en GTA V con un 1.180 % más de eficiencia por vatio | [a20-pro-gta-5-gtx-1650-eficiencia](https://www.techspain24.com/noticias/a20-pro-gta-5-gtx-1650-eficiencia/) |
+| 2026-09-27 | El Amazfit Cheetah 2 Ultra suma siete formatos de coordenadas con el firmware 6.4.16 | [amazfit-cheetah-2-ultra-coordenadas](https://www.techspain24.com/noticias/amazfit-cheetah-2-ultra-coordenadas/) |
+| 2026-09-27 | El Apple Watch Ultra 3 vuelve a su precio mínimo con 199 dólares de descuento en Amazon | [apple-watch-ultra-3-descuento-199](https://www.techspain24.com/noticias/apple-watch-ultra-3-descuento-199/) |
+| 2026-09-27 | El Galaxy Watch9 Classic aparece en un registro ruso tras el Unpacked: ¿lanzamiento tardío o modelo cancelado? | [galaxy-watch9-classic-filtracion](https://www.techspain24.com/noticias/galaxy-watch9-classic-filtracion/) |
+| 2026-09-27 | El Garmin Fenix 9 acumula 94 fallos en su primer mes y solo 7 están corregidos | [garmin-fenix-9-94-errores](https://www.techspain24.com/noticias/garmin-fenix-9-94-errores/) |
+| 2026-09-27 | El Garmin Forerunner 165 aparece con descuento en AliExpress: AMOLED y 11 días de autonomía para corredores | [garmin-forerunner-165-oferta-aliexpress](https://www.techspain24.com/noticias/garmin-forerunner-165-oferta-aliexpress/) |
+| 2026-09-27 | El Pixel Watch se convierte en mando de Google TV con esta app gratuita de Wear OS | [pixel-watch-controlar-google-tv](https://www.techspain24.com/noticias/pixel-watch-controlar-google-tv/) |
+| 2026-09-27 | Garmin Fenix 9 frente al Apple Watch Ultra 4: cuál comprar según tu uso | [garmin-fenix-9-ultra-4-cual-comprar](https://www.techspain24.com/noticias/garmin-fenix-9-ultra-4-cual-comprar/) |
+| 2026-09-27 | Google Health suma a Cardio Load los entrenos de Garmin y Apple Watch | [google-health-cardio-load-garmin](https://www.techspain24.com/noticias/google-health-cardio-load-garmin/) |
+| 2026-09-27 | Guía de optimización de Retroid Pocket Duo Lite: emuladores, controladores y ajustes | [retroid-pocket-duo-lite-optimizacion-guia](https://www.techspain24.com/noticias/retroid-pocket-duo-lite-optimizacion-guia/) |
+| 2026-09-27 | Hell is Us retrasa su versión de Switch 2 y su gran actualización al 27 de octubre | [hell-is-us-retraso-switch-2](https://www.techspain24.com/noticias/hell-is-us-retraso-switch-2/) |
+| 2026-09-27 | Huawei Watch GT 7 de 46 mm: pantalla de 3.000 nits y más de 20 métricas de salud | [huawei-watch-gt-7-46mm](https://www.techspain24.com/noticias/huawei-watch-gt-7-46mm/) |
+| 2026-09-27 | Insta360 explora unas gafas inteligentes con la batería fuera de la montura | [insta360-gafas-inteligentes-comodidad](https://www.techspain24.com/noticias/insta360-gafas-inteligentes-comodidad/) |
+| 2026-09-27 | La eShop de Nintendo Switch reúne más de 45 juegos de deporte en oferta | [eshop-deportes-rebajas-switch](https://www.techspain24.com/noticias/eshop-deportes-rebajas-switch/) |
+| 2026-09-27 | La PS6 portátil llegaría con pantalla OLED de doble capa, 1080p y 120 Hz, según una filtración | [ps6-portatil-oled-120hz-rumor](https://www.techspain24.com/noticias/ps6-portatil-oled-120hz-rumor/) |
+| 2026-09-27 | Los datos de tu reloj revelan qué entrenamiento mejora más el VO2 max | [vo2-max-estrategias-datos-wearables](https://www.techspain24.com/noticias/vo2-max-estrategias-datos-wearables/) |
+| 2026-09-27 | Los despidos de Xbox habrían vaciado el estudio de Age of Empires y cancelado su próximo juego | [xbox-despidos-age-of-empires-estudio](https://www.techspain24.com/noticias/xbox-despidos-age-of-empires-estudio/) |
+| 2026-09-27 | Los entrenos de la Garmin CIRQA desaparecen al pulsar Finalizar en la app | [garmin-cirqa-entrenos-desaparecen](https://www.techspain24.com/noticias/garmin-cirqa-entrenos-desaparecen/) |
+| 2026-09-27 | Los juegos de PS3 llegan a Android con ARMSX3, un port del emulador RPCS3 | [ps3-android-movil-emulador](https://www.techspain24.com/noticias/ps3-android-movil-emulador/) |
+| 2026-09-27 | Meta controla el 81,3 % de las gafas de IA y la segunda marca vende unas sin cámara | [meta-gafas-ia-cuota-omdia](https://www.techspain24.com/noticias/meta-gafas-ia-cuota-omdia/) |
+| 2026-09-27 | Minecraft Dungeons II confirma su descarga y sus precios en Nintendo Switch y Switch 2 | [minecraft-dungeons-2-switch-descarga-precio](https://www.techspain24.com/noticias/minecraft-dungeons-2-switch-descarga-precio/) |
+| 2026-09-27 | Nadella defiende los recortes de Xbox como necesarios mientras se confirman 268 despidos más | [xbox-despidos-268-ceo-microsoft](https://www.techspain24.com/noticias/xbox-despidos-268-ceo-microsoft/) |
+| 2026-09-27 | PKHeX-NX, el editor homebrew que edita partidas de Pokémon en la propia Switch | [pkhex-nx-editor-switch-pokemon](https://www.techspain24.com/noticias/pkhex-nx-editor-switch-pokemon/) |
+| 2026-09-27 | ProsperoEden lleva los juegos de Nintendo Switch a la PS5 modificada en fase alpha | [prosperoeden-emulador-switch-ps5](https://www.techspain24.com/noticias/prosperoeden-emulador-switch-ps5/) |
+| 2026-09-27 | Redmi Watch 6: el reloj de Xiaomi por menos de 100 euros con 2000 nits y 24 días de batería | [xiaomi-reloj-menos-100-euros](https://www.techspain24.com/noticias/xiaomi-reloj-menos-100-euros/) |
+| 2026-09-27 | SharpEmu ya mueve seis juegos de PS5 a 60 FPS, pero los grandes títulos 3D siguen lejos | [emulador-ps5-60-fps-seis-juegos](https://www.techspain24.com/noticias/emulador-ps5-60-fps-seis-juegos/) |
+| 2026-09-27 | Tu smartwatch resiste al agua, pero la ducha diaria puede estropearlo | [ducharse-smartwatch-agua-razones](https://www.techspain24.com/noticias/ducharse-smartwatch-agua-razones/) |
+| 2026-09-27 | Unas supuestas impresiones de GTA 6 comparan su arranque con el estreno de Avatar | [gta-6-prueba-medios-avance-filtracion](https://www.techspain24.com/noticias/gta-6-prueba-medios-avance-filtracion/) |
+| 2026-09-27 | Vita3K-nx 1.3.1 lleva la emulación de PS Vita a Nintendo Switch con más juegos compatibles | [vita3k-playstation-vita-emulador](https://www.techspain24.com/noticias/vita3k-playstation-vita-emulador/) |
+| 2026-09-27 | watchOS 27: las 12 novedades que llegan a tu Apple Watch | [watchos-27-novedades](https://www.techspain24.com/noticias/watchos-27-novedades/) |
+| 2026-09-27 | Xiaomi permite usar el Apple Watch con sus móviles con HyperOS 4 | [xiaomi-apple-watch-hyperos](https://www.techspain24.com/noticias/xiaomi-apple-watch-hyperos/) |

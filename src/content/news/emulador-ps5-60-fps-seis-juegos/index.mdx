@@ -1,0 +1,36 @@
+---
+title: 'SharpEmu ya mueve seis juegos de PS5 a 60 FPS, pero los grandes títulos 3D siguen lejos'
+description: 'El emulador experimental de código abierto ejecuta ya seis juegos a 60 FPS en su versión 0.0.4, aunque los títulos 3D exigentes todavía no son jugables.'
+pubDate: 2026-09-27
+author: 'Redacción TechSpain24'
+tags: ['Emuladores', 'Consolas']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Consola PlayStation 5 junto a su mando DualSense sobre fondo oscuro'
+source:
+  name: "Tom's Hardware"
+  url: 'https://www.tomshardware.com/desktops/gaming-pcs/ps5-emulator-successfully-runs-six-titles-at-a-playable-60-fps-ps5-emulation-continues-to-gather-momentum-as-developers-improve-shader-translation-and-vulkan-support'
+---
+
+El emulador SharpEmu, un proyecto experimental de código abierto que reproduce el hardware de PlayStation 5 en PC, alcanzó un nuevo hito: seis juegos ya funcionan a 60 fotogramas por segundo. El avance llega con la versión 0.0.4-release.2, publicada el 25 de septiembre, y confirma que la emulación de PS5 sigue ganando ritmo.
+
+## Qué pasó: SharpEmu coloca seis juegos a 60 FPS de 55 probados
+
+Según anunciaron los desarrolladores, de 55 títulos probados, 12 llegan ya a estado de juego y seis de ellos alcanzan los 60 FPS de forma estable. Los seis títulos son *Dreaming Sarah*, *Void Terrarium*, *New Joe & Mac: Caveman Ninja*, *Tetris Forever*, *Hoa* y *Tomb Raider IV-VI Remastered*: juegos de perfil modesto, lejos de los grandes superproducciones 3D del catálogo.
+
+La propia etiqueta de «jugable» conviene matizarla: ninguno de los seis se ha completado de principio a fin, y los desarrolladores advierten de que pueden persistir fallos gráficos o de audio menores. La mejora técnica de esta versión se concentra en la traducción de sombreadores SPIR-V y en un soporte actualizado de la API Vulkan, dos piezas clave del renderizado.
+
+SharpEmu está escrito desde cero en C# y funciona en Windows, Linux y macOS, con Vulkan en PC y MoltenVK en Mac. Como la PS5 usa una CPU AMD Zen 2 con arquitectura x86-64, el emulador puede ejecutar las instrucciones de la consola de forma nativa en un PC convencional, sin traducirlas desde otro juego de instrucciones. Su enfoque actual consiste en cargar el ejecutable del juego y los módulos de sistema necesarios, gestionar parcialmente las funciones del núcleo y procesar los envíos gráficos de sombreadores, recursos y AGC.
+
+## Por qué importa: la emulación de PS5 acelera, pero sigue en fase experimental
+
+El dato relevante no son tanto los seis juegos como la velocidad del progreso. Hace apenas unas semanas este mismo proyecto mostraba *Astro's Playroom* a menos de un cuadro por segundo; ahora una docena de títulos ya arranca y media docena se mueve a pleno rendimiento. En paralelo, otro emulador, KytyPS5, logró ejecutar la versión de consola de *GTA V* entre 40 y 60 FPS en un equipo de gama alta, aunque se bloqueaba tras la misión inicial.
+
+El contraste con los títulos exigentes marca el techo actual: superproducciones como el *remake* de *Demon's Souls*, que [pasó de injugable a 30 FPS en cuestión de días](/noticias/demons-souls-remake-ps5-emulator-30fps/), siguen lejos de completarse. La emulación de PS5, en resumen, avanza a ritmo notable pero continúa en una etapa temprana y centrada en la infraestructura más que en la compatibilidad juego a juego.
+
+## Qué cambia para el lector
+
+De momento, nada práctico: SharpEmu es un proyecto de investigación y con fines educativos, y sus responsables subrayan que no incluye firmware del sistema, datos de juegos ni recursos propietarios de PlayStation, y que los títulos usados en las pruebas proceden de consolas propias. No es una vía para jugar al catálogo de PS5 en PC, y los juegos exigentes continúan sin ser jugables.
+
+Lo que sí cambia es la expectativa: con la traducción de sombreadores y el soporte Vulkan mejorando versión a versión, y con varios proyectos (SharpEmu, Kyty) empujando a la vez, la emulación de PS5 dejó de ser una curiosidad teórica. Merece seguimiento, no descarga: quien quiera probarlo deberá esperar a que la compatibilidad madure y usar siempre copias obtenidas legalmente.

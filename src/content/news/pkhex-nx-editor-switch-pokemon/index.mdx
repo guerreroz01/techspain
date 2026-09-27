@@ -1,0 +1,42 @@
+---
+title: 'PKHeX-NX, el editor homebrew que edita partidas de Pokémon en la propia Switch'
+description: 'PKHeX-NX edita partidas de Escarlata y Púrpura sin pasar por el PC: repaso a su beta v0.9.5, sus funciones mostradas y su sistema de copias de seguridad.'
+pubDate: 2026-09-27
+author: 'Redacción TechSpain24'
+tags: ['Consolas']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Arte del proyecto homebrew PKHeX-NX para Nintendo Switch'
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/pkhex-nx-native-switch-popup-save-editor-scarlet-violet-devlog-sneak-peek.683964/'
+---
+
+PKHeX-NX es un editor de partidas de Pokémon Escarlata y Púrpura que funciona como aplicación homebrew dentro de la propia Nintendo Switch. Su autor lo presenta en un devlog público en GBAtemp, donde documenta el avance desde la vista previa inicial hasta la beta v0.9.5, con el código y las descargas publicados en su repositorio oficial de GitHub.
+
+![Arte del proyecto homebrew PKHeX-NX para Nintendo Switch](./assets/cover.png)
+
+## Qué muestra el devlog de PKHeX-NX
+
+El hilo, iniciado el 25 de agosto de 2026 por el desarrollador cbreezy210, describe PKHeX-NX como una aplicación nativa escrita en C++ que edita los archivos de guardado de Escarlata y Púrpura directamente en la consola. El proyecto se inspira en los conceptos del conocido PKHeX de PC, aunque su autor aclara que no está afiliado a ese equipo ni a Nintendo o The Pokémon Company.
+
+Entre las funciones mostradas figuran un visor de cajas, un editor de estadísticas y rasgos (IV, EV, naturalezas, teratipos y variocolor), ajustes de datos del entrenador y un generador con criterios de legalidad que usa habilidades reales y movimientos de las tablas de aprendizaje de cada especie. La beta v0.9.3 incorporó un selector manual de movimientos, mientras que la v0.9.4 añadió comprobaciones de seguridad y la v0.9.5 sumó detalles de usabilidad como la versión visible en el menú y un atajo para IV al máximo.
+
+El propio repositorio confirma las tres betas (v0.9.3, v0.9.4 y v0.9.5), y la wiki espejo de GameBrew, enlazada desde el hilo, recoge la misma documentación con fecha del 10 de septiembre. El 19 de septiembre el autor informó de más de 1.000 descargas combinadas entre sus dos editores, con la parte de PKHeX-NX en torno a 130 y en crecimiento, según sus propias cifras.
+
+## Por qué importa en la escena homebrew de Switch
+
+El interés de PKHeX-NX está en su enfoque: editar en la consola, sin extraer la tarjeta ni pasar el guardado por un PC. El autor pone el acento en la seguridad, con copia de seguridad verificada antes de cada escritura, escritura doble de archivos y una opción de restauración, además de un bloqueo si la aplicación se abre desde el modo álbum en lugar del modo de memoria ampliada.
+
+Conviene matizar una afirmación del hilo: la presentación inicial lo describía como el primer editor nativo de este tipo, pero otro desarrollador de la escena (kiasta, autor de PKSE) señaló en el mismo hilo que ya existían otros editores anteriores. El autor de PKHeX-NX aceptó la corrección y anunció que ajustaría el texto del repositorio. Por tanto, la novedad aquí es un proyecto abierto más dentro de un ecosistema que ya cuenta con alternativas, no una primicia absoluta.
+
+La hoja de ruta menciona una interfaz gráfica con SDL2 para sustituir la consola de texto actual, además de un editor de bolsa, automatización de la Pokédex viviente y soporte futuro para otros títulos, empezando por Leyendas: Z-A y después los juegos de octava generación.
+
+## Qué cambia para el lector
+
+Para quien sigue la escena de Switch, PKHeX-NX es un proyecto en beta que merece seguimiento, no una herramienta acabada. Su estado actual es el de un editor de texto para Escarlata y Púrpura con funciones de caja y generación ya visibles, y con las carencias reconocidas por el propio autor: sin editor de objetos y sin registro automático en la Pokédex.
+
+El autor lo define como un proyecto educativo y recomienda usarlo sin conexión y con copias de seguridad propias, un aviso habitual en la escena que conviene tomar en serio: editar un guardado siempre conlleva riesgo de corrupción o de sanciones en servicios en línea. No hay cobertura relevante en medios españoles hasta ahora, por lo que esta pieza cubre un hueco informativo más que una historia saturada.
+
+Quien quiera contexto sobre proyectos de aficionados alrededor de Pokémon en hardware de Nintendo puede ver también cómo [un aficionado conecta la Game Boy Advance a la Switch 2 para transferir Pokémon](/noticias/gba-switch-2-pokemon-transfer/).
