@@ -1,0 +1,46 @@
+---
+title: 'Atmosphere 1.12.0 ya funciona con el firmware 23.0.0 de Nintendo Switch'
+description: 'Así llega Atmosphere 1.12.0 al firmware 23.0.0 de Switch: parches que recuperan 9 MB de memoria, kernel renovado y un aviso sobre fusee que no conviene ignorar.'
+pubDate: 2026-09-28
+author: 'Redacción TechSpain24'
+tags: ['Consolas', 'Homebrew']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Logotipo de Atmosphère sobre un fondo azul oscuro moteado de estrellas'
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/atmosphere-v1-12-0-released-adds-support-for-switch-firmware-23-0-0.684792/'
+---
+
+Atmosphere 1.12.0, el custom firmware de código abierto para Nintendo Switch, publica una nueva versión con el soporte inicial para el firmware 23.0.0, la actualización que Nintendo distribuyó en septiembre para Switch y Switch 2. El equipo lo presenta como la nonagésima tercera entrega oficial del proyecto y recuerda que quien venga de una versión anterior debe actualizar también `fusee`: el antiguo `fusee-primary` ya no existe y deja de funcionar.
+
+![Logotipo de Atmosphère sobre un fondo azul oscuro moteado de estrellas](./assets/cover.png)
+
+## Qué incluye la versión 1.12.0 de Atmosphere
+
+El cambio titular es el soporte para el firmware 23.0.0, con la consola arrancando y Atmosphere funcionando de forma completa según el propio proyecto. La versión se distribuye junto con `hbl` 2.4.5 (`nx-hbloader`) y `hbmenu` 3.6.1, ambos procedentes de switchbrew.
+
+Más allá del soporte del firmware, las notas de la versión recogen otras mejoras: la compresión y descompresión ZBIC queda implementada correctamente, de modo que las aplicaciones que la usan vuelven a lanzarse con normalidad; se añade un `dockerfile` al repositorio; y se adopta la macro `R_DISCARD` en todo el código, un trabajo iniciado en la versión 1.10.0 que elimina los avisos `nodiscard` al compilar. También se incluyen las habituales mejoras generales de estabilidad.
+
+## Menos memoria para los módulos y parches para recuperarla
+
+El problema de fondo es que los cambios de Nintendo en el software del firmware 23.0.0 dejan aún menos memoria disponible para los módulos del sistema personalizados. Con ese margen recortado, Atmosphere ya no puede abrir los applets del navegador —como la eShop— sin que la consola falle.
+
+Para compensarlo, el proyecto introduce un conjunto de parches sobre esos applets. Gracias al rediseño que sufrieron en el firmware 22.0.0 solo quedan tres que hay que mantener: `systemWeb`, `openWeb` y `LibAppletOff`. Al parchear sus reservas, Atmosphere recupera alrededor de 9 MB de memoria que el sistema marca como reservada y nunca llega a usar, algo que el proyecto dice demostrar. Con ello, la memoria disponible para los módulos del sistema sube experimentalmente hasta los 16 MB.
+
+El equipo aclara que las pruebas preliminares no muestran perjuicios ni en el sistema ni en los propios applets, pero pide reportar cualquier incidencia para detectar casos límite, y avisa de que estos parches podrían retirarse en el futuro si aparece una solución mejor.
+
+## El kernel y el arranque se ajustan al comportamiento oficial
+
+La actualización también sincroniza los componentes internos con el comportamiento de Nintendo. `exosphère` refleja la última versión del monitor de seguridad, que incorpora un `ConfigItem` nuevo, el primero desde el firmware 5.0.0. `mesosphère` se actualiza al nuevo kernel: soporte para un espacio de direcciones de 42 bits, una región de memoria llamada `ShadowStack` y un generador de números aleatorios basado en CTR-DRBG.
+
+En `boot` se corrige un detalle que el proyecto reconoce que se había pasado por alto: la forma de activar el apagado por i2c de la batería cambió en el firmware 18.0.0. El equipo señala que esa omisión podría estar relacionada con el problema de consumo de batería que usuarios reportaron alrededor de esa misma versión, aunque matiza que hará falta más pruebas para confirmarlo. `loader`, `erpt`, `pgl` y `ro` también se actualizan, y estos últimos permiten ahora comprimir los NRO en marco lz4.
+
+## Qué cambia para quien usa Atmosphere en su Switch
+
+Lo práctico se resume en dos puntos. El primero es el aviso de instalación: hay que actualizar `fusee` junto con Atmosphere 1.12.0, porque `fusee-primary` ya no sirve. El segundo es la memoria de los módulos del sistema: quien cargue mods pesados o muchas superposiciones en pantalla puede notar el límite, aunque la recuperación de los 9 MB descrita por el proyecto deja el total en 16 MB.
+
+En el hilo de GBAtemp la reacción de la comunidad es mixta: hay quien ve en la menor memoria disponible una razón para quedarse en una versión anterior, y quien responde que las actualizaciones de la consola acabarán forzando el salto de todos modos. También se apunta que el arreglo del apagado de batería podría mejorar el consumo, aunque de momento es una interpretación de los usuarios, no una confirmación del proyecto. Conviene recordar además que cualquier homebrew, como [el editor de partidas PKHeX-NX](/noticias/pkhex-nx-editor-switch-pokemon/), depende de que este entorno siga funcionando con la última versión del firmware.
+
+Las descargas y el detalle completo de los cambios están en la [página de releases de Atmosphere en GitHub](https://github.com/atmosphere-nx/atmosphere/releases).
