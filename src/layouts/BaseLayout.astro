@@ -30,6 +30,16 @@ interface Props {
    * meta tag is the mechanism that actually keeps them out of the index.
    */
   noindex?: boolean;
+  /**
+   * `<html lang>` override. Defaults to `SITE.lang` (`es`); the English
+   * article route passes `en` so assistive tech and crawlers see the real
+   * page language.
+   */
+  lang?: string;
+  /**
+   * `og:locale` override. Defaults to `es_ES`; English pages pass `en_US`.
+   */
+  ogLocale?: string;
 }
 
 const {
@@ -38,6 +48,8 @@ const {
   image = BRAND.socialBanner,
   type = 'website',
   noindex = false,
+  lang = SITE.lang,
+  ogLocale = 'es_ES',
 } = Astro.props;
 
 const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
@@ -48,7 +60,7 @@ const rssHref = new URL('rss.xml', siteBase).href;
 ---
 
 <!doctype html>
-<html lang={SITE.lang}>
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,7 +80,7 @@ const rssHref = new URL('rss.xml', siteBase).href;
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={ogImage} />
 
     <!-- Twitter -->

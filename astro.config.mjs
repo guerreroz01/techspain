@@ -15,13 +15,16 @@ import mdx from '@astrojs/mdx';
 // packages, and the only values needed are two ISO dates. Fails loudly if the
 // content directory is missing, which would mean a broken checkout anyway.
 const newsDir = new URL('./src/content/news/', import.meta.url);
+// English counterparts live beside them; their `/en/news/<slug>/` URLs need the
+// same `lastmod` treatment (section: serialize below).
+const newsEnDir = new URL('./src/content/news-en/', import.meta.url);
 
-/** Slug -> most recent date (`updatedDate`, else `pubDate`). */
-function readEntryDates() {
+/** Slug -> most recent date (`updatedDate`, else `pubDate`), per directory. */
+function readEntryDates(dir) {
   /** @type {Map<string, Date>} */
   const dates = new Map();
 
-  const slugs = readdirSync(newsDir, { withFileTypes: true })
+  const slugs = readdirSync(dir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
 
@@ -30,7 +33,7 @@ function readEntryDates() {
     for (const file of ['index.mdx', 'index.md']) {
       let raw;
       try {
-        raw = readFileSync(new URL(`${slug}/${file}`, newsDir), 'utf8');
+        raw = readFileSync(new URL(`${slug}/${file}`, dir), 'utf8');
       } catch {
         continue;
       }
@@ -49,7 +52,10 @@ function readEntryDates() {
   return dates;
 }
 
-const entryDates = readEntryDates();
+const entryDates = readEntryDates(newsDir);
+const entryDatesEn = readEntryDates(newsEnDir);
+// Home and archive list only Spanish articles, so their `<lastmod>` tracks the
+// Spanish corpus alone; English articles have no listing page to bump.
 const newestEntryDate = [...entryDates.values()].sort((a, b) => b - a)[0];
 
 // https://astro.build/config
@@ -83,6 +89,14 @@ export default defineConfig({
         const article = isArchiveListing ? null : pathname.match(/^\/noticias\/([^/]+)\/$/);
         if (article) {
           const lastmod = entryDates.get(article[1]);
+          if (lastmod) item.lastmod = lastmod;
+          return item;
+        }
+
+        // `/en/news/<slug>/` -> the English entry's real date.
+        const articleEn = pathname.match(/^\/en\/news\/([^/]+)\/$/);
+        if (articleEn) {
+          const lastmod = entryDatesEn.get(articleEn[1]);
           if (lastmod) item.lastmod = lastmod;
           return item;
         }

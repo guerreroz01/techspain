@@ -2,23 +2,43 @@
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { getImage } from 'astro:assets';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import AdSlot from '../../components/AdSlot.astro';
-import StoryList from '../../components/StoryList.astro';
-import { computeStats, randomFor, relatedFor } from '../../lib/related';
-import { BRAND, SITE, socialPoolImageFor } from '../../consts';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AdSlot from '../../../components/AdSlot.astro';
+import StoryList from '../../../components/StoryList.astro';
+import { computeStats, randomFor, relatedFor } from '../../../lib/related';
+import { BRAND, SITE, socialPoolImageFor } from '../../../consts';
 
 export async function getStaticPaths() {
-  const allNews = await getCollection('news');
+  const allEn = await getCollection('newsEn');
+  const allEs = await getCollection('news');
+  const esById = new Map(allEs.map((entry) => [entry.id, entry]));
 
-  // Draft semantics are identical to the rest of the site: drafts render in dev
-  // but are excluded from production builds, feeds and sitemaps.
-  const visible = allNews.filter((entry) =>
-    import.meta.env.PROD ? !entry.data.draft : true,
-  );
+  // Fail loudly when an English article's `translationOf` does not resolve to a
+  // Spanish counterpart: an EN page without its ES source breaks the hreflang
+  // pair this feature exists to provide. This is a content error, not a runtime
+  // condition — there is nothing to recover from at request time.
+  for (const entry of allEn) {
+    if (!esById.has(entry.data.translationOf)) {
+      throw new Error(
+        `news-en/${entry.id}: translationOf "${entry.data.translationOf}" has no matching entry in src/content/news/`,
+      );
+    }
+  }
 
-  // Recommendation scoring (tag IDF + slug family + build-time shuffle) is
-  // shared with the English route: see `src/lib/related.ts`.
+  // Draft semantics mirror the Spanish route: drafts render in dev but are
+  // excluded from production. Additionally, in production an English article is
+  // hidden while its Spanish counterpart is a draft — publishing a hreflang
+  // alternate that 404s (or a noindex-equivalent orphan) is worse than holding
+  // the translation back one deploy.
+  const visible = allEn.filter((entry) => {
+    if (!import.meta.env.PROD) return true;
+    if (entry.data.draft) return false;
+    return !esById.get(entry.data.translationOf)!.draft;
+  });
+
+  // Recommendation scoring runs over the ENGLISH corpus only: an English reader
+  // must never be shown a Spanish-only article in the related blocks. The
+  // algorithm itself is shared with the Spanish route (see `src/lib/related.ts`).
   const stats = computeStats(visible);
 
   return visible.map((entry) => {
@@ -31,18 +51,18 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  entry: CollectionEntry<'news'>;
-  related: CollectionEntry<'news'>[];
-  random: CollectionEntry<'news'>[];
+  entry: CollectionEntry<'newsEn'>;
+  related: CollectionEntry<'newsEn'>[];
+  random: CollectionEntry<'newsEn'>[];
 }
 
 const { entry, related, random } = Astro.props;
-const { title, description, pubDate, updatedDate, author, tags, cover, coverAlt, source } =
+const { title, description, pubDate, updatedDate, author, tags, cover, coverAlt, source, translationOf } =
   entry.data;
 
 const { Content } = await render(entry);
 
-const dateFormatter = new Intl.DateTimeFormat('es-ES', {
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -52,43 +72,21 @@ const formattedDate = dateFormatter.format(pubDate);
 const formattedUpdated = updatedDate ? dateFormatter.format(updatedDate) : undefined;
 
 const siteBase = Astro.site ?? new URL(SITE.url);
-const canonical = new URL(`/noticias/${entry.id}/`, siteBase).href;
+const canonical = new URL(`/en/news/${entry.id}/`, siteBase).href;
+const esCanonical = new URL(`/noticias/${translationOf}/`, siteBase).href;
 
-// English counterpart, if one exists: drives the hreflang pair in <head> and the
-// visible "read in English" link. Draft EN entries never surface in production
-// (mirrors how draft Spanish articles are excluded there); in dev they do, the
-// same way draft Spanish articles render in dev.
-const allEn = await getCollection('newsEn');
-const enId = allEn.find(
-  (candidate) =>
-    candidate.data.translationOf === entry.id &&
-    (import.meta.env.PROD ? !candidate.data.draft : true),
-)?.id;
-const enHref = enId ? new URL(`/en/news/${enId}/`, siteBase).href : undefined;
-
-// Never feed `cover.src` to the output. Astro keys its asset bookkeeping by the
-// image's output URL and only keeps an original whose recorded source path was
-// referenced while rendering, so when another image in the same entry claims
-// the same URL the cover's file is deleted and every reference to it 404s. An
-// explicitly requested transform is always emitted, so the hero and the share
-// card are built from those instead.
+// Same image rules as the Spanish route: never render `cover.src` directly —
+// request an explicit transform so Astro's asset bookkeeping keeps the file
+// alive (AGENTS.md §14, "Never render cover.src").
 const heroImage = cover ? await getImage({ src: cover, width: 1200, format: 'webp' }) : undefined;
 const shareImage = cover ? await getImage({ src: cover, width: 1200, format: 'jpeg' }) : undefined;
 
 const image = shareImage ? new URL(shareImage.src, siteBase).href : undefined;
-
-// Share card. `BaseLayout` already defaults to the branded banner, but an
-// article deserves its own cover; when it has none it draws from the generic
-// pool so the shared link is never bare and never borrows another article's
-// photo. This is presentation only — `image` above stays the factual
-// `Article.image` in the structured data and is omitted when there is no cover.
 const socialImage = shareImage?.src ?? socialPoolImageFor(entry.id);
 
-// Tutorials live in the same `news` collection but are how-to guides, not news,
-// so they must not be typed as NewsArticle. `Article` is the correct parent
-// type: Google retired HowTo rich results in 2023, so emitting a `HowTo` shape
-// would buy nothing and force a brittle `step` array parsed from the body.
-const articleType = tags[0] === 'Tutoriales' ? 'Article' : 'NewsArticle';
+// Same typing rule as the Spanish route: tutorials are `Article`, not
+// `NewsArticle`. English tags use the English label ("Tutorials" first).
+const articleType = tags[0] === 'Tutorials' ? 'Article' : 'NewsArticle';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -104,8 +102,6 @@ const jsonLd = {
   publisher: {
     '@type': 'Organization',
     name: SITE.title,
-    // Publisher logo, required for the organisation to be eligible for the
-    // knowledge panel / rich results. Square 512x512 derivative of the mark.
     logo: {
       '@type': 'ImageObject',
       url: new URL(BRAND.logo, siteBase).href,
@@ -117,30 +113,36 @@ const jsonLd = {
     '@type': 'WebPage',
     '@id': canonical,
   },
-  inLanguage: 'es',
+  inLanguage: 'en',
   ...(image ? { image: [image] } : {}),
 };
 ---
 
-<BaseLayout title={title} description={description} type="article" image={socialImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  image={socialImage}
+  lang="en"
+  ogLocale="en_US"
+>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    {
-      enHref && (
-        <>
-          <link rel="alternate" hreflang="es" href={canonical} />
-          <link rel="alternate" hreflang="en" href={enHref} />
-          <link rel="alternate" hreflang="x-default" href={canonical} />
-        </>
-      )
-    }
+    <!--
+      hreflang pair with the Spanish original. `x-default` points at the Spanish
+      version: it is the site's primary language and the target for unset or
+      unsupported language preferences.
+    -->
+    <link rel="alternate" hreflang="es" href={esCanonical} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={esCanonical} />
   </Fragment>
 
   <div class="article container container--wide">
     <header class="article__header">
       {
         tags.length > 0 && (
-          <ul class="article__tags" aria-label="Temas">
+          <ul class="article__tags" aria-label="Topics">
             {tags.map((tag) => (
               <li class="article__tag">{tag}</li>
             ))}
@@ -150,16 +152,6 @@ const jsonLd = {
 
       <h1 class="article__title">{title}</h1>
 
-      {
-        enHref && (
-          <p class="article__lang">
-            <a href={new URL(`/en/news/${enId}/`, siteBase).pathname} hreflang="en">
-              Este artículo también está disponible en inglés → Leer en inglés
-            </a>
-          </p>
-        )
-      }
-
       <p class="article__meta">
         <span class="article__author">{author}</span>
         {' · '}
@@ -167,7 +159,7 @@ const jsonLd = {
         {
           updatedDate && formattedUpdated && (
             <span class="article__updated">
-              {' · '}Actualizado el{' '}
+              {' · '}Updated on{' '}
               <time datetime={updatedDate.toISOString()}>{formattedUpdated}</time>
             </span>
           )
@@ -202,7 +194,7 @@ const jsonLd = {
             <circle cx="8.5" cy="8.5" r="1.5" />
             <path d="m21 15-5-5L5 21" />
           </svg>
-          <span>Sin imagen</span>
+          <span>No image</span>
         </div>
       )
     }
@@ -213,9 +205,9 @@ const jsonLd = {
 
     {
       source && (
-        <aside class="article__source" aria-label="Fuente">
+        <aside class="article__source" aria-label="Source">
           <p>
-            Fuente:{' '}
+            Source:{' '}
             <a href={source.url} rel="noopener noreferrer" target="_blank">
               {source.name}
             </a>
@@ -224,15 +216,27 @@ const jsonLd = {
       )
     }
 
-    <StoryList id="related-title" title="Noticias relacionadas" entries={related} />
+    <StoryList
+      id="related-title"
+      title="Related news"
+      entries={related}
+      basePath="/en/news/"
+      locale="en-US"
+    />
 
     <AdSlot />
 
-    <nav class="article__back" aria-label="Volver a noticias">
-      <a href="/noticias/">← Volver a noticias</a>
+    <nav class="article__back" aria-label="Back to home">
+      <a href="/">← Back to TechSpain24</a>
     </nav>
 
-    <StoryList id="random-title" title="Otras noticias" entries={random} />
+    <StoryList
+      id="random-title"
+      title="Other news"
+      entries={random}
+      basePath="/en/news/"
+      locale="en-US"
+    />
   </div>
 </BaseLayout>
 
@@ -264,15 +268,6 @@ const jsonLd = {
     letter-spacing: var(--tracking-tight);
   }
 
-  .article__lang {
-    margin-top: var(--space-3);
-    font-size: var(--text-sm);
-  }
-
-  .article__lang a {
-    color: var(--color-accent);
-  }
-
   .article__meta {
     margin-top: var(--space-4);
     color: var(--color-text-muted);
@@ -299,7 +294,7 @@ const jsonLd = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-3);
+    gap: var(--space-2);
     background-color: var(--color-surface);
     border: var(--border-width) dashed var(--color-border);
     color: var(--color-text-muted);

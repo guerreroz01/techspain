@@ -3,13 +3,20 @@
  * slug-check.mjs — Comprueba si un slug está libre en `src/content/news/`.
  *
  * Uso:
- *   npm run slug -- <slug> [<slug>...]   # uno o varios slugs
- *   npm run slug -- --count              # solo el total de artículos
+ *   npm run slug -- <slug> [<slug>...]   # uno o varios slugs (colección ES)
+ *   npm run slug -- --en <slug> [...]    # slugs de la colección EN (news-en)
+ *   npm run slug -- --count              # solo el total de artículos ES
+ *   npm run slug -- --en --count         # solo el total de artículos EN
  *
  * Por qué existe: para saber qué slugs existen, el agente listaba la carpeta
  * entera (`ls src/content/news/`). Con cientos de artículos eso son ~12 KB de
  * contexto POR LLAMADA, y el listado no dice nada que una consulta puntual no
  * responda. Acá se responde en una línea por slug.
+ *
+ * Colecciones: ES (`src/content/news/`, rutas `/noticias/<slug>/`) y EN
+ * (`src/content/news-en/`, rutas `/en/news/<slug>/`) tienen espacios de nombres
+ * de URL distintos, así que un slug libre en una colección puede estar ocupado
+ * en la otra sin conflictos: por eso el chequeo es explícito por colección.
  *
  * Salida (una línea por slug):
  *   libre   <slug>
@@ -35,11 +42,12 @@ import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const NEWS_DIR = join(__dirname, '..', 'src', 'content', 'news');
+const NEWS_EN_DIR = join(__dirname, '..', 'src', 'content', 'news-en');
 
 /** Nombres de carpeta existentes: cada uno cuenta como slug ocupado. */
-function existingSlugs() {
+function existingSlugs(dir) {
   return new Set(
-    readdirSync(NEWS_DIR, { withFileTypes: true })
+    readdirSync(dir, { withFileTypes: true })
       .filter((entry) => entry.isDirectory())
       .map((entry) => entry.name),
   );
@@ -70,16 +78,20 @@ function normalizeSlug(slug) {
 
 function main() {
   // npm pasa los argumentos después de `--`; se ignora un `--` suelto por si
-  // alguna versión lo reenvía.
-  const args = process.argv.slice(2).filter((arg) => arg !== '--');
+  // alguna versión lo reenvía. `--en` selecciona la colección de traducciones.
+  const raw = process.argv.slice(2).filter((arg) => arg !== '--');
+  const enMode = raw.includes('--en');
+  const args = raw.filter((arg) => arg !== '--en');
 
   if (args.length === 0) {
-    process.stderr.write('Uso: npm run slug -- <slug> [<slug>...] | --count\n');
+    process.stderr.write(
+      'Uso: npm run slug -- <slug> [<slug>...] | --count | --en <slug> [<slug>...] | --en --count\n',
+    );
     process.exitCode = 1;
     return;
   }
 
-  const taken = existingSlugs();
+  const taken = existingSlugs(enMode ? NEWS_EN_DIR : NEWS_DIR);
 
   if (args[0] === '--count') {
     process.stdout.write(`${taken.size}\n`);

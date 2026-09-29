@@ -1,6 +1,19 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+
+/**
+ * Minimal structural shape so the component serves both the Spanish (`news`)
+ * and English (`newsEn`) collections without importing either type.
+ */
+interface StoryListEntry {
+  id: string;
+  data: {
+    title: string;
+    cover?: ImageMetadata;
+    coverAlt?: string;
+    pubDate: Date;
+  };
+}
 
 interface Props {
   /**
@@ -9,12 +22,22 @@ interface Props {
    */
   id: string;
   title: string;
-  entries: CollectionEntry<'news'>[];
+  entries: StoryListEntry[];
+  /**
+   * URL prefix for the item links. Defaults to the Spanish archive
+   * (`/noticias/`); the English route passes `/en/news/`.
+   */
+  basePath?: string;
+  /**
+   * BCP-47 locale for the rendered date. Defaults to `es-ES`; the English
+   * route passes `en-US`.
+   */
+  locale?: string;
 }
 
-const { id, title, entries } = Astro.props;
+const { id, title, entries, basePath = '/noticias/', locale = 'es-ES' } = Astro.props;
 
-const dateFormatter = new Intl.DateTimeFormat('es-ES', {
+const dateFormatter = new Intl.DateTimeFormat(locale, {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -53,7 +76,7 @@ const items = entries.map((entry) => ({
             )}
             <div class="story-list__body">
               <h3 class="story-list__item-title">
-                <a href={`/noticias/${item.id}/`}>{item.title}</a>
+                <a href={`${basePath}${item.id}/`}>{item.title}</a>
               </h3>
               <time class="story-list__date" datetime={item.isoDate}>
                 {item.formattedDate}

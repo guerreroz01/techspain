@@ -40,4 +40,45 @@ const news = defineCollection({
     }),
 });
 
-export const collections = { news };
+// English counterpart of a Spanish article. Deliberately a SEPARATE collection:
+// every existing consumer of `news` (home, archive, RSS, `buscar.json`,
+// `sitemap-news`, `articulos-publicados`, the sitemap date reader) keeps reading
+// only the Spanish corpus and can never leak an English article. Entries live in
+// `src/content/news-en/<english-slug>/`, so `entry.id` is the English URL slug
+// under `/en/news/`.
+const newsEn = defineCollection({
+  loader: glob({
+    base: './src/content/news-en',
+    pattern: '**/*.{md,mdx}',
+    generateId: ({ entry }) =>
+      entry.replace(/\/index\.(md|mdx)$/i, '').replace(/\.(md|mdx)$/i, ''),
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      // English byline, not `SITE.author` ('Redacción TechSpain24'): the default
+      // must read as English on an English page if a writer omits the field.
+      author: z.string().default('TechSpain24 Staff'),
+      tags: z.array(z.string()).default([]),
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+      source: z
+        .object({
+          name: z.string(),
+          url: z.string().url(),
+        })
+        .optional(),
+      draft: z.boolean().default(false),
+      // Spanish counterpart: the `news` entry id (ES slug) this translates.
+      // Required — the build fails if it does not resolve to a Spanish entry
+      // (see `src/pages/en/news/[slug].astro`).
+      translationOf: z.string(),
+      // NOTE: no `featured`/`breaking`. Promotion is decided on the Spanish
+      // entry only; the English page is a translation, not a newsroom pick.
+    }),
+});
+
+export const collections = { news, newsEn };
