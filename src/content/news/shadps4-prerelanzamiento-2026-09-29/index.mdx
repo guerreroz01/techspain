@@ -1,0 +1,32 @@
+---
+title: 'shadPS4 publica una preversión que corrige varios ajustes de configuración'
+description: 'La preversión de shadPS4 del 29 de septiembre corrige ajustes que no se aplicaban y reorganiza una opción de protección para Windows.'
+pubDate: 2026-09-29
+author: 'Redacción TechSpain24'
+tags: ['Emuladores', 'shadPS4', 'PlayStation 4']
+featured: false
+breaking: false
+source:
+  name: 'shadPS4'
+  url: 'https://github.com/shadps4-emu/shadPS4/releases/tag/Pre-release-shadPS4-2026-09-29-736b5ba8c2497b89f8f413067aef5a321b2382e4'
+---
+
+El proyecto **shadPS4** ha publicado la preversión `2026-09-29-736b5ba`, identificada por el *commit* `736b5ba`. Esta compilación se centra en corregir el funcionamiento de varios ajustes de configuración y mantiene disponibles paquetes para Windows, Ubuntu, Linux con SDL y macOS con SDL.
+
+## La preversión de shadPS4 corrige ajustes que no se estaban leyendo
+
+El cambio principal resuelve la implementación de las opciones `userfaultfd` e `inline_fetch_shader`, añadidas recientemente. Según el historial del proyecto, ambas estaban presentes en la configuración, pero no se leían correctamente.
+
+La versión también mueve la opción de protección de zona roja para invitados de Windows a la categoría general de ajustes. En la interfaz pasa de ser un selector a una casilla de activación y requiere reiniciar el emulador.
+
+## Compatibilidad con configuraciones ya existentes
+
+El proyecto conserva compatibilidad con la configuración anterior de protección de zona roja en perfiles por juego. Esa conversión evita que quien ya utilizaba el ajuste tenga que modificar manualmente sus archivos de configuración tras instalar la preversión.
+
+La corrección afecta al comportamiento de los ajustes, no anuncia una ampliación concreta de compatibilidad de juegos. Por ello, la actualización es especialmente relevante para usuarios que empleen perfiles personalizados o las opciones técnicas corregidas.
+
+## Descargas para cuatro plataformas
+
+La publicación incluye archivos para Windows de 64 bits, Ubuntu de 64 bits, Linux con SDL y macOS con SDL. Al tratarse de una preversión, conviene revisar la procedencia de cada descarga y conservar una configuración conocida antes de sustituir una instalación que ya funcione.
+
+El registro oficial de la versión enlaza además el historial completo de cambios desde la versión `0.18.0` hasta este *commit*.

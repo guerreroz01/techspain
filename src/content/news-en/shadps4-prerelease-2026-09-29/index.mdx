@@ -1,0 +1,31 @@
+---
+title: 'shadPS4 publishes a pre-release that fixes several configuration settings'
+description: 'The 29 September shadPS4 pre-release fixes settings that were not being applied and reorganises a Windows protection option.'
+pubDate: 2026-09-29
+author: 'TechSpain24 Staff'
+tags: ['Emulators', 'shadPS4', 'PlayStation 4']
+source:
+  name: 'shadPS4'
+  url: 'https://github.com/shadps4-emu/shadPS4/releases/tag/Pre-release-shadPS4-2026-09-29-736b5ba8c2497b89f8f413067aef5a321b2382e4'
+translationOf: 'shadps4-prerelanzamiento-2026-09-29'
+---
+
+The **shadPS4** project has published the `2026-09-29-736b5ba` pre-release, identified by commit `736b5ba`. This build focuses on fixing several configuration settings and provides packages for Windows, Ubuntu, Linux with SDL and macOS with SDL.
+
+## The shadPS4 pre-release fixes settings that were not being read
+
+The main change fixes the implementation of the recently added `userfaultfd` and `inline_fetch_shader` settings. According to the project history, both were present in the configuration but were not being read correctly.
+
+The release also moves the Windows guest red-zone protection option into the general settings category. In the interface, it changes from a selector to a checkbox and requires an emulator restart.
+
+## Compatibility with existing configurations
+
+The project retains compatibility with the previous red-zone protection configuration in per-game profiles. That conversion means users who already used the setting do not need to edit their configuration files manually after installing the pre-release.
+
+The fix concerns how settings behave; it does not announce a specific expansion of game compatibility. The update is therefore particularly relevant to users with custom profiles or the corrected technical options.
+
+## Downloads for four platforms
+
+The release includes files for 64-bit Windows, 64-bit Ubuntu, Linux with SDL and macOS with SDL. As this is a pre-release, users should verify the source of each download and keep a known working configuration before replacing an existing installation.
+
+The official release record also links to the full changelog from version `0.18.0` to this commit.

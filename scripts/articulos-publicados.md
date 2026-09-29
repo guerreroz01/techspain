@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 572 artículos. Actualizado: 2026-09-27
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 617 artículos. Actualizado: 2026-09-28
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -579,3 +579,48 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-27 | Vita3K-nx 1.3.1 lleva la emulación de PS Vita a Nintendo Switch con más juegos compatibles | [vita3k-playstation-vita-emulador](https://www.techspain24.com/noticias/vita3k-playstation-vita-emulador/) |
 | 2026-09-27 | watchOS 27: las 12 novedades que llegan a tu Apple Watch | [watchos-27-novedades](https://www.techspain24.com/noticias/watchos-27-novedades/) |
 | 2026-09-27 | Xiaomi permite usar el Apple Watch con sus móviles con HyperOS 4 | [xiaomi-apple-watch-hyperos](https://www.techspain24.com/noticias/xiaomi-apple-watch-hyperos/) |
+| 2026-09-28 | Antec lanza las fuentes HCG Pro Platinum con ATX 3.1 y certificado 80 Plus Platino | [antec-hcg-pro-platinum](https://www.techspain24.com/noticias/antec-hcg-pro-platinum/) |
+| 2026-09-28 | Atmosphere 1.12.0 ya funciona con el firmware 23.0.0 de Nintendo Switch | [atmosphere-1-12-firmware-23](https://www.techspain24.com/noticias/atmosphere-1-12-firmware-23/) |
+| 2026-09-28 | Bajar la frecuencia de actualización de la pantalla alarga la batería de un portátil con Windows 11 | [windows-11-pantalla-bateria](https://www.techspain24.com/noticias/windows-11-pantalla-bateria/) |
+| 2026-09-28 | Bloodgrounds podría llegar a Nintendo Switch 2 tras aparecer en la clasificación de Taiwán | [bloodgrounds-switch-2](https://www.techspain24.com/noticias/bloodgrounds-switch-2/) |
+| 2026-09-28 | Colorful presenta su caja Battle Axe Black Blade: gráficas de hasta 390 mm y nueve ventiladores | [colorful-caja-390mm-9-ventiladores](https://www.techspain24.com/noticias/colorful-caja-390mm-9-ventiladores/) |
+| 2026-09-28 | Diez reproductores de vídeo para Android gratuitos y sin publicidad, según MuyComputer | [reproductores-video-android](https://www.techspain24.com/noticias/reproductores-video-android/) |
+| 2026-09-28 | DS Style, el kernel que lleva el menú de Nintendo DS al EZ-Flash Omega | [ds-style-ez-flash](https://www.techspain24.com/noticias/ds-style-ez-flash/) |
+| 2026-09-28 | El Galaxy A16 estrena programa beta de One UI 9.0 con Android 17 | [galaxy-a16-one-ui-9](https://www.techspain24.com/noticias/galaxy-a16-one-ui-9/) |
+| 2026-09-28 | El GEEKOM A5 Pro 2026 Edition baja a 439 euros con cupón: mini PC con Ryzen 7 | [geekom-a5-pro-descuento](https://www.techspain24.com/noticias/geekom-a5-pro-descuento/) |
+| 2026-09-28 | El Honor Magic 9 Pro Max anota 5,52 millones de puntos en AnTuTu y supera al OnePlus 16 | [honor-magic9-pro-max-antutu](https://www.techspain24.com/noticias/honor-magic9-pro-max-antutu/) |
+| 2026-09-28 | El Poco F9 Ultra se estrena en la gama alta con pantalla de 185 Hz y 8.050 mAh por 1.099 euros | [poco-f9-ultra-analisis](https://www.techspain24.com/noticias/poco-f9-ultra-analisis/) |
+| 2026-09-28 | El portátil Colorful Inheritance P15 gana una edición «Panda» con RTX 3050 por 6.299 yuanes | [colorful-p15-panda](https://www.techspain24.com/noticias/colorful-p15-panda/) |
+| 2026-09-28 | El presupuesto de 'PHYSINT' en Xbox sería muy inferior a los 400 millones que planeaba PlayStation | [kojima-physint-presupuesto](https://www.techspain24.com/noticias/kojima-physint-presupuesto/) |
+| 2026-09-28 | El puerto de Arx Fatalis para Switch estrena una compilación no oficial para el firmware 22.5.0 | [arx-fatalis-switch](https://www.techspain24.com/noticias/arx-fatalis-switch/) |
+| 2026-09-28 | El RedMagic 12 Pro+ se presentará el 15 de octubre con el Snapdragon 8 Elite Extreme Gen 6 | [redmagic-12-pro-plus](https://www.techspain24.com/noticias/redmagic-12-pro-plus/) |
+| 2026-09-28 | El vivo WATCH 6 se pone a la venta con cristal de zafiro y titanio desde 999 yuanes | [vivo-watch-6](https://www.techspain24.com/noticias/vivo-watch-6/) |
+| 2026-09-28 | El vivo X Fold6 apuntaría al 1 de octubre para su lanzamiento global y al 6 para India | [vivo-x-fold6-global](https://www.techspain24.com/noticias/vivo-x-fold6-global/) |
+| 2026-09-28 | Expertos coreanos advierten: China está a solo dos años en memoria HBM | [corea-hbm-brecha-2-anos](https://www.techspain24.com/noticias/corea-hbm-brecha-2-anos/) |
+| 2026-09-28 | Great Wall lanza una fuente de 230 W con triple protección por 149 yuanes | [great-wall-fuente-230w-149](https://www.techspain24.com/noticias/great-wall-fuente-230w-149/) |
+| 2026-09-28 | GTA 2 también recibe mejora gráfica: un desarrollador usa RTX Remix para añadir ray tracing al clásico de 1999 | [gta-2-rtx-remix](https://www.techspain24.com/noticias/gta-2-rtx-remix/) |
+| 2026-09-28 | Guía de exploit de PS5: preparación de la consola y jailbreak paso a paso | [guia-exploit-ps5](https://www.techspain24.com/noticias/guia-exploit-ps5/) |
+| 2026-09-28 | Honor presenta el HONOR Life S3, lector de tinta electrónica de 61 gramos con sujeción magnética | [honor-life-lector-s3](https://www.techspain24.com/noticias/honor-life-lector-s3/) |
+| 2026-09-28 | Honor Watch 6 Pro: cerámica nanocristalina y OLED de doble capa desde 1.699 yuanes | [honor-watch-6-pro](https://www.techspain24.com/noticias/honor-watch-6-pro/) |
+| 2026-09-28 | Intel acelera el intercambio de memoria en caliente: 512 GB en 7 segundos en Linux | [intel-hot-swap-512gb-7-segundos](https://www.techspain24.com/noticias/intel-hot-swap-512gb-7-segundos/) |
+| 2026-09-28 | Intel prepara su memoria ZAM: 512 GB por chip y la mitad de consumo que la HBM | [intel-zam-512gb-hbm](https://www.techspain24.com/noticias/intel-zam-512gb-hbm/) |
+| 2026-09-28 | iPhone 17 Pro frente a iPhone 18 Pro: qué cambia y si compensa actualizar | [iphone-17-vs-18-pro](https://www.techspain24.com/noticias/iphone-17-vs-18-pro/) |
+| 2026-09-28 | Kasumi lleva GeForce NOW a la New 3DS con un cliente no oficial en beta pública | [kasumi-geforce-now-3ds](https://www.techspain24.com/noticias/kasumi-geforce-now-3ds/) |
+| 2026-09-28 | La RTX 4090 funde su conector de alimentación aunque use el adaptador original y limite la potencia al 80 % | [rtx-4090-conector-quemado](https://www.techspain24.com/noticias/rtx-4090-conector-quemado/) |
+| 2026-09-28 | La serie Oppo F35 se estrenará el 5 de octubre en India con una cámara frontal ultra gran angular de 50 MP | [oppo-f35-octubre](https://www.techspain24.com/noticias/oppo-f35-octubre/) |
+| 2026-09-28 | Maxsun elimina la ranura PCIe x16: su placa Z890 ITX saca la gráfica por cable MCIO | [maxsun-z890-itx-mcio-externa](https://www.techspain24.com/noticias/maxsun-z890-itx-mcio-externa/) |
+| 2026-09-28 | Meta presenta "Hologram", avatares virtuales fotorrealísticos; llegan este otoño a las Ray-Ban Display y a un nuevo visor ligero | [meta-hologram-avatares](https://www.techspain24.com/noticias/meta-hologram-avatares/) |
+| 2026-09-28 | Microsoft descarta que Surface compita contra el MacBook Neo: «No tenemos que estar en todos los terrenos» | [surface-vs-macbook-neo](https://www.techspain24.com/noticias/surface-vs-macbook-neo/) |
+| 2026-09-28 | MSI lanza tres placas base AM4 con chipset B550 para capear la crisis de la memoria | [msi-am4-memopocalipsis](https://www.techspain24.com/noticias/msi-am4-memopocalipsis/) |
+| 2026-09-28 | Need for Speed: Most Wanted (2005) ya corre en Nintendo Switch como port nativo | [nfs-most-wanted-switch](https://www.techspain24.com/noticias/nfs-most-wanted-switch/) |
+| 2026-09-28 | Nextorage estrena su submarca N/U con una caja RAID M.2, un SSD SATA y un llavero USB | [nextorage-n-u](https://www.techspain24.com/noticias/nextorage-n-u/) |
+| 2026-09-28 | OnePlus 16: presentación el 12 de octubre con juego a 185 FPS y pantalla de 185 Hz | [oneplus-16-lanzamiento-12-octubre](https://www.techspain24.com/noticias/oneplus-16-lanzamiento-12-octubre/) |
+| 2026-09-28 | Oppo Reno 16t se estrena en China con cámaras de 200 MP y batería de 6.700 mAh | [oppo-reno16t](https://www.techspain24.com/noticias/oppo-reno16t/) |
+| 2026-09-28 | OptiScaler 0.3.4.1 lleva el renderizado neuronal a las RX 9000: una RX 9070 XT roza los 130 FPS con trazado completo | [amd-renderizado-neuronal-rx-9000](https://www.techspain24.com/noticias/amd-renderizado-neuronal-rx-9000/) |
+| 2026-09-28 | Samsung abre la beta de One UI 9.0 (Android 17) para el Galaxy A54 | [galaxy-a54-one-ui-9](https://www.techspain24.com/noticias/galaxy-a54-one-ui-9/) |
+| 2026-09-28 | Toda la serie Xiaomi 18 Pro usa flash TLC: ninguna versión incorpora QLC | [xiaomi-18-pro-tlc](https://www.techspain24.com/noticias/xiaomi-18-pro-tlc/) |
+| 2026-09-28 | Twilight Princess corre en Nintendo Switch con Dusk, una reimplementación nativa no oficial | [twilight-princess-switch-dusk](https://www.techspain24.com/noticias/twilight-princess-switch-dusk/) |
+| 2026-09-28 | Un fabricante chino de móviles probaría baterías de acero con celdas apiladas | [baterias-acero-apiladas](https://www.techspain24.com/noticias/baterias-acero-apiladas/) |
+| 2026-09-28 | Un mini PC Kubb Fanless fabricado en oro de 24 quilates llega a 1,7 millones de dólares | [kubb-fanless-oro](https://www.techspain24.com/noticias/kubb-fanless-oro/) |
+| 2026-09-28 | VAIO estrena en Japón la edición especial «Kachi-iro» de su portátil convertible T, con Core Ultra X7 y 64 GB | [vaio-edicion-especial](https://www.techspain24.com/noticias/vaio-edicion-especial/) |
+| 2026-09-28 | WIKO Hi MateBook 14 edición Core: OLED de 2,8K, Core Ultra 5 325 y 24 GB por 8.199 yuanes | [wiko-hi-matebook-14](https://www.techspain24.com/noticias/wiko-hi-matebook-14/) |
