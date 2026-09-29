@@ -16,6 +16,7 @@ Load this skill when the user asks to write or publish a technology news article
 - Article body AND all frontmatter copy in Spanish, neutral/professional register. No slang, no voseo.
 - Slug (the entry folder name, which **is** the article URL) in **Spanish**, derived from the Spanish headline: kebab-case, lowercase, ASCII (accents dropped, `ñ` → `n`). Code and identifiers stay in English. Each entry lives at `src/content/news/<slug>/index.mdx`.
 - **Never rename the slug of an already published article.** Older English slugs are indexed by Google and stay as they are; the Spanish rule applies only to new entries.
+- **Every new article ships with an English companion** in the same run: `src/content/news-en/<english-slug>/index.mdx`, the same story translated, with `translationOf: <es-slug>` pointing back at the Spanish entry. The English slug is fully English (kebab-case, lowercase, ASCII) and is checked with `npm run slug -- --en <slug>`. Articles published before this workflow stay Spanish-only: never backfill them.
 - Editorial scope: cover only the 9 verticals — componentes de PC, portátiles, consolas (portátiles y de sobremesa), tarjetas gráficas, memorias, móviles, wearables (relojes, anillos y gafas inteligentes), emuladores de videojuegos y tutoriales (guías how-to/paso a paso). Put the primary vertical as the first `tags` entry.
 - Una pieza sobre emulación de videojuegos usa `Emuladores` como vertical principal, incluso cuando trate de una consola concreta: el emulador es el tema, la consola es el huésped. La vertical es agnóstica del sistema anfitrión — cubre emuladores de consola en Windows, macOS, Linux y Android; el host va como tag secundario. Excepto si es una guía paso a paso, que va a `Tutoriales`.
 - Never copy source text verbatim: translate and rewrite in your own words. Always attribute via `source: { name, url }`.
@@ -58,8 +59,9 @@ Common to both piece types:
 2. Select the pieces worth publishing. For each, create `src/content/news/<slug>/assets/` and download every content image there (first image as `cover`).
 3. Write `src/content/news/<slug>/index.mdx` using `assets/frontmatter-template.md`, referencing `./assets/<name>` for the cover and embedding extra images inline.
 4. Run the pre-publish SEO pass on the finished `index.mdx`: load the resolved article SEO contract, apply the fixes it returns, and record what changed.
-5. Set `draft: false` and fill `source` with the ultimate origin.
-6. Run `npm run build` and confirm it passes. When articles are delegated, the orchestrator runs a single build at the end; a subagent never runs it.
+5. Write the English companion at `src/content/news-en/<english-slug>/index.mdx` (see the «English companion version» section below).
+6. Set `draft: false` and fill `source` with the ultimate origin.
+7. Run `npm run build` and confirm it passes. When articles are delegated, the orchestrator runs a single build at the end; a subagent never runs it.
 
 News path (`noticia`):
 
@@ -78,9 +80,21 @@ Tutorial path (`tutorial`):
 4. Skip the news gates: no `es-competition` saturation check, no `primary` confirmation, no contrast with `tech-media`/`reviews`.
 5. Attribute the ultimate origin in `source` exactly as in the news path, and set `pubDate` to today (`YYYY-MM-DD`).
 
+## English companion version (`news-en`)
+
+Each Spanish article has its own English page at `/en/news/<english-slug>/`. Both entries are written in the same run:
+
+1. **Spanish first, English second.** The Spanish `index.mdx` (SEO pass included) is the master; the English entry is a faithful translation of the FINAL Spanish text — same facts, same structure, same attributions, neutral English register.
+2. Create `src/content/news-en/<english-slug>/index.mdx`:
+   - **English slug**: fully English (derived from the English headline), kebab-case, lowercase, ASCII. Check it with `npm run slug -- --en <english-slug>`; it lives in a separate namespace, so it may differ from the Spanish slug.
+   - **Frontmatter**: `title`, `description` (translated), `pubDate` (identical to the Spanish entry), `updatedDate` if any, `author: 'TechSpain24 Staff'`, `tags` translated to English (`Tutoriales` → `Tutorials` and still first for tutorials), `source` with the SAME `name`/`url` as the Spanish entry, `draft: false`, and the required **`translationOf: <es-slug>`**. There are NO `featured`/`breaking` fields in this collection — promotion stays a Spanish-entry decision.
+   - **Images**: copy each used image into the English entry's own `assets/` folder and reference them relatively (`./assets/<name>`), mirroring the Spanish entry.
+3. **No separate SEO pass** on the English entry: it mirrors the already-optimized Spanish one. Never invent or drop facts while translating.
+4. Validations the build enforces: `translationOf` must resolve to an existing Spanish entry (build fails otherwise), and in production an English article is hidden while its Spanish counterpart is a draft.
+
 ## Output Contract
 
-Return: the list of created files (articles and downloaded images); for each article the ultimate origin used and the original article URL(s); the SEO changes applied, one line per change; and confirmation the build passed. Do not report an article as done without a valid MDX file and a passing build.
+Return: the list of created files (Spanish articles, their English companions, and downloaded images); for each article the ultimate origin used and the original article URL(s); the English slug chosen for each companion; the SEO changes applied, one line per change; and confirmation the build passed. Do not report an article as done without a valid MDX file for BOTH languages and a passing build.
 
 ## References
 

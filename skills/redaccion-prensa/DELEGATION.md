@@ -7,8 +7,9 @@ de escribir el orquestador, se delega **un subagente por artículo**, todos en p
 
 - Un subagente (`general`) por artículo. No reutilizar el mismo subagente para varios.
 - Todos se lanzan en **una sola respuesta** (múltiples llamadas `task`) para que corran en paralelo.
-- Cada subagente escribe una carpeta distinta (`src/content/news/<slug>/`), así que no hay
-  solapamiento de archivos. No usar `background` en escritores.
+- Cada subagente escribe dos carpetas: `src/content/news/<slug>/` (español) y
+  `src/content/news-en/<english-slug>/` (inglés). Son carpetas distintas por
+  artículo, así que no hay solapamiento entre subagentes. No usar `background` en escritores.
 - Emitir una línea de estado antes y después de cada llamada (`⏳ Delegating …`, `✅/⚠️ …`).
 
 ## Pasos previos a delegar (orquestador)
@@ -70,13 +71,15 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
 - Tipo de pieza: `{tipo}` (`noticia` | `tutorial`)
 - URL original: `{article_url}`
 - Slug (carpeta, kebab-case **en español**, minúsculas y ASCII): `{slug}`
+- Slug EN (carpeta en inglés): lo elegís **vos**, derivado del titular en inglés,
+  kebab-case minúsculas ASCII; verificalo con `npm run slug -- --en <english-slug>`.
 - Vertical (primer elemento de `tags`): `{vertical}`
 - Fuente a atribuir en `source`: `{source_name}`
 - Fecha de hoy (`pubDate`): `{fecha_de_hoy}` — calculada al delegar, nunca un literal fijo.
 
 **Reglas no negociables:**
 - Cuerpo y frontmatter en español neutro/profesional (sin voseo, sin slang). El slug va en español (es la URL); los identificadores de código, en inglés.
-- Estructura por directorio: `src/content/news/{slug}/index.mdx` + `src/content/news/{slug}/assets/`.
+- Estructura por directorio: `src/content/news/{slug}/index.mdx` + `src/content/news/{slug}/assets/`, y **además** el compañero en inglés `src/content/news-en/<english-slug>/index.mdx` + `assets/` (ver «Compañero en inglés» más abajo). **Ambas piezas son obligatorias**: sin la inglesa, el artículo no está terminado.
 - Descarga TODAS las imágenes del artículo original a `assets/` con curl (añade `-A` con un User-Agent de navegador). La principal como `cover` (`./assets/cover.jpg` o `.png` según extensión); el resto embebidas con `![alt](./assets/x.jpg)`.
 - **No listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo): son cientos de entradas y cada listado quema ~12 KB de contexto. Tu slug y tu carpeta ya vienen dados. Para ver si un tema ya está cubierto, usá `npm run find -- <términos distintivos>`. **Si tu pieza ya está publicada, pará y reportalo: no la escribas.**
 - No copies verbatim: traduce y reescribe con tus palabras. No inventes datos, citas ni cifras.
@@ -91,9 +94,37 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
    - `noticia`: 2-4 secciones con subtítulos, con contexto para el lector hispanohablante.
    - `tutorial`: guía paso a paso (ver «Variante: tutoriales»).
 4. Ejecutá la pasada de SEO pre-publicación (`{seo_contract_path}`) sobre el `index.mdx` terminado: aplicá las correcciones que devuelva y registrá qué cambió. Nunca toques `title`, `tags`, `featured`, `breaking` ni `pubDate`.
-5. **NO ejecutes el build.** El orquestador hará un único `npm run build` al final, después de recoger todos los resultados.
+5. Escribí el **compañero en inglés** (ver «Compañero en inglés»): `src/content/news-en/<english-slug>/index.mdx`, traducción fiel del texto YA FINALIZADO en español, con las imágenes copiadas a su propia `assets/`.
+6. **NO ejecutes el build.** El orquestador hará un único `npm run build` al final, después de recoger todos los resultados.
 
-**Devuelve en tu único mensaje final:** slug final (si la pasada SEO renombró la carpeta, el nuevo), título final, fuente atribuida, imagen(es) usada(s) y los cambios de SEO aplicados (uno por línea). No ejecutes el build.
+**Devuelve en tu único mensaje final:** slug final (si la pasada SEO renombró la carpeta, el nuevo), **slug EN final**, título final, título EN, fuente atribuida, imagen(es) usada(s) y los cambios de SEO aplicados (uno por línea). No ejecutes el build.
+
+---
+
+## Compañero en inglés (obligatorio)
+
+Todo artículo nuevo de este flujo publica DOS URLs: `/noticias/<slug>/` (español, el
+maestro) y `/en/news/<english-slug>/` (inglés, traducción). La página inglesa se
+genera de esta entrada, así que si falta, el artículo queda a medio publicar.
+
+- **Slug EN:** derivado del **titular en inglés**, kebab-case minúsculas ASCII.
+  Namespace separado del español (puede coincidir o no). Verificalo con
+  `npm run slug -- --en <english-slug>`.
+- **Frontmatter EN:** `title`, `description` (traducidos), `pubDate` igual al
+  español, `updatedDate` si existe, `author: 'TechSpain24 Staff'`, `tags`
+  traducidos al inglés (**`Tutorials` va primero en tutoriales**), `source` con
+  el **mismo** `name`/`url` que la pieza española, `draft: false`, y
+  **`translationOf: {slug}`** (el slug español al que traduce). **No** lleva
+  `featured` ni `breaking`: esos campos no existen en esta colección y la
+  promoción es solo decisión de la pieza española.
+- **Cuerpo EN:** traducción fiel del español final a inglés neutro
+  (profesional, sin slang): mismos hechos, misma estructura, mismas imágenes.
+  Copiá cada imagen usada a `src/content/news-en/<english-slug>/assets/` y
+  referencialas con `./assets/<nombre>`. No inventes ni omitas datos al traducir.
+- **Sin pasada SEO en inglés:** la pieza EN espeja la española ya optimizada.
+- Si el `translationOf` no apunta a un artículo español existente, **el build
+  falla**; y en producción la versión EN se oculta mientras la española siga en
+  `draft: true`.
 
 ---
 
