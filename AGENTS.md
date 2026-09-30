@@ -32,6 +32,7 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 | Preview a build | `npm run preview` |
 | News candidates | `npm run news` (see section 16) |
 | Regenerate the published index | `npm run index` (see section 7) |
+| Validate built sitemaps | `npm run test:sitemaps` (validates the sitemap output in `dist/`, see section 10) |
 
 - The dev server runs at **http://localhost:4321/**.
 - **Always start the dev server in background mode.** Do not run it in the foreground.
@@ -79,6 +80,7 @@ blog/
 ├── scripts/
 │   ├── daily-news.mjs            # RSS candidate fetcher + classifier (see section 16)
 │   ├── index-published.mjs       # regenerates articulos-publicados.md (see section 7)
+│   ├── validate-sitemaps.mjs     # validates dist/ sitemap output (see section 10)
 │   └── articulos-publicados.md   # contrast index: every published article (generated)
 ├── skills/
 │   └── redaccion-prensa/         # press-writing skill + delegation playbook
@@ -119,12 +121,12 @@ blog/
     │   │   └── news/
     │   │       └── [slug].astro  # /en/news/<english-slug>/ (English article)
     │   ├── index.astro           # / (home)
+    │   ├── news-sitemap.xml.ts   # /news-sitemap.xml (Google News)
     │   ├── noticias/
     │   │   ├── [...page].astro   # /noticias/ and /noticias/<page>/ (paginated archive)
     │   │   └── [slug].astro      # /noticias/<slug>/ (article)
     │   ├── privacidad.astro      # /privacidad (RGPD data-protection policy)
-    │   ├── rss.xml.js            # /rss.xml
-    │   └── sitemap-news.xml.ts   # /sitemap-news.xml (Google News)
+    │   └── rss.xml.js            # /rss.xml
     └── styles/
         ├── global.css            # reset, base, .container, .prose
         └── tokens.css            # ← DESIGN SYSTEM SOURCE OF TRUTH
@@ -223,16 +225,16 @@ Token groups: `--color-*`, `--font-*`, `--text-*`, `--leading-*`, `--measure`, `
 | `/cookies` | `src/pages/cookies.astro` | Cookie policy + inventory + revocation |
 | `/buscar.json` | `src/pages/buscar.json.ts` | Search index of published articles (`{ title, url }`) |
 | `/rss.xml` | `src/pages/rss.xml.js` | RSS feed |
-| `/sitemap-index.xml` | generated | XML sitemap (via `@astrojs/sitemap`) |
-| `/sitemap-news.xml` | `src/pages/sitemap-news.xml.ts` | Google News sitemap |
+| `/sitemap-index.xml` | generated | XML sitemap (via `@astrojs/sitemap`); also references `/news-sitemap.xml` |
+| `/news-sitemap.xml` | `src/pages/news-sitemap.xml.ts` | Google News sitemap, strict 48 h window, ES + EN articles |
 | `/robots.txt` | `public/robots.txt` | Crawler rules + sitemap references |
 
 ## 10. Content indexing (SEO)
 
 How content becomes discoverable by search engines:
 
-- **XML sitemap** — `@astrojs/sitemap` generates `sitemap-index.xml` → `sitemap-0.xml` with every route. Needs `site` in `astro.config.mjs` to build absolute URLs. The legal pages (`/aviso-legal/`, `/privacidad/`, `/cookies/`) are excluded through the `filter` option and additionally emit `<meta name="robots" content="noindex, follow">` via the `noindex` prop of `BaseLayout`. Both are deliberate. They are **not** disallowed in `public/robots.txt`: a crawler blocked from fetching a page never reads its `noindex` tag, which would leave the URL eligible to be indexed as a bare link. They are linked from the footer.
-- **Google News sitemap** — `src/pages/sitemap-news.xml.ts` emits `news:news` entries. **Google only accepts articles published in the last 48 hours**; the endpoint filters to that window and falls back to the 10 most recent when nothing qualifies (so the demo is never empty).
+- **XML sitemap** — `@astrojs/sitemap` generates `sitemap-index.xml` → `sitemap-0.xml` with every route, and the `customSitemaps` option makes the index **also reference `/news-sitemap.xml`**, so `/sitemap-index.xml` is the single source of truth for the whole sitemap architecture. Needs `site` in `astro.config.mjs` to build absolute URLs. Two exclusions go through the `filter` option, and both stay crawlable: the legal pages (`/aviso-legal/`, `/privacidad/`, `/cookies/`) are excluded on explicit editorial request and additionally emit `<meta name="robots" content="noindex, follow">` via the `noindex` prop of `BaseLayout`; the archive pagination pages (`/noticias/2/`, `/noticias/3/`, …) are listings we do not promote, so they are kept out of `sitemap-0` while remaining discoverable through the links on `/noticias/`. Neither group is disallowed in `public/robots.txt`: a crawler blocked from fetching a page never reads its `noindex` tag, which would leave the URL eligible to be indexed as a bare link. The legal pages are linked from the footer.
+- **Google News sitemap** — `src/pages/news-sitemap.xml.ts` emits `/news-sitemap.xml` with `news:news` entries for **both** collections: Spanish articles (`/noticias/<slug>/`, `news:language` `es`) and their English companions (`/en/news/<slug>/`, `news:language` `en`). **Google only accepts articles published in the last 48 hours** and the window is strict: only entries whose `pubDate` falls inside it are emitted — computed at build time, since the output is static — and when nothing qualifies the endpoint returns an empty `<urlset>` instead of padding the feed with older articles. The endpoint is referenced from `/sitemap-index.xml` (via `customSitemaps`) and from `robots.txt`, and `npm run test:sitemaps` validates its output after a build. Its former path `/sitemap-news.xml` answers with a 301 to it (`redirects` in `astro.config.mjs`), so URLs that were already advertised keep working.
 - **robots.txt** — `public/robots.txt` allows crawling and points to both sitemaps. **Its URLs are hardcoded to `https://www.techspain24.com`** and must be updated together with `site`.
 - **Structured data** — article pages inject JSON-LD `NewsArticle` (headline, description, dates, author, image, publisher, `inLanguage: "es"`) through the `head` slot in `BaseLayout`. The `publisher` node carries a `logo` (`public/logo-512.png`); without it the organisation is not eligible for the knowledge panel.
 - **Social card** — `BaseLayout` emits `og:image` and `twitter:image` on **every** page and `twitter:card` is always `summary_large_image`. The `image` prop defaults to `BRAND.socialBanner` (the branded 1200×630 card). Article pages pass a 1200px JPEG transform of their own cover, built with `getImage()`; an article with no cover falls back to `socialPoolImageFor(entry.id)`, a deterministic pick from `BRAND.socialPool`. Determinism matters: crawlers cache by URL, so a rotating pick would make every re-share look like a new asset.
@@ -247,7 +249,7 @@ How content becomes discoverable by search engines:
 - **The declared `site` must be the host that actually serves 200.** In Vercel, `www.techspain24.com` is the primary domain and the bare apex `techspain24.com` 308-redirects to it. Pointing `site` at the apex made every canonical, every sitemap entry (277 of them) and both `robots.txt` sitemap references advertise a redirecting URL, and Google Search Console reported the whole site as "page with redirect". If the primary domain ever changes in Vercel, `astro.config.mjs`, `public/robots.txt` and the `SITE.url` fallback in `src/consts.ts` must change with it — that is the one place where the three can silently drift.
 - `public/robots.txt` references the same domain — keep both files in sync if it ever changes.
 - `/noticias/<slug>` and `/noticias/<slug>/` both return 200 (Astro's default `trailingSlash: 'ignore'`). The trailing-slash form is the canonical one, so the duplicate is resolved by the `canonical` tag rather than by a redirect.
-- The 48-hour news window means a quiet site will produce a near-empty news sitemap. That is expected behavior, not a bug.
+- The 48-hour news window means a quiet site will produce an empty news sitemap (a valid empty `<urlset>`). That is expected behavior, not a bug.
 
 ## 11. Ads & Analytics
 
@@ -313,8 +315,8 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 - **Inline article images and `height: auto` — do not "clean up" this rule.** Astro's markdown pipeline emits `width` and `height` attributes on every inline body image. Those attributes are a presentational hint, so a reset with only `max-width: 100%` constrained the width while the attribute height stayed fixed: on mobile every inline image rendered vertically stretched (measured 342×1672 px for a 1920×1672 source, roughly 5.6× too tall). `img { height: auto }` in `global.css` is what preserves the intrinsic ratio. It cannot be dropped while the attributes are present, and it is inert for the cover/thumbnail components because those set their own `aspect-ratio` + `object-fit` and carry no size attributes.
 - **Rendering**: use `getCollection('news')`, `getEntry('news', id)`, and `render(entry)` from `astro:content`.
 - **Heading levels in cards**: `NewsCard.astro` and `StoryCard.astro` hardcode `<h2>`, so neither can be reused inside an article page — the article title is already the `h1` and the body carries `h2`s, so a card's stray `h2` would corrupt the heading hierarchy. `StoryList.astro` is the shared recommendation block used instead: it renders a section `h2` plus one `h3` per item, and backs both the "Noticias relacionadas" and "Otras noticias" blocks on article pages. Its random trio is resolved at **build time** (Fisher–Yates over the non-related entries inside `getStaticPaths`), so it changes per deploy, not per visit — that non-determinism is intentional and requires no client JS (see §1 and the Client JS bullet below).
-- **Recommendations are language-agnostic**: the scoring (tags × 0.7 + temporal proximity × 0.3, related selection, random trio) lives once in `src/lib/related.ts` and serves both collections. `StoryList.astro` is configured with `basePath` (default `/noticias/`; the English pages pass `/en/news/`) and `locale` (default `es-ES`; English passes `en-US`), and its entry type is structural (`StoryListEntry`) rather than `CollectionEntry<'news'>`. Spanish-only surfaces (home, archive, RSS, `buscar.json`, `sitemap-news`, the contrast index) must **never** read `newsEn` — that isolation is why the English collection exists separately.
-- **Endpoints**: `src/pages/rss.xml.js` and `sitemap-news.xml.ts` use `export async function GET(context)`.
+- **Recommendations are language-agnostic**: the scoring (tags × 0.7 + temporal proximity × 0.3, related selection, random trio) lives once in `src/lib/related.ts` and serves both collections. `StoryList.astro` is configured with `basePath` (default `/noticias/`; the English pages pass `/en/news/`) and `locale` (default `es-ES`; English passes `en-US`), and its entry type is structural (`StoryListEntry`) rather than `CollectionEntry<'news'>`. Spanish-only surfaces (home, archive, RSS, `buscar.json`, the contrast index) must **never** read `newsEn` — that isolation is why the English collection exists separately. (The Google News sitemap is the one deliberate exception: it reads both collections, with `news:language` per entry.)
+- **Endpoints**: `src/pages/rss.xml.js` and `news-sitemap.xml.ts` use `export async function GET(context)`.
 - **Client JS**: any script that must not be bundled uses `is:inline`. Keep client JS to the absolute minimum (currently the two theme scripts, the consent init/preferences scripts, the conditional GA4 and AdSense loaders, the Vercel Analytics component, the search bar and the mobile navigation toggle). The search bar uses a regular `<script>` (not `is:inline`) so it goes through the build graph and is type-checked by Astro — not for paint-critical reasons. Note that Astro inlines into every page any script below Vite's `assetsInlineLimit` (4 KB): the search script currently ships inline, exactly like the Vercel Analytics one, so do not assume it is a separately cached file.
 - **Mobile navigation is a progressive enhancement — do not "fix" the fallback.** `Header.astro` carries an `is:inline` script that sets `document.documentElement.dataset.nav = 'enhanced'` and only then does the stylesheet collapse the links behind the `.nav-toggle` button. That marker is the switch on purpose: the collapsed state is defined **only** under `html[data-nav='enhanced']` inside a `max-width: 47.999rem` block, so without JS the links keep the always-visible desktop-style layout. Navigation is the one feature a news site cannot lose to a failed script — do not move the collapsed state into the unscoped default rules, and do not replace the marker with a `<script>` that runs after the nav has already painted (it would flash the expanded menu). The panel is an overlay anchored under the header bar with `--z-nav-panel`, deliberately below the skip link.
 - **Client-side state via `data-*` on `<html>`**: theme and consent are coordinated through `document.documentElement.dataset.*` (`theme`, `consent`), set by `is:inline` scripts in `<head>` and reacted to from CSS. The consent notice is shown only by `html[data-consent='pending']` and is never toggled from JavaScript; after a decision it is `set`. `--z-consent-panel` (300) must stay above `--z-consent-banner` (200), which must stay above `--z-skip-link` (100).

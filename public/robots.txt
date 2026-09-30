@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.techspain24.com/sitemap-index.xml
-Sitemap: https://www.techspain24.com/sitemap-news.xml
+Sitemap: https://www.techspain24.com/news-sitemap.xml

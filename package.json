@@ -14,7 +14,8 @@
     "news:all": "node scripts/daily-news.mjs --all",
     "index": "node scripts/index-published.mjs",
     "slug": "node scripts/slug-check.mjs",
-    "find": "node scripts/find-published.mjs"
+    "find": "node scripts/find-published.mjs",
+    "test:sitemaps": "node scripts/validate-sitemaps.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",

@@ -42,8 +42,10 @@ const news = defineCollection({
 
 // English counterpart of a Spanish article. Deliberately a SEPARATE collection:
 // every existing consumer of `news` (home, archive, RSS, `buscar.json`,
-// `sitemap-news`, `articulos-publicados`, the sitemap date reader) keeps reading
-// only the Spanish corpus and can never leak an English article. Entries live in
+// `articulos-publicados`, the sitemap date reader) keeps reading
+// only the Spanish corpus and can never leak an English article. The one
+// deliberate exception is `/news-sitemap.xml`, which reads both collections
+// and labels each entry with `news:language`. Entries live in
 // `src/content/news-en/<english-slug>/`, so `entry.id` is the English URL slug
 // under `/en/news/`.
 const newsEn = defineCollection({

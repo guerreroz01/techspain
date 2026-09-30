@@ -69,12 +69,34 @@ export default defineConfig({
   // own canonical at a redirecting URL. See section 10 of AGENTS.md.
   site: 'https://www.techspain24.com',
   adapter: vercel(),
+  // The Google News feed moved from `/sitemap-news.xml` (its long-published
+  // path, advertised in robots.txt and possibly registered in Search
+  // Console) to `/news-sitemap.xml`. One 301 keeps every crawler that still
+  // requests the old URL on the single source of truth instead of a 404.
+  redirects: {
+    '/sitemap-news.xml': '/news-sitemap.xml',
+  },
   integrations: [
     sitemap({
-      // Legal pages are linked from the footer but deliberately kept out of the
-      // sitemap (explicit editorial request). They stay crawlable: no noindex.
-      filter: (page) =>
-        !/^\/(aviso-legal|privacidad|cookies)\/$/.test(new URL(page).pathname),
+      // Register the Google News sitemap in the index so that
+      // `/sitemap-index.xml` becomes the single source of truth for the whole
+      // sitemap architecture (index -> sitemap-0 + news sitemap) instead of
+      // robots.txt being the only place that knows about the news feed.
+      // Absolute URL: kept as the same literal host as `site` above.
+      customSitemaps: ['https://www.techspain24.com/news-sitemap.xml'],
+      // Two deliberate exclusions; both are still crawlable (linked, never
+      // `Disallow`ed):
+      //   - the legal pages (explicit editorial request), and
+      //   - archive pagination pages (`/noticias/2/`, `/noticias/3/`, ...),
+      //     which are listings we do not promote; they stay discoverable via
+      //     the links on `/noticias/`.
+      filter: (page) => {
+        const { pathname } = new URL(page);
+        return (
+          !/^\/(aviso-legal|privacidad|cookies)\/$/.test(pathname) &&
+          !/^\/noticias\/\d+\/$/.test(pathname)
+        );
+      },
       serialize(item) {
         const { pathname } = new URL(item.url);
 
