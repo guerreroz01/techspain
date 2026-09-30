@@ -30,9 +30,8 @@ const TIMEOUT_MS = 15000;
 
 /** Palabras clave por vertical (inglés + español). Coincidencia por subcadena, sin distinción de mayúsculas. */
 const VERTICALS = {
-  // Tutoriales va primero a propósito: el informe agrupa cada artículo por su
-  // vertical principal (`verticals[0]`), así que una guía how-to debe ganarle
-  // al vertical de hardware del que trate para que aparezca bajo "Tutoriales".
+  // Las claves de este objeto son las verticales; el ORDEN en que aparecen ya NO define
+  // la prioridad. La prioridad vive en VERTICAL_PRIORITY (debajo de este objeto).
   tutoriales: [
     'how to', 'how-to', 'tutorial', 'tutoriales', 'walkthrough', 'step by step',
     'step-by-step', 'guide', 'guía', 'guia', 'paso a paso', 'trucos', 'consejos',
@@ -73,6 +72,7 @@ const VERTICALS = {
     'galaxy ring', 'oura', 'ringconn', 'ultrahuman', 'whoop',
     // Gafas inteligentes y XR de hardware
     'smart glasses', 'smartglasses', 'smartglass', 'ar glasses', 'xr glasses',
+    'xr headset', 'vr headset',
     'gafas inteligentes', 'gafas de sol inteligentes', 'gafas de realidad',
     'ray-ban', 'rayban', 'rayneo', 'xreal', 'vuzix', 'rokid', 'even realities',
     'spectacles', 'vision pro', 'meta quest', 'augmented reality', 'realidad aumentada',
@@ -115,6 +115,44 @@ const VERTICALS = {
     'googlebook', 'vaio', 'xmg', 'lenovo yoga',
     // Chino: 笔记本/笔记本电脑 (portátil), 轻薄本/游戏本 (ultraligero/gaming).
     '笔记本', '笔记本电脑', '轻薄本', '游戏本',
+  ],
+  // Audio es la vertical prioritaria nº 1 (ver VERTICAL_PRIORITY): gana a `moviles` y
+  // `consolas` cuando el titular nombra un producto de audio. Al ir primero también
+  // gana a `portatiles`: un aparato de audio titulado "portátil" ("altavoz portátil",
+  // "DAC portátil") cae en Audio, no en Portátiles. Los visores VR se mantienen en
+  // `wearables` (`vr headset`/`xr headset`) para que no caigan acá por "headset".
+  audio: [
+    // Genérico
+    'audio', 'sonido', 'sound', 'surround sound',
+    // Auriculares, earphones y headsets
+    'headphone', 'headphones', 'auricular', 'auriculares',
+    'gaming headset',
+    'audífono', 'audifonos', 'earbud', 'earbuds', 'earphone', 'earphones', 'buds',
+    'in-ear', 'intraurales', 'intrauriculares', 'over-ear', 'on-ear',
+    'true wireless', 'tws', 'noise cancelling', 'cancelación de ruido', 'cancelacion de ruido',
+    // IEM
+    'iem', 'iems', 'in-ear monitor', 'in-ear monitors', 'monitores in-ear',
+    // Altavoces y barras de sonido
+    'speaker', 'speakers', 'altavoz', 'altavoces', 'parlante', 'parlantes',
+    'soundbar', 'sound bar', 'barra de sonido', 'subwoofer', 'woofer',
+    'smart speaker', 'altavoz inteligente', 'bluetooth speaker',
+    // Micrófonos
+    'microphone', 'microphones', 'micrófono', 'microfono', 'micrófonos', 'microfonos',
+    'lavalier', 'shotgun mic', 'usb mic',
+    // DAC, amplificación y alta fidelidad
+    'dac', 'dacs', 'headphone amp', 'amplificador', 'amplifier',
+    'hi-fi', 'hifi', 'high fidelity', 'alta fidelidad', 'audiófilo', 'audiófilos', 'audiophile',
+    'tornamesa', 'turntable',
+    // Marcas y familias de audio (aparecen a secas en titulares)
+    'airpods', 'linkbuds', 'freebuds', 'galaxy buds', 'redmi buds', 'pixel buds', 'nothing ear',
+    'homepod', 'echo dot', 'soundcore', 'bose', 'sennheiser', 'audio-technica',
+    'audio technica', 'beyerdynamic', 'akg', 'jbl', 'skullcandy', '1more', 'moondrop',
+    'fiio', 'shokz', 'sonos', 'klipsch', 'denon', 'harman kardon', 'bang & olufsen',
+    'beats by dre', 'beats studio', 'wh-1000', 'wf-1000',
+    // Chino: 耳机/耳塞 (auriculares), 头戴式 (over-ear), 入耳式 (in-ear),
+    // 音箱/扬声器 (altavoces), 麦克风 (micrófono), 音响 (audio), 降噪 (sin ruido).
+    '耳机', '耳塞', '头戴式', '入耳式', '音箱', '扬声器', '麦克风', '音响', '降噪',
+    '蓝牙耳机', '无线耳机',
   ],
   // Emuladores va antes que consolas a propósito: una noticia sobre un emulador
   // casi siempre nombra la consola anfitriona (Xbox, Switch, PS5), así que debe
@@ -197,6 +235,35 @@ const VERTICALS = {
   ],
 };
 
+/**
+ * Orden de PRIORIDAD de las verticales, de mayor a menor. Cuando un titular casa con
+ * dos o más verticales, el informe lo agrupa por la PRIMERA coincidencia de esta lista
+ * (`verticals[0]`). La mesa fijó como prioritarias audio, wearables, moviles y
+ * tutoriales, en ese orden; detrás quedan las categorías de hardware.
+ *
+ * Colisiones resueltas por este orden:
+ *  - `audio` gana a `moviles` y `consolas` (unos "Galaxy Buds" o unos auriculares de
+ *    consola son audio). Al ir primero también gana a `portatiles`: un aparato de audio
+ *    titulado "portátil" ("altavoz portátil", "DAC portátil") cae en Audio.
+ *  - `wearables` gana a `moviles` (relojes/anillos/gafas con marca de móvil).
+ *  - `moviles` va por delante de las categorías de hardware amplias.
+ *  - `tutoriales` es prioritaria pero NO la primera: una guía how-to sobre, p. ej.,
+ *    auriculares cae en `audio`, no en `tutoriales`. Solo gana a las verticales de
+ *    hardware que le siguen.
+ *  - `emuladores` gana a `consolas` (la consola emulada es el huésped, no el tema).
+ */
+const VERTICAL_PRIORITY = [
+  'audio', 'wearables', 'moviles', 'tutoriales',
+  'tarjetas-graficas', 'memorias', 'portatiles', 'emuladores', 'consolas', 'componentes',
+];
+
+// Fail-fast: toda vertical de VERTICALS debe estar en la lista de prioridad.
+for (const v of Object.keys(VERTICALS)) {
+  if (!VERTICAL_PRIORITY.includes(v)) {
+    throw new Error(`VERTICAL_PRIORITY no incluye la vertical '${v}'`);
+  }
+}
+
 /*
  * A tutorial marker on its own is not a technology signal: "how to watch the F1
  * race" and "how to fish in Valheim" are guides, but they are not this portal's
@@ -219,6 +286,9 @@ const TECH_SIGNAL = [
 ];
 
 const VERTICAL_LABELS = {
+  audio: '🎧 Audio',
+  wearables: '⌚ Wearables',
+  moviles: '📱 Móviles',
   tutoriales: '📘 Tutoriales',
   'tarjetas-graficas': '🎮 Tarjetas gráficas',
   memorias: '💾 Memorias',
@@ -226,8 +296,6 @@ const VERTICAL_LABELS = {
   emuladores: '👾 Emuladores',
   consolas: '🕹️ Consolas',
   componentes: '🔧 Componentes',
-  moviles: '📱 Móviles',
-  wearables: '⌚ Wearables',
 };
 
 /* ------------------------------------------------------------------ */
@@ -300,7 +368,9 @@ function classify(text) {
   const matchesAny = (keywords) => keywords.some((k) => keywordMatches(t, k));
 
   const hits = [];
-  for (const [v, kws] of Object.entries(VERTICALS)) {
+  // Se recorre en orden de PRIORIDAD, no en el orden del objeto VERTICALS.
+  for (const v of VERTICAL_PRIORITY) {
+    const kws = VERTICALS[v];
     const matched =
       v === 'tutoriales' ? matchesAny(kws) || TUTORIAL_HOWTO_RX.test(t) : matchesAny(kws);
     if (!matched) continue;

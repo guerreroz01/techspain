@@ -28,7 +28,7 @@ de escribir el orquestador, se delega **un subagente por artículo**, todos en p
      son cientos de entradas y cada listado quema ~12 KB de contexto.
    - `vertical` — el nombre de la sección `##` en la que está (traducido al token interno:
      `tarjetas-graficas`, `memorias`, `portatiles`, `emuladores`, `consolas`, `componentes`,
-     `moviles`, `wearables`, `tutoriales`).
+     `moviles`, `wearables`, `audio`, `tutoriales`).
    - `tipo` — `tutorial` si la línea está bajo la sección `## 📘 Tutoriales` de
      `scripts/seleccion.md`; en cualquier otra sección, `noticia`.
 
@@ -179,6 +179,6 @@ es una tarea del redactor.
 - El `vertical` de la plantilla se traduce así para el primer `tags`:
   `tarjetas-graficas` → `Tarjetas gráficas`, `memorias` → `Memorias`, `portatiles` → `Portátiles`,
   `emuladores` → `Emuladores`, `consolas` → `Consolas`, `componentes` → `Componentes`,
-  `moviles` → `Móviles`, `wearables` → `Wearables`, `tutoriales` → `Tutoriales`.
+  `moviles` → `Móviles`, `wearables` → `Wearables`, `audio` → `Audio`, `tutoriales` → `Tutoriales`.
 - Recoger los resultados de todos los subagentes, ejecutar **un único `npm run build`** al final (los subagentes no lo ejecutan para no pisarse `dist/` y `.astro/`), y confirmar al usuario cuántos artículos quedaron listos y cuáles fallaron.
 - Por qué `tags` queda bloqueado en la pasada SEO: `tags[0]` decide el `@type` del JSON-LD (`Article` vs `NewsArticle`) en `src/pages/noticias/[slug].astro:47`, así que reordenarlo cambia la salida machine-readable; y como no hay páginas de tag, los tags no tienen ninguna superficie rastreable. Cero beneficio, riesgo real.

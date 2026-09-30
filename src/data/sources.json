@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Fuentes editoriales del portal",
-    "description": "Lista curada de fuentes agrupada en 7 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
+    "description": "Lista curada de fuentes agrupada en 8 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
     "updated": "2026-09-30",
-    "version": 3,
+    "version": 4,
     "note": "Los campos 'rss' con valor null no tienen feed confirmado (o no lo publican): usar la homepage para seguimiento manual o scraping autorizado. Antes de automatizar, verificar cada feed y respetar los términos de uso de cada sitio (p. ej. VideoCardz prohíbe explícitamente el scraping programático sin consentimiento escrito).",
     "layers": {
       "tech-media": "Capa 1 — Medios técnicos en inglés (contraste y profundidad)",
@@ -12,7 +12,8 @@
       "es-competition": "Capa 4 — Competencia en español (vigilar saturación)",
       "primary": "Capa 5 — Fuentes primarias: salas de prensa y blogs oficiales (confirmación de datos e imágenes)",
       "emulacion": "Capa 6 — Emulación de videojuegos: noticias, estado por consola (escritorio y Android) y tutoriales",
-      "wearables": "Capa 7 — Wearables: relojes, anillos y gafas inteligentes (lanzamientos, reviews y tutoriales)"
+      "wearables": "Capa 7 — Wearables: relojes, anillos y gafas inteligentes (lanzamientos, reviews y tutoriales)",
+      "audio": "Capa 8 — Audio: auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos y alta fidelidad (lanzamientos, reviews y tutoriales)"
     }
   },
   "sources": [
@@ -1382,6 +1383,246 @@
       "lang": "en",
       "focus": ["gafas", "smartwatches", "reviews", "guías-de-compra"],
       "notes": "No publica RSS (sus rutas de feed responden 404): seguimiento manual en la homepage. Uno de los pocos medios con reviews independientes de gafas."
+    },
+    {
+      "id": "soundguys",
+      "name": "SoundGuys",
+      "layer": "audio",
+      "homepage": "https://www.soundguys.com",
+      "rss": "https://www.soundguys.com/feed/",
+      "lang": "en",
+      "focus": ["auriculares", "earphones", "soundbars", "mediciones", "reviews"],
+      "notes": "Reviews de auriculares, earphones y altavoces con datos medidos. Alta cadencia."
+    },
+    {
+      "id": "audio-science-review",
+      "name": "Audio Science Review · Auriculares/IEM",
+      "layer": "audio",
+      "homepage": "https://www.audiosciencereview.com",
+      "rss": "https://www.audiosciencereview.com/forum/index.php?forums/headphone-iem-reviews-discussions.58/index.rss",
+      "lang": "en",
+      "focus": ["mediciones", "auriculares", "iem", "dac", "comunidad"],
+      "notes": "Foro de ASR: mediciones objetivas. Es un feed de foro (incluye hilos, no solo reviews): filtrar antes de seleccionar."
+    },
+    {
+      "id": "audio-science-review-speakers",
+      "name": "Audio Science Review · Altavoces",
+      "layer": "audio",
+      "homepage": "https://www.audiosciencereview.com/forum/index.php?forums/speaker-reviews-measurements-and-discussion.54/",
+      "rss": "https://www.audiosciencereview.com/forum/index.php?forums/speaker-reviews-measurements-and-discussion.54/index.rss",
+      "lang": "en",
+      "focus": ["mediciones", "altavoces", "subwoofers", "comunidad"],
+      "notes": "Subforo de altavoces de ASR (mediciones Klippel)."
+    },
+    {
+      "id": "head-fi",
+      "name": "Head-Fi",
+      "layer": "audio",
+      "homepage": "https://www.head-fi.org",
+      "rss": "https://www.head-fi.org/forums/-/index.rss",
+      "lang": "en",
+      "focus": ["comunidad", "auriculares", "iem", "dac", "reviews"],
+      "notes": "Feed del foro completo (50 items): ruidoso, filtrar antes de seleccionar."
+    },
+    {
+      "id": "headfonics",
+      "name": "Headfonics",
+      "layer": "audio",
+      "homepage": "https://headfonics.com",
+      "rss": "https://headfonics.com/feed/",
+      "lang": "en",
+      "focus": ["auriculares", "iem", "dac", "amplificacion", "reviews"]
+    },
+    {
+      "id": "crinacle",
+      "name": "Crinacle",
+      "layer": "audio",
+      "homepage": "https://crinacle.com",
+      "rss": "https://crinacle.com/feed/",
+      "lang": "en",
+      "focus": ["iem", "auriculares", "mediciones", "reviews"],
+      "notes": "Referencia en IEM (base de datos + reviews). Cadencia baja: usar también como fuente de contraste."
+    },
+    {
+      "id": "what-hifi",
+      "name": "What Hi-Fi?",
+      "layer": "audio",
+      "homepage": "https://www.whathifi.com",
+      "rss": "https://www.whathifi.com/feeds/all",
+      "lang": "en",
+      "focus": ["reviews", "hi-fi", "altavoces", "soundbars", "auriculares"],
+      "notes": "/feeds/all redirige a /feeds.xml (verificado 200). Feed muy activo."
+    },
+    {
+      "id": "hifinews",
+      "name": "Hi-Fi News",
+      "layer": "audio",
+      "homepage": "https://www.hifinews.com",
+      "rss": "https://www.hifinews.com/rss.xml",
+      "lang": "en",
+      "focus": ["hi-fi", "altavoces", "amplificacion", "reviews"]
+    },
+    {
+      "id": "audioholics",
+      "name": "Audioholics",
+      "layer": "audio",
+      "homepage": "https://www.audioholics.com",
+      "rss": "https://www.audioholics.com/feed",
+      "lang": "en",
+      "focus": ["altavoces", "soundbars", "subwoofers", "mediciones", "av", "reviews"],
+      "notes": "/feed redirige a /rss.xml (verificado). Mezcla reviews con mediciones objetivas."
+    },
+    {
+      "id": "stereophile",
+      "name": "Stereophile",
+      "layer": "audio",
+      "homepage": "https://www.stereophile.com",
+      "rss": "https://www.stereophile.com/rss.xml",
+      "lang": "en",
+      "focus": ["hi-fi", "altavoces", "amplificacion", "reviews"],
+      "notes": "El feed mezcla páginas estáticas y no está en orden estrictamente cronológico: filtrar por pubDate."
+    },
+    {
+      "id": "headfonia",
+      "name": "Headfonia",
+      "layer": "audio",
+      "homepage": "https://www.headfonia.com",
+      "rss": "https://www.headfonia.com/feed/",
+      "lang": "en",
+      "focus": ["auriculares", "iem", "dac", "amplificacion", "reviews"]
+    },
+    {
+      "id": "ecoustics",
+      "name": "eCoustics",
+      "layer": "audio",
+      "homepage": "https://www.ecoustics.com",
+      "rss": "https://www.ecoustics.com/feed/",
+      "lang": "en",
+      "focus": ["reviews", "altavoces", "auriculares", "noticias"]
+    },
+    {
+      "id": "hifipig",
+      "name": "Hifi Pig",
+      "layer": "audio",
+      "homepage": "https://www.hifipig.com",
+      "rss": "https://www.hifipig.com/feed/",
+      "lang": "en",
+      "focus": ["hi-fi", "altavoces", "noticias"]
+    },
+    {
+      "id": "twister6",
+      "name": "Twister6 Reviews",
+      "layer": "audio",
+      "homepage": "https://twister6.com",
+      "rss": "https://twister6.com/feed/",
+      "lang": "en",
+      "focus": ["iem", "auriculares", "dac", "reviews"]
+    },
+    {
+      "id": "prime-audio",
+      "name": "Prime Audio Reviews",
+      "layer": "audio",
+      "homepage": "https://primeaudio.org",
+      "rss": "https://primeaudio.org/feed/",
+      "lang": "en",
+      "focus": ["iem", "auriculares", "reviews"]
+    },
+    {
+      "id": "soundstage-solo",
+      "name": "SoundStage! Solo",
+      "layer": "audio",
+      "homepage": "https://www.soundstagesolo.com",
+      "rss": "https://www.soundstagesolo.com/index.php?format=feed&type=rss",
+      "lang": "en",
+      "focus": ["auriculares", "earphones", "amplificacion", "reviews"],
+      "notes": "Sección de SoundStage! centrada en auriculares, earphones y amplificadores de auriculares."
+    },
+    {
+      "id": "soundstage-hifi",
+      "name": "SoundStage! Hi-Fi",
+      "layer": "audio",
+      "homepage": "https://www.soundstagehifi.com",
+      "rss": "https://www.soundstagehifi.com/index.php?format=feed&type=rss",
+      "lang": "en",
+      "focus": ["hi-fi", "altavoces", "reviews"]
+    },
+    {
+      "id": "sound-and-vision",
+      "name": "Sound & Vision",
+      "layer": "audio",
+      "homepage": "https://www.soundandvision.com",
+      "rss": "https://www.soundandvision.com/rss.xml",
+      "lang": "en",
+      "focus": ["av", "soundbars", "altavoces", "auriculares", "reviews", "noticias"]
+    },
+    {
+      "id": "audioxpress",
+      "name": "audioXpress",
+      "layer": "audio",
+      "homepage": "https://audioxpress.com",
+      "rss": "https://audioxpress.com/rss",
+      "lang": "en",
+      "focus": ["microfonos", "dac", "altavoces", "industria", "noticias"],
+      "notes": "Ingeniería de audio y audio profesional; cubre micrófonos, transductores y electrónica."
+    },
+    {
+      "id": "headphone-guru",
+      "name": "Headphone Guru",
+      "layer": "audio",
+      "homepage": "https://headphone.guru",
+      "rss": "https://headphone.guru/feed/",
+      "lang": "en",
+      "focus": ["auriculares", "iem", "dac", "reviews"]
+    },
+    {
+      "id": "hispasonic",
+      "name": "Hispasonic",
+      "layer": "audio",
+      "homepage": "https://www.hispasonic.com",
+      "rss": "https://www.hispasonic.com/rss.xml",
+      "lang": "es",
+      "focus": ["microfonos", "dac", "altavoces", "noticias", "tutoriales"],
+      "notes": "Audio profesional y producción musical en español. El feed sirve XML con content-type text/html (igual que melonds); /rss es el feed de música, no usar."
+    },
+    {
+      "id": "avpasion",
+      "name": "AVPasión",
+      "layer": "audio",
+      "homepage": "https://www.avpasion.com",
+      "rss": "https://www.avpasion.com/feed/",
+      "lang": "es",
+      "focus": ["av", "soundbars", "altavoces", "auriculares", "noticias"],
+      "notes": "Medio español de audio/vídeo doméstico; el audio es una parte del feed, no el todo."
+    },
+    {
+      "id": "roon",
+      "name": "Roon Labs · Blog",
+      "layer": "audio",
+      "homepage": "https://blog.roonlabs.com",
+      "rss": "https://blog.roonlabs.com/feed/",
+      "lang": "en",
+      "focus": ["hi-fi", "dac", "streaming", "comunicados oficiales"],
+      "notes": "Fuente primaria: software de gestión/streaming de alta fidelidad."
+    },
+    {
+      "id": "kef",
+      "name": "KEF",
+      "layer": "audio",
+      "homepage": "https://us.kef.com",
+      "rss": "https://us.kef.com/blogs/news.atom",
+      "lang": "en",
+      "focus": ["altavoces", "soundbars", "lanzamientos", "comunicados oficiales"],
+      "notes": "Fabricante británico de altavoces; fuente primaria (feed Atom de Shopify)."
+    },
+    {
+      "id": "sennheiser",
+      "name": "Sennheiser Newsroom",
+      "layer": "audio",
+      "homepage": "https://newsroom.sennheiser.com",
+      "rss": "https://newsroom.sennheiser.com/feed",
+      "lang": "en",
+      "focus": ["auriculares", "microfonos", "lanzamientos", "comunicados oficiales"],
+      "notes": "Fuente primaria: sala de prensa oficial de Sennheiser (cascos y micrófonos)."
     }
   ]
 }

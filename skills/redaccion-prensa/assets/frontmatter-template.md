@@ -50,7 +50,7 @@ source:
 
 ## Verticales
 
-La página cubre 8 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
+La página cubre 10 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
 
 1. Componentes
 2. Portátiles
@@ -58,12 +58,18 @@ La página cubre 8 verticales. El artículo debe encajar en una de ellas y usarl
 4. Tarjetas gráficas
 5. Memorias
 6. Móviles
-7. Emuladores de videojuegos
-8. Tutoriales
+7. Wearables (relojes, anillos y gafas inteligentes)
+8. Audio (auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos, DAC y amplificación)
+9. Emuladores de videojuegos
+10. Tutoriales
 
-Los tutoriales son contenido **how-to/paso a paso**. El clasificador diario los busca **primero**, así que una guía sobre una GPU se publica con `Tutoriales` como primer `tags` (gana sobre `Tarjetas gráficas`).
+Los tutoriales son contenido **how-to/paso a paso**. Una guía sobre una GPU se publica con `Tutoriales` como primer `tags` (gana sobre `Tarjetas gráficas`). Ojo: el clasificador ya NO busca tutoriales primero —el orden de prioridad es `audio`, `wearables`, `móviles`, `tutoriales` y luego el hardware—, así que en el informe una guía sobre auriculares o un reloj aparece bajo esa vertical, no bajo Tutoriales.
 
 Los emuladores también ganan sobre la consola que emulan: una noticia sobre un emulador de PS5 en Xbox va con `Emuladores` como primer `tags`, no con `Consolas`. La vertical no distingue sistema anfitrión: vale igual para emuladores de consola en Windows, macOS, Linux o Android (el host se pone como tag secundario). Una guía paso a paso sobre emuladores sigue siendo `Tutoriales`.
+
+`Wearables` es un bloque editorial único: relojes, anillos y gafas inteligentes comparten una sola vertical. Gana sobre `Móviles` porque un titular como "Samsung Galaxy Watch 8" también coincide con móviles por "galaxy" (y "Pixel Watch" por "pixel"); la pieza ponible va a `Wearables`.
+
+`Audio` es la vertical prioritaria nº 1: cubre todo el hardware de sonido (auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos, y DAC/amplificación). Gana a `Móviles`, `Consolas`, `Portátiles` y `Wearables` cuando el titular nombra un producto de audio, así que unos "Galaxy Buds" o una review de auriculares caen en `Audio`.
 
 ## Imágenes
 

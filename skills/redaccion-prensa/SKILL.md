@@ -17,8 +17,11 @@ Load this skill when the user asks to write or publish a technology news article
 - Slug (the entry folder name, which **is** the article URL) in **Spanish**, derived from the Spanish headline: kebab-case, lowercase, ASCII (accents dropped, `ñ` → `n`). Code and identifiers stay in English. Each entry lives at `src/content/news/<slug>/index.mdx`.
 - **Never rename the slug of an already published article.** Older English slugs are indexed by Google and stay as they are; the Spanish rule applies only to new entries.
 - **Every new article ships with an English companion** in the same run: `src/content/news-en/<english-slug>/index.mdx`, the same story translated, with `translationOf: <es-slug>` pointing back at the Spanish entry. The English slug is fully English (kebab-case, lowercase, ASCII) and is checked with `npm run slug -- --en <slug>`. Articles published before this workflow stay Spanish-only: never backfill them.
-- Editorial scope: cover only the 9 verticals — componentes de PC, portátiles, consolas (portátiles y de sobremesa), tarjetas gráficas, memorias, móviles, wearables (relojes, anillos y gafas inteligentes), emuladores de videojuegos y tutoriales (guías how-to/paso a paso). Put the primary vertical as the first `tags` entry.
+- Editorial scope: cover only the 10 verticals — componentes de PC, portátiles, consolas (portátiles y de sobremesa), tarjetas gráficas, memorias, móviles, wearables (relojes, anillos y gafas inteligentes), audio (auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos, DAC y amplificación), emuladores de videojuegos y tutoriales (guías how-to/paso a paso). Put the primary vertical as the first `tags` entry.
 - Una pieza sobre emulación de videojuegos usa `Emuladores` como vertical principal, incluso cuando trate de una consola concreta: el emulador es el tema, la consola es el huésped. La vertical es agnóstica del sistema anfitrión — cubre emuladores de consola en Windows, macOS, Linux y Android; el host va como tag secundario. Excepto si es una guía paso a paso, que va a `Tutoriales`.
+- `Wearables` (prioritaria nº 2) es un bloque editorial único — relojes, anillos y gafas inteligentes comparten vertical, no se dividen. Gana sobre `Móviles`: un titular como "Samsung Galaxy Watch 8" o "Pixel Watch" también coincide con móviles por "galaxy"/"pixel", así que la pieza ponible va a `Wearables`.
+- `Audio` es la vertical prioritaria nº 1: cubre todo el hardware de sonido (auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos, y DAC/amplificación). Gana a `Móviles`, `Consolas`, `Portátiles` y `Wearables` cuando el titular nombra un producto de audio, así que unos "Galaxy Buds" o una review de auriculares caen en `Audio`.
+- Orden de prioridad del clasificador (decide qué vertical gana cuando un titular casa con dos o más): `Audio` → `Wearables` → `Móviles` → `Tutoriales` → tarjetas gráficas, memorias, portátiles, emuladores, consolas, componentes. Consecuencia: una guía how-to sobre audio, un ponible o un móvil cae en esa vertical, no en `Tutoriales`.
 - Never copy source text verbatim: translate and rewrite in your own words. Always attribute via `source: { name, url }`.
 - Attribute the ultimate origin, not the relay: if the outlet you read cites another outlet as its source, trace and attribute the original, and read it to confirm before publishing.
 - Images: download EVERY content image from the original article into the entry's own `src/content/news/<slug>/assets/` folder. Reference the cover as `./assets/<name>`; embed extra images inline with `![alt](./assets/<name>)`. Never hotlink the source's CDN.
@@ -43,7 +46,7 @@ Every piece is one of two types. Decide the type before writing.
 
 | Fork | Type | Decide |
 | --- | --- | --- |
-| Relevance | both | Fits one of the 7 verticals (componentes, portátiles, consolas, tarjetas gráficas, memorias, móviles, tutoriales)? No → skip. |
+| Relevance | both | Fits one of the 10 verticals (componentes, portátiles, consolas, tarjetas gráficas, memorias, móviles, wearables, audio, emuladores de videojuegos, tutoriales)? No → skip. |
 | Saturation | `noticia` | Layer `es-competition` already saturated the story? Yes → skip or find a fresh angle. |
 | Confirmation | `noticia` | Layer `primary` confirms the data? Rumor-only → write as rumor with hedging, or skip. |
 | Source available | both | No `source` (name+url) traceable to the origin? → do not publish. |
@@ -101,4 +104,4 @@ Return: the list of created files (Spanish articles, their English companions, a
 - `assets/frontmatter-template.md` — required frontmatter, body-image handling, and a worked example.
 - `seo-audit` skill, `references/article-seo.md` — single-article pre-publish SEO refinement contract.
 - `../../AGENTS.md` — §6 content model, §7 adding an article.
-- `../../src/data/sources.json` — the curated source list (7 layers).
+- `../../src/data/sources.json` — the curated source list (8 layers).
