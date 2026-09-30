@@ -1372,6 +1372,16 @@
       "lang": "en",
       "focus": ["gafas-de-audio", "sin-cámara", "producto"],
       "notes": "Fabricante (Innovative Eyewear): fuente primaria de datos; contrastar antes de publicar."
+    },
+    {
+      "id": "wareable",
+      "name": "Wareable",
+      "layer": "wearables",
+      "homepage": "https://www.wareable.com",
+      "rss": null,
+      "lang": "en",
+      "focus": ["gafas", "smartwatches", "reviews", "guías-de-compra"],
+      "notes": "No publica RSS (sus rutas de feed responden 404): seguimiento manual en la homepage. Uno de los pocos medios con reviews independientes de gafas."
     }
   ]
 }
