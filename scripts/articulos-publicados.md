@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 642 artículos. Actualizado: 2026-09-30
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 644 artículos. Actualizado: 2026-09-30
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -647,5 +647,7 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-30 | Cómo usar Shortcuts en tu MacBook: guía paso a paso | [como-usar-shortcuts-en-el-macbook](https://www.techspain24.com/noticias/como-usar-shortcuts-en-el-macbook/) |
 | 2026-09-30 | El Honor Magic 9 Pro Max graba vídeo como una cámara de cine con ARRI, pero ¿alguien lo va a usar? | [honor-magic-9-pro-max-video-arri](https://www.techspain24.com/noticias/honor-magic-9-pro-max-video-arri/) |
 | 2026-09-30 | El rediseño de SmartThings llega a iPhone antes que a los Galaxy | [smartthings-redesign-iphones](https://www.techspain24.com/noticias/smartthings-redesign-iphones/) |
+| 2026-09-30 | Las esferas clásicas de Timex llegan a Wear OS con la app Facer | [esferas-timex-wear-os](https://www.techspain24.com/noticias/esferas-timex-wear-os/) |
 | 2026-09-30 | Marvel’s Wolverine ya arranca en PC con el emulador de PS5 KytyPS5 | [marvels-wolverine-arranca-en-pc-emulador-ps5](https://www.techspain24.com/noticias/marvels-wolverine-arranca-en-pc-emulador-ps5/) |
 | 2026-09-30 | One UI 9 ya está disponible en Europa: Android 17 llega a los Galaxy S26 | [one-ui-9-disponible](https://www.techspain24.com/noticias/one-ui-9-disponible/) |
+| 2026-09-30 | Polar OS 6 llega a seis relojes: más gráficos en la muñeca, botón personalizable y carga limitada al 80 % | [polar-os6-actualizacion](https://www.techspain24.com/noticias/polar-os6-actualizacion/) |
