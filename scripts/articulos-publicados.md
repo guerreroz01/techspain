@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 644 artículos. Actualizado: 2026-09-30
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 664 artículos. Actualizado: 2026-09-30
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -630,6 +630,11 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-28 | WIKO Hi MateBook 14 edición Core: OLED de 2,8K, Core Ultra 5 325 y 24 GB por 8.199 yuanes | [wiko-hi-matebook-14](https://www.techspain24.com/noticias/wiko-hi-matebook-14/) |
 | 2026-09-29 | AYANEO Konkr Pocket Block ya se puede pedir: pantalla 4:3, Android 12 y precio desde 89 dólares | [ayaneo-konkr-pocket-block](https://www.techspain24.com/noticias/ayaneo-konkr-pocket-block/) |
 | 2026-09-29 | shadPS4 publica una preversión que corrige varios ajustes de configuración | [shadps4-prerelanzamiento-2026-09-29](https://www.techspain24.com/noticias/shadps4-prerelanzamiento-2026-09-29/) |
+| 2026-09-30 | Amazon lanza un Fire TV Stick 4K con Vega OS: adiós a Android y a la instalación lateral de aplicaciones | [fire-tv-stick-4k-vega-os](https://www.techspain24.com/noticias/fire-tv-stick-4k-vega-os/) |
+| 2026-09-30 | Análisis de los PSB iQ2: altavoces activos con BluOS para la mesa, el televisor o el tocadiscos | [psb-iq2-altavoces](https://www.techspain24.com/noticias/psb-iq2-altavoces/) |
+| 2026-09-30 | Beats 360: over-ear modulares y resistentes al sudor que renuncian al audio por cable | [beats-360](https://www.techspain24.com/noticias/beats-360/) |
+| 2026-09-30 | Bose añade Auracast a los QuietComfort Ultra (2.ª gen) con una actualización gratuita | [bose-quietcomfort-ultra-auracast](https://www.techspain24.com/noticias/bose-quietcomfort-ultra-auracast/) |
+| 2026-09-30 | Bose regresa a los auriculares con cable: USB-C, ANC y 99 dólares | [bose-auriculares-cable-usb-c](https://www.techspain24.com/noticias/bose-auriculares-cable-usb-c/) |
 | 2026-09-30 | Cómo configurar los controles parentales de iOS 27 paso a paso | [usar-controles-parentales-ios-27](https://www.techspain24.com/noticias/usar-controles-parentales-ios-27/) |
 | 2026-09-30 | Cómo desbloquear Multi Frame Gen 4x en una tarjeta RTX 40 paso a paso | [activar-multi-frame-gen-rtx-40](https://www.techspain24.com/noticias/activar-multi-frame-gen-rtx-40/) |
 | 2026-09-30 | Cómo difuminar o pixelar información sensible en Google Photos | [difuminar-informacion-sensible-google-photos](https://www.techspain24.com/noticias/difuminar-informacion-sensible-google-photos/) |
@@ -646,8 +651,23 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-30 | Cómo usar la nueva función Notify Me de Safari en macOS 27 paso a paso | [safari-notify-me-macos-27](https://www.techspain24.com/noticias/safari-notify-me-macos-27/) |
 | 2026-09-30 | Cómo usar Shortcuts en tu MacBook: guía paso a paso | [como-usar-shortcuts-en-el-macbook](https://www.techspain24.com/noticias/como-usar-shortcuts-en-el-macbook/) |
 | 2026-09-30 | El Honor Magic 9 Pro Max graba vídeo como una cámara de cine con ARRI, pero ¿alguien lo va a usar? | [honor-magic-9-pro-max-video-arri](https://www.techspain24.com/noticias/honor-magic-9-pro-max-video-arri/) |
+| 2026-09-30 | El Pixel 11a se filtra en renders: diseño continuista y salto al Tensor G6 | [pixel-11a](https://www.techspain24.com/noticias/pixel-11a/) |
 | 2026-09-30 | El rediseño de SmartThings llega a iPhone antes que a los Galaxy | [smartthings-redesign-iphones](https://www.techspain24.com/noticias/smartthings-redesign-iphones/) |
+| 2026-09-30 | El Thorens TD 404 DD pasa por las mediciones: velocidad casi exacta y un rodamiento muy silencioso | [thorens-td-404](https://www.techspain24.com/noticias/thorens-td-404/) |
+| 2026-09-30 | JBL renueva sus barras Cinema SB con altavoces Flip 7 como canales traseros inalámbricos | [jbl-cinema-sb-mk2](https://www.techspain24.com/noticias/jbl-cinema-sb-mk2/) |
+| 2026-09-30 | JLab Epic Sport ANC 3: auriculares deportivos con LDAC y ANC por 105 dólares | [jlab-epic-sport-anc-3](https://www.techspain24.com/noticias/jlab-epic-sport-anc-3/) |
+| 2026-09-30 | Juzear Light Shuttle: un IEM tribrido de siete drivers por menos de 200 dólares | [juzear-light-shuttle-iem](https://www.techspain24.com/noticias/juzear-light-shuttle-iem/) |
 | 2026-09-30 | Las esferas clásicas de Timex llegan a Wear OS con la app Facer | [esferas-timex-wear-os](https://www.techspain24.com/noticias/esferas-timex-wear-os/) |
+| 2026-09-30 | LG xboom Power: altavoces para fiestas con karaoke por IA desde 349 euros | [lg-xboom-power](https://www.techspain24.com/noticias/lg-xboom-power/) |
+| 2026-09-30 | Loewe lanza el Neo, un altavoz Bluetooth de 50 W con Auracast y acabados premium | [loewe-neo-altavoz-bluetooth](https://www.techspain24.com/noticias/loewe-neo-altavoz-bluetooth/) |
+| 2026-09-30 | Logitech lanza los Zone Vibe Pro: ANC adaptativo, batería reemplazable y hasta 66 horas de autonomía | [logitech-zone-vibe-pro](https://www.techspain24.com/noticias/logitech-zone-vibe-pro/) |
+| 2026-09-30 | Los AirPods 5 rompen la racha de ceros de iFixit: un 2/10 en reparabilidad, el mejor de su historia | [airpods-5-reparabilidad](https://www.techspain24.com/noticias/airpods-5-reparabilidad/) |
+| 2026-09-30 | Luxman L-100 Centennial: un integrado en clase A pura para celebrar 100 años | [luxman-l-100](https://www.techspain24.com/noticias/luxman-l-100/) |
+| 2026-09-30 | Marshall Bromley 150: el altavoz de fiesta más compacto, con 360° y batería reemplazable | [marshall-bromley-150](https://www.techspain24.com/noticias/marshall-bromley-150/) |
 | 2026-09-30 | Marvel’s Wolverine ya arranca en PC con el emulador de PS5 KytyPS5 | [marvels-wolverine-arranca-en-pc-emulador-ps5](https://www.techspain24.com/noticias/marvels-wolverine-arranca-en-pc-emulador-ps5/) |
+| 2026-09-30 | Nothing Headphone (1) Pro: tres drivers por auricular y un interruptor para el sonido plano | [nothing-headphone-1-pro](https://www.techspain24.com/noticias/nothing-headphone-1-pro/) |
+| 2026-09-30 | Nuance Audio Plus: las gafas auditivas de EssilorLuxottica añaden llamadas con iPhone y 10 horas de batería | [nuance-audio-plus-gafas](https://www.techspain24.com/noticias/nuance-audio-plus-gafas/) |
 | 2026-09-30 | One UI 9 ya está disponible en Europa: Android 17 llega a los Galaxy S26 | [one-ui-9-disponible](https://www.techspain24.com/noticias/one-ui-9-disponible/) |
 | 2026-09-30 | Polar OS 6 llega a seis relojes: más gráficos en la muñeca, botón personalizable y carga limitada al 80 % | [polar-os6-actualizacion](https://www.techspain24.com/noticias/polar-os6-actualizacion/) |
+| 2026-09-30 | Shure MV6 Gen 2: micrófono USB para gaming con cancelación de ruido en tiempo real | [shure-mv6-gen-2](https://www.techspain24.com/noticias/shure-mv6-gen-2/) |
+| 2026-09-30 | Technics EAH-A1000: auriculares insignia con cancelación de ruido y hasta 90 horas de batería | [technics-eah-a1000](https://www.techspain24.com/noticias/technics-eah-a1000/) |
