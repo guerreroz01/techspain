@@ -55,7 +55,13 @@ www host), mutual ES/EN hreflang with `x-default` -> ES, legal pages
 | T5 | Dependency-free validator `scripts/validate-sitemaps.mjs` + npm script | delegated (`general`) | done |
 | T6 | Update `AGENTS.md` §3/§5/§9/§10/§14 to match new behavior | delegated (`general`) + inline follow-up | done |
 | T7 | `npm run build` + validate locally (XML, dups, 48 h window, escaping, content-type) | inline | done |
-| T8 | Work-unit commit + RDD `review assess` on the commit | inline | pending |
+| T8 | Work-unit commit + RDD `review assess` on the commit | inline | done |
+
+T8 outcome: commit `0548861` on `feat/sitemap-architecture` (from `main@622e646`).
+RDD assess → medium risk, `review_due=true` (`slice_budget_reached`, 831 lines);
+consent v3 presented and the user chose **declined** (`declined_this_candidate`,
+target `sha256:afafa5a8…`) — no review record, delivery under ordinary
+repository policy. Push/PR remain the user's decision.
 
 Delegation note: the mandated `explore` mapper failed first with a provider
 error ("OpenCode's free tier can only be used from within OpenCode"), so the
@@ -107,4 +113,4 @@ Follow-up fixes applied inline after reviewing the writer's diff:
 - [x] Exploration + memory audit (framework, endpoints, canonical,
       hreflang, test infra: none, `/sitemap.xml`: does not exist).
 - [x] T1..T7
-- [ ] T8 (work-unit commit + RDD assess)
+- [x] T8 (work-unit commit + RDD assess; review declined by user)
