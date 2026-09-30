@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 617 artículos. Actualizado: 2026-09-28
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 633 artículos. Actualizado: 2026-09-30
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -579,6 +579,7 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-27 | Vita3K-nx 1.3.1 lleva la emulación de PS Vita a Nintendo Switch con más juegos compatibles | [vita3k-playstation-vita-emulador](https://www.techspain24.com/noticias/vita3k-playstation-vita-emulador/) |
 | 2026-09-27 | watchOS 27: las 12 novedades que llegan a tu Apple Watch | [watchos-27-novedades](https://www.techspain24.com/noticias/watchos-27-novedades/) |
 | 2026-09-27 | Xiaomi permite usar el Apple Watch con sus móviles con HyperOS 4 | [xiaomi-apple-watch-hyperos](https://www.techspain24.com/noticias/xiaomi-apple-watch-hyperos/) |
+| 2026-09-28 | Anker estrena un cargador MagSafe 3 en 1 de viaje con Qi2.2 y refrigeración activa | [anker-magsafe-3-en-1](https://www.techspain24.com/noticias/anker-magsafe-3-en-1/) |
 | 2026-09-28 | Antec lanza las fuentes HCG Pro Platinum con ATX 3.1 y certificado 80 Plus Platino | [antec-hcg-pro-platinum](https://www.techspain24.com/noticias/antec-hcg-pro-platinum/) |
 | 2026-09-28 | Atmosphere 1.12.0 ya funciona con el firmware 23.0.0 de Nintendo Switch | [atmosphere-1-12-firmware-23](https://www.techspain24.com/noticias/atmosphere-1-12-firmware-23/) |
 | 2026-09-28 | Bajar la frecuencia de actualización de la pantalla alarga la batería de un portátil con Windows 11 | [windows-11-pantalla-bateria](https://www.techspain24.com/noticias/windows-11-pantalla-bateria/) |
@@ -586,7 +587,9 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-28 | Colorful presenta su caja Battle Axe Black Blade: gráficas de hasta 390 mm y nueve ventiladores | [colorful-caja-390mm-9-ventiladores](https://www.techspain24.com/noticias/colorful-caja-390mm-9-ventiladores/) |
 | 2026-09-28 | Diez reproductores de vídeo para Android gratuitos y sin publicidad, según MuyComputer | [reproductores-video-android](https://www.techspain24.com/noticias/reproductores-video-android/) |
 | 2026-09-28 | DS Style, el kernel que lleva el menú de Nintendo DS al EZ-Flash Omega | [ds-style-ez-flash](https://www.techspain24.com/noticias/ds-style-ez-flash/) |
+| 2026-09-28 | Dynasty Warriors 3: Complete Edition Remastered pesará 27,8 GB en Switch 2 y ya tiene precios | [dynasty-warriors-3-switch-2](https://www.techspain24.com/noticias/dynasty-warriors-3-switch-2/) |
 | 2026-09-28 | El Galaxy A16 estrena programa beta de One UI 9.0 con Android 17 | [galaxy-a16-one-ui-9](https://www.techspain24.com/noticias/galaxy-a16-one-ui-9/) |
+| 2026-09-28 | El Garmin Epix Pro (Gen 2) se rebaja un 50 % como alternativa al Fénix 9 | [garmin-epix-pro-oferta](https://www.techspain24.com/noticias/garmin-epix-pro-oferta/) |
 | 2026-09-28 | El GEEKOM A5 Pro 2026 Edition baja a 439 euros con cupón: mini PC con Ryzen 7 | [geekom-a5-pro-descuento](https://www.techspain24.com/noticias/geekom-a5-pro-descuento/) |
 | 2026-09-28 | El Honor Magic 9 Pro Max anota 5,52 millones de puntos en AnTuTu y supera al OnePlus 16 | [honor-magic9-pro-max-antutu](https://www.techspain24.com/noticias/honor-magic9-pro-max-antutu/) |
 | 2026-09-28 | El Poco F9 Ultra se estrena en la gama alta con pantalla de 185 Hz y 8.050 mAh por 1.099 euros | [poco-f9-ultra-analisis](https://www.techspain24.com/noticias/poco-f9-ultra-analisis/) |
@@ -622,5 +625,18 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-28 | Twilight Princess corre en Nintendo Switch con Dusk, una reimplementación nativa no oficial | [twilight-princess-switch-dusk](https://www.techspain24.com/noticias/twilight-princess-switch-dusk/) |
 | 2026-09-28 | Un fabricante chino de móviles probaría baterías de acero con celdas apiladas | [baterias-acero-apiladas](https://www.techspain24.com/noticias/baterias-acero-apiladas/) |
 | 2026-09-28 | Un mini PC Kubb Fanless fabricado en oro de 24 quilates llega a 1,7 millones de dólares | [kubb-fanless-oro](https://www.techspain24.com/noticias/kubb-fanless-oro/) |
+| 2026-09-28 | Una funda filtrada apunta a un nuevo módulo de cámara en el Galaxy S27 Ultra | [galaxy-s27-ultra-funda](https://www.techspain24.com/noticias/galaxy-s27-ultra-funda/) |
 | 2026-09-28 | VAIO estrena en Japón la edición especial «Kachi-iro» de su portátil convertible T, con Core Ultra X7 y 64 GB | [vaio-edicion-especial](https://www.techspain24.com/noticias/vaio-edicion-especial/) |
 | 2026-09-28 | WIKO Hi MateBook 14 edición Core: OLED de 2,8K, Core Ultra 5 325 y 24 GB por 8.199 yuanes | [wiko-hi-matebook-14](https://www.techspain24.com/noticias/wiko-hi-matebook-14/) |
+| 2026-09-29 | AYANEO Konkr Pocket Block ya se puede pedir: pantalla 4:3, Android 12 y precio desde 89 dólares | [ayaneo-konkr-pocket-block](https://www.techspain24.com/noticias/ayaneo-konkr-pocket-block/) |
+| 2026-09-29 | shadPS4 publica una preversión que corrige varios ajustes de configuración | [shadps4-prerelanzamiento-2026-09-29](https://www.techspain24.com/noticias/shadps4-prerelanzamiento-2026-09-29/) |
+| 2026-09-30 | Cómo instalar Kvaesitso, el lanzador de Android que no está en la Play Store | [kvaesitso-launcher-android](https://www.techspain24.com/noticias/kvaesitso-launcher-android/) |
+| 2026-09-30 | Cómo mejorar la batería de tu móvil Android paso a paso | [mejorar-bateria-android](https://www.techspain24.com/noticias/mejorar-bateria-android/) |
+| 2026-09-30 | Cómo mejorar la calidad de sonido de las llamadas en tu teléfono Android | [mejorar-audio-de-llamadas-android](https://www.techspain24.com/noticias/mejorar-audio-de-llamadas-android/) |
+| 2026-09-30 | Cómo optimizar SILENT HILL Townfall en PC: la mejor configuración paso a paso | [silent-hill-townfall-pc-rendimiento](https://www.techspain24.com/noticias/silent-hill-townfall-pc-rendimiento/) |
+| 2026-09-30 | Cómo usar la nueva función Notify Me de Safari en macOS 27 paso a paso | [safari-notify-me-macos-27](https://www.techspain24.com/noticias/safari-notify-me-macos-27/) |
+| 2026-09-30 | Cómo usar Shortcuts en tu MacBook: guía paso a paso | [como-usar-shortcuts-en-el-macbook](https://www.techspain24.com/noticias/como-usar-shortcuts-en-el-macbook/) |
+| 2026-09-30 | El Honor Magic 9 Pro Max graba vídeo como una cámara de cine con ARRI, pero ¿alguien lo va a usar? | [honor-magic-9-pro-max-video-arri](https://www.techspain24.com/noticias/honor-magic-9-pro-max-video-arri/) |
+| 2026-09-30 | El rediseño de SmartThings llega a iPhone antes que a los Galaxy | [smartthings-redesign-iphones](https://www.techspain24.com/noticias/smartthings-redesign-iphones/) |
+| 2026-09-30 | Marvel’s Wolverine ya arranca en PC con el emulador de PS5 KytyPS5 | [marvels-wolverine-arranca-en-pc-emulador-ps5](https://www.techspain24.com/noticias/marvels-wolverine-arranca-en-pc-emulador-ps5/) |
+| 2026-09-30 | One UI 9 ya está disponible en Europa: Android 17 llega a los Galaxy S26 | [one-ui-9-disponible](https://www.techspain24.com/noticias/one-ui-9-disponible/) |
