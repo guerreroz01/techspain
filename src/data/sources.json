@@ -2,7 +2,7 @@
   "meta": {
     "title": "Fuentes editoriales del portal",
     "description": "Lista curada de fuentes agrupada en 7 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
-    "updated": "2026-09-22",
+    "updated": "2026-09-30",
     "version": 3,
     "note": "Los campos 'rss' con valor null no tienen feed confirmado (o no lo publican): usar la homepage para seguimiento manual o scraping autorizado. Antes de automatizar, verificar cada feed y respetar los términos de uso de cada sitio (p. ej. VideoCardz prohíbe explícitamente el scraping programático sin consentimiento escrito).",
     "layers": {
@@ -198,6 +198,34 @@
       "lang": "en",
       "focus": ["gpu", "drivers", "reviews"],
       "notes": "Seguimiento manual en https://www.guru3d.com/news (RSS no confirmado)."
+    },
+    {
+      "id": "theshortcut",
+      "name": "TheShortcut",
+      "layer": "tech-media",
+      "homepage": "https://www.theshortcut.com",
+      "rss": "https://www.theshortcut.com/feed",
+      "lang": "en",
+      "focus": ["hands-on", "reviews", "consumo"]
+    },
+    {
+      "id": "cultofmac",
+      "name": "Cult of Mac",
+      "layer": "tech-media",
+      "homepage": "https://www.cultofmac.com",
+      "rss": "https://www.cultofmac.com/feed",
+      "lang": "en",
+      "focus": ["apple", "vision-pro", "gafas"]
+    },
+    {
+      "id": "pocket-lint",
+      "name": "Pocket-lint",
+      "layer": "tech-media",
+      "homepage": "https://www.pocket-lint.com",
+      "rss": "https://www.pocket-lint.com/feed/",
+      "lang": "en",
+      "focus": ["guías-de-compra", "reviews", "gafas"],
+      "notes": "Valnet: robots.txt restrictivo para scraping/IA. Usar solo el feed RSS, nunca scraping."
     },
 
     {
@@ -484,6 +512,15 @@
       "lang": "es",
       "focus": ["redes", "wifi", "hardware"],
       "notes": "RSS no confirmado."
+    },
+    {
+      "id": "teknofilo",
+      "name": "Teknófilo",
+      "layer": "es-competition",
+      "homepage": "https://www.teknofilo.com",
+      "rss": "https://www.teknofilo.com/feed",
+      "lang": "es",
+      "focus": ["tecnología", "xr", "gafas"]
     },
 
     {
@@ -1295,6 +1332,46 @@
       "rss": "https://es.gizmodo.com/rss",
       "lang": "es",
       "focus": ["tecnología", "wearables", "noticias"]
+    },
+    {
+      "id": "vuzix",
+      "name": "Vuzix",
+      "layer": "wearables",
+      "homepage": "https://www.vuzix.com",
+      "rss": "https://www.vuzix.com/blogs/vuzix-blog.atom",
+      "lang": "en",
+      "focus": ["gafas-ar", "enterprise", "comparativas", "explicadores"],
+      "notes": "Fabricante: fuente primaria de datos y detector de comparativas propias; contrastar antes de publicar."
+    },
+    {
+      "id": "inmo",
+      "name": "INMO",
+      "layer": "wearables",
+      "homepage": "https://www.inmoxr.com",
+      "rss": "https://www.inmoxr.com/blogs/news.atom",
+      "lang": "en",
+      "focus": ["gafas-ia", "lanzamientos", "comparativas"],
+      "notes": "Fabricante: fuente primaria de datos; contrastar antes de publicar."
+    },
+    {
+      "id": "solos",
+      "name": "Solos",
+      "layer": "wearables",
+      "homepage": "https://solosglasses.com",
+      "rss": "https://solosglasses.com/blogs/news.atom",
+      "lang": "en",
+      "focus": ["gafas-ar", "audio", "uso-diario", "comparativas"],
+      "notes": "Fabricante: fuente primaria de datos; contrastar antes de publicar."
+    },
+    {
+      "id": "lucyd",
+      "name": "Lucyd",
+      "layer": "wearables",
+      "homepage": "https://lucyd.co",
+      "rss": "https://lucyd.co/blogs/news.atom",
+      "lang": "en",
+      "focus": ["gafas-de-audio", "sin-cámara", "producto"],
+      "notes": "Fabricante (Innovative Eyewear): fuente primaria de datos; contrastar antes de publicar."
     }
   ]
 }
