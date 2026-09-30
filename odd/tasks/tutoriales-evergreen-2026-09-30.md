@@ -87,6 +87,13 @@ All included candidates returned `sin coincidencias` through `npm run find` on d
 - 2026-09-30: TUT-003 attribution corrected by the orchestrator. The brief named MacRumors as the source, but MacRumors is a relay: its own text states Apple "shared a guide" developed with the AAP. Per AGENTS.md §7 and SKILL.md ("attribute the ultimate origin, not the relay"), `source` now points to Apple (`https://support.apple.com/guide/aap-apple/welcome/web`, verified HTTP 200) in both the ES and EN entries. This was an orchestrator brief error, not a writer error.
 - 2026-09-30: Final build + index + sitemap validation ran once by the orchestrator, after all writers returned.
 
+## RDD outcome
+
+- Work-unit commit: `635234f` on `feat/tutoriales-evergreen-2026-09-30` (from `main@4c924f6`).
+- `review assess` → risk **high** (`hot_path`: the substring "update" in the image path `how-to-install-windows-11-2026-update/assets/cover.jpg`), `review_due=true`, 72 files / 1379 changed lines.
+- `review start` (relay) returned consent v3; the user chose **declined** (`declined_this_candidate`, target `sha256:60742d89…`). No review record was created, no lenses ran, and delivery continues under ordinary repository policy.
+- This outcome note is a docs-only follow-up, not a new work unit: `assess` is deliberately not re-run for it, because the declined candidate was still the tip of the branch and re-assessing would re-prompt consent for the same range that was already decided.
+
 ## Next step
 
-Commit the batch as one work-unit commit on `feat/tutoriales-evergreen-2026-09-30`, run the RDD candidate assessment, then merge and push `main` (which also carries the two pending sitemap commits).
+Merge `feat/tutoriales-evergreen-2026-09-30` into `main` and push `main` (which then also carries the two pending sitemap commits).
