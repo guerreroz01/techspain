@@ -1,0 +1,86 @@
+---
+title: 'Cómo desbloquear Multi Frame Gen 4x en una tarjeta RTX 40 paso a paso'
+description: 'Guía paso a paso para activar Multi Frame Generation 4x en una tarjeta RTX 40 con el ReShade HDR Installer, más verificación, riesgos y límites reales.'
+pubDate: '2026-09-30'
+author: 'Redacción TechSpain24'
+tags: ['Tutoriales', 'Tarjetas gráficas']
+featured: false
+breaking: false
+draft: false
+cover: './assets/cover.jpg'
+coverAlt: 'Tarjeta gráfica Nvidia RTX 4070 Super Founders Edition sobre un fondo oscuro'
+source:
+  name: 'PC Gamer'
+  url: 'https://www.pcgamer.com/hardware/graphics-cards/how-to-get-unlocked-multi-frame-gen-working-on-an-rtx-40-series-graphics-card/'
+---
+
+Multi Frame Generation (MFG) es la técnica de Nvidia que usa inteligencia artificial para interpolar fotogramas y suavizar la imagen: puede generar hasta cinco fotogramas por cada fotograma renderizado de verdad. La compañía estrenó la generación de fotogramas 2x original con las RTX 40 en 2022, pero reservó la versión múltiple más reciente en exclusiva para las RTX 50. Esta guía explica cómo recuperar buena parte de esa fluidez en una tarjeta RTX 40, siempre que no importe recurrir a un poco de trabajo de software.
+
+Conviene dejarlo claro desde el principio: el método no está soportado oficialmente. Nvidia limitó las tasas altas de MFG a las RTX 50 por un motivo de hardware. El silicio de esa generación incorpora un procesador de gestión de IA (AMP) dedicado que trabaja junto al Flip Metering para entregar a la pantalla fotogramas renderizados y generados de la forma más fluida posible, algo de lo que carecen las arquitecturas anteriores. El propio CEO, Jensen Huang, ha reconocido que llevar «la última tecnología de IA a las GPU de la generación previa» es una buena idea, pero que «requeriría bastante ingeniería».
+
+Si aun así se quiere probar, estos son los pasos.
+
+## Requisitos previos
+
+- Una tarjeta gráfica Nvidia de la serie RTX 40.
+- El [ReShade HDR Installer (RHI)](https://github.com/RankFTW/RHI), descargado desde GitHub: es la herramienta que automatiza la instalación de los mods no oficiales.
+- Un juego que ya soporte Multi Frame Generation de serie, según la lista oficial de Nvidia.
+- Preferiblemente un título para un jugador: los mods que hay que instalar pueden disparar los sistemas antifraude.
+
+## Pasos para activar Multi Frame Gen 4x en una RTX 40
+
+### 1. Abre RHI y comprueba los juegos detectados
+
+Al ejecutar RHI por primera vez, la herramienta importa todos los juegos que ya tengas instalados. Antes de tocar nada, confirma en la lista de Nvidia que el título que quieres usar soporta MFG.
+
+### 2. Selecciona el juego
+
+Haz clic en el nombre del juego en el panel izquierdo de RHI. En la parte central aparecerán todas las opciones y mods específicos de ese título.
+
+![Panel de RHI con las opciones y mods específicos del juego seleccionado](./assets/rhi-instalar-rtx-40-mfg.jpg)
+
+### 3. Instala los mods «RTX 40 MFG» y «OptiScaler»
+
+Baja hasta el final de la lista de opciones y marca las casillas para instalar **RTX 40 MFG** y **OptiScaler**. La instalación tarda apenas unos segundos.
+
+![Mods RTX 40 MFG y OptiScaler instalados desde el listado de opciones del juego](./assets/rhi-optiscaler-instalado.jpg)
+
+### 4. Sube a «Nvidia Profile Overrides»
+
+Una vez instalados los dos mods, vuelve a subir hasta el apartado **Nvidia Profile Overrides**.
+
+![Apartado Nvidia Profile Overrides con el botón Multi Frame Generation en RHI](./assets/rhi-nvidia-profile-overrides.jpg)
+
+### 5. Pulsa el botón «Multi Frame Generation»
+
+Haz clic en el botón azul **Multi Frame Generation**. Aparecerá un cuadro de diálogo que avisa de que MFG y Dynamic MFG solo están soportados en las GPU Nvidia de la serie 50 (arquitectura Blackwell). Acepta con «OK» para continuar.
+
+![Aviso de RHI indicando que MFG solo está soportado en las GPU Nvidia de la serie 50](./assets/rhi-aviso-rtx-50.jpg)
+
+### 6. Configura ajustes de MFG
+
+Se abrirá una ventana titulada **Multi Frame Generation** con tres listas desplegables. Selecciona:
+
+- En **FG**, el valor «Dynamic».
+- En **Frame Count**, el valor «Up to 4x».
+- En **Target Frame Rate**, el valor «Off».
+
+Pulsa «Close» para guardar.
+
+![Ventana de Multi Frame Generation con las opciones Dynamic, Up to 4x y Off](./assets/rhi-ajustes-mfg.jpg)
+
+### 7. Lanza el juego y ajusta la opción interna
+
+Arranca el juego y activa la opción de generación de fotogramas correspondiente dentro de sus propios ajustes gráficos. Si todo ha ido bien, ya estarás usando MFG 4x sobre una RTX 40.
+
+## Cómo verificar que funcionó
+
+No todos los juegos ofrecen una opción específica de MFG 4x, así que la forma más fiable de comprobar que está activo es usar la superposición de la **aplicación FrameView** de Nvidia, que muestra el rendimiento y los fotogramas en tiempo real. En la prueba original se confirmó así su funcionamiento sobre una RTX 4070 Super.
+
+Si tras lanzar el juego no ves el efecto esperado, puede que tengas que cambiar entre distintas versiones de controlador desde dentro de RHI hasta dar con una que funcione.
+
+## Advertencias y limitaciones
+
+- **No es un método oficial.** Nvidia no lo soporta y las arquitecturas RTX 40 no incluyen el AMP ni el Flip Metering que sí llevan las RTX 50 para gestionar los fotogramas extra.
+- **La calidad no es perfecta.** Activar niveles altos de generación de fotogramas puede introducir imágenes con efecto de estela (*smeary*) y problemas de latencia. Se ha documentado latencia incluso con un limitador de fotogramas activo, así que una cifra de FPS alta no garantiza una experiencia más fluida en todos los juegos.
+- **Riesgo de antifraude.** Los mods pueden activar los sistemas de detección de trampas: mejor probar en títulos para un jugador, como se recomienda en la guía original. Si ya te interesa el enfoque para otra generación, existe un truco equivalente que [desbloqueó Multi Frame Generation en las RTX 30](/noticias/dlss-multi-frame-gen-rtx-30/).

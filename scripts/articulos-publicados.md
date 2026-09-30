@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 633 artículos. Actualizado: 2026-09-30
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 642 artículos. Actualizado: 2026-09-30
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -630,10 +630,19 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-28 | WIKO Hi MateBook 14 edición Core: OLED de 2,8K, Core Ultra 5 325 y 24 GB por 8.199 yuanes | [wiko-hi-matebook-14](https://www.techspain24.com/noticias/wiko-hi-matebook-14/) |
 | 2026-09-29 | AYANEO Konkr Pocket Block ya se puede pedir: pantalla 4:3, Android 12 y precio desde 89 dólares | [ayaneo-konkr-pocket-block](https://www.techspain24.com/noticias/ayaneo-konkr-pocket-block/) |
 | 2026-09-29 | shadPS4 publica una preversión que corrige varios ajustes de configuración | [shadps4-prerelanzamiento-2026-09-29](https://www.techspain24.com/noticias/shadps4-prerelanzamiento-2026-09-29/) |
+| 2026-09-30 | Cómo configurar los controles parentales de iOS 27 paso a paso | [usar-controles-parentales-ios-27](https://www.techspain24.com/noticias/usar-controles-parentales-ios-27/) |
+| 2026-09-30 | Cómo desbloquear Multi Frame Gen 4x en una tarjeta RTX 40 paso a paso | [activar-multi-frame-gen-rtx-40](https://www.techspain24.com/noticias/activar-multi-frame-gen-rtx-40/) |
+| 2026-09-30 | Cómo difuminar o pixelar información sensible en Google Photos | [difuminar-informacion-sensible-google-photos](https://www.techspain24.com/noticias/difuminar-informacion-sensible-google-photos/) |
+| 2026-09-30 | Cómo hacer que las fotos y los vídeos del móvil ocupen menos espacio sin perder calidad | [reducir-espacio-fotos-videos-movil](https://www.techspain24.com/noticias/reducir-espacio-fotos-videos-movil/) |
 | 2026-09-30 | Cómo instalar Kvaesitso, el lanzador de Android que no está en la Play Store | [kvaesitso-launcher-android](https://www.techspain24.com/noticias/kvaesitso-launcher-android/) |
+| 2026-09-30 | Cómo instalar la actualización de Windows 11 2026 paso a paso | [instalar-actualizacion-windows-11-2026](https://www.techspain24.com/noticias/instalar-actualizacion-windows-11-2026/) |
+| 2026-09-30 | Cómo limpiar la pantalla de tu televisor sin dañarla | [limpiar-pantalla-televisor-sin-danarla](https://www.techspain24.com/noticias/limpiar-pantalla-televisor-sin-danarla/) |
 | 2026-09-30 | Cómo mejorar la batería de tu móvil Android paso a paso | [mejorar-bateria-android](https://www.techspain24.com/noticias/mejorar-bateria-android/) |
 | 2026-09-30 | Cómo mejorar la calidad de sonido de las llamadas en tu teléfono Android | [mejorar-audio-de-llamadas-android](https://www.techspain24.com/noticias/mejorar-audio-de-llamadas-android/) |
 | 2026-09-30 | Cómo optimizar SILENT HILL Townfall en PC: la mejor configuración paso a paso | [silent-hill-townfall-pc-rendimiento](https://www.techspain24.com/noticias/silent-hill-townfall-pc-rendimiento/) |
+| 2026-09-30 | Cómo preparar tu Samsung Galaxy antes de actualizar a One UI 9 | [preparar-samsung-galaxy-one-ui-9](https://www.techspain24.com/noticias/preparar-samsung-galaxy-one-ui-9/) |
+| 2026-09-30 | Cómo reasignar la tecla Copilot en Windows 11 paso a paso | [reasignar-tecla-copilot-windows](https://www.techspain24.com/noticias/reasignar-tecla-copilot-windows/) |
+| 2026-09-30 | Cómo recuperar la barra de volumen en la pantalla de bloqueo del iPhone | [recuperar-barra-volumen-pantalla-bloqueo-iphone](https://www.techspain24.com/noticias/recuperar-barra-volumen-pantalla-bloqueo-iphone/) |
 | 2026-09-30 | Cómo usar la nueva función Notify Me de Safari en macOS 27 paso a paso | [safari-notify-me-macos-27](https://www.techspain24.com/noticias/safari-notify-me-macos-27/) |
 | 2026-09-30 | Cómo usar Shortcuts en tu MacBook: guía paso a paso | [como-usar-shortcuts-en-el-macbook](https://www.techspain24.com/noticias/como-usar-shortcuts-en-el-macbook/) |
 | 2026-09-30 | El Honor Magic 9 Pro Max graba vídeo como una cámara de cine con ARRI, pero ¿alguien lo va a usar? | [honor-magic-9-pro-max-video-arri](https://www.techspain24.com/noticias/honor-magic-9-pro-max-video-arri/) |
