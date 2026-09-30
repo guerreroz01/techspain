@@ -72,6 +72,13 @@ Excluded:
 - 2026-09-30: Both articles written by parallel writers on branch `feat/wearables-2026-09-30`; neither ran the build.
 - 2026-09-30: This document was created at close, after the two writers returned. The batch was small and its scope was already fixed by the approved two-story selection, so it was handled as a direct delegated route; the record is written here for traceability rather than pretence of having preceded the writes.
 
+## RDD outcome
+
+- Work-unit commit: `33800f4` on `feat/wearables-2026-09-30` (from `main@08e8986`).
+- `review assess` → risk **high**, `review_due=true`, 23 files / 252 changed lines. The reason is a false positive on the `hot_path` signal: the substring "update" inside the English slug path `src/content/news-en/polar-os6-update-custom-button/assets/ajustes-deporte.webp`. This is the second identical false positive today (the first was `how-to-install-windows-11-2026-update/assets/cover.jpg`).
+- `review start` (relay) returned consent v3; the user chose **declined** (`declined_this_candidate`). No review record, no lenses, delivery under ordinary repository policy.
+- Not re-assessed for this docs-only note, to avoid re-prompting consent for an already-decided range.
+
 ## Next step
 
 Merge `feat/wearables-2026-09-30` and push, then start the smart-glasses source research the user requested.
