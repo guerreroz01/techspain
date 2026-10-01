@@ -20,7 +20,7 @@ title: 'Titular de la noticia o título de la guía'
 description: 'Bajada de una o dos frases.'
 pubDate: 'YYYY-MM-DD'  # fecha de hoy
 # updatedDate: 'YYYY-MM-DD'
-author: 'Redacción TechSpain24'
+# author: se omite; la firma se deriva del vertical (ver «Firma (redactores)»)
 tags: ['<Vertical principal>', '<tag secundario opcional>']
 featured: false
 breaking: false
@@ -40,7 +40,7 @@ source:
 | `description` | string | sí | 1–2 frases; se usa para SEO/OG/cards. |
 | `pubDate` | date | sí | Fecha de hoy, `YYYY-MM-DD`. |
 | `updatedDate` | date | no | Solo si se actualiza después. |
-| `author` | string | no | Default: `SITE.author`. |
+| `author` | string | no | No se escribe en el flujo normal: la firma se deriva del token de vertical del id (`src/lib/authors.ts`). Solo sirve para sobrescribirla en un caso puntual. |
 | `tags` | string[] | no | Metadatos; primer tag = vertical principal (ver sección Verticales). |
 | `featured` | boolean | no | Decisión de mesa (promoción posterior al lote): el redactor lo deja en `false`. Ver «Promoción editorial» en `DELEGATION.md`. |
 | `breaking` | boolean | no | Decisión de mesa: el orquestador lo marca `true` solo para una noticia urgente del mismo día. Ver «Promoción editorial» en `DELEGATION.md`. |
@@ -48,6 +48,29 @@ source:
 | `coverAlt` | string | no | Alt de la imagen de portada. |
 | `source` | `{ name, url }` | no | Atribución al **medio original** (origen, no intermediario). |
 | `draft` | boolean | no | `true` lo excluye del build de producción. |
+
+## Firma (redactores)
+
+Cada artículo lo firma el redactor de su vertical y se escribe con su voz. La ficha de
+cada uno está en `skills/redaccion-prensa/redactores/<token>.md` (**lectura
+obligatoria** antes de redactar). La firma **no** se escribe en el frontmatter: se
+deriva del token de vertical del id anidado (`src/lib/authors.ts`), igual que la URL.
+
+| Vertical (`<token>`) | Redactor |
+| --- | --- |
+| `audio` | Marta Ruiz |
+| `wearables` | Diego Salas |
+| `moviles` | Lucía Vega |
+| `tutoriales` | Andrés Molina |
+| `tarjetas-graficas` | Nadia Ortiz |
+| `memorias` | Bruno Delgado |
+| `portatiles` | Clara Ibáñez |
+| `emuladores` | Iván Cordero |
+| `consolas` | Sara Lozano |
+| `componentes` | Tomás Riera |
+
+La voz es estilo, nunca permiso para inventar datos. El compañero inglés lo firma el
+mismo redactor (una persona, un nombre) y su cuerpo es traducción fiel del español.
 
 ## Verticales
 
@@ -111,7 +134,7 @@ src/content/news/
 title: 'Un nuevo proceso de 2 nm promete más autonomía en portátiles'
 description: 'El fabricante arrancó la producción en serie del nodo, con mejoras de eficiencia que podrían alargar la batería de los próximos equipos.'
 pubDate: 'YYYY-MM-DD'  # fecha de hoy
-author: 'Redacción TechSpain24'
+# author: (se omite; lo deriva el vertical `componentes`)
 tags: ['Componentes', 'Semiconductores']
 cover: './assets/chips.svg'
 coverAlt: 'Ilustración abstracta de un chip'
@@ -152,7 +175,7 @@ src/content/news/
 title: 'Cómo crear un USB de arranque de Windows 11 paso a paso'
 description: 'Guía práctica para preparar una unidad de arranque con Windows 11 usando solo herramientas oficiales de Microsoft.'
 pubDate: 'YYYY-MM-DD'  # fecha de hoy
-author: 'Redacción TechSpain24'
+# author: (se omite; lo deriva el vertical `tutoriales`)
 tags: ['Tutoriales', 'Componentes']
 cover: './assets/cover.jpg'
 coverAlt: 'Unidad USB conectada a un puerto del equipo'

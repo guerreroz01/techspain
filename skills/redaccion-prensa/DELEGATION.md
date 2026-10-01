@@ -12,6 +12,26 @@ de escribir el orquestador, se delega **un subagente por artículo**, todos en p
   artículo, así que no hay solapamiento entre subagentes. No usar `background` en escritores.
 - Emitir una línea de estado antes y después de cada llamada (`⏳ Delegating …`, `✅/⚠️ …`).
 
+## Redactores por vertical
+
+Cada pieza la firma el redactor de su vertical y se escribe con su voz. La ficha de
+cada uno vive en `skills/redaccion-prensa/redactores/<token>.md` y es de lectura
+obligatoria para el subagente. La firma **no** se escribe en el frontmatter: se deriva
+del token de vertical del id (`src/lib/authors.ts`), igual que la URL.
+
+| Vertical (`<token>`) | Redactor |
+| --- | --- |
+| `audio` | Marta Ruiz |
+| `wearables` | Diego Salas |
+| `moviles` | Lucía Vega |
+| `tutoriales` | Andrés Molina |
+| `tarjetas-graficas` | Nadia Ortiz |
+| `memorias` | Bruno Delgado |
+| `portatiles` | Clara Ibáñez |
+| `emuladores` | Iván Cordero |
+| `consolas` | Sara Lozano |
+| `componentes` | Tomás Riera |
+
 ## Pasos previos a delegar (orquestador)
 
 1. Leer `scripts/seleccion.md` y localizar los artículos marcados con `[*]`.
@@ -61,10 +81,11 @@ Completar los `{...}` y pegar como prompt del subagente:
 Eres redactor de prensa tecnológica para un portal español en Astro. Escribe UNA pieza
 de tipo `{tipo}` (`noticia` | `tutorial`).
 
-**Antes de escribir, leé estos tres archivos (obligatorio):**
+**Antes de escribir, leé estos cuatro archivos (obligatorio):**
 1. `skills/redaccion-prensa/SKILL.md`
-2. `skills/redaccion-prensa/assets/frontmatter-template.md`
-3. Contrato de SEO de artículo: `{seo_contract_path}`
+2. La ficha de tu redactor: `skills/redaccion-prensa/redactores/{vertical}.md`
+3. `skills/redaccion-prensa/assets/frontmatter-template.md`
+4. Contrato de SEO de artículo: `{seo_contract_path}`
 
 Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»** de
 `skills/redaccion-prensa/DELEGATION.md` y seguila al pie de la letra.
@@ -86,7 +107,7 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
 - **No listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo): son cientos de entradas y cada listado quema ~12 KB de contexto. Tu slug y tu carpeta ya vienen dados. Para ver si un tema ya está cubierto, usá `npm run find -- <términos distintivos>`. **Si tu pieza ya está publicada, pará y reportalo: no la escribas.**
 - No copies verbatim: traduce y reescribe con tus palabras. No inventes datos, citas ni cifras.
 - Atribuye el origen real en `source: { name, url }`. Si el medio cita a otro, atribuye al original.
-- `pubDate: {fecha_de_hoy}`, `author: 'Redacción TechSpain24'`.
+- `pubDate: {fecha_de_hoy}`. **No escribas `author`**: la firma se deriva del vertical (`src/lib/authors.ts`). El tono es el de la ficha de tu redactor (`redactores/{vertical}.md`): estilo, nunca permiso para inventar datos.
 - Tras redactar, ejecutá la pasada de SEO pre-publicación (`{seo_contract_path}`) sobre el `index.mdx` terminado. La pasada NO toca `title`, `tags`, `featured`, `breaking` ni `pubDate`, y NO ejecuta el build.
 
 **Pasos:**
@@ -114,7 +135,8 @@ medio publicar. La vertical es la **misma** carpeta en las dos colecciones.
   Namespace separado del español (puede coincidir o no). Verificalo con
   `npm run slug -- --en <english-slug>`.
 - **Frontmatter EN:** `title`, `description` (traducidos), `pubDate` igual al
-  español, `updatedDate` si existe, `author: 'TechSpain24 Staff'`, `tags`
+  español, `updatedDate` si existe, **sin `author`** (la firma se deriva y es la
+  misma que la de la pieza española), `tags`
   traducidos al inglés (**`Tutorials` va primero en tutoriales**), `source` con
   el **mismo** `name`/`url` que la pieza española, `draft: false`, y
   **`translationOf: {vertical}/{slug}`** (el id español **completo** al que traduce). **No** lleva

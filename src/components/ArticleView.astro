@@ -5,6 +5,7 @@ import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AdSlot from './AdSlot.astro';
 import StoryList from './StoryList.astro';
+import { bylineFor } from '../lib/authors';
 import { computeStats, randomFor, relatedFor } from '../lib/related';
 import { verticalByToken, verticalTokenFromId } from '../lib/verticals';
 import { BRAND, SITE, socialPoolImageFor } from '../consts';
@@ -16,8 +17,10 @@ interface Props {
 }
 
 const { entry, related, random } = Astro.props;
-const { title, description, pubDate, updatedDate, author, tags, cover, coverAlt, source } =
-  entry.data;
+const { title, description, pubDate, updatedDate, tags, cover, coverAlt, source } = entry.data;
+
+// Byline from the vertical's writer; legacy flat entries fall back to SITE.author.
+const byline = bylineFor(entry, 'es');
 
 const { Content } = await render(entry);
 
@@ -84,7 +87,7 @@ const jsonLd = {
   dateModified: (updatedDate ?? pubDate).toISOString(),
   author: {
     '@type': 'Person',
-    name: author,
+    name: byline,
   },
   publisher: {
     '@type': 'Organization',
@@ -190,7 +193,7 @@ const breadcrumbLd =
       }
 
       <p class="article__meta">
-        <span class="article__author">{author}</span>
+        <span class="article__author">{byline}</span>
         {' · '}
         <time datetime={pubDate.toISOString()}>{formattedDate}</time>
         {

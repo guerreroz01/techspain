@@ -1,7 +1,6 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { SITE } from './consts';
 
 const news = defineCollection({
   loader: glob({
@@ -18,7 +17,10 @@ const news = defineCollection({
       description: z.string(),
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
-      author: z.string().default(SITE.author),
+      // Optional explicit byline. When omitted, `bylineFor` derives the writer
+      // from the vertical encoded in a nested id (`src/lib/authors.ts`) and
+      // falls back to `SITE.author` for legacy flat entries.
+      author: z.string().optional(),
       // Topics used as metadata only. There are no tag pages by design.
       tags: z.array(z.string()).default([]),
       // Candidate for the home lead story.
@@ -61,9 +63,11 @@ const newsEn = defineCollection({
       description: z.string(),
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
-      // English byline, not `SITE.author` ('Redacción TechSpain24'): the default
-      // must read as English on an English page if a writer omits the field.
-      author: z.string().default('TechSpain24 Staff'),
+      // Same rule as the Spanish schema: optional explicit byline, otherwise
+      // derived from the nested vertical token. The English fallback is
+      // 'TechSpain24 Staff', resolved in `bylineFor` (not a Zod default), so an
+      // English page never risks inheriting the Spanish site byline.
+      author: z.string().optional(),
       tags: z.array(z.string()).default([]),
       cover: image().optional(),
       coverAlt: z.string().optional(),

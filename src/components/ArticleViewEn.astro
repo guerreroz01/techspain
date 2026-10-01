@@ -6,6 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AdSlot from './AdSlot.astro';
 import StoryList from './StoryList.astro';
 import { BRAND, SITE, socialPoolImageFor } from '../consts';
+import { bylineFor } from '../lib/authors';
 import { verticalByToken, verticalTokenFromId } from '../lib/verticals';
 
 interface Props {
@@ -15,8 +16,12 @@ interface Props {
 }
 
 const { entry, related, random } = Astro.props;
-const { title, description, pubDate, updatedDate, author, tags, cover, coverAlt, source, translationOf } =
+const { title, description, pubDate, updatedDate, tags, cover, coverAlt, source, translationOf } =
   entry.data;
+
+// Same writer as the Spanish original; legacy flat entries fall back to the
+// English staff byline.
+const byline = bylineFor(entry, 'en');
 
 const { Content } = await render(entry);
 
@@ -60,7 +65,7 @@ const jsonLd = {
   dateModified: (updatedDate ?? pubDate).toISOString(),
   author: {
     '@type': 'Person',
-    name: author,
+    name: byline,
   },
   publisher: {
     '@type': 'Organization',
@@ -151,7 +156,7 @@ const breadcrumbLd =
       <h1 class="article__title">{title}</h1>
 
       <p class="article__meta">
-        <span class="article__author">{author}</span>
+        <span class="article__author">{byline}</span>
         {' · '}
         <time datetime={pubDate.toISOString()}>{formattedDate}</time>
         {
