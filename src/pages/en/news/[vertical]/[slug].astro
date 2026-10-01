@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import ArticleViewEn from '../../../../components/ArticleViewEn.astro';
+import { computeStats, randomFor, relatedFor } from '../../../../lib/related';
+
+/**
+ * Nested English articles: `src/content/news-en/<vertical>/<english-slug>/`
+ * becomes `/en/news/<vertical>/<english-slug>/`. Legacy flat entries are served
+ * by `../[slug].astro`.
+ */
+export async function getStaticPaths() {
+  const allEn = await getCollection('newsEn');
+  const allEs = await getCollection('news');
+  const esById = new Map(allEs.map((entry) => [entry.id, entry]));
+
+  const visible = allEn.filter((entry) => {
+    if (!import.meta.env.PROD) return true;
+    if (entry.data.draft) return false;
+    return !esById.get(entry.data.translationOf)!.draft;
+  });
+
+  const stats = computeStats(visible);
+
+  return visible
+    .filter((entry) => entry.id.includes('/'))
+    .map((entry) => {
+      const slash = entry.id.indexOf('/');
+      const vertical = entry.id.slice(0, slash);
+      const slug = entry.id.slice(slash + 1);
+      const related = relatedFor(entry, visible, stats);
+      return {
+        params: { vertical, slug },
+        props: { entry, related, random: randomFor(entry, related, visible) },
+      };
+    });
+}
+
+interface Props {
+  entry: CollectionEntry<'newsEn'>;
+  related: CollectionEntry<'newsEn'>[];
+  random: CollectionEntry<'newsEn'>[];
+}
+
+const { entry, related, random } = Astro.props;
+---
+
+<ArticleViewEn entry={entry} related={related} random={random} />

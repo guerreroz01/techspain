@@ -68,7 +68,10 @@ export function computeStats<T extends ArticleLike>(entries: T[]): Recommendatio
 
   const slugTokens = new Map<string, string[]>();
   for (const entry of entries) {
-    slugTokens.set(entry.id, entry.id.split('-'));
+    // Only the last id segment: nested entries are `<vertical>/<slug>`, and the
+    // vertical prefix must not count as a shared slug token.
+    const basename = entry.id.slice(entry.id.lastIndexOf('/') + 1);
+    slugTokens.set(entry.id, basename.split('-'));
   }
 
   return { tagSets, tagWeight, slugTokens };

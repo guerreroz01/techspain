@@ -1,0 +1,151 @@
+---
+import type { ImageMetadata } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsCard from './NewsCard.astro';
+import AdSlot from './AdSlot.astro';
+import { SITE } from '../consts';
+import { verticalByToken } from '../lib/verticals';
+
+/**
+ * Listing page for one editorial vertical. Structural entry shape so the same
+ * component serves the Spanish (`/noticias/<vertical>/`) and English
+ * (`/en/news/<vertical>/`) hubs.
+ */
+interface HubEntry {
+  id: string;
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    tags: string[];
+    cover?: ImageMetadata;
+    coverAlt?: string;
+  };
+}
+
+interface Props {
+  vertical: string;
+  entries: HubEntry[];
+  lang: 'es' | 'en';
+  basePath: string;
+  locale: string;
+  /** Whether the other-language hub exists (drives the hreflang pair). */
+  hasAlt: boolean;
+  backHref: string;
+  backLabel: string;
+}
+
+const { vertical, entries, lang, basePath, locale, hasAlt, backHref, backLabel } = Astro.props;
+
+const info = verticalByToken(vertical);
+const label = info ? (lang === 'es' ? info.es : info.en) : vertical;
+
+const siteBase = Astro.site ?? new URL(SITE.url);
+const esPath = `/noticias/${vertical}/`;
+const enPath = `/en/news/${vertical}/`;
+const canonicalPath = lang === 'es' ? esPath : enPath;
+const altPath = lang === 'es' ? enPath : esPath;
+
+const pageTitle = lang === 'es' ? `${label} — Noticias` : `${label} news`;
+const description =
+  lang === 'es'
+    ? `Todas las noticias de ${label} publicadas en ${SITE.title}, de la más reciente a la más antigua.`
+    : `Every ${label} story published on ${SITE.title}, newest first.`;
+const heading = label;
+const intro = description;
+const emptyLabel =
+  lang === 'es' ? 'Todavía no hay noticias en esta sección.' : 'No stories in this section yet.';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  lang={lang === 'es' ? 'es' : 'en'}
+  ogLocale={lang === 'es' ? 'es_ES' : 'en_US'}
+>
+  <Fragment slot="head">
+    {
+      hasAlt && (
+        <>
+          <link rel="alternate" hreflang="es" href={new URL(esPath, siteBase).href} />
+          <link rel="alternate" hreflang="en" href={new URL(enPath, siteBase).href} />
+          <link rel="alternate" hreflang="x-default" href={new URL(esPath, siteBase).href} />
+        </>
+      )
+    }
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: pageTitle,
+        description,
+        url: new URL(canonicalPath, siteBase).href,
+        inLanguage: lang,
+      })}
+    />
+  </Fragment>
+
+  <div class="container container--wide hub">
+    <header class="hub__header">
+      <h1 class="hub__title">{heading}</h1>
+      <p class="hub__intro">{intro}</p>
+    </header>
+
+    {
+      entries.length > 0 ? (
+        <ul class="hub__list">
+          {entries.map((entry) => (
+            <li>
+              <NewsCard entry={entry} basePath={basePath} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="hub__empty">{emptyLabel}</p>
+      )
+    }
+
+    <AdSlot />
+
+    <nav class="hub__back" aria-label={lang === 'es' ? 'Volver' : 'Back'}>
+      <a href={backHref}>{backLabel}</a>
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .hub__header {
+    padding-block: var(--space-8) var(--space-6);
+  }
+
+  .hub__title {
+    font-size: var(--text-4xl);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .hub__intro {
+    max-width: var(--measure);
+    margin-top: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+  }
+
+  .hub__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hub__empty {
+    padding-block: var(--space-7);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .hub__back {
+    margin-top: var(--space-8);
+    padding-top: var(--space-5);
+    border-top: var(--border-width) solid var(--color-border);
+  }
+</style>

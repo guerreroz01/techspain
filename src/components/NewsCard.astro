@@ -1,12 +1,30 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 
-interface Props {
-  entry: CollectionEntry<'news'>;
+/**
+ * Structural shape so the card serves the `news`, `newsEn` and vertical-hub
+ * listings without importing a specific collection type.
+ */
+interface NewsCardEntry {
+  id: string;
+  data: {
+    title: string;
+    description: string;
+    pubDate: Date;
+    tags: string[];
+    cover?: ImageMetadata;
+    coverAlt?: string;
+  };
 }
 
-const { entry } = Astro.props;
+interface Props {
+  entry: NewsCardEntry;
+  /** URL prefix. Defaults to the Spanish archive; the English hub passes `/en/news/`. */
+  basePath?: string;
+}
+
+const { entry, basePath = '/noticias/' } = Astro.props;
 const { title, description, pubDate, tags, cover, coverAlt } = entry.data;
 
 const dateFormatter = new Intl.DateTimeFormat('es-ES', {
@@ -38,7 +56,7 @@ const isoDate = pubDate.toISOString();
     <time class="news-card__date" datetime={isoDate}>{formattedDate}</time>
 
     <h2 class="news-card__title">
-      <a href={`/noticias/${entry.id}/`}>{title}</a>
+      <a href={`${basePath}${entry.id}/`}>{title}</a>
     </h2>
 
     <p class="news-card__description">{description}</p>

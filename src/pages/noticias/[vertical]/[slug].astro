@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import ArticleView from '../../../components/ArticleView.astro';
+import { computeStats, randomFor, relatedFor } from '../../../lib/related';
+
+/**
+ * Nested Spanish articles: `src/content/news/<vertical>/<slug>/index.mdx`
+ * becomes `/noticias/<vertical>/<slug>/`.
+ *
+ * The entry id carries the vertical (`<vertical>/<slug>`); it is split into two
+ * named params because a single param cannot hold a `/`. Legacy flat entries are
+ * served by `../[slug].astro`; archive pagination by `../[...page].astro`.
+ */
+export async function getStaticPaths() {
+  const allNews = await getCollection('news');
+
+  const visible = allNews.filter((entry) =>
+    import.meta.env.PROD ? !entry.data.draft : true,
+  );
+
+  const stats = computeStats(visible);
+
+  return visible
+    .filter((entry) => entry.id.includes('/'))
+    .map((entry) => {
+      const slash = entry.id.indexOf('/');
+      const vertical = entry.id.slice(0, slash);
+      const slug = entry.id.slice(slash + 1);
+      const related = relatedFor(entry, visible, stats);
+      return {
+        params: { vertical, slug },
+        props: { entry, related, random: randomFor(entry, related, visible) },
+      };
+    });
+}
+
+interface Props {
+  entry: CollectionEntry<'news'>;
+  related: CollectionEntry<'news'>[];
+  random: CollectionEntry<'news'>[];
+}
+
+const { entry, related, random } = Astro.props;
+---
+
+<ArticleView entry={entry} related={related} random={random} />
