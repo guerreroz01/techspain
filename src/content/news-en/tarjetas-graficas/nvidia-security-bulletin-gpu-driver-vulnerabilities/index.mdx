@@ -1,0 +1,42 @@
+---
+title: 'NVIDIA security bulletin lists 79 flaws in its Linux GPU drivers'
+description: 'The September 30 NVIDIA bulletin gathers 79 vulnerabilities, 47 of them high severity, in its GPU drivers, and sets four driver versions as safe.'
+pubDate: 2026-10-01
+tags: ['Graphics cards', 'NVIDIA', 'Security']
+draft: false
+translationOf: tarjetas-graficas/nvidia-boletin-seguridad-septiembre-2026
+source:
+  name: 'GamingOnLinux'
+  url: 'https://www.gamingonlinux.com/2026/09/nvidia-security-bulletin-for-sept-30-notes-many-gpu-issues/'
+---
+
+NVIDIA published a [security bulletin](https://nvidia.custhelp.com/app/answers/detail/a_id/5861) on September 30 —number 5861— listing **79 vulnerabilities** that affect its Linux GPU drivers, some of them also present on Windows. Of the total, **47 are rated high severity** (43 of them with a base score of 7.8) and **32 are rated medium**. The vendor has already released the fixed versions.
+
+## Which drivers to install
+
+NVIDIA marks four versions as safe:
+
+- **615.71.09**
+- **610.57.04**
+- **595.91.07**
+- **580.178.04**
+
+Anyone running an earlier version within any of those series should update; machines already on those numbers or above are outside the flaws fixed in this bulletin. As usual, the update reaches the vendor's channel first and then arrives through each distribution's repositories.
+
+## What kind of flaws it covers
+
+Most of the list are memory-safety flaws in the driver's kernel-mode layer: use-after-free, out-of-bounds writes and reads, integer overflows, type confusion, double frees and null pointer dereferences. There are also entries in the GPU firmware and in the open-source kernel module, including a DMA-BUF import path.
+
+The consequences the bulletin itself describes are recurring: code execution, privilege escalation, denial of service, information disclosure and data tampering. It is worth pinning down the attack vector, because the real urgency depends on it: almost every description mentions "an unprivileged user" or "a local user", which means local access to the machine is required. These are not remote code execution flaws, but privilege-escalation and stability problems exploited from inside the system itself.
+
+## Why it matters
+
+GamingOnLinux, the outlet that compiled the list, points out that this is the largest batch it has seen in a single bulletin. It suggests the growing use of artificial-intelligence tools to find flaws as a possible cause, the same phenomenon that led Canonical to speed up Ubuntu kernel updates. That is a press hypothesis, not a fact confirmed by the vendor, and it should be read as such.
+
+What is verifiable is the volume: 79 CVE references in a single communication, with a very clear majority of base scores at 7.8. For a user with an NVIDIA GPU on Linux, the point is less about the number and more about the nature of the flaws, concentrated in the layer that separates user space from the hardware.
+
+## What changes for the user
+
+The first step is to find out which version is installed. On Linux, the `nvidia-smi` command shows the driver version in use. If it is below the safe version for its series, it needs updating; if the distribution does not yet package the fixed version, you may need to wait for the repository or fall back on NVIDIA's proprietary driver.
+
+The gaming branch had received the [GeForce 616.92 WHQL](/noticias/geforce-616-92-game-ready-drivers/) drivers earlier in the month, a release focused on optimizations and on closing regressions, not on the security flaws covered by this bulletin. They are two separate channels: gaming performance and security are fixed through different paths, and only the second one is urgent for reasons that have nothing to do with frame rates.

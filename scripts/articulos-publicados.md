@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 664 artículos. Actualizado: 2026-10-01
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 681 artículos. Actualizado: 2026-10-01
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -671,3 +671,20 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-30 | Polar OS 6 llega a seis relojes: más gráficos en la muñeca, botón personalizable y carga limitada al 80 % | [polar-os6-actualizacion](https://www.techspain24.com/noticias/polar-os6-actualizacion/) |
 | 2026-09-30 | Shure MV6 Gen 2: micrófono USB para gaming con cancelación de ruido en tiempo real | [shure-mv6-gen-2](https://www.techspain24.com/noticias/shure-mv6-gen-2/) |
 | 2026-09-30 | Technics EAH-A1000: auriculares insignia con cancelación de ruido y hasta 90 horas de batería | [technics-eah-a1000](https://www.techspain24.com/noticias/technics-eah-a1000/) |
+| 2026-10-01 | Borderless Gaming ejecuta el DLSS 5 sin tocar el software de NVIDIA y en GPUs no soportadas | [tarjetas-graficas/borderless-gaming-dlss-5-universal](https://www.techspain24.com/noticias/tarjetas-graficas/borderless-gaming-dlss-5-universal/) |
+| 2026-10-01 | Bose compró Sonus Faber en 2024: qué ha cambiado desde entonces | [audio/bose-compra-sonus-faber](https://www.techspain24.com/noticias/audio/bose-compra-sonus-faber/) |
+| 2026-10-01 | El Casio F-B100W llega a EE. UU.: el reloj retro con cuenta pasos cuesta 64,95 dólares | [wearables/casio-f-b100w](https://www.techspain24.com/noticias/wearables/casio-f-b100w/) |
+| 2026-10-01 | El Framework Desktop con Ryzen AI Max+ Pro 495 agota su primer lote pese a partir de 6.799 dólares | [componentes/framework-desktop-ryzen-ai-max-pro-495](https://www.techspain24.com/noticias/componentes/framework-desktop-ryzen-ai-max-pro-495/) |
+| 2026-10-01 | EmuDeck 2.7 añade perfiles de emulación a 1080p y 4K para Steam Machine | [emuladores/emudeck-steam-machine-1080p-4k](https://www.techspain24.com/noticias/emuladores/emudeck-steam-machine-1080p-4k/) |
+| 2026-10-01 | FiiO CLASS A: amplificación Clase A de escritorio para auriculares y monitores | [audio/fiio-class-a](https://www.techspain24.com/noticias/audio/fiio-class-a/) |
+| 2026-10-01 | Huawei FreeBuds Neo: chip de audio con IA propio y 30 dB de cancelación por 699 yuanes | [audio/huawei-freebuds-neo](https://www.techspain24.com/noticias/audio/huawei-freebuds-neo/) |
+| 2026-10-01 | La Steam Deck 2 apuntaría a una APU AMD «Gainsborough» de 3 nm con Zen 6 y RDNA 5 | [consolas/steam-deck-2-gainsborough](https://www.techspain24.com/noticias/consolas/steam-deck-2-gainsborough/) |
+| 2026-10-01 | Los Galaxy M08 y Galaxy F08 llegan a India con 6.000 mAh y soporte hasta 2032 | [moviles/samsung-galaxy-m08-f08](https://www.techspain24.com/noticias/moviles/samsung-galaxy-m08-f08/) |
+| 2026-10-01 | Mobvoi lanza el TicNote Watch, un reloj que toma notas sin el móvil | [wearables/mobvoi-ticnote-watch](https://www.techspain24.com/noticias/wearables/mobvoi-ticnote-watch/) |
+| 2026-10-01 | NVIDIA publica un boletín de seguridad con 79 fallos en los controladores de GPU para Linux | [tarjetas-graficas/nvidia-boletin-seguridad-septiembre-2026](https://www.techspain24.com/noticias/tarjetas-graficas/nvidia-boletin-seguridad-septiembre-2026/) |
+| 2026-10-01 | Panasonic lanza los Toughbook 34 y Toughbook G3, dos 2 en 1 reforzados para el trabajo de campo | [portatiles/panasonic-toughbook-34-g3](https://www.techspain24.com/noticias/portatiles/panasonic-toughbook-34-g3/) |
+| 2026-10-01 | Qalo suma una pulsera de salud sin pantalla a su anillo inteligente | [wearables/qalo-pulsera-anillo](https://www.techspain24.com/noticias/wearables/qalo-pulsera-anillo/) |
+| 2026-10-01 | Samsung Galaxy SmartTag 3: soporte para iOS, Bluetooth 6.0 y 790 días de batería | [moviles/samsung-galaxy-smarttag-3](https://www.techspain24.com/noticias/moviles/samsung-galaxy-smarttag-3/) |
+| 2026-10-01 | Samsung lanza los Galaxy Buds On, sus primeros auriculares clip-on | [audio/samsung-galaxy-buds-on](https://www.techspain24.com/noticias/audio/samsung-galaxy-buds-on/) |
+| 2026-10-01 | Thermalright estrena el Peerless Assassin 120H-A Dark: doble torre en negro y ventiladores de 2400 RPM | [componentes/thermalright-peerless-assassin-120h-a-dark](https://www.techspain24.com/noticias/componentes/thermalright-peerless-assassin-120h-a-dark/) |
+| 2026-10-01 | ZOTAC deniega la garantía de una RTX 3060 alegando una factura falsa en el registro | [tarjetas-graficas/zotac-garantia-rtx-3060](https://www.techspain24.com/noticias/tarjetas-graficas/zotac-garantia-rtx-3060/) |

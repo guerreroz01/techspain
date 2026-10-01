@@ -1,0 +1,44 @@
+---
+title: 'Borderless Gaming ejecuta el DLSS 5 sin tocar el software de NVIDIA y en GPUs no soportadas'
+description: 'DLSS 5 Neural Rendering llega a juegos sin mods por título ni DLL de NVIDIA mediante BGFX, incluso en GPUs no soportadas, pero la herramienta es de pago.'
+pubDate: '2026-10-01'
+# author: se omite; la firma se deriva del vertical `tarjetas-graficas`
+tags: ['Tarjetas gráficas', 'NVIDIA', 'DLSS 5']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Comparativa antes y después del efecto DLSS 5 Neural Rendering en una escena de videojuego, con el monitor de rendimiento superpuesto'
+source:
+  name: 'El Chapuzas Informático'
+  url: 'https://elchapuzasinformatico.com/2026/09/borderless-gaming-dlss-5-neural-rendering-universal/'
+---
+
+Borderless Gaming ha añadido soporte para una **implementación no oficial de DLSS 5 Neural Rendering** que se ejecuta sobre la imagen final del juego a través de su sistema de efectos y escalado BGFX. La promesa es concreta: aplicar el renderizado neuronal sin reemplazar el DLL de NVIDIA, sin modificar los archivos del juego y sin depender de un mod específico para cada título. El precio de arranque son **6,89 euros**, porque Borderless Gaming es una herramienta comercial diseñada originalmente para jugar a pantalla completa sin bordes.
+
+## Qué hace y cómo se instala
+
+El efecto se instala desde GitHub con el editor de la propia aplicación y se activa eligiendo el preset **DLSS5-NR**. El programa se encarga de descargar y configurar los archivos necesarios, y después permite ajustar parámetros como la intensidad, la iluminación, la estructura, el estilo o la resolución de procesado.
+
+La clave está en dónde se ejecuta. En lugar de reenviar el trabajo a las DLL convencionales de NVIDIA, el modelo corre **dentro de BGFX**. Todo el procesamiento ocurre de forma externa, sobre la imagen ya generada por el motor del juego. Según el desarrollador, hubo que adaptar y cuantizar el modelo de Neural Rendering, cambiar su forma de ejecución y eliminar varios cuellos de botella.
+
+Ese enfoque externo tiene una consecuencia relevante: al no depender del soporte oficial, también puede activarse en **hardware que no tiene acceso a DLSS 5 Neural Rendering**. Es un principio parecido al de otras iniciativas de la comunidad, como la [reimplementación del DLSS 5 sobre Vulkan que también alcanza a las RTX 40](/noticias/dlss-5-reimplementacion-vulkan-open-source/).
+
+## Rendimiento: qué cabe esperar y en qué GPU
+
+El desarrollador ofrece un ejemplo concreto: incluso una **GeForce RTX 3090** puede activar el efecto con un rendimiento aproximado de **30 FPS**. Conviene leer ese dato con cautela, porque el origen no detalla el juego, la resolución ni los ajustes con los que se midió, de modo que no es una cifra comparable a la de un análisis controlado. El propio material admite que el resultado depende del título, la resolución y los parámetros elegidos.
+
+Por eso su uso se recomienda sobre todo en **GeForce RTX 50 o RTX 40 de gama alta**. Ayuda que la implementación permita recurrir a la generación de fotogramas para recuperar parte del rendimiento que se pierde al activar el efecto. La tecnología, además, está optimizada alrededor de la arquitectura **Blackwell (RTX 50)**, lo que deja a las generaciones anteriores en una posición de compromiso: pueden ejecutarla, pero no en las mismas condiciones.
+
+![Montaje comparativo OFF/ON del efecto DLSS5-NR de Borderless Gaming sobre dos personajes de videojuego](./assets/borderless-gaming-dlss5-menu.jpg)
+
+## Un port para BGFX, no un DLSS 5 nativo
+
+Aquí está el matiz que separa esta solución de la oficial. Cuando un desarrollador integra Neural Rendering dentro de un juego, la tecnología de NVIDIA puede leer información que le entrega el propio motor gráfico, incluido el fotograma renderizado y datos como los vectores de movimiento. Borderless Gaming no dispone de esa información interna: trabaja sobre la imagen final con su propio pipeline, así que **el resultado difiere bastante** del que cabría esperar de una implementación nativa.
+
+El repositorio oficial lo describe como **un port de DLSS 5 Neural Rendering para BGFX**, y no como una forma de añadir soporte nativo completo a cualquier juego. Su objetivo es alterar aspectos de la imagen como la iluminación, el tono y la estructura, y puede aplicarse en GPUs más antiguas que las RTX 50. Quien espere la misma fidelidad —y la misma información de escena— que ofrece una integración hecha por el estudio se llevará una decepción.
+
+## Precio y relación con la alternativa
+
+Los **6,89 euros** de Borderless Gaming son el principal punto de fricción. La función llega, en cierto modo, adonde ya apunta **LossLess Scaling**: una utilidad de pago que añade capacidades a juegos que no las traen de serie. La diferencia es que aquí no se gana rendimiento; al contrario, el coste en fotogramas puede ser apreciable, sobre todo fuera de las RTX 40 y 50 de gama alta.
+
+La alternativa real es doble. Quien tenga una GPU compatible no necesita pagar nada: el DLSS 5 nativo llega con el juego cuando el estudio lo integra, con mejor calidad y sin depender de la imagen final. Quien no lo tenga encontrará en esta propuesta una vía sencilla para experimentar con el renderizado neuronal, pero debería juzgarla como un efecto añadido y no como un sustituto del original.

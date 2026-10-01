@@ -1,0 +1,42 @@
+---
+title: 'NVIDIA publica un boletín de seguridad con 79 fallos en los controladores de GPU para Linux'
+description: 'El boletín de NVIDIA del 30 de septiembre reúne 79 vulnerabilidades, 47 de severidad alta, en los controladores de GPU y fija cuatro versiones como seguras.'
+pubDate: 2026-10-01
+tags: ['Tarjetas gráficas', 'NVIDIA', 'Seguridad']
+featured: false
+breaking: false
+source:
+  name: 'GamingOnLinux'
+  url: 'https://www.gamingonlinux.com/2026/09/nvidia-security-bulletin-for-sept-30-notes-many-gpu-issues/'
+---
+
+NVIDIA publicó el 30 de septiembre un [boletín de seguridad](https://nvidia.custhelp.com/app/answers/detail/a_id/5861) —el número 5861— en el que recoge **79 vulnerabilidades** que afectan a sus controladores de GPU en Linux, algunas presentes también en Windows. Del total, **47 están clasificadas como de severidad alta** (43 de ellas con una puntuación base de 7.8) y **32 como media**. El fabricante ya ha publicado las versiones corregidas.
+
+## Qué controladores hay que instalar
+
+NVIDIA marca cuatro versiones como seguras:
+
+- **615.71.09**
+- **610.57.04**
+- **595.91.07**
+- **580.178.04**
+
+Quien tenga instalada una versión anterior dentro de cualquiera de esas series debe actualizar; los equipos que ya están en esos números o por encima quedan fuera de los fallos resueltos en este boletín. Como siempre, la actualización llega primero por el canal del fabricante y después a través de los repositorios de cada distribución.
+
+## Qué tipo de fallos recoge
+
+El grueso de la lista son fallos de seguridad de memoria en la capa de modo kernel del controlador: usos de memoria después de liberarla (*use-after-free*), escrituras y lecturas fuera de límites, desbordamientos de enteros, confusión de tipos, dobles liberaciones y desreferencias de puntero nulo. También hay entradas en el firmware de la GPU y en el módulo de kernel de código abierto, incluida una ruta de importación por DMA-BUF.
+
+Las consecuencias que describe el propio boletín son recurrentes: ejecución de código, escalada de privilegios, denegación de servicio, divulgación de información y manipulación de datos. Conviene precisar el vector, porque de ello depende la urgencia real: casi todas las descripciones hablan de «un usuario sin privilegios» o «un usuario local», es decir, requieren acceso local al equipo. No son fallos de ejecución remota, sino problemas de escalada de privilegios y estabilidad que se explotan desde dentro del propio sistema.
+
+## Por qué importa
+
+GamingOnLinux, el medio que ha recopilado la lista, señala que es la entrega más numerosa que ha visto en un solo boletín. El medio apunta como posible causa al uso creciente de herramientas de inteligencia artificial para localizar fallos, el mismo fenómeno que ha llevado a Canonical a acelerar las actualizaciones del kernel de Ubuntu. Es una hipótesis de la prensa, no un dato confirmado por el fabricante, y conviene leerla como tal.
+
+Lo que sí es verificable es el volumen: 79 referencias CVE en una sola comunicación, con una mayoría muy clara de puntuaciones base de 7.8. Para el usuario de una GPU NVIDIA en Linux, el interés está menos en el número que en la naturaleza de los fallos, concentrados en la capa que separa el espacio de usuario del hardware.
+
+## Qué cambia para el usuario
+
+El primer paso es saber qué versión hay instalada. En Linux, el comando `nvidia-smi` muestra la versión del controlador en uso. Si está por debajo de la versión segura de su serie, toca actualizar; si la distribución todavía no empaqueta la versión corregida, puede ser necesario esperar al repositorio o recurrir al controlador propietario de NVIDIA.
+
+La rama de juegos había recibido a principios de mes los [GeForce 616.92 WHQL](/noticias/geforce-616-92-game-ready-drivers/), una entrega centrada en optimizaciones y en cerrar regresiones, no en los fallos de seguridad que recoge este boletín. Son dos canales distintos: el rendimiento en juegos y la seguridad se corrigen por vías separadas, y solo la segunda es urgente por motivos que no tienen que ver con los fotogramas.
