@@ -207,14 +207,16 @@ function frontmatterPubDate(loc) {
     return { error: `not an absolute URL: ${loc}` };
   }
 
-  const esMatch = url.pathname.match(/^\/noticias\/([^/]+)\/$/);
-  const enMatch = url.pathname.match(/^\/en\/news\/([^/]+)\/$/);
+  // `/noticias/<slug>/` (legacy) and `/noticias/<vertical>/<slug>/` (new), same
+  // for the English corpus. Hubs are never emitted in the news sitemap.
+  const esMatch = url.pathname.match(/^\/noticias\/(.+)\/$/);
+  const enMatch = url.pathname.match(/^\/en\/news\/(.+)\/$/);
   if (!esMatch && !enMatch) {
-    return { error: `${loc} does not match /noticias/<slug>/ or /en/news/<slug>/` };
+    return { error: `${loc} does not match /noticias/<...>/ or /en/news/<...>/` };
   }
   const corpus = esMatch ? 'news' : 'news-en';
-  const slug = (esMatch ?? enMatch)[1];
-  const folder = join(repoRoot, 'src', 'content', corpus, slug);
+  const id = (esMatch ?? enMatch)[1];
+  const folder = join(repoRoot, 'src', 'content', corpus, id);
 
   for (const file of ['index.mdx', 'index.md']) {
     const candidate = join(folder, file);
@@ -229,7 +231,7 @@ function frontmatterPubDate(loc) {
     return { pubDate, source: candidate };
   }
 
-  return { error: `no content entry for ${loc} (looked in ${corpus}/${slug}/index.{md,mdx})` };
+  return { error: `no content entry for ${loc} (looked in ${corpus}/${id}/index.{md,mdx})` };
 }
 
 // -----------------------------------------------------------------------------

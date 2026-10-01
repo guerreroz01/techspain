@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * slug-check.mjs — Comprueba si un slug está libre en `src/content/news/`.
+ * slug-check.mjs — Comprueba si un slug está libre en las colecciones de artículos.
  *
  * Uso:
  *   npm run slug -- <slug> [<slug>...]   # uno o varios slugs (colección ES)
@@ -13,45 +13,66 @@
  * contexto POR LLAMADA, y el listado no dice nada que una consulta puntual no
  * responda. Acá se responde en una línea por slug.
  *
- * Colecciones: ES (`src/content/news/`, rutas `/noticias/<slug>/`) y EN
- * (`src/content/news-en/`, rutas `/en/news/<slug>/`) tienen espacios de nombres
- * de URL distintos, así que un slug libre en una colección puede estar ocupado
- * en la otra sin conflictos: por eso el chequeo es explícito por colección.
+ * Estructura: los artículos nuevos viven en `src/content/news/<vertical>/<slug>/`
+ * (una carpeta por vertical; la URL es `/noticias/<vertical>/<slug>/`). Los
+ * artículos publicados antes de ese esquema siguen planos en
+ * `src/content/news/<slug>/` y conservan su URL. El script recorre el árbol
+ * completo, así que cuenta y detecta ambos.
  *
  * Salida (una línea por slug):
- *   libre   <slug>
- *   ocupado <slug>  -> libre: <slug>-2
- *   aviso   <slug> no es kebab-case ASCII -> usa: <slug-normalizado>
+ *   libre    <slug>
+ *   ocupado  <slug>  -> libre: <slug>-2
+ *   reservado <slug> -> es una vertical, elegí otro slug
+ *   aviso    <slug> no es kebab-case ASCII -> usa: <slug-normalizado>
  *
- * Convención de slugs: los artículos van en **español** (el nombre de la carpeta ES
- * la URL), en kebab-case, minúsculas y ASCII. Un slug con mayúsculas, acentos, `ñ` o
- * cualquier carácter fuera de `[a-z0-9-]` recibe un aviso con su versión normalizada,
- * que es la que hay que usar. Los slugs en inglés ya publicados no se renombran:
- * están indexados.
+ * Convención de slugs: en **español**, kebab-case, minúsculas y ASCII. Un slug
+ * con mayúsculas, acentos, `ñ` o cualquier carácter fuera de `[a-z0-9-]` recibe
+ * un aviso con su versión normalizada. Los slugs ya publicados no se renombran.
  *
- * Siempre sale con código 0 (salvo uso incorrecto): es una consulta informativa,
- * no un chequeo que deba cortar una cadena de comandos.
+ * Los tokens de vertical (`audio`, `moviles`, …) están reservados: ocupan la URL
+ * del hub `/noticias/<vertical>/`, así que ningún artículo puede usarlos. Se leen
+ * de `src/lib/verticals.ts` para no duplicar la lista.
+ *
+ * Siempre sale con código 0 (salvo uso incorrecto): es una consulta informativa.
  *
  * Sin dependencias: solo `node:fs` y `node:path`, como el resto de `scripts/`.
- * La carpeta `src/content/news/<slug>/` es la fuente de verdad: el nombre de la
- * carpeta ES el slug de la URL (`entry.id`).
  */
-import { readdirSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const NEWS_DIR = join(__dirname, '..', 'src', 'content', 'news');
 const NEWS_EN_DIR = join(__dirname, '..', 'src', 'content', 'news-en');
+const VERTICALS_FILE = join(__dirname, '..', 'src', 'lib', 'verticals.ts');
 
-/** Nombres de carpeta existentes: cada uno cuenta como slug ocupado. */
-function existingSlugs(dir) {
-  return new Set(
-    readdirSync(dir, { withFileTypes: true })
-      .filter((entry) => entry.isDirectory())
-      .map((entry) => entry.name),
-  );
+/** Ids de todas las entradas de una colección (ruta relativa, `vertical/slug`). */
+function existingIds(dir) {
+  const ids = new Set();
+  const walk = (current, prefix) => {
+    for (const entry of readdirSync(current, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const child = join(current, entry.name);
+      const id = prefix ? `${prefix}/${entry.name}` : entry.name;
+      if (existsSync(join(child, 'index.mdx')) || existsSync(join(child, 'index.md'))) {
+        ids.add(id);
+      } else {
+        walk(child, id);
+      }
+    }
+  };
+  walk(dir, '');
+  return ids;
 }
+
+/** Tokens de vertical reservados, leídos del registro (fuente única). */
+function reservedTokens() {
+  const raw = readFileSync(VERTICALS_FILE, 'utf8');
+  return new Set([...raw.matchAll(/token:\s*'([^']+)'/g)].map((match) => match[1]));
+}
+
+/** Último segmento de un id (`vertical/slug` -> `slug`). */
+const basename = (id) => id.slice(id.lastIndexOf('/') + 1);
 
 /** Primer sufijo `-2`, `-3`… libre para un slug ya ocupado. */
 function nextFree(slug, taken) {
@@ -91,10 +112,12 @@ function main() {
     return;
   }
 
-  const taken = existingSlugs(enMode ? NEWS_EN_DIR : NEWS_DIR);
+  const ids = existingIds(enMode ? NEWS_EN_DIR : NEWS_DIR);
+  const reserved = reservedTokens();
+  const taken = new Set([...ids].map(basename));
 
   if (args[0] === '--count') {
-    process.stdout.write(`${taken.size}\n`);
+    process.stdout.write(`${ids.size}\n`);
     return;
   }
 
@@ -109,11 +132,16 @@ function main() {
     // que el artículo acabará usando.
     const effective = normalized || slug;
 
+    if (reserved.has(effective)) {
+      process.stdout.write(`reservado ${effective} -> es una vertical, elegí otro slug\n`);
+      continue;
+    }
+
     if (!taken.has(effective)) {
       process.stdout.write(`libre   ${effective}\n`);
       continue;
     }
-    const suggestion = nextFree(effective, taken);
+    const suggestion = nextFree(effective, new Set([...taken, ...reserved]));
     process.stdout.write(
       `ocupado ${effective}${suggestion ? `  -> libre: ${suggestion}` : ''}\n`,
     );

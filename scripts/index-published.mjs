@@ -5,15 +5,17 @@
  * Uso:
  *   npm run index
  *
- * Recorre `src/content/news/<slug>/index.mdx`, lee el frontmatter
- * (`title`, `pubDate`, `draft`) y reescribe el índice de contrastación que se
- * consulta ANTES de redactar para no repetir una historia ya cubierta.
+ * Recorre el árbol de `src/content/news/` (legacy plano `<slug>/` y nuevo
+ * `<vertical>/<slug>/`), lee el frontmatter (`title`, `pubDate`, `draft`) y
+ * reescribe el índice de contrastación que se consulta ANTES de redactar para
+ * no repetir una historia ya cubierta.
  *
  * Sin dependencias: el frontmatter es YAML plano del que solo se extraen campos
  * de una línea, así que un parser propio alcanza y evita sumar una dependencia.
  *
  * Convenciones (mantener si se toca el formato):
- * - El nombre de la carpeta ES el slug de la URL (`entry.id`).
+ * - La ruta relativa bajo `src/content/news/` ES la ruta de la URL bajo
+ *   `/noticias/` (legacy `<slug>`, nuevo `<vertical>/<slug>`).
  * - Se ordena por fecha ascendente y, dentro de cada fecha, por título
  *   alfabético en español (locale `es`).
  * - Los borradores (`draft: true`) NO entran: no llegan al build de producción.
@@ -47,23 +49,36 @@ function frontmatterField(raw, name) {
 
 function readEntries() {
   const entries = [];
-  for (const slug of readdirSync(NEWS_DIR, { withFileTypes: true })) {
-    if (!slug.isDirectory()) continue;
-    const indexPath = join(NEWS_DIR, slug.name, 'index.mdx');
-    if (!existsSync(indexPath)) continue;
 
-    const raw = readFileSync(indexPath, 'utf8');
-    const draft = frontmatterField(raw, 'draft') === 'true';
-    if (draft) continue;
+  // Entries live at `news/<slug>/` (legacy) or `news/<vertical>/<slug>/` (new).
+  // `slug` is the full id (e.g. `audio/foo`) because that is exactly the URL
+  // path under `/noticias/`.
+  const walk = (current, prefix) => {
+    for (const dir of readdirSync(current, { withFileTypes: true })) {
+      if (!dir.isDirectory()) continue;
+      const child = join(current, dir.name);
+      const id = prefix ? `${prefix}/${dir.name}` : dir.name;
+      const indexPath = join(child, 'index.mdx');
+      if (!existsSync(indexPath) && !existsSync(join(child, 'index.md'))) {
+        walk(child, id);
+        continue;
+      }
 
-    const title = frontmatterField(raw, 'title');
-    const pubDate = frontmatterField(raw, 'pubDate');
-    if (!title || !pubDate) {
-      process.stderr.write(`Aviso: ${slug.name} sin title o pubDate, se omite.\n`);
-      continue;
+      const raw = readFileSync(existsSync(indexPath) ? indexPath : join(child, 'index.md'), 'utf8');
+      const draft = frontmatterField(raw, 'draft') === 'true';
+      if (draft) continue;
+
+      const title = frontmatterField(raw, 'title');
+      const pubDate = frontmatterField(raw, 'pubDate');
+      if (!title || !pubDate) {
+        process.stderr.write(`Aviso: ${id} sin title o pubDate, se omite.\n`);
+        continue;
+      }
+      entries.push({ slug: id, title, pubDate });
     }
-    entries.push({ slug: slug.name, title, pubDate });
-  }
+  };
+
+  walk(NEWS_DIR, '');
   return entries;
 }
 

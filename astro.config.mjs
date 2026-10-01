@@ -19,35 +19,52 @@ const newsDir = new URL('./src/content/news/', import.meta.url);
 // same `lastmod` treatment (section: serialize below).
 const newsEnDir = new URL('./src/content/news-en/', import.meta.url);
 
-/** Slug -> most recent date (`updatedDate`, else `pubDate`), per directory. */
+/**
+ * Entry id -> most recent date (`updatedDate`, else `pubDate`), per directory.
+ *
+ * Entries are folders: `<slug>/index.mdx` (legacy) or `<vertical>/<slug>/index.mdx`
+ * (new). The id is the path relative to the collection base, which is exactly the
+ * URL path under `/noticias/` or `/en/news/`, so nested entries map too.
+ *
+ * @returns {Map<string, Date>}
+ */
 function readEntryDates(dir) {
-  /** @type {Map<string, Date>} */
   const dates = new Map();
 
-  const slugs = readdirSync(dir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name);
+  /** @param {URL} current @param {string} prefix */
+  const walk = (current, prefix) => {
+    for (const entry of readdirSync(current, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
 
-  for (const slug of slugs) {
-    // Entries are folders: `<slug>/index.mdx` (or `.md`).
-    for (const file of ['index.mdx', 'index.md']) {
-      let raw;
-      try {
-        raw = readFileSync(new URL(`${slug}/${file}`, dir), 'utf8');
-      } catch {
-        continue;
+      const id = prefix ? `${prefix}/${entry.name}` : entry.name;
+      const folder = new URL(`${entry.name}/`, current);
+      let isEntry = false;
+
+      for (const file of ['index.mdx', 'index.md']) {
+        let raw;
+        try {
+          raw = readFileSync(new URL(file, folder), 'utf8');
+        } catch {
+          continue;
+        }
+
+        // Only the first fenced block, so `---` in the body can never leak in.
+        const frontmatter = raw.split(/^---$/m)[1] ?? '';
+        const iso = (name) =>
+          frontmatter.match(new RegExp(`^${name}:\\s*'?(\\d{4}-\\d{2}-\\d{2})'?`, 'm'))?.[1];
+        const value = iso('updatedDate') ?? iso('pubDate');
+
+        if (value) dates.set(id, new Date(`${value}T00:00:00.000Z`));
+        isEntry = true;
+        break;
       }
 
-      // Only the first fenced block, so `---` in the body can never leak in.
-      const frontmatter = raw.split(/^---$/m)[1] ?? '';
-      const iso = (name) =>
-        frontmatter.match(new RegExp(`^${name}:\\s*'?(\\d{4}-\\d{2}-\\d{2})'?`, 'm'))?.[1];
-      const value = iso('updatedDate') ?? iso('pubDate');
-
-      if (value) dates.set(slug, new Date(`${value}T00:00:00.000Z`));
-      break;
+      // A vertical folder has no `index.mdx` at its root: recurse into it.
+      if (!isEntry) walk(folder, id);
     }
-  }
+  };
+
+  walk(dir, '');
 
   return dates;
 }
@@ -107,16 +124,18 @@ export default defineConfig({
         const isArchiveListing =
           pathname === '/noticias/' || /^\/noticias\/\d+\/$/.test(pathname);
 
-        // `/noticias/<slug>/` -> that entry's real date.
-        const article = isArchiveListing ? null : pathname.match(/^\/noticias\/([^/]+)\/$/);
+        // `/noticias/<slug>/` (legacy) or `/noticias/<vertical>/<slug>/` (new)
+        // -> that entry's real date. Hubs (`/noticias/<vertical>/`) are not
+        // entries and deliberately get no `lastmod`.
+        const article = isArchiveListing ? null : pathname.match(/^\/noticias\/(.+)\/$/);
         if (article) {
           const lastmod = entryDates.get(article[1]);
           if (lastmod) item.lastmod = lastmod;
           return item;
         }
 
-        // `/en/news/<slug>/` -> the English entry's real date.
-        const articleEn = pathname.match(/^\/en\/news\/([^/]+)\/$/);
+        // `/en/news/<slug>/` or `/en/news/<vertical>/<slug>/` -> English entry date.
+        const articleEn = pathname.match(/^\/en\/news\/(.+)\/$/);
         if (articleEn) {
           const lastmod = entryDatesEn.get(articleEn[1]);
           if (lastmod) item.lastmod = lastmod;

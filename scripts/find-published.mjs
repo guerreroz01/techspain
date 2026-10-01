@@ -50,21 +50,34 @@ function field(raw, name) {
 
 function readEntries() {
   const entries = [];
-  for (const dir of readdirSync(NEWS_DIR, { withFileTypes: true })) {
-    if (!dir.isDirectory()) continue;
-    const indexPath = join(NEWS_DIR, dir.name, 'index.mdx');
-    if (!existsSync(indexPath)) continue;
 
-    const raw = readFileSync(indexPath, 'utf8');
-    entries.push({
-      slug: dir.name,
-      title: field(raw, 'title'),
-      description: field(raw, 'description'),
-      tags: field(raw, 'tags'),
-      sourceUrl: field(raw, 'url'),
-      pubDate: field(raw, 'pubDate'),
-    });
-  }
+  // Entries live at `news/<slug>/` (legacy) or `news/<vertical>/<slug>/` (new),
+  // so the whole tree is walked. `slug` is the full id (e.g. `audio/foo`) so the
+  // match output identifies the entry unambiguously.
+  const walk = (current, prefix) => {
+    for (const dir of readdirSync(current, { withFileTypes: true })) {
+      if (!dir.isDirectory()) continue;
+      const child = join(current, dir.name);
+      const id = prefix ? `${prefix}/${dir.name}` : dir.name;
+      const indexPath = join(child, 'index.mdx');
+      if (!existsSync(indexPath) && !existsSync(join(child, 'index.md'))) {
+        walk(child, id);
+        continue;
+      }
+
+      const raw = readFileSync(existsSync(indexPath) ? indexPath : join(child, 'index.md'), 'utf8');
+      entries.push({
+        slug: id,
+        title: field(raw, 'title'),
+        description: field(raw, 'description'),
+        tags: field(raw, 'tags'),
+        sourceUrl: field(raw, 'url'),
+        pubDate: field(raw, 'pubDate'),
+      });
+    }
+  };
+
+  walk(NEWS_DIR, '');
   return entries;
 }
 

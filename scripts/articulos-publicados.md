@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 664 artículos. Actualizado: 2026-09-30
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 664 artículos. Actualizado: 2026-10-01
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
