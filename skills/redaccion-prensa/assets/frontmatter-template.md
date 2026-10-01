@@ -1,14 +1,15 @@
 # Frontmatter template — artículos de prensa
 
-Cada entrada es un directorio propio: `src/content/news/<slug>/` con su `index.mdx` y su carpeta `assets/`. El nombre de la carpeta **es** el slug de la URL (`entry.id`). Usar kebab-case **en español**, minúsculas y ASCII: sin acentos y con `ñ` → `n`. Los slugs en inglés ya publicados no se renombran.
+Cada entrada es un directorio propio: `src/content/news/<vertical>/<slug>/` con su `index.mdx` y su carpeta `assets/`. La ruta **es** la URL: `/noticias/<vertical>/<slug>/` (`entry.id`). El `<slug>` va en kebab-case **en español**, minúsculas y ASCII: sin acentos y con `ñ` → `n`; `<vertical>` es uno de los diez tokens (ver «Verticales»). Los slugs en inglés ya publicados no se renombran.
 
 ```
 src/content/news/
-└── mi-articulo/
-    ├── index.mdx
-    └── assets/
-        ├── cover.jpg
-        └── imagen-2.jpg
+└── audio/
+    └── mi-articulo/
+        ├── index.mdx
+        └── assets/
+            ├── cover.jpg
+            └── imagen-2.jpg
 ```
 
 Copiar y completar este bloque YAML en `index.mdx`:
@@ -63,6 +64,8 @@ La página cubre 10 verticales. El artículo debe encajar en una de ellas y usar
 9. Emuladores de videojuegos
 10. Tutoriales
 
+El token de carpeta y URL de cada vertical es, en el mismo orden: `componentes`, `portatiles`, `consolas`, `tarjetas-graficas`, `memorias`, `moviles`, `wearables`, `audio`, `emuladores`, `tutoriales`.
+
 Los tutoriales son contenido **how-to/paso a paso**. Una guía sobre una GPU se publica con `Tutoriales` como primer `tags` (gana sobre `Tarjetas gráficas`). Ojo: el clasificador ya NO busca tutoriales primero —el orden de prioridad es `audio`, `wearables`, `móviles`, `tutoriales` y luego el hardware—, así que en el informe una guía sobre auriculares o un reloj aparece bajo esa vertical, no bajo Tutoriales.
 
 Los emuladores también ganan sobre la consola que emulan: una noticia sobre un emulador de PS5 en Xbox va con `Emuladores` como primer `tags`, no con `Consolas`. La vertical no distingue sistema anfitrión: vale igual para emuladores de consola en Windows, macOS, Linux o Android (el host se pone como tag secundario). Una guía paso a paso sobre emuladores sigue siendo `Tutoriales`.
@@ -74,7 +77,7 @@ Los emuladores también ganan sobre la consola que emulan: una noticia sobre un 
 ## Imágenes
 
 - Cada entrada tiene su propia carpeta `assets/` dentro de su directorio.
-- Descargar **TODAS** las imágenes de contenido del original a `src/content/news/<slug>/assets/`.
+- Descargar **TODAS** las imágenes de contenido del original a `src/content/news/<vertical>/<slug>/assets/`.
 - La principal se usa como `cover` (`./assets/cover.jpg`).
 - Las imágenes adicionales se **embeben en el cuerpo** con markdown relativo:
 
@@ -95,11 +98,12 @@ Los emuladores también ganan sobre la consola que emulan: una noticia sobre un 
 
 ```
 src/content/news/
-└── proceso-2nm/
-    ├── index.mdx
-    └── assets/
-        ├── chips.svg
-        └── comparativa.jpg
+└── componentes/
+    └── proceso-2nm/
+        ├── index.mdx
+        └── assets/
+            ├── chips.svg
+            └── comparativa.jpg
 ```
 
 ```mdx
@@ -135,11 +139,12 @@ paso a paso: intro breve, requisitos previos, pasos numerados y verificación.
 
 ```
 src/content/news/
-└── usb-arranque-windows-11/
-    ├── index.mdx
-    └── assets/
-        ├── cover.jpg
-        └── paso-2.jpg
+└── tutoriales/
+    └── usb-arranque-windows-11/
+        ├── index.mdx
+        └── assets/
+            ├── cover.jpg
+            └── paso-2.jpg
 ```
 
 ```mdx

@@ -6,7 +6,7 @@ Operating guide for AI agents working in this repository.
 
 A **Spanish-language technology news portal** built with **Astro** and deployed to **Vercel**.
 
-- Single editorial line: technology news. **No sections, no categories, no tag pages.**
+- Single editorial line: technology news. **Every new article lives in its vertical's folder and URL** (`/noticias/<vertical>/<slug>/`, mirrored in EN) and each vertical has a hub page; there are still **no tag pages**. The ten verticals (section 16) are fixed editorial blocks, not a free-form taxonomy.
 - **Every new article also ships an English translation** at `/en/news/<english-slug>/` (collection `newsEn`). Articles published before that workflow stay Spanish-only — never backfill them (see sections 6, 7 and 9).
 - Static output by default (fastest). SSR is available per-route if ever needed.
 - Near-zero client JavaScript: the two theme scripts plus the cookie-consent init/preferences scripts, the conditional GA4 and AdSense loaders (see section 11), the Vercel Web Analytics component, the title search bar and the mobile navigation toggle (see section 14). Google Analytics 4 stays off until the visitor accepts the analytics category.
@@ -18,7 +18,7 @@ A **Spanish-language technology news portal** built with **Astro** and deployed 
 
 - **Code**: identifiers, collection names, variable names, and comments are **English**. Files under `src/` (except the articles), `scripts/` and the config keep English names.
 - **User-facing copy and content**: **Spanish** (neutral/professional register, no slang).
-- **Article URLs (slugs)**: **Spanish**. An article's folder name *is* its URL, so it is content, not code: derive it from the Spanish headline, in kebab-case, lowercase and ASCII (no accents, `ñ` becomes `n`). See section 7.
+- **Article URLs (slugs)**: **Spanish**. An article's path under `src/content/news/` *is* its URL, so it is content, not code: new articles are `<vertical>/<slug>/` → `/noticias/<vertical>/<slug>/`, and the slug is derived from the Spanish headline in kebab-case, lowercase and ASCII (no accents, `ñ` becomes `n`). Articles published before this scheme stay flat (`<slug>/` → `/noticias/<slug>/`) — **never move them**, their URL is indexed. See section 7.
 - This split is intentional. Do not translate code identifiers to Spanish, and do not write article copy in English — the **English companion entries** (`src/content/news-en/`, URLs `/en/news/…`) are the deliberate exception: there, body, frontmatter and slug are English.
 - **Never rename a published slug.** The older English slugs are indexed by Google and stay exactly as they are; the Spanish rule applies only to new articles. Do not "normalize" or translate existing folders.
 
@@ -99,16 +99,18 @@ blog/
     │   ├── StoryCard.astro       # compact secondary story card
     │   └── ThemeToggle.astro     # light/dark toggle (inline script)
     ├── content/
-    │   ├── news/                 # ← ALL SPANISH ARTICLES LIVE HERE
-    │   │   └── <slug>/index.mdx  # one folder per article; the folder name IS the slug
-    │   └── news-en/              # English companions: <english-slug>/index.mdx (+ assets/)
+    │   ├── news/                          # ← ALL SPANISH ARTICLES LIVE HERE
+    │   │   ├── <vertical>/<slug>/index.mdx  # new: folder + URL segment = vertical
+    │   │   └── <slug>/index.mdx             # legacy flat articles (URL unchanged)
+    │   └── news-en/                       # English companions; same <vertical>/<slug>/ shape
     ├── content.config.ts         # `news` + `newsEn` collections: loaders + schemas
     ├── consts.ts                 # SITE, NAV, SOCIAL, ADS, GA, CONSENT, LEGAL
     ├── data/
     │   └── sources.json          # curated editorial source list (see section 16)
     ├── env.d.ts                  # astro/client types
     ├── lib/
-    │   └── related.ts            # shared related/random recommendation scoring (ES + EN)
+    │   ├── related.ts            # shared related/random recommendation scoring (ES + EN)
+    │   └── verticals.ts          # vertical registry + verticalOf/articlesByVertical
     ├── layouts/
     │   └── BaseLayout.astro      # html shell, SEO, head slot, theme + consent init
     ├── pages/
@@ -119,12 +121,14 @@ blog/
     │   ├── cookies.astro         # /cookies (cookie inventory + revocation)
     │   ├── en/
     │   │   └── news/
-    │   │       └── [slug].astro  # /en/news/<english-slug>/ (English article)
+    │   │       ├── [slug].astro             # /en/news/<x>/ (legacy EN article + EN hub)
+    │   │       └── [vertical]/[slug].astro  # /en/news/<vertical>/<english-slug>/
     │   ├── index.astro           # / (home)
     │   ├── news-sitemap.xml.ts   # /news-sitemap.xml (Google News)
     │   ├── noticias/
-    │   │   ├── [...page].astro   # /noticias/ and /noticias/<page>/ (paginated archive)
-    │   │   └── [slug].astro      # /noticias/<slug>/ (article)
+    │   │   ├── [...page].astro          # /noticias/ and /noticias/<page>/ (archive)
+    │   │   ├── [slug].astro             # /noticias/<x>/ (legacy article + vertical hub)
+    │   │   └── [vertical]/[slug].astro  # /noticias/<vertical>/<slug>/ (new article)
     │   ├── privacidad.astro      # /privacidad (RGPD data-protection policy)
     │   └── rss.xml.js            # /rss.xml
     └── styles/
@@ -135,6 +139,8 @@ blog/
 ## 6. Content model
 
 Collection name: **`news`** · Folder: **`src/content/news/`** · Loader: `glob({ base: './src/content/news', pattern: '**/*.{md,mdx}' })`.
+
+Each entry is a folder with an `index.mdx` inside: `<vertical>/<slug>/` for new articles, `<slug>/` for legacy ones. `entry.id` is the folder path relative to the collection base (legacy `<slug>`, new `<vertical>/<slug>`), which **is** the URL path under `/noticias/` — the nested id is what gives the article its vertical URL. There is no `slug` field.
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | --- | --- | --- |
@@ -153,13 +159,13 @@ Collection name: **`news`** · Folder: **`src/content/news/`** · Loader: `glob(
 
 ### English companion collection (`newsEn`)
 
-Collection name: **`newsEn`** · Folder: **`src/content/news-en/`** · URL: **`/en/news/<english-slug>/`** · Defined next to `news` in `src/content.config.ts`.
+Collection name: **`newsEn`** · Folder: **`src/content/news-en/`** · URL: **`/en/news/<vertical>/<english-slug>/`** (new) or **`/en/news/<english-slug>/`** (legacy flat) · Defined next to `news` in `src/content.config.ts`.
 
 Same shape as `news`, with three deliberate differences:
 
 | Difference | Detail |
 | --- | --- |
-| **`translationOf`** (string, **required**) | The `news` entry id (Spanish slug) this translates. The build **fails** if it does not resolve to an existing Spanish entry. |
+| **`translationOf`** (string, **required**) | The `news` entry id this translates: the **full id** (`<vertical>/<slug>` for new articles, legacy `<slug>` for old ones). The build **fails** if it does not resolve to an existing Spanish entry. |
 | **No `featured` / `breaking`** | Promotion stays a Spanish-entry decision only; these fields do not exist in this schema. |
 | `author` default | `'TechSpain24 Staff'` (an English byline), not `SITE.author`. |
 
@@ -187,11 +193,11 @@ source:
 
 ## 7. Adding a news article
 
-1. Derive the slug from the **Spanish headline** (never from the source outlet's English or Chinese title): kebab-case, lowercase and ASCII — accents are dropped and `ñ` becomes `n`. Check it is free with `npm run slug -- <slug>` (it answers `libre`/`ocupado`, warns when a slug is not lowercase-ASCII kebab-case, and suggests the next free one), then create the folder `src/content/news/<slug>/` with `index.mdx` inside (the folder name **is** the URL slug: `entry.id`). **Never rename a slug that is already published**: the older English slugs stay as they are because they are indexed.
+1. Derive the slug from the **Spanish headline** (never from the source outlet's English or Chinese title): kebab-case, lowercase and ASCII — accents are dropped and `ñ` becomes `n`. Check it is free with `npm run slug -- <slug>` (it answers `libre`/`ocupado`/`reservado`, warns when a slug is not lowercase-ASCII kebab-case, and suggests the next free one; the ten vertical tokens are `reservado` because they own their hub URL), then create the folder `src/content/news/<vertical>/<slug>/` with `index.mdx` inside (the folder path **is** the URL path: `entry.id`). Pick one of the ten vertical tokens (section 16) for `<vertical>`. **Never rename a slug that is already published**: the older URLs stay as they are because they are indexed.
 2. Fill the frontmatter per the table in section 6.
 3. Write the body in **Spanish**. Markdown/MDX is fully supported (headings, lists, tables, blockquotes, code).
-4. Put the article's images in `src/content/news/<slug>/assets/`. Reference the cover as `./assets/<file>` and embed extra images inline as `![alt](./assets/<file>)`.
-5. **Create the English companion** in the same batch: folder `src/content/news-en/<english-slug>/` with `index.mdx` (+ `assets/` copies), a fully English slug checked with `npm run slug -- --en <english-slug>`, the same `pubDate` and `source`, and `translationOf: <spanish-slug>` (see section 6). Translate the final Spanish text faithfully. Entries published before this workflow have no companion — **never backfill them**.
+4. Put the article's images in `src/content/news/<vertical>/<slug>/assets/`. Reference the cover as `./assets/<file>` and embed extra images inline as `![alt](./assets/<file>)`.
+5. **Create the English companion** in the same batch: folder `src/content/news-en/<vertical>/<english-slug>/` with `index.mdx` (+ `assets/` copies), a fully English slug checked with `npm run slug -- --en <english-slug>`, the same `pubDate` and `source`, and `translationOf: <vertical>/<slug>` (the **full** Spanish id — see section 6). Translate the final Spanish text faithfully. Entries published before this workflow have no companion — **never backfill them**.
 6. Leave `featured` and `breaking` at `false`. Promotion is a newsroom call made on the whole batch by whoever runs it, never by one writer: parallel writers cannot see each other, so each would mark its own piece as the lead. The orchestrator promotes exactly one entry afterwards (see `skills/redaccion-prensa/DELEGATION.md`).
 7. Always attribute the story's original outlet via `source`. If the outlet you read cites another, trace it and attribute that one.
 8. Run `npm run build` and confirm it passes.
@@ -309,11 +315,12 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 ## 14. Gotchas and conventions
 
 - **Astro 7 content config path**: the file must be `src/content.config.ts`. The legacy `src/content/config.ts` throws `LegacyContentConfigError`.
-- **Content Layer API**: use `glob` from `astro/loaders` and `z` from `astro/zod` (Zod v4). Each entry is a folder `<slug>/index.mdx`; `generateId` maps the folder to `id` (the slug). There is **no `slug` field**.
+- **Content Layer API**: use `glob` from `astro/loaders` and `z` from `astro/zod` (Zod v4). Each entry is a folder with an `index.mdx`: `<slug>/` (legacy) or `<vertical>/<slug>/` (new); `generateId` maps the path to `id`, which is the URL path. There is **no `slug` field**.
 - **Stale content store after deleting an entry**: removing or renaming a content folder can leave the build failing with `Rolldown failed to resolve import "astro:content-layer-deferred-module?…/<deleted-entry>"`. The cause is `node_modules/.astro/data-store.json`, which still lists the deleted entry; `rm -rf .astro` alone does **not** fix it. Remove both caches (`rm -rf .astro node_modules/.astro/data-store.json`) and rebuild.
 - **Colocated images**: the `cover` field uses the `image()` helper from `astro:assets` and resolves relative to the entry folder (`./assets/...`). Inline body images use relative markdown paths. Article images are NOT placed in `public/`.
 - **Inline article images and `height: auto` — do not "clean up" this rule.** Astro's markdown pipeline emits `width` and `height` attributes on every inline body image. Those attributes are a presentational hint, so a reset with only `max-width: 100%` constrained the width while the attribute height stayed fixed: on mobile every inline image rendered vertically stretched (measured 342×1672 px for a 1920×1672 source, roughly 5.6× too tall). `img { height: auto }` in `global.css` is what preserves the intrinsic ratio. It cannot be dropped while the attributes are present, and it is inert for the cover/thumbnail components because those set their own `aspect-ratio` + `object-fit` and carry no size attributes.
 - **Rendering**: use `getCollection('news')`, `getEntry('news', id)`, and `render(entry)` from `astro:content`.
+- **Vertical routing**: a new article's `entry.id` carries the vertical (`audio/foo`), so the existing `/noticias/${entry.id}/` and `/en/news/${entry.id}/` builders serve both legacy flat and nested shapes unchanged. `/noticias/<one-segment>/` (and its EN mirror) is shared by legacy articles and vertical hubs, so each is generated by a **single dispatcher route** (`[slug].astro`, branching on a `kind` prop) — two files with that pattern would be ambiguous. Nested articles have their own `[vertical]/[slug].astro`, and named params beat the `[...page]` archive rest route. Vertical tokens are reserved in `npm run slug`; the dispatcher throws if a flat slug ever equals one.
 - **Heading levels in cards**: `NewsCard.astro` and `StoryCard.astro` hardcode `<h2>`, so neither can be reused inside an article page — the article title is already the `h1` and the body carries `h2`s, so a card's stray `h2` would corrupt the heading hierarchy. `StoryList.astro` is the shared recommendation block used instead: it renders a section `h2` plus one `h3` per item, and backs both the "Noticias relacionadas" and "Otras noticias" blocks on article pages. Its random trio is resolved at **build time** (Fisher–Yates over the non-related entries inside `getStaticPaths`), so it changes per deploy, not per visit — that non-determinism is intentional and requires no client JS (see §1 and the Client JS bullet below).
 - **Recommendations are language-agnostic**: the scoring (tags × 0.7 + temporal proximity × 0.3, related selection, random trio) lives once in `src/lib/related.ts` and serves both collections. `StoryList.astro` is configured with `basePath` (default `/noticias/`; the English pages pass `/en/news/`) and `locale` (default `es-ES`; English passes `en-US`), and its entry type is structural (`StoryListEntry`) rather than `CollectionEntry<'news'>`. Spanish-only surfaces (home, archive, RSS, `buscar.json`, the contrast index) must **never** read `newsEn` — that isolation is why the English collection exists separately. (The Google News sitemap is the one deliberate exception: it reads both collections, with `news:language` per entry.)
 - **Endpoints**: `src/pages/rss.xml.js` and `news-sitemap.xml.ts` use `export async function GET(context)`.
@@ -326,7 +333,7 @@ Three categories: **necessary** (always on, no consent), **analytics** (GA4) and
 - **`public/` is NOT optimized by Astro — every byte there ships verbatim.** A file dropped in `public/` is copied to `dist/` and to the Vercel output as-is, and Astro's image pipeline never touches it. Anything large must be resized and compressed **before** it lands there: that is why the brand cards in `public/og/` are pre-built 1200×630 JPEGs (~120–176 KB) rather than the 1–2 MB PNGs they come from. The **unprocessed brand kit is deliberately NOT kept in `public/`** — it used to live there and shipped ≈14 MB that no template referenced. The originals live outside the repo; only the derivatives in `public/og/` and the root icons are tracked. Regenerate them with `magick <src> -resize 1200x630^ -gravity center -extent 1200x630 -strip -quality 84 <out>.jpg` if the kit changes.
 - **Do not commit** `node_modules/`, `dist/`, or `.vercel/` (see `.gitignore`).
 - **No CSS framework.** Do not add Tailwind or a component library.
-- **No sections/taxonomy.** This is a single-topic portal by design; do not reintroduce a `section` field or category pages without an explicit request.
+- **Verticals, not a taxonomy.** New articles get a vertical folder/URL and each vertical has a hub, but the verticals are the fixed ten editorial blocks (section 16), not a free-form category system. There is **no `section` field** and **no tag pages** — do not add them.
 
 ## 15. Astro documentation
 
@@ -345,11 +352,11 @@ Relevant guides:
 ## 16. Editorial sources & the press-writing skill
 
 - **Source list** — `src/data/sources.json` is the curated, machine-readable list of outlets used to detect, contrast, and confirm stories before rewriting them in Spanish. It groups 169 sources into 8 layers: `tech-media`, `reviews`, `asia`, `es-competition`, `primary`, `emulacion` (emulation news, per-console state, and tutorials), `wearables` (smartwatches, smart rings and smart glasses: launches, reviews and tutorials), and `audio` (headphones, earphones/IEM, speakers and soundbars, microphones, DAC/amplification and hi-fi). Each entry has `homepage`, `rss` (or `null` when there is no confirmed feed), `lang`, `focus`, and optional `notes`. The detector fetches every source with a non-null `rss`, regardless of layer — the layer is editorial metadata, not a fetch filter. Release feeds (`*.releases.atom`) only work when the release title names the project (`shadPS4`, `Winlator`, `Azahar`, `MAME`); feeds titled just `v1.2.3` cannot be classified and are not listed. Feeds are verified with the detector's own User-Agent before being added: a few outlets (PhoneArena, Whoop, Withings, Notebookcheck) hard-block that agent with HTTP 403 and are therefore deliberately absent. Wareable is not blocked (its homepage answers 200) but publishes no RSS at all — its feed paths answer 404 — so it is listed with `rss: null` for manual tracking.
-- **Press-writing skill** — `skills/redaccion-prensa/SKILL.md` encodes the daily editorial workflow: pull the latest from the detection layers, contrast with `tech-media`/`reviews`, confirm with `primary`, check `es-competition` for saturation, then write `src/content/news/<slug>/index.mdx` in neutral/professional Spanish with explicit `source` attribution — and, in the same pass, its English companion under `src/content/news-en/` (see sections 6 and 7). Use it whenever an article is written or the sources are reviewed.
-- **Editorial verticals** — the portal covers 10 verticals: componentes de PC, portátiles, consolas (portátiles y de escritorio), tarjetas gráficas, memorias, móviles, wearables (relojes, anillos y gafas inteligentes), audio (auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos y DAC/amplificación), emuladores de videojuegos y tutoriales (guías how-to/paso a paso). Stories must fit one of them; the primary vertical goes first in `tags`. `emuladores` is host-agnostic: it covers console emulators on Windows, macOS, Linux and Android, with the host OS as a secondary tag. `wearables` is one editorial block, not three: glasses, watches and rings share a single vertical because splitting them would fragment a small news volume across three classifier buckets. It is checked **before** `moviles`, because a headline like "Samsung Galaxy Watch 8" also matches `moviles` through "galaxy" (and "Pixel Watch" through "pixel") and would otherwise be diluted into phone coverage. The classifier walks the verticals in a fixed **priority order** — `audio`, `wearables`, `moviles`, `tutoriales`, then the hardware categories (`tarjetas-graficas`, `memorias`, `portatiles`, `emuladores`, `consolas`, `componentes`) — defined in the `VERTICAL_PRIORITY` array of `scripts/daily-news.mjs`; the report lists its sections in that same order. Because `audio` is first, an audio product named in the headline (a "Galaxy Buds", a console headset, a portable DAC) lands in Audio. These are editorial focus, not URL sections (there are still no category/tag pages).
+- **Press-writing skill** — `skills/redaccion-prensa/SKILL.md` encodes the daily editorial workflow: pull the latest from the detection layers, contrast with `tech-media`/`reviews`, confirm with `primary`, check `es-competition` for saturation, then write `src/content/news/<vertical>/<slug>/index.mdx` in neutral/professional Spanish with explicit `source` attribution — and, in the same pass, its English companion under `src/content/news-en/<vertical>/<english-slug>/` (see sections 6 and 7). Use it whenever an article is written or the sources are reviewed.
+- **Editorial verticals** — the portal covers 10 verticals: componentes de PC, portátiles, consolas (portátiles y de escritorio), tarjetas gráficas, memorias, móviles, wearables (relojes, anillos y gafas inteligentes), audio (auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos y DAC/amplificación), emuladores de videojuegos y tutoriales (guías how-to/paso a paso). Stories must fit one of them; the primary vertical goes first in `tags`. `emuladores` is host-agnostic: it covers console emulators on Windows, macOS, Linux and Android, with the host OS as a secondary tag. `wearables` is one editorial block, not three: glasses, watches and rings share a single vertical because splitting them would fragment a small news volume across three classifier buckets. It is checked **before** `moviles`, because a headline like "Samsung Galaxy Watch 8" also matches `moviles` through "galaxy" (and "Pixel Watch" through "pixel") and would otherwise be diluted into phone coverage. The classifier walks the verticals in a fixed **priority order** — `audio`, `wearables`, `moviles`, `tutoriales`, then the hardware categories (`tarjetas-graficas`, `memorias`, `portatiles`, `emuladores`, `consolas`, `componentes`) — defined in the `VERTICAL_PRIORITY` array of `scripts/daily-news.mjs`; the report lists its sections in that same order. Because `audio` is first, an audio product named in the headline (a "Galaxy Buds", a console headset, a portable DAC) lands in Audio. These are editorial focus **and** the folder/URL segment of every new article (`/noticias/<vertical>/<slug>/`), with a hub per vertical; there are still no per-tag pages.
 - **Daily news script** — `scripts/daily-news.mjs` (`npm run news`) fetches the RSS feeds from `sources.json`, marks already-seen items in `scripts/.seen.json` (gitignored), classifies titles into the 10 verticals, and writes `scripts/candidates.json` plus a markdown report for manual selection. No dependencies (uses Node's global `fetch` + a built-in RSS/Atom parser). `tutoriales` is detected with a how-to marker plus a technology signal (`TUTORIAL_HOWTO_RX` + `TECH_SIGNAL`), so entertainment guides (live-stream and movie how-tos) are not offered as tutorials — but it is no longer the first priority: a how-to about audio, a wearable or a phone lands in that vertical, and `tutoriales` only wins over the hardware categories that follow it. `emuladores` is checked before `consolas`, so an emulator story lands under Emuladores even when it names the host console. `wearables` is checked before `moviles` (see above). The technology signal for `tutoriales` is derived automatically from the other verticals, so adding a vertical also widens which how-to titles qualify — that is why "Cómo configurar tu Apple Watch" only classifies as a tutorial once `wearables` exists.
 - **Contrast index** — `scripts/articulos-publicados.md` (`npm run index`) lists every published article with its URL. It is the anti-duplication step of the workflow: writers consult it before proposing a story. It is **generated** from `src/content/news/` by `scripts/index-published.mjs` and must be regenerated at the close of every publication batch (section 7, step 8) — never hand-edited. It reads the site domain from `astro.config.mjs`, so it cannot drift from canonical URLs, and it skips `draft: true` entries. It lists **Spanish articles only** — English companions are translations of stories already listed, never new entries.
 - **Never list the articles folder.** `src/content/news/` already holds hundreds of entries, and dumping it (`ls src/content/news/`, `glob src/content/news/*/index.mdx`, a recursive `grep`) costs ~12 KB of context on every single call while telling you nothing a targeted query cannot. This binds the orchestrator and every redaction subagent.
-- **The duplicate check happens BEFORE delegating, never after.** For each selected article run `npm run find -- <distinctive terms>` (project names, model numbers, acronyms — not common words) and drop the candidate if it returns any match. `npm run slug -- <slug>` answers slug availability and `npm run slug -- --count` the total; `npm run slug -- --en <slug>` checks the English namespace (`src/content/news-en/`). `npm run find` searches the title, description, tags and source URL of every published article and prints only the matches; **`npm run slug` validates the slug, not the topic**, so a brand-new slug can still hide an already-covered story.
-- **Redaction delegation** — when the user selects articles and asks to redact them, delegate one subagent (`general`) per article, all in parallel, using the prompt template in `skills/redaccion-prensa/DELEGATION.md`. Each subagent writes **two** non-overlapping folders per article — `src/content/news/<slug>/` (Spanish master) and `src/content/news-en/<english-slug>/` (English companion) — so there is no file overlap between subagents.
+- **The duplicate check happens BEFORE delegating, never after.** For each selected article run `npm run find -- <distinctive terms>` (project names, model numbers, acronyms — not common words) and drop the candidate if it returns any match. `npm run slug -- <slug>` answers slug availability (`libre`/`ocupado`/`reservado` — the ten vertical tokens are reserved because they own their hub URL) and `npm run slug -- --count` the total; `npm run slug -- --en <slug>` checks the English namespace (`src/content/news-en/`). `npm run find` searches the title, description, tags and source URL of every published article and prints only the matches; **`npm run slug` validates the slug, not the topic**, so a brand-new slug can still hide an already-covered story.
+- **Redaction delegation** — when the user selects articles and asks to redact them, delegate one subagent (`general`) per article, all in parallel, using the prompt template in `skills/redaccion-prensa/DELEGATION.md`. Each subagent writes **two** non-overlapping folders per article — `src/content/news/<vertical>/<slug>/` (Spanish master) and `src/content/news-en/<vertical>/<english-slug>/` (English companion) — so there is no file overlap between subagents.
 - **Redaction SEO pass** — each delegated writer also runs the pre-publish SEO pass on its own article via the `seo-audit` skill's article contract (`references/article-seo.md`); the pass never touches the headline, tags, or promotion flags, and never runs the build.

@@ -74,22 +74,33 @@ listing of `src/content/news/`).
 
 ## Acceptance criteria
 
-- [ ] Every legacy URL still resolves: `/noticias/<slug>/` and
-      `/en/news/<slug>/` unchanged.
-- [ ] New nested entries resolve at `/noticias/<v>/<slug>/` and
-      `/en/news/<v>/<slug>/`, with correct canonical and hreflang.
-- [ ] Hubs exist at `/noticias/<v>/` and `/en/news/<v>/` for verticals with
-      published articles, linked from every article of that vertical.
-- [ ] Legacy entries are grouped into hubs through `tags[0]` (662/664 ES map).
-- [ ] `crawlable` sitemap includes hubs and nested articles; `news-sitemap`
-      emits nested URLs with correct `news:language`.
-- [ ] `npm run build` passes; `npm run test:sitemaps` passes; `npm run index`
-      regenerates with nested URLs.
-- [ ] Work-unit commits on `feat/vertical-urls`.
+- [x] Every legacy URL still resolves: `/noticias/<slug>/` and
+      `/en/news/<slug>/` unchanged (checked in `dist/`).
+- [x] New nested entries resolve at `/noticias/<v>/<slug>/` and
+      `/en/news/<v>/<slug>/`, with correct canonical, mutual hreflang and
+      breadcrumb (proved with a temporary ES+EN fixture, then removed).
+- [x] Hubs exist for all 10 ES verticals and the 4 with EN content, and the hub
+      lists its nested and legacy articles (fixture appeared in `/noticias/audio/`).
+- [x] Legacy entries are grouped into hubs through `tags[0]` (662/664 ES map).
+- [x] `sitemap-0.xml` includes the hubs and keeps every legacy URL; `news-sitemap`
+      emits canonical URLs with `news:language`.
+- [x] `npm run build` (752 pages) passes; `npm run test:sitemaps` passes 7/7;
+      `npm run index` regenerates 664 articles with the right URLs.
+- [x] Work-unit commits on `feat/vertical-urls`.
+
+## Observations (pre-existing, not touched)
+
+- Two empty/orphan folders exist in the corpus and are ignored by the loader:
+  `src/content/news/dragon-quest-xi-s-switch-2-mejoras-graficas-rendimiento/`
+  (empty) and `src/content/news-en/kvaesitso-launcher-android-guide/` (only
+  `assets/`, no `index.mdx`). That is why the recursive count is 664 ES / 43 EN
+  rather than the old one-level directory count of 665 / 44. Flagged for the
+  newsroom; this change does not touch them.
 
 ## Progress
 
 - [x] Exploration: routing model, all `${entry.id}` consumers, scripts,
       `astro.config.mjs`, skill docs, legacy `tags[0]` coverage (662/664).
-- [x] T1..T7 (build green, 664+44 preserved, hubs + nested routes live).
+- [x] T1..T7; build green; fixture-verified nested routes; fixture removed and
+      content store cleaned.
 - [x] `npm run build` passes; `npm run test:sitemaps` passes; `npm run index` green.
