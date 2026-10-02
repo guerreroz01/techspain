@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 698 artículos. Actualizado: 2026-10-02
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 714 artículos. Actualizado: 2026-10-02
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -688,20 +688,36 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-01 | Samsung lanza los Galaxy Buds On, sus primeros auriculares clip-on | [audio/samsung-galaxy-buds-on](https://www.techspain24.com/noticias/audio/samsung-galaxy-buds-on/) |
 | 2026-10-01 | Thermalright estrena el Peerless Assassin 120H-A Dark: doble torre en negro y ventiladores de 2400 RPM | [componentes/thermalright-peerless-assassin-120h-a-dark](https://www.techspain24.com/noticias/componentes/thermalright-peerless-assassin-120h-a-dark/) |
 | 2026-10-01 | ZOTAC deniega la garantía de una RTX 3060 alegando una factura falsa en el registro | [tarjetas-graficas/zotac-garantia-rtx-3060](https://www.techspain24.com/noticias/tarjetas-graficas/zotac-garantia-rtx-3060/) |
+| 2026-10-02 | Advanced Shader Delivery de Microsoft recorta la compilación de shaders un 95% en Gears of War: E-Day | [tarjetas-graficas/microsoft-advanced-shader-delivery-compilacion](https://www.techspain24.com/noticias/tarjetas-graficas/microsoft-advanced-shader-delivery-compilacion/) |
+| 2026-10-02 | Amazon quiere sacar 8.000 millones en GPUs de NVIDIA de su balance y alquilarlas después | [tarjetas-graficas/amazon-8000-millones-gpus-nvidia](https://www.techspain24.com/noticias/tarjetas-graficas/amazon-8000-millones-gpus-nvidia/) |
 | 2026-10-02 | Android limita el sideloading en cuatro países: verificación y 24 horas de espera | [moviles/android-sideloading-limites-cuatro-paises](https://www.techspain24.com/noticias/moviles/android-sideloading-limites-cuatro-paises/) |
 | 2026-10-02 | AT&T pide actualizar «de inmediato» el iPhone 18 Pro Max por fallos de red en EE. UU. | [moviles/iphone-18-pro-max-fallos-at-t-actualizar](https://www.techspain24.com/noticias/moviles/iphone-18-pro-max-fallos-at-t-actualizar/) |
 | 2026-10-02 | Bose compra Firelight Technologies, el desarrollador del motor de audio FMOD | [audio/bose-compra-firelight-fmod](https://www.techspain24.com/noticias/audio/bose-compra-firelight-fmod/) |
 | 2026-10-02 | Cambridge Audio Melomania A100 SE: 149 dólares con Dolby Audio y afinación revisada | [audio/cambridge-audio-melomania-a100-se](https://www.techspain24.com/noticias/audio/cambridge-audio-melomania-a100-se/) |
+| 2026-10-02 | Comprar una CPU usada puede traerte el baneo de Valorant de su antiguo dueño | [componentes/cpu-segunda-mano-baneo-valorant](https://www.techspain24.com/noticias/componentes/cpu-segunda-mano-baneo-valorant/) |
 | 2026-10-02 | El fabricante de GrayKey afirma que puede eludir el reinicio por inactividad del iPhone | [moviles/graykey-inactivity-reboot-iphone](https://www.techspain24.com/noticias/moviles/graykey-inactivity-reboot-iphone/) |
+| 2026-10-02 | El kit Mercury convierte el MiSTer FPGA en una Sega Saturn | [emuladores/mister-fpga-mercury-sega-saturn](https://www.techspain24.com/noticias/emuladores/mister-fpga-mercury-sega-saturn/) |
+| 2026-10-02 | Europa desarticula una red de móviles usados vendidos como nuevos con 300 millones en daños | [moviles/ue-fraude-moviles-usados-300-millones](https://www.techspain24.com/noticias/moviles/ue-fraude-moviles-usados-300-millones/) |
 | 2026-10-02 | Filtración de Intel Nova Lake-S: siete SKUs y un Core Ultra 9 4970K de 28 núcleos | [componentes/intel-nova-lake-filtracion-4970k](https://www.techspain24.com/noticias/componentes/intel-nova-lake-filtracion-4970k/) |
 | 2026-10-02 | Filtran el AMD Ryzen Z3: empaquetado FF6 de 25 mm y 12 CU RDNA4m para las próximas consolas portátiles | [consolas/amd-ryzen-z3-filtracion-portatiles](https://www.techspain24.com/noticias/consolas/amd-ryzen-z3-filtracion-portatiles/) |
+| 2026-10-02 | GTA 6 permitirá elegir si Jason y Lucía son pareja o solo amigos, pero no separarlos | [consolas/gta-6-jason-lucia-pareja-o-amigos](https://www.techspain24.com/noticias/consolas/gta-6-jason-lucia-pareja-o-amigos/) |
 | 2026-10-02 | HP OmniBook 5: OLED, 1,1 kg y hasta 42 horas para frenar al MacBook Neo | [portatiles/hp-omnibook-5-macbook-neo](https://www.techspain24.com/noticias/portatiles/hp-omnibook-5-macbook-neo/) |
 | 2026-10-02 | La PS5 estrena QSSR, el escalado por IA que aterriza en la consola estándar | [consolas/ps5-qssr-escalado-ia](https://www.techspain24.com/noticias/consolas/ps5-qssr-escalado-ia/) |
 | 2026-10-02 | La PS5 Slim recibe una revisión silenciosa: placa EDM-051, batería CR2032 reemplazable y refrigeración tipo PS5 Pro | [consolas/sony-hardware-ps5-revision-silenciosa](https://www.techspain24.com/noticias/consolas/sony-hardware-ps5-revision-silenciosa/) |
+| 2026-10-02 | Metro 2033 y Last Light recibirán mejoras gratuitas en PS5 y Xbox Series X/S | [consolas/metro-2033-last-light-mejoras-gratis](https://www.techspain24.com/noticias/consolas/metro-2033-last-light-mejoras-gratis/) |
+| 2026-10-02 | Micro Center exige DNI y una declaración de no exportación para vender la RTX 5090 | [tarjetas-graficas/rtx-5090-micro-center-dni-no-exportacion](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-5090-micro-center-dni-no-exportacion/) |
 | 2026-10-02 | Micron anticipa una escasez de RAM aún mayor en 2027 y 2028 | [memorias/micron-escasez-ram-2027-2028](https://www.techspain24.com/noticias/memorias/micron-escasez-ram-2027-2028/) |
+| 2026-10-02 | Neurable One: auriculares EEG de 499 dólares contra el agotamiento | [audio/neurable-one-auriculares-eeg-burnout](https://www.techspain24.com/noticias/audio/neurable-one-auriculares-eeg-burnout/) |
+| 2026-10-02 | NVIDIA sube el Shield TV Pro a 299 dólares y retira el modelo estándar por el encarecimiento de la DRAM | [memorias/nvidia-shield-tv-pro-subida-precio-dram](https://www.techspain24.com/noticias/memorias/nvidia-shield-tv-pro-subida-precio-dram/) |
 | 2026-10-02 | Oura se alía con Xella Health para llevar sus biomarcadores a la salud femenina | [wearables/oura-xella-health-biomarcadores](https://www.techspain24.com/noticias/wearables/oura-xella-health-biomarcadores/) |
+| 2026-10-02 | Pebble Index 01: un anillo que no se carga y sustituye al Pixel Watch para tomar notas | [wearables/anillo-pebble-sin-carga](https://www.techspain24.com/noticias/wearables/anillo-pebble-sin-carga/) |
+| 2026-10-02 | Raspberry Pi 4 y Pi 5 de 2 GB suben 12,5 dólares por el encarecimiento de la RAM | [memorias/raspberry-pi-2gb-subida-precio-ram](https://www.techspain24.com/noticias/memorias/raspberry-pi-2gb-subida-precio-ram/) |
 | 2026-10-02 | Retroid Pocket Nova: crecen los reportes de consolas robadas dentro del paquete | [emuladores/retroid-envios-sin-consola](https://www.techspain24.com/noticias/emuladores/retroid-envios-sin-consola/) |
 | 2026-10-02 | Samsung lanzará en noviembre sus primeras gafas Android XR, según un informe surcoreano | [wearables/samsung-android-xr-gafas-noviembre-2026](https://www.techspain24.com/noticias/wearables/samsung-android-xr-gafas-noviembre-2026/) |
 | 2026-10-02 | Samsung Sound se apaga el 31 de marzo de 2027 y sus funciones vuelven a SmartThings | [audio/samsung-sound-app-cierre-smartthings](https://www.techspain24.com/noticias/audio/samsung-sound-app-cierre-smartthings/) |
+| 2026-10-02 | Samsung sube el precio de los Galaxy A en Estados Unidos: hasta 600 dólares por el A57 5G | [moviles/samsung-galaxy-a-subida-precio-eeuu](https://www.techspain24.com/noticias/moviles/samsung-galaxy-a-subida-precio-eeuu/) |
 | 2026-10-02 | Samsung sube los precios de los Galaxy S26 en Europa y EE. UU.: hasta 230 euros más seis meses después del lanzamiento | [moviles/galaxy-s26-subida-precio-octubre-2026](https://www.techspain24.com/noticias/moviles/galaxy-s26-subida-precio-octubre-2026/) |
+| 2026-10-02 | shadPS4 estrena la versión estable 0.19.0, la «Shadoween special» centrada en la GPU | [emuladores/shadps4-0-19-0-shadoween-special](https://www.techspain24.com/noticias/emuladores/shadps4-0-19-0-shadoween-special/) |
 | 2026-10-02 | Ugreen lanza los ClipBuds Pro 2: auriculares abiertos con LDAC y traducción por IA por 99,99 dólares | [audio/ugreen-clipbuds-pro-2](https://www.techspain24.com/noticias/audio/ugreen-clipbuds-pro-2/) |
+| 2026-10-02 | Una RTX 5090 de segunda mano llegó sin GPU ni PCB: la carcasa estaba vacía | [tarjetas-graficas/estafa-rtx-5090-sin-gpu-ni-pcb](https://www.techspain24.com/noticias/tarjetas-graficas/estafa-rtx-5090-sin-gpu-ni-pcb/) |
+| 2026-10-02 | Xbox e IKEA lanzan YXSTABY, una colección de muebles gamer inspirada en el mando | [consolas/ikea-xbox-yxstaby-muebles](https://www.techspain24.com/noticias/consolas/ikea-xbox-yxstaby-muebles/) |

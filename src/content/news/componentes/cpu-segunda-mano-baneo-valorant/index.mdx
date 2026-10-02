@@ -1,0 +1,42 @@
+---
+title: 'Comprar una CPU usada puede traerte el baneo de Valorant de su antiguo dueño'
+description: 'Comprar hardware de segunda mano puede traer el baneo de Valorant de su anterior dueño: los anti-cheat marcan componentes como la CPU, la placa o el SSD.'
+pubDate: '2026-10-02'
+tags: ['Componentes', 'Anti-cheat']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Procesador AMD Ryzen sobre la ilustración de Vyse, agente de Valorant'
+source:
+  name: 'PCWorld'
+  url: 'https://www.pcworld.com/article/3250222/your-used-cpu-might-come-with-someone-elses-valorant-ban.html'
+draft: false
+---
+
+El mercado de segunda mano es la salida más razonable cuando el hardware nuevo no baja de precio, pero esconde una trampa poco conocida: una pieza que funciona sin problema puede llegar con un **baneo heredado**. Eso es lo que le ocurrió a un jugador alemán de Valorant que compró una CPU Ryzen 7 5800X3D usada y se encontró con la cuenta bloqueada en cuanto iniciaba sesión.
+
+## Un baneo que viaja con la pieza
+
+El caso, recogido por PCWorld a partir del relato del propio afectado, apunta a un detalle que muchos compradores pasan por alto: los sistemas anti-cheat modernos no se conforman con marcar la cuenta ni la dirección IP. También toman una huella del hardware, y pueden hacerlo componente a componente. Cuando esa huella viaja a un PC nuevo, el dueño inocente arrastra la sanción del anterior.
+
+En el episodio descrito, el soporte de Riot respondió que no había nada que hacer para levantar el bloqueo. Y no fue solo la CPU: la placa base y la unidad de almacenamiento del comprador también quedaron marcadas en el sistema Vanguard.
+
+## Qué componentes puede identificar el anti-cheat
+
+Para leer el hardware el software necesita ganchos muy profundos en el sistema operativo, y en algunos casos incluso en la BIOS. Según PCWorld, con esas herramientas a nivel de kernel es técnicamente posible identificar:
+
+- La CPU
+- La tarjeta gráfica
+- La placa base
+- El SSD o disco duro
+- El adaptador de red
+- La licencia concreta del sistema operativo
+- Cualquier combinación de los elementos anteriores
+
+A eso se suma que Vanguard, el anti-cheat de Valorant, solo funciona si el equipo tiene activados Secure Boot y el módulo TPM, tal como recoge Heise.de. Es una de las razones por las que este tipo de juegos sigue sin estar disponible en Linux o SteamOS. PCWorld contactó con Riot, Valve y Epic Games —responsables de Vanguard, Valve Anti-Cheat y Easy Anti-Cheat— para preguntar qué hardware puede quedar marcado y cómo esquivarlo en el mercado de segunda mano. Ninguno respondió antes de la publicación, y el histórico de casos apunta a que el soporte rara vez retira un baneo aplicado por identificador de hardware.
+
+## Qué mirar antes de comprar de segunda mano
+
+Conviene ponerlo en perspectiva: es un problema muy poco frecuente. Para sufrirlo hay que comprar una pieza usada a alguien que haya hecho trampas, que juegue al mismo título —o al menos a uno con el mismo anti-cheat— y que ya haya sido marcado por ese sistema. Es el centro de un diagrama de Venn bastante pequeño; lo más probable sigue siendo encontrarse con una pieza defectuosa o con una estafa más convencional, como la [garantía denegada de una RTX 3060 por una factura falsa](/noticias/tarjetas-graficas/zotac-garantia-rtx-3060/).
+
+Aun así, con el hardware más caro que nunca y el mercado de segunda mano más activo de lo habitual, los falsos positivos probablemente hayan aumentado. El problema de fondo es que no hay forma de saber si un componente fue marcado antes de comprarlo, salvo que el vendedor decida contarlo. Si quien te vende la pieza admite que usaba programas de trampas, mejor buscar en otro sitio: el ahorro no compensa arrancar con la cuenta bloqueada.

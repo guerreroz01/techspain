@@ -1,0 +1,32 @@
+---
+title: 'shadPS4 estrena la versión estable 0.19.0, la «Shadoween special» centrada en la GPU'
+description: 'shadPS4 publica la versión estable 0.19.0, «The Shadoween special», con una gran remesa de mejoras de GPU, más juegos jugables y soporte de trofeos en línea.'
+pubDate: '2026-10-02'
+# author: se omite; la firma se deriva del vertical `emuladores`
+tags: ['Emuladores', 'shadPS4', 'PlayStation 4']
+featured: false
+breaking: false
+source:
+  name: 'shadPS4'
+  url: 'https://github.com/shadps4-emu/shadPS4/releases/tag/v.0.19.0'
+---
+
+El emulador de PlayStation 4 **shadPS4** ha publicado su versión estable **0.19.0**, a la que el equipo ha puesto el nombre en clave «The Shadoween special». La build aparece más de un mes después de la entrega anterior y, según sus responsables, reúne un volumen mayor de correcciones y amplía la lista de juegos que ya se pueden jugar. El grueso del trabajo se ha concentrado en la GPU, un frente que ha mejorado el rendimiento de numerosos títulos hasta el punto de que algunos pasan a considerarse jugables.
+
+## Qué cambia en el núcleo y las librerías
+
+En el núcleo, shadPS4 **reescribe de nuevo la emulación de señales** y corrige el valor de error que devolvía al intentar crear un archivo en una carpeta inexistente dentro de un montaje de escritura. También incorpora la **carga de licencias de derechos (RIF)**, el soporte para cargar **DLC en formato ZAR** y la corrección de la alineación de `sceKernelReserveVirtualRange`. El registro apunta además a una optimización del sistema de logs —que pasa de un mapa hash a una búsqueda por tabla— y a una reescritura del vector de slots.
+
+La sección de librerías es la más poblada. Entre otros cambios, se añade **soporte TSS** (`np_tss`), una **primera implementación de `np_utility`**, soporte **h265/HEVC** en el decodificador `vdec2`, una librería **HLE de teclado muy básica** y la implementación de `sceKernelGetProcessType`, además de las llamadas `mlock`/`munlock` de POSIX. En el apartado de red y servicios, se corrigen `http2`, se arregla la visualización del nombre de los trofeos (`np_trophy`) y se ajusta el valor por defecto de autorización de `np_auth`.
+
+## shadPS4 refuerza la GPU y el recompilador de shaders
+
+El bloque de Video Core es el más extenso y el que explica el impacto en juego. El proyecto ha reescrito el **gestor de búferes con arenas dispersas y subidas por lotes**, ha reajustado el gestor de memoria y el de texturas, y ha corregido la selección de dispositivos de renderizado por software, la decodificación de sRGB en ciertos búferes de pantalla y el tratamiento de QuadStrip como tira de triángulos. Son cambios técnicos que, sumados, reducen fallos gráficos y mejoran la estabilidad en títulos concretos.
+
+A ellos se añade el trabajo sobre el **recompilador de shaders**, donde se incorporan instrucciones Neo MIMG, registros virtuales, una pasada de destrucción de SSA y soporte para vértice e instancia base en dibujos indirectos. También se adapta el modelo wave64 a wave32 y se añaden varias instrucciones SALU y de comparación de 64 bits. El objetivo es cubrir más rutas de shader que antes fallaban o se traducían mal.
+
+## Estado actual, descargas y trofeos en línea
+
+La 0.19.0 es una **versión estable**, no una preversión diaria, y el proyecto la distribuye con paquetes para Windows de 64 bits, Linux con SDL y macOS con SDL. Quien quiera cambiarse de build debería conservar su configuración anterior antes de sustituirla. La nota de la release anticipa, además, una novedad de la capa **ShadNet**: soporte de **trofeos en línea**.
+
+Como es habitual en este tipo de compilaciones, el estado jugable depende del título y del host. La lista de correcciones marca la dirección del proyecto —más precisión gráfica y menos fallos—, pero no equivale a una compatibilidad completa del catálogo. Quien venga de la última preversión puede consultar qué se corrigió en ella ([preversión del 29 de septiembre](/noticias/shadps4-prerelanzamiento-2026-09-29/)).
