@@ -1,0 +1,37 @@
+---
+title: "GrayKey maker claims it can bypass the iPhone's inactivity reboot"
+description: 'A leaked video obtained by 404 Media claims Magnet Forensics, the maker of GrayKey, can preserve an iPhone unlocked state even after a reboot.'
+pubDate: '2026-10-02'
+tags: ['Mobile', 'Security']
+cover: './assets/cover.jpg'
+coverAlt: 'iOS security icon on a dark background'
+source:
+  name: '404 Media'
+  url: 'https://www.404media.co/cops-can-bypass-iphone-automatic-inactivity-reboot-graykey/'
+draft: false
+translationOf: moviles/graykey-inactivity-reboot-iphone
+---
+
+Magnet Forensics, the company behind the GrayKey forensic tool, says it can get around the iPhone's automatic inactivity reboot. The claim does not come from a press release but from a leaked video obtained by [404 Media](https://www.404media.co/cops-can-bypass-iphone-automatic-inactivity-reboot-graykey/), which describes it as an "educational and tutorial" video made exclusively for law enforcement agents and apparently dated to early 2025. It should be treated as what it is: a leak and a report, not a fact confirmed by Apple or Magnet.
+
+## What the video describes about GrayKey
+
+According to the 404 Media report, Magnet has developed a new device called **GrayKey Preserve** and an additional mode for its existing GrayKey hardware named **Evidence Preservation Mode**. Both are said to be designed to maintain an iPhone's forensic state without immediately exposing the data stored on it, so that law enforcement can keep that state intact while waiting for authorization to search the phone.
+
+The video reportedly does not detail the technical mechanism behind the method, but it does explain that the tool preserves the iPhone's *After First Unlock* (AFU) state even if the device reboots. In the words of the employee shown in the recording, as quoted by 404 Media, the AFU state "is captured" and, even if the phone reboots for any number of reasons —memory maintenance, loss of power or whatever— it "is not lost." According to the report, that is what the company presents as the true innovation of GrayKey Preserve and Evidence Preservation Mode.
+
+## Why the inactivity reboot matters
+
+The inactivity reboot arrived with iOS 18.1 in November 2024. The feature reboots an iPhone after 72 hours without being unlocked, and that detail is not minor: a reboot returns the phone to a *Before First Unlock* (BFU) state in which some sensitive data stays protected by encryption keys that only become available after the passcode is entered for the first time, which brings the device to AFU. The longer an iPhone stays in AFU without rebooting, the more information is accessible to forensic tools.
+
+The practical consequence is that a seized phone can return to BFU before investigators manage to gain access, which matters when they have to wait for a court order or when there is simply a backlog of devices awaiting unlocking. Apple never presented the feature as a measure specifically aimed at police, but at the time it already raised concerns among law enforcement, as 404 Media reported when the company introduced the change.
+
+## What changes for users and what remains open
+
+For the average user, the leak changes nothing immediately: the inactivity reboot is still active and remains a reasonable layer of protection for a lost or stolen iPhone, since it also makes it harder for a thief to keep the phone in AFU long enough to attempt an attack. The fair question is whether that barrier stops being effective against commercial forensic access tools.
+
+And that is where the report leaves more questions than answers. 404 Media contacted both Apple and Magnet Forensics, and neither company responded to a request for comment. The investigation also consulted security researcher Jiska Classen, who suggested that Magnet may have found a way to manipulate the iPhone's clock or to disable the processes that expire certain data. In addition, the video appears to date from early 2025, so it is unclear how long the technology has been available, whether it has been used in actual investigations, or whether the method remains effective against the latest versions of iOS.
+
+For the reader, the useful takeaway is this: there is no independent confirmation from either Apple or the manufacturer, and everything we know comes from a leaked recording. The usual advice still stands —a six-digit passcode or longer, enable data erasure and do not leave the phone unattended for days— because, for now, no one has shown that the protection has stopped working for the ordinary user.
+
+It is worth not confusing this security feature with the accidental reboots Apple has already had to fix through another route: the company confirmed that [an iOS 27 update would fix the reboots on the iPhone 18 Pro](/noticias/ios-27-fix-reinicio-iphone-18-pro/), a problem distinct from the one described here.

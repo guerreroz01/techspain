@@ -1,0 +1,50 @@
+---
+title: 'Filtración de Intel Nova Lake-S: siete SKUs y un Core Ultra 9 4970K de 28 núcleos'
+description: 'Filtración con siete procesadores Intel Nova Lake-S para LGA 1954: el Core Ultra 9 4970K encabeza con 28 núcleos y 125 W. Llegarían tras el CES 2027.'
+pubDate: '2026-10-02'
+# author: se omite; la firma se deriva del vertical `componentes`
+tags: ['Componentes', 'Intel', 'Procesadores']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Cajas de procesadores Intel Core Ultra Series 4 con las marcas 9, 7 y 5 y el rótulo Nova Lake, junto a un primer plano de un chip Intel'
+source:
+  name: 'Wccftech'
+  url: 'https://wccftech.com/intel-nova-lake-desktop-cpu-lineup-leak-core-ultra-9-4970k-7-4870k-5-4650k/'
+---
+
+La próxima generación de sobremesa de Intel, **Nova Lake-S**, empieza a concretarse en forma de filtración. Según una lista de especificaciones difundida por el leaker LC Tech Leaks y recogida por Wccftech, la familia «Core Ultra Series 4» contaría con **siete modelos** para el zócalo LGA 1954, encabezados por un Core Ultra 9 4970K BFC de 28 núcleos y 125 W de potencia base (PL1). Se trata, conviene subrayarlo, de una filtración y no de una confirmación de Intel: ninguna de estas cifras es oficial todavía.
+
+## Qué dice la filtración de Nova Lake-S: siete SKUs sobre un solo die
+
+Los siete modelos partirían de un único *compute tile* con un máximo de 28 núcleos en reparto 8+16+4 (P, E y LP-E). La tabla que acompaña a la filtración queda así:
+
+| Nombre | Núcleos / hilos | Config (P/E/LPE) | bLLC | TDP (PL1) | iGPU |
+| --- | --- | --- | --- | --- | --- |
+| Core Ultra 9 4970K BFC | 28 / 28 | 8+16+4 | Sí (hasta 144 MB) | 125 W | 32 EUs |
+| Core Ultra 9 4950K | 28 / 28 | 8+16+4 | No | 125 W | 32 EUs |
+| Core Ultra 9 4900 BFC | 22 / 22 | 6+12+4 | Sí (hasta 144 MB) | 65 W | 32 EUs |
+| Core Ultra 7 4870K BFC | 24 / 24 | 8+12+4 | Sí (hasta 144 MB) | 125 W | 32 EUs |
+| Core Ultra 7 4850K | 24 / 24 | 8+12+4 | No | 125 W | 32 EUs |
+| Core Ultra 5 4650K | 22 / 22 | 6+12+4 | No | 125 W | 32 EUs |
+| Core Ultra 5 4650KF | 22 / 22 | 6+12+4 | No | 125 W | N/A |
+
+La filtración etiqueta las variantes con caché añadida como **BFC**: el 4970K, el 4900 y el 4870K. La cantidad exacta de bLLC por modelo seguiría en el aire, con un techo de hasta 144 MB para estos chips de un solo die; Intel podría recortarla según el SKU. El sufijo **KF** del 4650K indica que va sin gráficos integrados, mientras que el resto de modelos estándar mantienen 32 EUs.
+
+![Render de un procesador con el rótulo Nova Lake BLLC](./assets/nova-lake-bllc.jpg)
+
+## Lo que mira quien va a montar: socket, TDP y caché
+
+Para el armado, el dato duro es el **zócalo LGA 1954**: es una plataforma nueva, así que no reaprovecha placas anteriores. La filtración sitúa a las Z990 y Z970 como los primeros chipsets en acompañarla, y no menciona compatibilidad con generaciones previas. Si venís de una plataforma Intel reciente, eso implica cambiar de placa y, casi con seguridad, de memoria.
+
+En consumo, los 125 W de PL1 de casi toda la gama se mantienen en la línea de los actuales modelos desbloqueados, así que la exigencia de VRM y disipación debería ser familiar: fases suficientes para sostener ese presupuesto y un disipador dimensionado para él, no una sorpresa térmica nueva. El Core Ultra 9 4900 BFC baja a 65 W, lo que lo coloca como la opción menos caliente del grupo.
+
+La otra palanca es la caché. Los 144 MB de bLLC en los modelos BFC apuntan a esa estrategia de caché grande que Intel ya viene empujando, y que suele notarse más en juegos y cargas con muchos accesos a memoria que en potencia bruta. Aun así, sin cifras oficiales por modelo, conviene tratar ese 144 MB como el techo de la familia, no como el valor de cada chip.
+
+Las piezas comparten motor de gráficos (32 EUs) salvo el KF, y todas parten del mismo dado de cómputo. Los modelos de **doble die**, con hasta 52 núcleos, llegarían más adelante, así que esta primera hornada es la de un solo *compute tile*. Es la misma estrategia de relevo por tramos que ya se apuntó con el supuesto [Raptor Lake Next](https://www.techspain24.com/noticias/intel-raptor-lake-next-8p/): reutilizar lo existente abajo mientras la arquitectura nueva aterriza arriba.
+
+## Cuándo llegarían y qué cambia para el lector
+
+El calendario que maneja la filtración apunta a un primer lanzamiento de Nova Lake-S a comienzos del próximo año, después de una presentación en el **CES 2027**, con el zócalo LGA 1954 y las placas Z990/Z970 como punta de lanza. Las variantes de doble die, de hasta 52 núcleos, se esperarían hacia Computex 2027, la misma ventana en la que AMD tendría previsto responder con sus Zen 7 «Olympic Ridge». En portátiles, una filtración paralela de Jaykihn sostiene que los chips Nova Lake-HX mantendrán el esquema de cuatro dígitos, mientras que las líneas H y sin sufijo seguirían con los tres dígitos actuales.
+
+Para quien esté pensando en montar, la lectura práctica es sencilla: si el equipo es para trabajar ahora, no tiene sentido esperar a una filtración. La fecha real de compra la marcarán las placas en tienda y las reviews de consumo medido, no la lista filtrada. Y si vuestra idea era actualizar sobre una plataforma Intel ya existente, el salto a [LGA 1954](https://www.techspain24.com/noticias/intel-lga-1954-nova-lake/) obliga a planificar placa y memoria de nuevo, no solo la CPU. Quien sí tenga margen puede tantear el terreno con calma: primero placas y reviews, después el chip.
