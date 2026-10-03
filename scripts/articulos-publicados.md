@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 732 artículos. Actualizado: 2026-10-03
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 756 artículos. Actualizado: 2026-10-03
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -721,21 +721,45 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-02 | Ugreen lanza los ClipBuds Pro 2: auriculares abiertos con LDAC y traducción por IA por 99,99 dólares | [audio/ugreen-clipbuds-pro-2](https://www.techspain24.com/noticias/audio/ugreen-clipbuds-pro-2/) |
 | 2026-10-02 | Una RTX 5090 de segunda mano llegó sin GPU ni PCB: la carcasa estaba vacía | [tarjetas-graficas/estafa-rtx-5090-sin-gpu-ni-pcb](https://www.techspain24.com/noticias/tarjetas-graficas/estafa-rtx-5090-sin-gpu-ni-pcb/) |
 | 2026-10-02 | Xbox e IKEA lanzan YXSTABY, una colección de muebles gamer inspirada en el mando | [consolas/ikea-xbox-yxstaby-muebles](https://www.techspain24.com/noticias/consolas/ikea-xbox-yxstaby-muebles/) |
+| 2026-10-03 | Amazon Prime Air choca con la oposición municipal: el 92 % de Westborough rechaza su hub de drones | [drones/amazon-prime-air-opposicion-municipal](https://www.techspain24.com/noticias/drones/amazon-prime-air-opposicion-municipal/) |
+| 2026-10-03 | Amprius convertirá una línea de baterías de coche eléctrico en una fábrica de celdas para drones | [drones/amprius-baterias-drones-pentagono](https://www.techspain24.com/noticias/drones/amprius-baterias-drones-pentagono/) |
 | 2026-10-03 | Android 17 QPR3 Beta 1 ya está disponible: novedades y Pixel compatibles | [moviles/android-17-qpr3-beta-1](https://www.techspain24.com/noticias/moviles/android-17-qpr3-beta-1/) |
+| 2026-10-03 | Antigravity A1: el primer dron de consumo con cámara 360 integrada | [drones/antigravity-a1-dron-360](https://www.techspain24.com/noticias/drones/antigravity-a1-dron-360/) |
 | 2026-10-03 | Aparece una muestra del AMD Ryzen 9 5900X3D con 128 MB de caché L3 | [componentes/amd-ryzen-9-5900x3d-muestra-128-mb](https://www.techspain24.com/noticias/componentes/amd-ryzen-9-5900x3d-muestra-128-mb/) |
 | 2026-10-03 | ASRock añade las RTX PRO Blackwell a sus equipos compactos DeskSlim X600 y B760 | [componentes/deskslim-x600-b760](https://www.techspain24.com/noticias/componentes/deskslim-x600-b760/) |
+| 2026-10-03 | Batimetría con dron LiDAR: topografía de precisión en tierra y bajo el agua | [drones/batimetria-dron-lidar](https://www.techspain24.com/noticias/drones/batimetria-dron-lidar/) |
 | 2026-10-03 | Biwin lanza el CL100 Mini, el SSD de consumo más pequeño: 1 gramo y 3.700 MB/s | [memorias/biwin-cl100-mini-ssd-mas-pequeno](https://www.techspain24.com/noticias/memorias/biwin-cl100-mini-ssd-mas-pequeno/) |
+| 2026-10-03 | Cómo montar un toothpick FPV de 1S y 3 pulgadas paso a paso | [drones/montar-dron-fpv-1s-3-pulgadas](https://www.techspain24.com/noticias/drones/montar-dron-fpv-1s-3-pulgadas/) |
+| 2026-10-03 | Cyberhawk amplía a la eólica marina la inspección con drones de la red eléctrica de SSE | [drones/cyberhawk-inspeccion-offshore-redes](https://www.techspain24.com/noticias/drones/cyberhawk-inspeccion-offshore-redes/) |
+| 2026-10-03 | Detroit usa drones y GIS para atraer industria y forma a pilotos de instituto | [drones/detroit-drones-gis-pilotos-instituto](https://www.techspain24.com/noticias/drones/detroit-drones-gis-pilotos-instituto/) |
+| 2026-10-03 | DJI Avata 360: un piloto FPV lo prueba en cinco encargos y lo ve suficiente sin modo acro | [drones/dji-avata-360-prueba-fpv](https://www.techspain24.com/noticias/drones/dji-avata-360-prueba-fpv/) |
+| 2026-10-03 | DoorDash Air: así es el dron propio de seis rotores con el que DoorDash repartirá comida | [drones/doordash-air-plataforma-reparto-drones](https://www.techspain24.com/noticias/drones/doordash-air-plataforma-reparto-drones/) |
+| 2026-10-03 | El Atol Mamba, el eVTOL monoplaza eléctrico creado por estudiantes argentinos, ya vuela con una persona a bordo | [drones/atol-mamba-evtol-argentino](https://www.techspain24.com/noticias/drones/atol-mamba-evtol-argentino/) |
 | 2026-10-03 | El Huawei Mate 90 Pro Max aparece en Geekbench: el Kirin 9050 Pro se queda en un rendimiento de 2022 | [moviles/huawei-mate-90-pro-max-geekbench-kirin-9050](https://www.techspain24.com/noticias/moviles/huawei-mate-90-pro-max-geekbench-kirin-9050/) |
+| 2026-10-03 | El negocio antidron se calienta: Echodyne logra 250 millones y Fortem cierra 50 | [drones/mercado-antidron-echodyne-fortem](https://www.techspain24.com/noticias/drones/mercado-antidron-echodyne-fortem/) |
+| 2026-10-03 | El Pentágono abre la Fase 3 del programa Drone Dominance: 450 millones y 60.000 drones de ataque | [drones/pentagono-drone-dominance-fase-3](https://www.techspain24.com/noticias/drones/pentagono-drone-dominance-fase-3/) |
 | 2026-10-03 | El Suunto Race 3S se filtra con zafiro, 2.000 nits y hasta 45 horas de GPS | [wearables/suunto-race-3s-filtracion](https://www.techspain24.com/noticias/wearables/suunto-race-3s-filtracion/) |
 | 2026-10-03 | Garmin recupera el Fenix 6 con la beta 29.02 para corregir el Race Predictor | [wearables/garmin-fenix-6-software](https://www.techspain24.com/noticias/wearables/garmin-fenix-6-software/) |
+| 2026-10-03 | Hegseth ordena un mando de cuatro estrellas para la guerra autónoma, pero sin comandante ni presupuesto | [drones/comando-guerra-autonoma-hegseth](https://www.techspain24.com/noticias/drones/comando-guerra-autonoma-hegseth/) |
 | 2026-10-03 | La recompilación estática de The Wind Waker ya corre en Windows y macOS | [emuladores/wind-waker-recompilacion-estatica-pc](https://www.techspain24.com/noticias/emuladores/wind-waker-recompilacion-estatica-pc/) |
 | 2026-10-03 | La RTX 5070 ya es la GPU más popular de Steam, con un 6,15 % de cuota | [tarjetas-graficas/rtx-5070-gpu-mas-popular-steam](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-5070-gpu-mas-popular-steam/) |
 | 2026-10-03 | Lian Li renueva las fuentes Edge V2 con diseño en L y vigilancia térmica del conector de la GPU | [componentes/lian-li-edge-v2-fuentes](https://www.techspain24.com/noticias/componentes/lian-li-edge-v2-fuentes/) |
+| 2026-10-03 | Los drones contra incendios ganan visión 3D con LiDAR para volar entre el humo | [drones/drones-incendios-lidar-ouster](https://www.techspain24.com/noticias/drones/drones-incendios-lidar-ouster/) |
+| 2026-10-03 | Matternet presenta el M3, una plataforma de reparto autónomo con 5 kg de carga útil | [drones/matternet-m3-plataforma-reparto-drones](https://www.techspain24.com/noticias/drones/matternet-m3-plataforma-reparto-drones/) |
 | 2026-10-03 | Minisforum lanza un Mini PC gaming con Ryzen 9 8945HX y Radeon RX 9060 XT | [componentes/minisforum-mini-pc-rx-9060-xt](https://www.techspain24.com/noticias/componentes/minisforum-mini-pc-rx-9060-xt/) |
 | 2026-10-03 | Minisforum MS-S1 MAX-P495: estación de trabajo con Ryzen AI Max+ PRO 495 y 192 GB desde 7.399 dólares | [componentes/minisforum-ryzen-ai-max-495-workstation](https://www.techspain24.com/noticias/componentes/minisforum-ryzen-ai-max-495-workstation/) |
 | 2026-10-03 | Nacon anuncia el Revolution 5 Unlimited, el primer mando oficial de PS5 con pantalla de control integrada | [consolas/nacon-revolution-5-unlimited-ps5](https://www.techspain24.com/noticias/consolas/nacon-revolution-5-unlimited-ps5/) |
+| 2026-10-03 | Neros se adjudica un pedido de 14.000 drones valorado en más de 100 millones de dólares | [drones/neros-pedido-100-millones-gauntlet](https://www.techspain24.com/noticias/drones/neros-pedido-100-millones-gauntlet/) |
+| 2026-10-03 | Powerus debuta en el Nasdaq como $PUSA: otro fabricante de drones de defensa llega a bolsa | [drones/powerus-nasdaq-drones-defensa](https://www.techspain24.com/noticias/drones/powerus-nasdaq-drones-defensa/) |
 | 2026-10-03 | Qué procesador necesito para cada tarjeta gráfica: guía actualizada a 2026 | [tutoriales/que-procesador-necesito-para-cada-tarjeta-grafica](https://www.techspain24.com/noticias/tutoriales/que-procesador-necesito-para-cada-tarjeta-grafica/) |
+| 2026-10-03 | Quince estados demandan a la FAA por el aval ambiental al reparto con drones en EE. UU. | [drones/estados-demandan-faa-reparto-drones](https://www.techspain24.com/noticias/drones/estados-demandan-faa-reparto-drones/) |
+| 2026-10-03 | Redfin publica el checklist para un rodaje aéreo: lo que el piloto debería enviar a su cliente | [drones/redfin-checklist-rodaje-dron-inmobiliaria](https://www.techspain24.com/noticias/drones/redfin-checklist-rodaje-dron-inmobiliaria/) |
 | 2026-10-03 | Samsung arranca la producción del Exynos 2700 con el Galaxy S27 Ultra aún sin decidir | [moviles/samsung-exynos-2700-produccion-galaxy-s27](https://www.techspain24.com/noticias/moviles/samsung-exynos-2700-produccion-galaxy-s27/) |
+| 2026-10-03 | Sherpa HighLine: poleas en la azotea para que el dron de limpieza no cargue la manguera | [drones/drones-limpieza-poleas-lucid-bots](https://www.techspain24.com/noticias/drones/drones-limpieza-poleas-lucid-bots/) |
+| 2026-10-03 | Skydio Ascend 2026: del F10 Lightrunner al vuelo táctico con R10 y X10 | [drones/skydio-ascend-2026-drones-autonomos](https://www.techspain24.com/noticias/drones/skydio-ascend-2026-drones-autonomos/) |
 | 2026-10-03 | Sonos Ace Ultra, análisis: EQ de 8 bandas y batería reemplazable por 449 dólares | [audio/sonos-ace-ultra-analisis](https://www.techspain24.com/noticias/audio/sonos-ace-ultra-analisis/) |
 | 2026-10-03 | Sonos Beam Ultra, análisis: la barra de sonido compacta que exprime el ecosistema Sonos | [audio/sonos-beam-ultra-analisis](https://www.techspain24.com/noticias/audio/sonos-beam-ultra-analisis/) |
+| 2026-10-03 | Tendencias FPV olvidadas: siete ideas que no triunfaron y que podrían volver | [drones/tendencias-fpv-olvidadas](https://www.techspain24.com/noticias/drones/tendencias-fpv-olvidadas/) |
+| 2026-10-03 | Un capitán de rescate de Utah pide en Washington frenar el veto de la FCC a los drones extranjeros | [drones/veto-drones-extranjeros-fcc-rescate](https://www.techspain24.com/noticias/drones/veto-drones-extranjeros-fcc-rescate/) |
+| 2026-10-03 | Un dron bioinspirado en las aves usa el tacto para agarrarse a las ramas | [drones/dron-bioinspirado-tacto-ramas](https://www.techspain24.com/noticias/drones/dron-bioinspirado-tacto-ramas/) |
 | 2026-10-03 | Una GeForce RTX 4090 Founders Edition pierde un bloque del disipador al mover el equipo | [tarjetas-graficas/rtx-4090-founders-disipador-desprendido](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-4090-founders-disipador-desprendido/) |

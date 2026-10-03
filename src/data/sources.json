@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "Fuentes editoriales del portal",
-    "description": "Lista curada de fuentes agrupada en 8 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
-    "updated": "2026-09-30",
-    "version": 4,
+    "description": "Lista curada de fuentes agrupada en 9 capas para detectar, contrastar y confirmar noticias de hardware/tecnología antes de reescribirlas en español.",
+    "updated": "2026-10-03",
+    "version": 5,
     "note": "Los campos 'rss' con valor null no tienen feed confirmado (o no lo publican): usar la homepage para seguimiento manual o scraping autorizado. Antes de automatizar, verificar cada feed y respetar los términos de uso de cada sitio (p. ej. VideoCardz prohíbe explícitamente el scraping programático sin consentimiento escrito).",
     "layers": {
       "tech-media": "Capa 1 — Medios técnicos en inglés (contraste y profundidad)",
@@ -13,7 +13,8 @@
       "primary": "Capa 5 — Fuentes primarias: salas de prensa y blogs oficiales (confirmación de datos e imágenes)",
       "emulacion": "Capa 6 — Emulación de videojuegos: noticias, estado por consola (escritorio y Android) y tutoriales",
       "wearables": "Capa 7 — Wearables: relojes, anillos y gafas inteligentes (lanzamientos, reviews y tutoriales)",
-      "audio": "Capa 8 — Audio: auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos y alta fidelidad (lanzamientos, reviews y tutoriales)"
+      "audio": "Capa 8 — Audio: auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos y alta fidelidad (lanzamientos, reviews y tutoriales)",
+      "drones": "Capa 9 — Drones y su industria: consumo y FPV, cámaras aéreas y accesorios de vuelo, reparto y logística, defensa y anti-dron, regulación y aplicaciones comerciales e industriales"
     }
   },
   "sources": [
@@ -1623,6 +1624,157 @@
       "lang": "en",
       "focus": ["auriculares", "microfonos", "lanzamientos", "comunicados oficiales"],
       "notes": "Fuente primaria: sala de prensa oficial de Sennheiser (cascos y micrófonos)."
+    },
+    {
+      "id": "dronedj",
+      "name": "DroneDJ",
+      "layer": "drones",
+      "homepage": "https://dronedj.com",
+      "rss": "https://dronedj.com/feed/",
+      "lang": "en",
+      "focus": ["drones", "dji", "noticias", "reviews"]
+    },
+    {
+      "id": "dronexl",
+      "name": "DroneXL",
+      "layer": "drones",
+      "homepage": "https://dronexl.co",
+      "rss": "https://dronexl.co/feed/",
+      "lang": "en",
+      "focus": ["drones", "dji", "filtraciones", "noticias", "reviews"],
+      "notes": "Feed muy activo, centrado en rumores y filtraciones de DJI, Autel, Skydio y Parrot."
+    },
+    {
+      "id": "suasnews",
+      "name": "sUAS News",
+      "layer": "drones",
+      "homepage": "https://www.suasnews.com",
+      "rss": "https://www.suasnews.com/feed/",
+      "lang": "en",
+      "focus": ["drones", "uav", "industria", "noticias"]
+    },
+    {
+      "id": "the-drone-girl",
+      "name": "The Drone Girl",
+      "layer": "drones",
+      "homepage": "https://www.thedronegirl.com",
+      "rss": "https://www.thedronegirl.com/feed/",
+      "lang": "en",
+      "focus": ["drones", "noticias", "tutoriales", "fotografia-aerea"]
+    },
+    {
+      "id": "new-atlas-drones",
+      "name": "New Atlas · Drones",
+      "layer": "drones",
+      "homepage": "https://newatlas.com/drones/",
+      "rss": "https://newatlas.com/drones/index.rss",
+      "lang": "en",
+      "focus": ["drones", "camaras-aereas", "innovacion", "noticias"],
+      "notes": "Feed de la sección de drones (no el general del medio); cubre investigación y producto."
+    },
+    {
+      "id": "droneblog",
+      "name": "Droneblog",
+      "layer": "drones",
+      "homepage": "https://www.droneblog.com",
+      "rss": "https://www.droneblog.com/feed/",
+      "lang": "en",
+      "focus": ["drones", "reviews", "guias", "tutoriales"]
+    },
+    {
+      "id": "dronezon",
+      "name": "DroneZon",
+      "layer": "drones",
+      "homepage": "https://www.dronezon.com",
+      "rss": "https://www.dronezon.com/feed/",
+      "lang": "en",
+      "focus": ["drones", "reviews", "fotografia-aerea", "guias"]
+    },
+    {
+      "id": "first-quadcopter",
+      "name": "First Quadcopter",
+      "layer": "drones",
+      "homepage": "https://www.firstquadcopter.com",
+      "rss": "https://www.firstquadcopter.com/feed/",
+      "lang": "en",
+      "focus": ["drones", "quadcopter", "reviews", "noticias"],
+      "notes": "El feed sirve pocos ítems por carga; el más reciente seguía activo en la verificación."
+    },
+    {
+      "id": "drones-globe",
+      "name": "Drones Globe",
+      "layer": "drones",
+      "homepage": "https://www.dronesglobe.com",
+      "rss": "https://www.dronesglobe.com/feed/",
+      "lang": "en",
+      "focus": ["drones", "reviews", "guias-de-compra"]
+    },
+    {
+      "id": "oscar-liang",
+      "name": "Oscar Liang",
+      "layer": "drones",
+      "homepage": "https://oscarliang.com",
+      "rss": "https://oscarliang.com/feed/",
+      "lang": "en",
+      "focus": ["fpv", "drones", "diy", "tutoriales"]
+    },
+    {
+      "id": "intofpv",
+      "name": "IntoFPV",
+      "layer": "drones",
+      "homepage": "https://intofpv.com",
+      "rss": "https://intofpv.com/syndication.php",
+      "lang": "en",
+      "focus": ["fpv", "drones", "foros", "diy"],
+      "notes": "Foro FPV; el feed RSS nativo (syndication.php) es más completo que su variante Atom."
+    },
+    {
+      "id": "diy-drones",
+      "name": "DIY Drones",
+      "layer": "drones",
+      "homepage": "https://diydrones.com",
+      "rss": "https://diydrones.com/profiles/blogs/feed/all",
+      "lang": "en",
+      "focus": ["drones", "diy", "uav", "tutoriales"],
+      "notes": "Usar el feed de blogs (profiles/blogs/feed/all), no el de actividad, que solo lista cambios de perfil."
+    },
+    {
+      "id": "dronetrest",
+      "name": "DroneTrest Blog",
+      "layer": "drones",
+      "homepage": "https://blog.unmanned.tech",
+      "rss": "https://blog.unmanned.tech/rss/",
+      "lang": "en",
+      "focus": ["drones", "fpv", "diy", "tutoriales"]
+    },
+    {
+      "id": "dji-enterprise-insights",
+      "name": "DJI Enterprise Insights",
+      "layer": "drones",
+      "homepage": "https://enterprise-insights.dji.com/blog",
+      "rss": "https://enterprise-insights.dji.com/blog/rss.xml",
+      "lang": "en",
+      "focus": ["dji", "drones", "comunicados-oficiales", "industria"],
+      "notes": "Fuente primaria de DJI (blog enterprise); el blog de consumo de DJI no publica RSS."
+    },
+    {
+      "id": "drone-nerds",
+      "name": "Drone Nerds Blog",
+      "layer": "drones",
+      "homepage": "https://blog.dronenerds.com",
+      "rss": "https://blog.dronenerds.com/rss.xml",
+      "lang": "en",
+      "focus": ["drones", "productos", "noticias", "reviews"]
+    },
+    {
+      "id": "aeromedia",
+      "name": "Aeromedia",
+      "layer": "drones",
+      "homepage": "https://www.aeromedia.es",
+      "rss": "https://www.aeromedia.es/feed/",
+      "lang": "es",
+      "focus": ["drones", "aplicaciones-profesionales", "lidar", "inspeccion"],
+      "notes": "Blog español de servicios profesionales con drones: aplicaciones (inspección, LiDAR), no producto de consumo."
     }
   ]
 }

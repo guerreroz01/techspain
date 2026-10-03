@@ -1,5 +1,5 @@
 /**
- * Editorial verticals — the single registry of the ten sections.
+ * Editorial verticals — the single registry of the eleven sections.
  *
  * A vertical's `token` is at once:
  *   - the folder name under `src/content/news|news-en/`,
@@ -43,6 +43,7 @@ export const VERTICALS: readonly Vertical[] = [
   { token: 'emuladores', es: 'Emuladores', en: 'Emulators' },
   { token: 'consolas', es: 'Consolas', en: 'Consoles' },
   { token: 'componentes', es: 'Componentes', en: 'Components' },
+  { token: 'drones', es: 'Drones', en: 'Drones' },
 ];
 
 /** Lowercase, accent-stripped, trimmed: `Portátiles` and `portatiles` match. */
@@ -68,6 +69,8 @@ const ES_ALIASES: Record<string, string> = {
   emuladores: 'emuladores',
   consolas: 'consolas',
   componentes: 'componentes',
+  drones: 'drones',
+  drone: 'drones',
 };
 
 const EN_ALIASES: Record<string, string> = {
@@ -91,6 +94,8 @@ const EN_ALIASES: Record<string, string> = {
   console: 'consolas',
   components: 'componentes',
   component: 'componentes',
+  drones: 'drones',
+  drone: 'drones',
 };
 
 const ALIASES: Record<Locale, Record<string, string>> = { es: ES_ALIASES, en: EN_ALIASES };

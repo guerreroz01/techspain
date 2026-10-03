@@ -104,6 +104,14 @@ export const AUTHORS: Record<string, Author> = {
     bio: 'Escribe de componentes de PC con mentalidad de taller: VRM, disipación, ruido y compatibilidad física.',
     angle: 'Elegir bien las piezas y montarlas sin sorpresas.',
   },
+  drones: {
+    name: 'Álvaro Nieto',
+    slug: 'alvaro-nieto',
+    role: 'Redactor de Drones',
+    bio: 'Cubre drones, FPV y cámaras aéreas: qué se puede volar de verdad, cómo se comporta la imagen y si el precio se sostiene frente a la competencia.',
+    angle:
+      'Experiencia de vuelo real y calidad de imagen medida; compara con DJI y distingue lo que se vuela de lo que se promete.',
+  },
 };
 
 /** The writer of a vertical token, or undefined when the token is unknown. */

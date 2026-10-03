@@ -1,6 +1,6 @@
 # Frontmatter template — artículos de prensa
 
-Cada entrada es un directorio propio: `src/content/news/<vertical>/<slug>/` con su `index.mdx` y su carpeta `assets/`. La ruta **es** la URL: `/noticias/<vertical>/<slug>/` (`entry.id`). El `<slug>` va en kebab-case **en español**, minúsculas y ASCII: sin acentos y con `ñ` → `n`; `<vertical>` es uno de los diez tokens (ver «Verticales»). Los slugs en inglés ya publicados no se renombran.
+Cada entrada es un directorio propio: `src/content/news/<vertical>/<slug>/` con su `index.mdx` y su carpeta `assets/`. La ruta **es** la URL: `/noticias/<vertical>/<slug>/` (`entry.id`). El `<slug>` va en kebab-case **en español**, minúsculas y ASCII: sin acentos y con `ñ` → `n`; `<vertical>` es uno de los once tokens (ver «Verticales»). Los slugs en inglés ya publicados no se renombran.
 
 ```
 src/content/news/
@@ -68,13 +68,14 @@ deriva del token de vertical del id anidado (`src/lib/authors.ts`), igual que la
 | `emuladores` | Iván Cordero |
 | `consolas` | Sara Lozano |
 | `componentes` | Tomás Riera |
+| `drones` | Álvaro Nieto |
 
 La voz es estilo, nunca permiso para inventar datos. El compañero inglés lo firma el
 mismo redactor (una persona, un nombre) y su cuerpo es traducción fiel del español.
 
 ## Verticales
 
-La página cubre 10 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
+La página cubre 11 verticales. El artículo debe encajar en una de ellas y usarla como primer `tags`:
 
 1. Componentes
 2. Portátiles
@@ -85,11 +86,12 @@ La página cubre 10 verticales. El artículo debe encajar en una de ellas y usar
 7. Wearables (relojes, anillos y gafas inteligentes)
 8. Audio (auriculares, earphones e IEM, altavoces y barras de sonido, micrófonos, DAC y amplificación)
 9. Emuladores de videojuegos
-10. Tutoriales
+10. Drones (drones de consumo y FPV, cámaras aéreas y accesorios de vuelo, y su industria: reparto y logística, defensa y anti-dron, regulación y aplicaciones comerciales e industriales)
+11. Tutoriales
 
-El token de carpeta y URL de cada vertical es, en el mismo orden: `componentes`, `portatiles`, `consolas`, `tarjetas-graficas`, `memorias`, `moviles`, `wearables`, `audio`, `emuladores`, `tutoriales`.
+El token de carpeta y URL de cada vertical es, en el mismo orden: `componentes`, `portatiles`, `consolas`, `tarjetas-graficas`, `memorias`, `moviles`, `wearables`, `audio`, `emuladores`, `drones`, `tutoriales`.
 
-Los tutoriales son contenido **how-to/paso a paso**. Una guía sobre una GPU se publica con `Tutoriales` como primer `tags` (gana sobre `Tarjetas gráficas`). Ojo: el clasificador ya NO busca tutoriales primero —el orden de prioridad es `audio`, `wearables`, `móviles`, `tutoriales` y luego el hardware—, así que en el informe una guía sobre auriculares o un reloj aparece bajo esa vertical, no bajo Tutoriales.
+Los tutoriales son contenido **how-to/paso a paso**. Una guía sobre una GPU se publica con `Tutoriales` como primer `tags` (gana sobre `Tarjetas gráficas`). Ojo: el clasificador ya NO busca tutoriales primero —el orden de prioridad es `audio`, `wearables`, `móviles`, `tutoriales`, `drones` y luego el hardware—, así que en el informe una guía sobre auriculares, un reloj o un dron aparece bajo esa vertical, no bajo Tutoriales.
 
 Los emuladores también ganan sobre la consola que emulan: una noticia sobre un emulador de PS5 en Xbox va con `Emuladores` como primer `tags`, no con `Consolas`. La vertical no distingue sistema anfitrión: vale igual para emuladores de consola en Windows, macOS, Linux o Android (el host se pone como tag secundario). Una guía paso a paso sobre emuladores sigue siendo `Tutoriales`.
 

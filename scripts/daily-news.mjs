@@ -217,6 +217,15 @@ const VERTICALS = {
     // 机箱 (caja), 超节点 (supernodo IA), 封装载板 (sustrato), 处理器 (CPU).
     '主板', '电源', '液冷', '机箱', '超节点', '封装载板', '处理器',
   ],
+  // Drones va después de `tutoriales` en la prioridad (ver VERTICAL_PRIORITY): una
+  // guía how-to sobre un dron cae en Tutoriales, no acá. Se listan términos de
+  // familia de producto; 'dji' pelado queda FUERA a propósito, porque DJI también
+  // vende audio y cámaras y robaría esas noticias.
+  drones: [
+    'drone', 'drones', 'dron', 'quadcopter', 'cuadricóptero', 'uav', 'fpv',
+    'dji mini', 'dji air', 'dji mavic', 'dji avata', 'dji neo', 'dji flip',
+    'autel evo', 'antigravity a1', 'insta360 antigravity', 'gafas fpv',
+  ],
   moviles: [
     'phone', 'smartphone', 'móvil', 'movil', 'teléfono', 'telefono', 'iphone', 'android',
     'pixel', 'galaxy', 'xiaomi', 'redmi', 'poco', 'oneplus', 'oppo', 'realme', 'honor',
@@ -253,7 +262,7 @@ const VERTICALS = {
  *  - `emuladores` gana a `consolas` (la consola emulada es el huésped, no el tema).
  */
 const VERTICAL_PRIORITY = [
-  'audio', 'wearables', 'moviles', 'tutoriales',
+  'audio', 'wearables', 'moviles', 'tutoriales', 'drones',
   'tarjetas-graficas', 'memorias', 'portatiles', 'emuladores', 'consolas', 'componentes',
 ];
 
@@ -290,6 +299,7 @@ const VERTICAL_LABELS = {
   wearables: '⌚ Wearables',
   moviles: '📱 Móviles',
   tutoriales: '📘 Tutoriales',
+  drones: '🛸 Drones',
   'tarjetas-graficas': '🎮 Tarjetas gráficas',
   memorias: '💾 Memorias',
   portatiles: '💻 Portátiles',
