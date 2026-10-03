@@ -1,0 +1,45 @@
+---
+title: 'The Wind Waker static recompilation now runs on Windows and macOS'
+description: 'Wind Waker Recomp brings the static recompilation of the GameCube classic to Windows and macOS with widescreen, interpolated 60 FPS and HD texture packs.'
+pubDate: '2026-10-03'
+# author: omitted; the byline is derived from the `emuladores` vertical
+tags: ['Emulators', 'GameCube']
+cover: './assets/wind-waker-recomp-cover.jpg'
+coverAlt: 'The Legend of Zelda: The Wind Waker title screen with the on-screen touch controls of the iOS build overlaid'
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/wind-waker-static-recompilation-makes-its-way-to-pc.684911/'
+draft: false
+translationOf: 'emuladores/wind-waker-recompilacion-estatica-pc'
+---
+
+A fork of BlueWake, the project that had already brought *The Wind Waker* to iPhone and iPad, has made the jump to the desktop. Named **Wind Waker Recomp**, it now has builds for Windows 10 and 11 (x64) and for Apple Silicon Macs, promising to play the GameCube classic natively, without traditional emulation in between.
+
+## What Wind Waker Recomp is
+
+The project is not an emulator in the usual sense, but a **static recompilation**. It translates the game's PowerPC code — the main executable and its 415 modules — into native code ahead of time: x86-64 on Windows and arm64 on Mac, iPhone and iPad. Nothing is compiled while you play, so it needs no JIT; only a few rare instructions the translator does not handle fall back to an interpreter.
+
+Around that native code sits a hardware compatibility layer derived from Dolphin: memory and timing, disc and memory card, controllers, DSP audio and graphics through Direct3D 12 on Windows and Metal on Apple devices. The project is released under the GPL-3.0 licence, leans on tools such as RecompCore and DolRecomp, and presents itself as an independent fan effort, unaffiliated with Nintendo.
+
+## What it adds over the original
+
+Many of the improvements are options you switch on or off in the settings, so each player decides how far to stray from the original:
+
+- **Smooth Motion**, frame interpolation that draws in-between images from the game's own output. It shows **60 FPS** by default; that rises to **120 FPS** on displays of 100 Hz or more and, on Windows, up to **240 FPS**.
+- **Widescreen** 16:9 and 16:10 with the camera, culling and HUD adapted, or the original 4:3.
+- Rendering at **up to 4× the GameCube's 480 lines** and texture filtering up to 16× anisotropic.
+- Support for **HD texture packs** in Dolphin format, which the user supplies separately.
+- **Save states**, climbing any wall, quick doors and *Wind Waker HD*'s quality-of-life changes (Better Wind Waker).
+- Xbox, PlayStation and Switch Pro controllers, alongside keyboard and mouse.
+
+Still experimental is the **60 Hz game logic** on Windows, which runs the game at that rate instead of interpolating. It is not recommended in its current state: movement, cutscenes and some timers are not yet converted, so parts run too fast.
+
+## Requirements, current state and the debate
+
+Wind Waker Recomp ships no game data. Using it requires a legally obtained copy of *The Wind Waker* for GameCube in its **USA version (`GZLE01`, revision 0)**: the graphics, sound and world are read from the disc, and the app checks it on launch. On Windows it asks for Windows 10 or 11 64-bit, a Direct3D 12 GPU and an AVX2 CPU; on Mac, an Apple Silicon machine running macOS 15 or later.
+
+The playable state is advanced but not finished. Tested areas include the prologue, Outset Island, sailing the Great Sea, Windfall, a late-game Hyrule save, the menus, and saving and reloading; later dungeons and boss fights remain largely unverified. Among the known issues, the first minutes of a fresh install hitch while the rendering pipelines compile, the lava in Dragon Roost Cavern is drawn flat on Mac (Windows 0.4.0 already fixes it) and save states are tied to the exact version that created them.
+
+The project openly discloses its process: the README carries a notice that Wind Waker Recomp is developed "with substantial AI assistance for code, testing, documentation and debugging," and adds that its status log records what has actually been checked and on what. That transparency arrives amid a debate in the scene over AI-assisted ports, the same ground where proposals such as the [static recompilation applied to Switch](/noticias/suyu-switch-emulator-native/) operate.
+
+Anyone who wants to try it today can find ready-made builds for Windows and Mac on the repository's releases page, which also publishes the project on GitHub.

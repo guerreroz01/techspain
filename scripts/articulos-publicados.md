@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 714 artículos. Actualizado: 2026-10-02
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 732 artículos. Actualizado: 2026-10-03
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -721,3 +721,21 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-02 | Ugreen lanza los ClipBuds Pro 2: auriculares abiertos con LDAC y traducción por IA por 99,99 dólares | [audio/ugreen-clipbuds-pro-2](https://www.techspain24.com/noticias/audio/ugreen-clipbuds-pro-2/) |
 | 2026-10-02 | Una RTX 5090 de segunda mano llegó sin GPU ni PCB: la carcasa estaba vacía | [tarjetas-graficas/estafa-rtx-5090-sin-gpu-ni-pcb](https://www.techspain24.com/noticias/tarjetas-graficas/estafa-rtx-5090-sin-gpu-ni-pcb/) |
 | 2026-10-02 | Xbox e IKEA lanzan YXSTABY, una colección de muebles gamer inspirada en el mando | [consolas/ikea-xbox-yxstaby-muebles](https://www.techspain24.com/noticias/consolas/ikea-xbox-yxstaby-muebles/) |
+| 2026-10-03 | Android 17 QPR3 Beta 1 ya está disponible: novedades y Pixel compatibles | [moviles/android-17-qpr3-beta-1](https://www.techspain24.com/noticias/moviles/android-17-qpr3-beta-1/) |
+| 2026-10-03 | Aparece una muestra del AMD Ryzen 9 5900X3D con 128 MB de caché L3 | [componentes/amd-ryzen-9-5900x3d-muestra-128-mb](https://www.techspain24.com/noticias/componentes/amd-ryzen-9-5900x3d-muestra-128-mb/) |
+| 2026-10-03 | ASRock añade las RTX PRO Blackwell a sus equipos compactos DeskSlim X600 y B760 | [componentes/deskslim-x600-b760](https://www.techspain24.com/noticias/componentes/deskslim-x600-b760/) |
+| 2026-10-03 | Biwin lanza el CL100 Mini, el SSD de consumo más pequeño: 1 gramo y 3.700 MB/s | [memorias/biwin-cl100-mini-ssd-mas-pequeno](https://www.techspain24.com/noticias/memorias/biwin-cl100-mini-ssd-mas-pequeno/) |
+| 2026-10-03 | El Huawei Mate 90 Pro Max aparece en Geekbench: el Kirin 9050 Pro se queda en un rendimiento de 2022 | [moviles/huawei-mate-90-pro-max-geekbench-kirin-9050](https://www.techspain24.com/noticias/moviles/huawei-mate-90-pro-max-geekbench-kirin-9050/) |
+| 2026-10-03 | El Suunto Race 3S se filtra con zafiro, 2.000 nits y hasta 45 horas de GPS | [wearables/suunto-race-3s-filtracion](https://www.techspain24.com/noticias/wearables/suunto-race-3s-filtracion/) |
+| 2026-10-03 | Garmin recupera el Fenix 6 con la beta 29.02 para corregir el Race Predictor | [wearables/garmin-fenix-6-software](https://www.techspain24.com/noticias/wearables/garmin-fenix-6-software/) |
+| 2026-10-03 | La recompilación estática de The Wind Waker ya corre en Windows y macOS | [emuladores/wind-waker-recompilacion-estatica-pc](https://www.techspain24.com/noticias/emuladores/wind-waker-recompilacion-estatica-pc/) |
+| 2026-10-03 | La RTX 5070 ya es la GPU más popular de Steam, con un 6,15 % de cuota | [tarjetas-graficas/rtx-5070-gpu-mas-popular-steam](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-5070-gpu-mas-popular-steam/) |
+| 2026-10-03 | Lian Li renueva las fuentes Edge V2 con diseño en L y vigilancia térmica del conector de la GPU | [componentes/lian-li-edge-v2-fuentes](https://www.techspain24.com/noticias/componentes/lian-li-edge-v2-fuentes/) |
+| 2026-10-03 | Minisforum lanza un Mini PC gaming con Ryzen 9 8945HX y Radeon RX 9060 XT | [componentes/minisforum-mini-pc-rx-9060-xt](https://www.techspain24.com/noticias/componentes/minisforum-mini-pc-rx-9060-xt/) |
+| 2026-10-03 | Minisforum MS-S1 MAX-P495: estación de trabajo con Ryzen AI Max+ PRO 495 y 192 GB desde 7.399 dólares | [componentes/minisforum-ryzen-ai-max-495-workstation](https://www.techspain24.com/noticias/componentes/minisforum-ryzen-ai-max-495-workstation/) |
+| 2026-10-03 | Nacon anuncia el Revolution 5 Unlimited, el primer mando oficial de PS5 con pantalla de control integrada | [consolas/nacon-revolution-5-unlimited-ps5](https://www.techspain24.com/noticias/consolas/nacon-revolution-5-unlimited-ps5/) |
+| 2026-10-03 | Qué procesador necesito para cada tarjeta gráfica: guía actualizada a 2026 | [tutoriales/que-procesador-necesito-para-cada-tarjeta-grafica](https://www.techspain24.com/noticias/tutoriales/que-procesador-necesito-para-cada-tarjeta-grafica/) |
+| 2026-10-03 | Samsung arranca la producción del Exynos 2700 con el Galaxy S27 Ultra aún sin decidir | [moviles/samsung-exynos-2700-produccion-galaxy-s27](https://www.techspain24.com/noticias/moviles/samsung-exynos-2700-produccion-galaxy-s27/) |
+| 2026-10-03 | Sonos Ace Ultra, análisis: EQ de 8 bandas y batería reemplazable por 449 dólares | [audio/sonos-ace-ultra-analisis](https://www.techspain24.com/noticias/audio/sonos-ace-ultra-analisis/) |
+| 2026-10-03 | Sonos Beam Ultra, análisis: la barra de sonido compacta que exprime el ecosistema Sonos | [audio/sonos-beam-ultra-analisis](https://www.techspain24.com/noticias/audio/sonos-beam-ultra-analisis/) |
+| 2026-10-03 | Una GeForce RTX 4090 Founders Edition pierde un bloque del disipador al mover el equipo | [tarjetas-graficas/rtx-4090-founders-disipador-desprendido](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-4090-founders-disipador-desprendido/) |

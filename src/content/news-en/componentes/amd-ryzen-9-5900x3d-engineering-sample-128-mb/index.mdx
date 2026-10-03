@@ -1,0 +1,37 @@
+---
+title: 'Engineering sample of the AMD Ryzen 9 5900X3D surfaces with 128 MB L3 cache'
+description: 'An engineering sample of the never-released Ryzen 9 5900X3D has surfaced on the Chinese forum Chiphell: 12 cores, 128 MB of L3 and 3D V-Cache on a single CCD.'
+pubDate: '2026-10-03'
+tags: ['Components', 'AMD']
+cover: './assets/cover.jpg'
+coverAlt: 'AMD Ryzen processor on a dark background with red lighting'
+source:
+  name: 'TechPowerUp'
+  url: 'https://www.techpowerup.com/353348/unreleased-amd-ryzen-9-5900x3d-engineering-sample-appears-with-128-mb-l3-cache'
+translationOf: 'componentes/amd-ryzen-9-5900x3d-muestra-128-mb'
+draft: false
+---
+
+An engineering sample of the Ryzen 9 5900X3D, a processor AMD never brought to market, has surfaced on the Chinese forum Chiphell. The part, carrying the code 100-000000652, is a 12-core, 24-thread Zen 3 chip that, as TechPowerUp reports, comes with 128 MB of L3 cache. The interesting part is not just the figure, but how it is split.
+
+## 96 + 32: the 5900X3D's cache lives on a single CCD
+
+Of those 128 MB, 96 MB belong to one CCD and 32 MB to the other. In practice, only one of the two six-core chiplets carries the 64 MB 3D V-Cache stack. That is a different layout from the prototypes AMD showed to Gamers Nexus in 2023: those 5900X3D and 5950X3D parts had cache on both CCDs, 192 MB in total.
+
+![CPU-Z screenshot of the Ryzen 9 5900X3D: 12 cores, 105 W TDP and 128 MB of L3 cache](./assets/cpuz-5900x3d.jpg)
+
+The reason for keeping a single stack is clock speed. According to the owner's screenshots, the chip runs at around 4.7 GHz with a 105 W TDP, while the dual-stack 5900X3D topped out at a 4.4 GHz boost. Less stacked cache in exchange for higher clocks: the single-stack sample gains frequency, but gives up half the 3D cache of the dual-CCD prototype.
+
+![MEMbench latency chart with the 128 MB cache](./assets/membench-cache-128mb.jpg)
+
+## Getting it to boot was already a problem
+
+Having the sample is not enough. The part refuses to work with current BIOS versions and only booted with an older one carrying SMU firmware 56.70.0. The owner has reportedly asked ASRock to add support in a newer BIOS. It is the classic engineering-sample problem: the silicon exists, but the board's firmware does not know it.
+
+![HWiNFO showing clocks, FCLK and per-CCD temperatures](./assets/hwinfo-frecuencias-temperaturas.jpg)
+
+## What it means for AM4 owners
+
+It is worth remembering that AMD never sold a dual-CCD X3D part on AM4. The family started with the eight-core Ryzen 7 5800X3D in 2022 and stopped there. The single-CCD-with-cache approach is, by contrast, the one AMD did bring to its Ryzen 9 X3D chips on AM5, before the Ryzen 9 9950X3D2 Dual Edition put cache on both chiplets again this year. AMD has not confirmed anything about this sample.
+
+For anyone building on AM4, the practical takeaway does not change: a 5900X3D like this never reached the catalog, and chasing an engineering sample means fighting old BIOS versions and specific boards. If the goal is hassle-free gaming, the 5800X3D remains the sensible part; if thread count comes first, the standard 5900X covers it better.
