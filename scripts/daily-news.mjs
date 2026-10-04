@@ -7,15 +7,20 @@
  *   node scripts/daily-news.mjs --all      # incluye artículos sin vertical
  *   node scripts/daily-news.mjs --days 3   # ventana de 3 días
  *   node scripts/daily-news.mjs --limit 30 # tope de artículos a mostrar en consola
+ *   node scripts/daily-news.mjs --render   # además, lee fuentes sin RSS vía `obscura`
  *
  * Lee src/data/sources.json, descarga los feeds (campo `rss`), descarta lo ya visto
  * (scripts/.seen.json) y clasifica cada artículo en los verticales editoriales. Escribe
  * scripts/candidates.json y un informe en markdown por consola.
  *
  * Sin dependencias: usa `fetch` (global en Node 18+) y un parser RSS/Atom propio.
+ * `--render` es opcional y depende de que el binario `obscura` esté instalado: solo así
+ * se leen las fuentes sin RSS que declaran un bloque `render` en sources.json (p. ej.
+ * Wareable, detrás de Cloudflare). Si `obscura` no está, se omiten con un aviso.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -27,6 +32,22 @@ const SELECTION_PATH = join(__dirname, 'seleccion.md');
 
 const CONCURRENCY = 8;
 const TIMEOUT_MS = 15000;
+
+// Fuentes sin RSS que se leen con un navegador headless (hoy `obscura`). El binario
+// se puede apuntar con OBSCURA_BIN; si no está instalado, `--render` se saltea con aviso.
+const OBSCURA_BIN = process.env.OBSCURA_BIN || 'obscura';
+const RENDER_DEFAULTS = {
+  waitUntil: 'networkidle0',
+  timeoutSec: 45,
+  scriptDeadlineMs: 45000,
+  minTitleLength: 25,
+  limit: 40,
+  stealth: true,
+  excludePaths: [
+    '/tag/', '/category/', '/author/', '/search',
+    '/promise', '/terms', '/advertising', '/privacy', '/cookies',
+  ],
+};
 
 /** Palabras clave por vertical (inglés + español). Coincidencia por subcadena, sin distinción de mayúsculas. */
 const VERTICALS = {
@@ -449,6 +470,7 @@ function parseArgs(argv) {
     days: num('--days') ?? 2,
     limit: num('--limit') ?? Infinity,
     includeOthers: argv.includes('--all'),
+    render: argv.includes('--render'),
   };
 }
 
@@ -486,15 +508,110 @@ async function fetchAll(sources) {
 }
 
 /* ------------------------------------------------------------------ */
+/* Fuentes sin RSS: lectura con navegador headless (`obscura`)         */
+/* ------------------------------------------------------------------ */
+
+function obscuraAvailable() {
+  try {
+    const probe = spawnSync(OBSCURA_BIN, ['--version'], { encoding: 'utf8', timeout: 15000 });
+    return !probe.error && probe.status === 0;
+  } catch {
+    return false;
+  }
+}
+
+// Expresión que corre DENTRO de la página y devuelve un JSON (string) con los enlaces
+// que parecen artículos: mismo host, texto suficientemente largo y sin las rutas de
+// navegación declaradas por la fuente. Se parametriza desde el bloque `render` de
+// sources.json para no clavar en código la forma del DOM de cada sitio.
+function buildExtractExpr(source) {
+  const cfg = { ...RENDER_DEFAULTS, ...(source.render || {}) };
+  const exclude = JSON.stringify(cfg.excludePaths || []);
+  const minLen = Number(cfg.minTitleLength) || RENDER_DEFAULTS.minTitleLength;
+  return `(() => {
+    const minLen = ${minLen};
+    const exclude = ${exclude};
+    const seen = new Set();
+    const out = [];
+    for (const a of document.querySelectorAll('a[href]')) {
+      let u;
+      try { u = new URL(a.getAttribute('href'), location.href); } catch (e) { continue; }
+      if (u.host !== location.host) continue;
+      const title = (a.textContent || '').replace(/\\s+/g, ' ').trim();
+      if (title.length < minLen) continue;
+      u.hash = ''; u.search = '';
+      if (u.pathname === '/' || u.pathname === '') continue;
+      if (exclude.some((p) => u.pathname.includes(p))) continue;
+      if (seen.has(u.href)) continue;
+      seen.add(u.href);
+      out.push({ title, url: u.href });
+    }
+    return JSON.stringify(out);
+  })()`;
+}
+
+function fetchRendered(source) {
+  const cfg = { ...RENDER_DEFAULTS, ...(source.render || {}) };
+  const args = [];
+  if (cfg.stealth) args.push('--stealth');
+  args.push(
+    'fetch', source.homepage,
+    '--quiet',
+    '--wait-until', cfg.waitUntil,
+    '--timeout', String(cfg.timeoutSec),
+    '--eval', buildExtractExpr(source),
+  );
+  const run = spawnSync(OBSCURA_BIN, args, {
+    encoding: 'utf8',
+    timeout: (Number(cfg.timeoutSec) + 30) * 1000,
+    maxBuffer: 16 * 1024 * 1024,
+    env: { ...process.env, OBSCURA_SCRIPT_DEADLINE_MS: String(cfg.scriptDeadlineMs) },
+  });
+  if (run.error) return { source, items: [], error: run.error.message };
+  if (run.status !== 0) {
+    const lastLine = (run.stderr || '').trim().split('\n').filter(Boolean).pop();
+    return { source, items: [], error: lastLine || `exit ${run.status}` };
+  }
+  let parsed;
+  try {
+    parsed = JSON.parse((run.stdout || '').trim());
+  } catch {
+    return { source, items: [], error: 'salida no parseable' };
+  }
+  if (!Array.isArray(parsed)) return { source, items: [], error: 'salida inesperada' };
+  const limit = Number(cfg.limit) || RENDER_DEFAULTS.limit;
+  const items = parsed.slice(0, limit).map((x) => ({
+    title: x.title,
+    link: x.url,
+    pubDate: '',
+    description: '',
+    guid: x.url,
+  }));
+  return { source, items };
+}
+
+// Secuencial a propósito: cada lectura levanta un navegador y las fuentes sin RSS son
+// pocas, así que no vale la pena paralelizar ni arriesgar bloqueos.
+async function fetchAllRendered(sources) {
+  const results = [];
+  for (const source of sources) {
+    process.stderr.write(`Renderizando ${source.name} (${source.homepage})…\n`);
+    results.push(fetchRendered(source));
+  }
+  return results;
+}
+
+/* ------------------------------------------------------------------ */
 /* Main                                                                */
 /* ------------------------------------------------------------------ */
 
 async function main() {
-  const { days, limit, includeOthers } = parseArgs(process.argv.slice(2));
+  const { days, limit, includeOthers, render } = parseArgs(process.argv.slice(2));
 
   const data = JSON.parse(readFileSync(SOURCES_PATH, 'utf8'));
   const withRss = data.sources.filter((s) => s.rss);
-  const withoutRss = data.sources.filter((s) => !s.rss);
+  const renderSources = data.sources.filter((s) => !s.rss && s.render);
+  const withoutRss = data.sources.filter((s) => !s.rss && !s.render);
 
   const state = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, 'utf8')) : { seen: {} };
   const seen = state.seen || {};
@@ -503,6 +620,17 @@ async function main() {
 
   process.stderr.write(`Descargando ${withRss.length} feeds (concurrencia ${CONCURRENCY})…\n`);
   const results = await fetchAll(withRss);
+
+  // `--render` es opcional: sin el flag, las fuentes sin RSS siguen siendo manuales.
+  if (render && renderSources.length > 0) {
+    if (!obscuraAvailable()) {
+      process.stderr.write(
+        `Aviso: ${renderSources.length} fuente(s) con --render omitidas, no se encontró '${OBSCURA_BIN}'.\n`,
+      );
+    } else {
+      results.push(...(await fetchAllRendered(renderSources)));
+    }
+  }
 
   const newSeen = { ...seen };
   const candidates = [];

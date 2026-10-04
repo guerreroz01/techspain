@@ -12,6 +12,7 @@
     "astro": "astro",
     "news": "node scripts/daily-news.mjs",
     "news:all": "node scripts/daily-news.mjs --all",
+    "news:render": "node scripts/daily-news.mjs --render",
     "index": "node scripts/index-published.mjs",
     "slug": "node scripts/slug-check.mjs",
     "find": "node scripts/find-published.mjs",

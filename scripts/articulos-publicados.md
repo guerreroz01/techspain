@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 756 artículos. Actualizado: 2026-10-03
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 759 artículos. Actualizado: 2026-10-04
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -763,3 +763,6 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-03 | Un capitán de rescate de Utah pide en Washington frenar el veto de la FCC a los drones extranjeros | [drones/veto-drones-extranjeros-fcc-rescate](https://www.techspain24.com/noticias/drones/veto-drones-extranjeros-fcc-rescate/) |
 | 2026-10-03 | Un dron bioinspirado en las aves usa el tacto para agarrarse a las ramas | [drones/dron-bioinspirado-tacto-ramas](https://www.techspain24.com/noticias/drones/dron-bioinspirado-tacto-ramas/) |
 | 2026-10-03 | Una GeForce RTX 4090 Founders Edition pierde un bloque del disipador al mover el equipo | [tarjetas-graficas/rtx-4090-founders-disipador-desprendido](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-4090-founders-disipador-desprendido/) |
+| 2026-10-04 | Garmin confirma la compra de Moxy Monitor y la 'Muscle Battery' asoma como siguiente paso | [wearables/garmin-compra-moxy-monitor-muscle-battery](https://www.techspain24.com/noticias/wearables/garmin-compra-moxy-monitor-muscle-battery/) |
+| 2026-10-04 | Peloton renueva sus cintas de correr: Tread Flex plegable, cámara de análisis y sincronización con Whoop | [wearables/peloton-cintas-correr-plegables-whoop](https://www.techspain24.com/noticias/wearables/peloton-cintas-correr-plegables-whoop/) |
+| 2026-10-04 | Ultrahuman integra el historial médico completo en su app de anillos inteligentes | [wearables/ultrahuman-historial-medico-anillo-inteligente](https://www.techspain24.com/noticias/wearables/ultrahuman-historial-medico-anillo-inteligente/) |

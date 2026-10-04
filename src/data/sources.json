@@ -1383,7 +1383,14 @@
       "rss": null,
       "lang": "en",
       "focus": ["gafas", "smartwatches", "reviews", "guías-de-compra"],
-      "notes": "No publica RSS (sus rutas de feed responden 404): seguimiento manual en la homepage. Uno de los pocos medios con reviews independientes de gafas."
+      "render": {
+        "waitUntil": "networkidle0",
+        "timeoutSec": 45,
+        "scriptDeadlineMs": 45000,
+        "minTitleLength": 25,
+        "limit": 40
+      },
+      "notes": "No publica RSS (sus rutas de feed responden 404) y está detrás de Cloudflare: se lee con `npm run news:render` (navegador headless `obscura`) sobre la homepage. Uno de los pocos medios con reviews independientes de gafas."
     },
     {
       "id": "soundguys",
