@@ -1,0 +1,46 @@
+---
+title: 'Xeal plans to deploy 100,000 Nvidia GPUs in pods alongside its EV chargers'
+description: 'Xeal wants to reuse the idle electrical capacity of its 1,600 EV charging sites across the US with pods holding up to 48 Hopper or Blackwell Ultra GPUs.'
+pubDate: '2026-10-07'
+tags: ['Graphics cards', 'Nvidia', 'Data centers']
+cover: './assets/cover.jpg'
+coverAlt: 'Render of a Latient Pod, a compact cabinet holding GPUs, installed next to an electric vehicle charging station'
+source:
+  name: "Tom's Hardware"
+  url: 'https://www.tomshardware.com/tech-industry/data-centers/ev-charging-company-plans-to-deploy-100-000-nvidia-gpus-in-pods-at-its-roadside-sites-across-the-us-aims-to-offer-worlds-first-edge-inference-compute-network-using-idle-ev-charging-capacity'
+draft: false
+translationOf: 'tarjetas-graficas/carga-ve-100000-gpu-nvidia'
+---
+
+Xeal, a US electric vehicle charging company, wants to turn its charging network into an inference compute network. The plan, which the company bills as "the world's first edge inference compute network using idle EV charging capacity," involves installing more than 100,000 Nvidia GPUs across the sites it already operates in the United States.
+
+## What a Latient Pod is
+
+The unit Xeal has designed is called a Latient Pod and takes the shape of a compact cabinet, similar to the fiber cabinets you see on the street. Each one houses up to 48 Nvidia Hopper or Blackwell Ultra GPUs, according to the company. As a cost reference, in an estimate based on 2024 figures, 48 Blackwell accelerators would run to roughly $2 million, a number Tom's Hardware notes would very likely be higher today. That figure helps put the investment in perspective: this is not a consumer product, but dense compute infrastructure placed by the roadside.
+
+## Why location matters as much as raw GPU count
+
+Xeal's argument is not raw power, but making use of something already built and paid for. The company says it has more than 1,600 locations and 200 MW of permitted, installed electrical infrastructure. Because those sites typically operate below 10% of their permitted capacity, that headroom would go to compute.
+
+Grid interconnect is one of the usual bottlenecks for bringing new compute online, and that is where the proposal fits: no new service connection is needed, only the existing one. Nikhil Bharadwaj, co-founder and CEO of Xeal, sums up the approach by saying Latient is "the fastest way to bring new compute online," tapping already permitted, grid-connected yet underused energy capacity, located close to where it is needed and with no water hookup requirements. An Nvidia spokesperson also praised the network as an innovative way to bring low-latency inference closer to end users.
+
+As for latency figures, Xeal places its pods in metro areas — a feature it calls Metro Edge — and says they deliver under 20 milliseconds, versus inference hosted in a distant data center. It is the same reasoning behind other projects that seek GPU compute where energy is abundant, such as the idea of turning surplus solar power into data centers.
+
+## Cooling, noise, and returns for the site owner
+
+The features Xeal attributes to each pod paint a picture of equipment built for outdoor use:
+
+- Powered by idle EV charging capacity.
+- Up to 48 Nvidia Hopper or Blackwell Ultra GPUs.
+- Self-contained, independent cooling with no water hookup required.
+- Quiet operation below 65 dB (comparable to a washing machine).
+- NEMA 4 enclosure, built to withstand the outdoors.
+- Installed and running in hours.
+
+On the economic side, Xeal frames the pod as a tenant of the site: it offers the owner a fixed rent or ancillary revenue, adds up to $1 million in property value for little to no investment, and covers power bills as a pass-through cost. The company also points to potential savings for charging customers, though it does not detail a specific mechanism.
+
+## Security, value, and timeline
+
+With 1,600 locations and up to 48 GPUs per pod, the purchasing target of 100,000 units implies some sites would have more than one pod, or that Xeal plans to grow its network to nearly 2,100 stations. The numbers fit the price escalation in the professional segment: the very Nvidia ecosystem underpinning this operation is what buyers are currently bidding for in bulk, as shown by [Amazon's interest in monetizing its GPU fleet](/en/news/tarjetas-graficas/amazon-nvidia-8-billion-gpus-off-balance-sheet/).
+
+The physical security angle remains. Charging points already suffer cable thefts for the value of the copper, and a cabinet holding $2 million in GPUs is a far more attractive target. Tom's Hardware stresses that the protection of these installations will have to match their contents. Xeal says the first Latient Pod will be online before the end of the year, a deadline that will test whether the promise of latency, efficiency, and returns holds up in practice.

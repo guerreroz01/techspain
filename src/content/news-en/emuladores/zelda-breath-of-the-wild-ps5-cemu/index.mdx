@@ -1,0 +1,36 @@
+---
+title: 'Zelda: Breath of the Wild runs at 4K and 30 FPS on PS5 thanks to jailbreak and PS5CEMU-HAR'
+description: 'The PS5CEMU-HAR project adapts Cemu to run Wii U games on a jailbroken PS5; Breath of the Wild already runs at a stable 4K and 30 FPS.'
+pubDate: '2026-10-07'
+# author: omitted; the byline is derived from the `emuladores` vertical
+tags: ['Emulators', 'PS5', 'Wii U', 'Cemu']
+cover: './assets/cover.jpg'
+coverAlt: 'Screenshot of The Legend of Zelda: Breath of the Wild on a jailbroken PlayStation 5'
+source:
+  name: 'El Chapuzas Informático'
+  url: 'https://elchapuzasinformatico.com/2026/10/zelda-breath-of-the-wild-playstation-5-jailbreak-ps5cemu-har/'
+translationOf: emuladores/zelda-breath-of-the-wild-ps5
+draft: false
+---
+
+**The Legend of Zelda: Breath of the Wild** can now be played at 4K on a jailbroken PlayStation 5. The project behind it is **PS5CEMU-HAR**, which adapts Cemu, the reference Wii U emulator, to run directly on Sony's console hardware and, in the case of Nintendo's title, reaches 3840 x 2160 pixels with a stable 30 FPS.
+
+## What PS5CEMU-HAR is
+
+PS5CEMU-HAR does not rewrite the emulator from scratch: it is an adaptation of Cemu that takes advantage of the homebrew available on jailbroken PS5 consoles. The build also bundles **Azahar**, the Nintendo 3DS emulator we have already seen [reach other platforms](/noticias/azahar-2126-1-2/), so a single package covers two Nintendo consoles. According to the project itself, most of the Wii U games it has tested are already playable, with video, sound, controls and save files working.
+
+On the graphics side everything goes through **Vulkan**, via the PS5 port of the open-source **RADV** driver. The **DualSense** controller can be used directly, and its touchpad can stand in for the Wii U GamePad screen.
+
+## How Zelda runs on PS5 hardware
+
+Cemu's choice fits the console's architecture: the emulator uses its x64 recompiler and the PS5 packs an AMD CPU with **Zen 2** cores, the same x86-64 family it was designed for. Render resolution reaches **3840 x 2160 pixels**, with several scaling filters and output of up to **120 Hz** on compatible displays, though hitting 120 FPS in-game is another story.
+
+The demo that has been circulating shows Breath of the Wild at **4K and 30 FPS**. A 60 FPS patch has also been tried in Cemu: with it applied, performance sits around **40 FPS** and stability problems appear, so the recommendation is to stay with the 30 FPS experience. On top of that, PS5CEMU-HAR bundles the **Cemu community Graphic Packs**, the ecosystem that has been polishing the emulator on PC for years and that is what allows it to go well beyond the original Wii U's visual limits.
+
+## What else it can run
+
+Although Zelda is the showcase, the project goes beyond a single game. It is designed to run much of the Wii U catalogue in **WUA**, **WUD/WUX** or uncompressed formats, supports installing updates and DLC, allows up to **four-player** sessions and emulates several Wii U controllers. The work builds on Cemu, which already has a place on other consoles: the [Cemu-nx](/noticias/cemu-wii-u-switch-port/) port brought the emulator to Nintendo Switch.
+
+## Nintendo emulation keeps moving
+
+The ironic part is where this happens. Nintendo managed to shut down **Yuzu** and **Ryujinx**, the two best-known Switch emulators, but development has not stopped: it has shifted to other platforms. One of the company's most iconic titles now runs on the hardware of its main historical rival, using the Wii U version rather than the Switch emulators that fell. The requirement is still the same: a PS5 with [jailbreak](/noticias/guia-exploit-ps5/) and patience, because the project does not promise full compatibility and every title behaves differently.

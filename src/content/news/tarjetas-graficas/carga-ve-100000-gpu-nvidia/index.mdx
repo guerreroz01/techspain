@@ -1,0 +1,46 @@
+---
+title: 'Xeal planea desplegar 100.000 GPU Nvidia en «pods» junto a sus cargadores de coches eléctricos'
+description: 'Xeal quiere reutilizar la capacidad eléctrica ociosa de sus 1.600 emplazamientos de recarga en EE. UU. con pods de hasta 48 GPU Hopper o Blackwell Ultra.'
+pubDate: '2026-10-07'
+tags: ['Tarjetas gráficas', 'Nvidia', 'Centros de datos']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Render de un Latient Pod, un armario compacto con GPU, instalado junto a una estación de recarga de vehículos eléctricos'
+source:
+  name: "Tom's Hardware"
+  url: 'https://www.tomshardware.com/tech-industry/data-centers/ev-charging-company-plans-to-deploy-100-000-nvidia-gpus-in-pods-at-its-roadside-sites-across-the-us-aims-to-offer-worlds-first-edge-inference-compute-network-using-idle-ev-charging-capacity'
+---
+
+Xeal, empresa estadounidense de recarga para vehículos eléctricos, quiere convertir su red de estaciones en una red de cómputo de inferencia. El plan, que la compañía presenta como «la primera red de inferencia en el borde que aprovecha la capacidad ociosa de la carga de vehículos eléctricos», consiste en instalar más de 100.000 GPU Nvidia repartidas por los emplazamientos que ya opera en Estados Unidos.
+
+## Qué es un Latient Pod
+
+La unidad que Xeal ha diseñado se llama Latient Pod y adopta la forma de un armario compacto, similar a los gabinetes de fibra que se ven en la calle. Cada uno aloja hasta 48 GPU Nvidia Hopper o Blackwell Ultra, según la empresa. A modo de referencia de coste, en una estimación basada en cifras de 2024, 48 aceleradores Blackwell rondarían los 2 millones de dólares, una cifra que Tom's Hardware señala que a día de hoy sería con toda probabilidad mayor. Ese dato ayuda a dimensionar la inversión: no hablamos de un producto de consumo, sino de infraestructura de cómputo densa colocada a pie de carretera.
+
+## Por qué importa dónde se instala la red de inferencia, no solo cuántas GPU hay
+
+El argumento de Xeal no es la potencia bruta, sino el aprovechamiento de algo que ya está construido y pagado. La compañía afirma contar con más de 1.600 ubicaciones y 200 MW de infraestructura eléctrica permisada e instalada. Como esos emplazamientos suelen operar por debajo del 10 % de su capacidad permitida, ese margen se destinaría al cómputo.
+
+La interconexión a la red es uno de los cuellos de botella habituales para poner en línea cómputo nuevo, y ahí es donde encaja la propuesta: no hay que solicitar acometida nueva, sino reutilizar la existente. Nikhil Bharadwaj, cofundador y consejero delegado de Xeal, resume el enfoque en que Latient es «la vía más rápida para poner cómputo nuevo en línea», aprovechando capacidad energética ya permitida y conectada pero infrautilizada, situada cerca de donde hace falta y sin requisitos de acometida de agua. Un portavoz de Nvidia también valoró la red como una forma innovadora de acercar la inferencia de baja latencia al usuario final.
+
+En cuanto a las cifras de latencia, Xeal sitúa sus pods en áreas metropolitanas —una función que denomina Metro Edge— y asegura que ofrecen menos de 20 milisegundos, frente a la inferencia alojada en un centro de datos lejano. Es el mismo tipo de razonamiento que late detrás de otros proyectos que buscan cómputo GPU allí donde la energía sobra, como la idea de [convertir el excedente solar en centros de datos](/noticias/solar-plants-gpu-data-centers/).
+
+## Refrigeración, ruido y retorno para el dueño del sitio
+
+Las características que Xeal atribuye a cada pod dibujan un equipo pensado para el exterior:
+
+- Alimentación a partir de la capacidad ociosa de la carga de vehículos eléctricos.
+- Hasta 48 GPU Nvidia Hopper o Blackwell Ultra.
+- Refrigeración autónoma independiente, sin acometida de agua.
+- Funcionamiento silencioso, por debajo de 65 dB (comparable a una lavadora).
+- Envolvente NEMA 4, preparada para resistir la intemperie.
+- Instalación y puesta en marcha en horas.
+
+En el plano económico, Xeal plantea el pod como un inquilino del sitio: ofrece al propietario un alquiler fijo o ingresos auxiliares, añade hasta 1 millón de dólares en valor de la propiedad con poca o ninguna inversión y cubre las facturas de energía como un coste repercutido. La compañía también apunta a posibles ahorros para los clientes de recarga, aunque no detalla un mecanismo concreto.
+
+## Seguridad, valor y calendario
+
+Con 1.600 ubicaciones y hasta 48 GPU por pod, el objetivo de compra de 100.000 unidades implica que algunos emplazamientos tendrían más de un pod, o bien que Xeal prevé ampliar su red hasta cerca de 2.100 estaciones. Los números encajan con la escalada de precios del segmento profesional: el propio ecosistema Nvidia que sostiene esta operación es el que estos días se negocia en bloque, como muestra el interés de [Amazon por monetizar su parque de GPU](/noticias/tarjetas-graficas/amazon-8000-millones-gpus-nvidia/).
+
+Queda el flanco de la seguridad física. Los puntos de recarga ya sufren robos de cables por el valor del cobre, y un armario con GPU de dos millones de dólares es un objetivo mucho más atractivo. Tom's Hardware incide en que la protección de estas instalaciones deberá estar a la altura del contenido. Xeal asegura que el primer Latient Pod estará en línea antes de que termine el año, un plazo que servirá para comprobar si la promesa de latencia, eficiencia y retorno se sostiene en la práctica.

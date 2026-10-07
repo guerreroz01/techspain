@@ -1,0 +1,36 @@
+---
+title: 'bbport ejecuta Bloodborne en Linux de forma nativa, sin traducir las instrucciones de la CPU'
+description: 'El proyecto experimental bbport ejecuta el binario x86-64 original de Bloodborne en Linux sin traducir instrucciones de CPU, con la GPU a cargo de Vulkan 1.3.'
+pubDate: '2026-10-07'
+# author: se omite; la firma se deriva del vertical `emuladores`
+tags: ['Emuladores', 'Bloodborne', 'Linux']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Montaje con la portada de Bloodborne sobre una ilustración de código y hardware'
+source:
+  name: 'ComputerHoy'
+  url: 'https://computerhoy.20minutos.es/gaming/consiguen-ejecutar-bloodborne-con-bbport-linux-sin-emulador-integrando-directamente-codigo-ps4-cpu_7045471_0.html'
+---
+
+El proyecto experimental **bbport** ha conseguido ejecutar el binario x86-64 original de **Bloodborne** para PlayStation 4 directamente sobre el procesador de un equipo con **Linux**. La diferencia con un emulador al uso es el punto clave: aquí no hay una capa intermedia que traduzca las instrucciones de la consola. El código del juego corre de forma nativa sobre un pequeño entorno de ejecución diseñado expresamente para sustituir las librerías del sistema de Sony.
+
+## Una CPU nativa y una GPU que sí se apoya en la emulación
+
+Que el procesador trabaje de forma nativa no significa que todo el juego lo haga. La parte gráfica sigue necesitando ayuda, y ahí bbport recurre al núcleo de vídeo de **shadPS4**, el emulador de PlayStation 4, adaptado específicamente para Bloodborne. El resultado es un sistema híbrido: la CPU procesa las instrucciones sin capas de traducción mientras la tarjeta gráfica dibuja la escena a través de la API **Vulkan 1.3**.
+
+La elección no es casual, porque shadPS4 es precisamente el proyecto que más ha empujado el apartado gráfico de la emulación de PS4 en los últimos meses, tal como recoge la [versión estable 0.19.0, centrada en la GPU](/noticias/emuladores/shadps4-0-19-0-shadoween-special/). bbport no compite con ese emulador: reutiliza uno de sus componentes y lo especializa para un único título.
+
+## Mejoras que Bloodborne no tenía en su edición de consola
+
+Además de trasladar el juego a Linux, el renderizador modificado habilita extras que la versión original de PS4 no ofrecía: **fotogramas por segundo sin límite**, resoluciones de hasta **4K** y compatibilidad con técnicas de reescalado como **AMD FSR**.
+
+Conviene subrayarlo, porque marca el alcance real del proyecto: bbport está optimizado en exclusiva para Bloodborne. No funciona como un emulador del resto del catálogo de PlayStation 4, así que no es una vía general para jugar a la consola en PC.
+
+![Bloodborne, el título de FromSoftware para PlayStation 4](./assets/bloodborne-sony.jpg)
+
+## Requisitos de hardware y estado actual del desarrollo
+
+Para probarlo hace falta un **volcado propio y ya descifrado** de la versión **1.09** de la edición de PS4, además de una GPU compatible con **Vulkan 1.3** y con arquitectura **AMD RDNA2 o superior**. La compatibilidad con tarjetas de Nvidia o Intel sigue en fases preliminares de prueba, según los responsables del repositorio.
+
+El proyecto se presenta como **experimental**: no se ha testeado una partida completa de principio a fin en muchas configuraciones de hardware. Quien decida probar el ejecutable debe contar con errores visuales y cierres imprevistos. En su estado actual, bbport es un hito técnico notable para un solo juego —eliminar la traducción de la CPU es un paso que va más allá de la emulación convencional—, pero todavía no una forma estable de jugar a Bloodborne en Linux.

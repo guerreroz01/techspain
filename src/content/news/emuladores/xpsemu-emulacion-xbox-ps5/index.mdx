@@ -1,0 +1,36 @@
+---
+title: 'XPSemu lleva la emulación de la Xbox original a la PS5 con jailbreak'
+description: 'Un desarrollador porta Xemu a la PS5 liberada con XPSemu: Halo 2, Forza Motorsport y Crash Bandicoot ya arrancan, con la CPU emulada como cuello de botella.'
+pubDate: '2026-10-07'
+# author: se omite; la firma se deriva del vertical `emuladores`
+tags: ['Emuladores', 'PS5', 'Xbox']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Consola PlayStation 5, el hardware que ejecuta el emulador XPSemu de Xbox original'
+source:
+  name: 'Profesional Review'
+  url: 'https://www.profesionalreview.com/2026/10/06/playstation-5-recibe-emulacion-xbox-original/'
+---
+
+La escena de la emulación ha vuelto a moverse, y esta vez en una dirección poco habitual. Un miembro de la comunidad conocido en Reddit como u/Yzenxam y en GitHub como ZiZc3 ha trasladado **Xemu**, uno de los emuladores de referencia de la Xbox original, a consolas PlayStation 5 con jailbreak. El resultado se llama **XPSemu** y permite abrir el emulador como una aplicación dentro del hardware de Sony. Para respaldar la build, el autor publicó pruebas ejecutando Halo 2, Forza Motorsport, Fable: The Lost Chapters y Crash Bandicoot: The Wrath of Cortex.
+
+## Cómo funciona XPSemu
+
+El port no reescribe el emulador desde cero: como aclara el propio responsable, XPSemu sigue siendo Xemu, solo adaptado para lanzarse como aplicación en la PS5. La traducción de instrucciones corre a cargo del **TCG JIT de QEMU**, que convierte en tiempo real el código de la CPU de Xbox al de la arquitectura de la consola de Sony. En la parte gráfica se apoya en la traducción del chip NV2A de Xbox y en la API **Vulkan**, hablando con la GPU AMD de la PS5 a través del controlador de código abierto **RADV**, el mismo trabajo que hay detrás del proyecto PS5_Vulkan. Gracias a eso el emulador puede arrancar como una aplicación nativa.
+
+## Compatibilidad y rendimiento en el estado actual
+
+El rendimiento depende mucho del título, y el cuello de botella está en el procesador. Los núcleos **Zen 2** de la PS5 quedan algo cortos de reloj para emular la CPU de Xbox a plena velocidad: el procesador emulado se mantiene al 85-97% de carga mientras la GPU permanece casi inactiva. En las pruebas del desarrollador, Crash Bandicoot: The Wrath of Cortex se mueve con fluidez; Halo 2 parte de 30 FPS y, con el parche no oficial de 60 FPS, oscila entre 51 y 60 en la apertura y entre 36 y 50 durante la partida. Forza Motorsport y Fable: The Lost Chapters están en estado jugable, pero con caídas: el primero corre a 15-21 FPS en carrera (con tope de 30 en menús y cinemáticas) y el segundo se mueve entre 22 y 30 FPS en muchas zonas y cae a 10-20 en las más exigentes.
+
+Como la gráfica va sobrada, subir el multiplicador de resolución a 3x o 4x apenas penaliza el rendimiento; el reescalado con FSR, en cambio, no aporta FPS porque el límite no está en la GPU.
+
+## Qué añade el port
+
+Sobre el emulador base, XPSemu suma una capa propia: un panel adaptado al mando, ajustes por juego, carátulas, contador de tiempo jugado, parches de juegos, superposición de rendimiento, un registro por título y un conjunto de optimizaciones de CPU pensadas para el procesador Zen 2 de la consola.
+
+## Qué cambia para el jugador
+
+El contexto ayuda a dimensionar el avance. Una PS5 con [jailbreak](/noticias/guia-exploit-ps5/) ya puede emular PS1, PS2 y PS3 (PS4 va integrada), además de Nintendo Switch, Wii U y 3DS, entre otras plataformas. El propio responsable de PS5_Vulkan anunció el mismo día un proyecto de Xbox 360 y otro de PS5 Proton, con el emulador de Xbox 360 ya disponible para pruebas. En la escena se repite una cuenta llamativa: hoy hay menos de 15 juegos totalmente exclusivos de PS5, mientras el catálogo de emuladores que la consola puede ejecutar no deja de crecer. XPSemu no promete compatibilidad total todavía, pero confirma que la Xbox original ya tiene un camino abierto en el hardware de Sony.
+
+La información procede del repositorio del proyecto en GitHub y del post publicado por el desarrollador en Reddit, recogidos por Profesional Review.

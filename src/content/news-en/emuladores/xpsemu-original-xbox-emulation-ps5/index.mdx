@@ -1,0 +1,36 @@
+---
+title: 'XPSemu brings original Xbox emulation to jailbroken PS5'
+description: 'A developer ports Xemu to the jailbroken PS5 with XPSemu: Halo 2, Forza Motorsport and Crash Bandicoot now boot, with the emulated CPU as the bottleneck.'
+pubDate: '2026-10-07'
+# author: omitted; the byline derives from the `emuladores` vertical
+tags: ['Emulators', 'PS5', 'Xbox']
+cover: './assets/cover.jpg'
+coverAlt: 'PlayStation 5 console, the hardware running the XPSemu original Xbox emulator'
+source:
+  name: 'Profesional Review'
+  url: 'https://www.profesionalreview.com/2026/10/06/playstation-5-recibe-emulacion-xbox-original/'
+translationOf: emuladores/xpsemu-emulacion-xbox-ps5
+draft: false
+---
+
+The emulation scene has moved again, and this time in an unusual direction. A community member known on Reddit as u/Yzenxam and on GitHub as ZiZc3 has ported **Xemu**, one of the reference emulators for the original Xbox, to jailbroken PlayStation 5 consoles. The result is called **XPSemu** and lets the emulator be opened as an application on Sony's hardware. To back up the build, the author published tests running Halo 2, Forza Motorsport, Fable: The Lost Chapters and Crash Bandicoot: The Wrath of Cortex.
+
+## How XPSemu works
+
+The port does not rewrite the emulator from scratch: as its author points out, XPSemu is still Xemu, only adapted to launch as an application on the PS5. Instruction translation is handled by **QEMU's TCG JIT**, which converts the Xbox CPU's code to the Sony console's architecture in real time. On the graphics side it relies on the translation of the Xbox's NV2A chip and on the **Vulkan** API, talking to the PS5's AMD GPU through the open-source **RADV** driver, the same work behind the PS5_Vulkan project. Thanks to that, the emulator can boot as a native application.
+
+## Compatibility and performance in its current state
+
+Performance depends heavily on the title, and the bottleneck is the processor. The PS5's **Zen 2** cores are a little short on clocks to emulate the Xbox CPU at full speed: the emulated processor stays at 85-97% load while the GPU sits mostly idle. In the developer's tests, Crash Bandicoot: The Wrath of Cortex runs smoothly; Halo 2 starts at 30 FPS and, with the unofficial 60 FPS patch, ranges between 51 and 60 in the opening and between 36 and 50 during gameplay. Forza Motorsport and Fable: The Lost Chapters are playable but with drops: the former runs at 15-21 FPS while racing (capped at 30 in menus and cutscenes) and the latter sits between 22 and 30 FPS in many areas and falls to 10-20 in the most demanding ones.
+
+Because the GPU has plenty of headroom, raising the resolution multiplier to 3x or 4x barely costs performance; FSR upscaling, by contrast, does not add FPS since the limit is not the GPU.
+
+## What the port adds
+
+On top of the base emulator, XPSemu adds its own layer: a controller-friendly dashboard, per-game settings, cover art, play time, game patches, a performance overlay, a per-game log and a set of CPU optimizations built for the console's Zen 2 processor.
+
+## What changes for the player
+
+Context helps size up the advance. A PS5 with [jailbreak](/noticias/guia-exploit-ps5/) can already emulate PS1, PS2 and PS3 (PS4 is built in), plus Nintendo Switch, Wii U and 3DS, among other platforms. The person behind PS5_Vulkan announced an Xbox 360 project and a PS5 Proton project on the same day, with the Xbox 360 emulator already available for testing. One striking figure keeps coming up in the scene: there are currently fewer than 15 fully PS5-exclusive games, while the catalog of emulators the console can run keeps growing. XPSemu does not promise full compatibility yet, but it confirms the original Xbox already has an open path on Sony's hardware.
+
+The information comes from the project's GitHub repository and the post published by the developer on Reddit, reported by Profesional Review.

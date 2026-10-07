@@ -1,0 +1,32 @@
+---
+title: 'Mupen64Plus PS5 arrives at v0.6.0 as a native Nintendo 64 emulator app'
+description: 'The mupen64plus-core 2.6.0 port installs as just another homebrew app on a jailbroken PS5 home menu and already runs several N64 titles at full speed.'
+pubDate: '2026-10-07'
+# author: omitted; the byline is derived from the `emuladores` vertical
+tags: ['Emulators', 'PS5', 'Nintendo 64']
+translationOf: 'emuladores/mupen64plus-ps5'
+draft: false
+cover: './assets/cover.jpg'
+coverAlt: 'Game shelf of the Mupen64Plus PS5 emulator showing Nintendo 64 box art'
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/mupen64plus-ps5-v0-6-0-native-n64-emulator-app.685069/'
+---
+
+Mupen64Plus PS5 is a port of **mupen64plus-core 2.6.0** that turns a jailbroken PlayStation 5 into a Nintendo 64. Unlike other approaches launched from an external launcher, the emulator installs as a native app — title ID `PPSA99064` — and shows up on the home screen like any other homebrew title, with nothing to send by hand once it is in place. The console's scene keeps growing: the same day brought [XPSemu for emulating the original Xbox](/en/news/emuladores/xpsemu-original-xbox-emulation-ps5/).
+
+## A native app, not a payload
+
+The v0.6.0 leap is mostly one of form. Until then the emulator shipped as an `.elf` that had to be sent to the console; from this version it is copied as an app folder, ShadowMountPlus detects it and places it on the home screen. The app unlocks itself on start-up using the ELF loader you already have running and, on top of that, updates from GitHub *releases*: when a new version is out, it offers it at launch along with the release notes and installs it. v0.6.1, the most recent one, fixes how the version is recorded in the repository and speeds up start-up with the console offline.
+
+## Playable state of Mupen64Plus PS5
+
+The emulator includes an x86-64 *dynarec* that, according to the developer, holds **GoldenEye 007**, **Star Wars: Rogue Squadron** and **Donkey Kong 64** between 59 and 61 FPS. The angrylion-rdp-plus software renderer spreads the work across up to 12 threads, the low-level RSP (cxd4) lets each game run its own microcode, and audio, at around 67 ms of latency, stays in step with the 60 Hz picture. On top of that come a game shelf with automatically downloaded box art, save states with 10 slots per game, EEPROM, SRAM, FlashRAM and Controller Pak saves, Rumble Pak vibration through the DualSense, fast forward and aspect-ratio options (4:3, integer and 16:9) with smooth or sharp scaling, the N64's own video filter, overscan cropping and an adjustable dead zone.
+
+The list of titles tested at full speed that accompanies the announcement includes Super Mario 64, GoldenEye 007, Star Wars: Rogue Squadron, Donkey Kong 64, F-Zero X, Mario Kart 64 (with ghost and record saving), Star Fox 64 (with rumble) and Paper Mario (FlashRAM saving). It is best read as a starting point rather than full compatibility: the developer himself opened a public spreadsheet so the community can report what works and what does not.
+
+## Requirements and what is still pending
+
+Installing it requires a jailbroken PS5 running kstuff or kstuff-lite, ShadowMountPlus and an ELF loader in place (elfldr, etaHEN or PS5 Payload Manager's). Installation means copying the `PPSA99064` folder — extracted from the release zip — to `/data/homebrew/` on the console or to `homebrew/` on an exFAT USB drive; within about 15 seconds ShadowMountPlus adds the icon. ROMs, always dumped from your own cartridges, go in `/data/mupen64plus/roms`, and no games are included.
+
+Still missing are the 64DD, the Transfer Pak, cheats and netplay, none of which are supported yet. PAL titles may run slightly less smoothly than NTSC ones and, if a game misbehaves, the developer recommends trying the interpreter from the CPU core settings. In other words: for a handful of classics it is already a real route inside the console itself, but not for the whole catalogue.

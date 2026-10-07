@@ -1,0 +1,48 @@
+---
+title: "Un fork de Azahar permite jugar Majora's Mask 3D en una sola pantalla"
+description: "Un fork de Azahar lleva el HUD, los menús y los controles de Majora's Mask 3D a una única pantalla en 16:9, con las mejoras de Project Restoration dentro."
+pubDate: '2026-10-07'
+# author: se omite; la firma se deriva del vertical `emuladores`
+tags: ['Emuladores', 'Nintendo 3DS']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: "Pantalla de título de The Legend of Zelda: Majora's Mask 3D con la máscara de Majora"
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/majoras-mask-3d-gets-its-own-single-screen-experience-as-a-custom-azahar-fork.685014/'
+---
+
+La emulación de 3DS suma una función que hasta ahora no existía: jugar a *The Legend of Zelda: Majora's Mask 3D* en un solo panel. No llega como un parche sobre la ROM, sino como un **fork personalizado de Azahar**, el emulador de código abierto de Nintendo 3DS. Al arrancar el juego con esta build, la interfaz se reorganiza por completo: HUD nuevo, relación de aspecto 16:9 y las mejoras de Project Restoration, entre otros ajustes.
+
+El movimiento imita, en otro juego, lo que ya se había hecho con *Ocarina of Time 3D*, pero por una vía distinta: aquí el autor mantiene su propia versión del emulador en lugar de distribuir un parche. Se trata de un proyecto independiente del Azahar principal, cuya última versión estable, la [2126.1.2](/noticias/azahar-2126-1-2/), resolvió hace unas semanas un cuelgue al salir de un juego de 3DS desde RetroArch.
+
+## Qué cambia en Majora's Mask 3D
+
+La lista de cambios publicada por el autor cubre la práctica totalidad de la interfaz que el juego repartía entre las dos pantallas:
+
+- Equipo, máscaras, objetos y mapa accesibles desde una sola pantalla, conservando los modelos y las descripciones de los objetos.
+- Cuaderno de los Bomberos completo en una pantalla.
+- Menú de canciones, canción del tiempo doble y menús de entrega de objetos en una pantalla.
+- Selección de archivo y opciones en una pantalla.
+- Minimapa en pantalla, que se muestra u oculta manteniendo **ZR** y pulsando **SELECT**.
+- Las funciones de [Project Restoration](https://restoration.zora.re/), el conocido mod de calidad de vida para este título.
+- Elementos del HUD rediseñados —cuadros de texto más pequeños y anchos, barra de magia más gruesa— para acercarse a la experiencia de una consola de sobremesa.
+- Controles de escala, posición, espaciado y visibilidad del HUD.
+- Opciones de dificultad: multiplicador de daño, ajuste de la curación de poción roja, poción azul y hada embotellada, sin drops de corazones, rupias, hadas o magia, sin recogida de munición, pérdida de rupias o choque de la luna al morir, y precios de compra duplicados.
+- Widescreen, campo de visión ampliado y un control deslizante para ajustar la distancia de cámara.
+- Textos que mencionaban la pantalla inferior u otras particularidades de 3DS, sustituidos por los nuevos controles.
+- Sonidos de rupias correctos en audio **HLE**, algo que, según el autor, no había ocurrido antes en un emulador de 3DS.
+- Fondo del menú de pausa que se adapta a la resolución —por defecto, 3DS y emuladores parten de 240p—, iluminación bloom correcta a resoluciones altas y soporte de texturas personalizadas.
+
+## Un desarrollo asistido por IA y sin código fuente
+
+El autor acompañó el lanzamiento con un aviso de divulgación de IA. En él reconoce que la inteligencia artificial se usó de forma extensiva para identificar cada elemento que el juego dibuja y poder reposicionarlo, escalarlo y transformarlo desde la pantalla inferior a la superior. Sin esa ayuda, sostiene, el proyecto no habría sido viable: el juego todavía no está decompilado y los cambios deben hacerse a nivel de ensamblador. El diseño de las posiciones y escalas de la interfaz, en cambio, es obra suya y requirió pensar cómo debía quedar cada pantalla.
+
+La transparencia sobre el uso de IA conecta con un debate vivo en la escena, el mismo terreno en el que se mueve otro proyecto reciente del portal, la [recompilación estática de Wind Waker](/noticias/wind-waker-recompilacion-estatica-pc/). En este caso hay un matiz práctico: en el momento de la publicación, según GBAtemp, el repositorio de GitHub no incluía código fuente, algo que limita la auditoría y la colaboración de terceros.
+
+## Estado actual y cómo probarlo
+
+Quien quiera ponerlo a prueba ya puede hacerlo: el fork se distribuye a través de su [repositorio en GitHub](https://github.com/tgacquin/mm3d-dekui) y de una [página en GameBanana](https://gamebanana.com/mods/723825). Como es habitual en la escena, el emulador no incluye el juego: cada usuario aporta su propia copia de *Majora's Mask 3D*.
+
+El estado jugable es el que es hoy: una reorganización del HUD y los menús para pantalla única sobre Azahar, con las funciones de Project Restoration ya integradas. Queda por ver si el proyecto recibe mantenimiento y si su autor abre el código, dos condiciones que suelen marcar la diferencia entre una build de lanzamiento y una herramienta que la comunidad pueda sostener en el tiempo.

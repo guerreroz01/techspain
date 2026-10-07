@@ -1,0 +1,32 @@
+---
+title: 'Mupen64Plus PS5 llega a la v0.6.0 como aplicación nativa de Nintendo 64'
+description: 'El port de mupen64plus-core 2.6.0 se instala como una app homebrew más en el menú de una PS5 con jailbreak y ya mueve varios títulos de N64 a velocidad completa.'
+pubDate: '2026-10-07'
+# author: se omite; la firma se deriva del vertical `emuladores`
+tags: ['Emuladores', 'PS5', 'Nintendo 64']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Estantería del emulador Mupen64Plus PS5 con las carátulas de los juegos de Nintendo 64'
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/mupen64plus-ps5-v0-6-0-native-n64-emulator-app.685069/'
+---
+
+Mupen64Plus PS5 es un port de **mupen64plus-core 2.6.0** que convierte una PlayStation 5 con jailbreak en una consola de Nintendo 64. A diferencia de otras propuestas que se lanzan desde un lanzador externo, el emulador se instala como aplicación nativa —title ID `PPSA99064`— y aparece en el menú de inicio como cualquier otro título homebrew, sin enviar nada a mano una vez colocado. La escena de la consola no deja de crecer: el mismo día llegó [XPSemu para emular la Xbox original](/noticias/emuladores/xpsemu-emulacion-xbox-ps5/).
+
+## Una app nativa, no un payload
+
+El salto de la v0.6.0 es, sobre todo, de forma. Hasta entonces el emulador se distribuía como un `.elf` que había que enviar a la consola; desde esta versión se copia como carpeta de aplicación, ShadowMountPlus la detecta y la coloca en el menú de inicio. La app se desbloquea sola al arrancar apoyándose en el cargador de ELF que ya tengas en marcha y, además, se actualiza desde los *releases* de GitHub: cuando hay versión nueva, la ofrece al inicio junto con las notas del *release* y la instala. La v0.6.1, la más reciente, corrige el registro de la versión en el repositorio y acelera el arranque con la consola sin conexión.
+
+## Estado jugable de Mupen64Plus PS5
+
+El emulador incorpora un *dynarec* x86-64 que, según el desarrollador, sostiene **GoldenEye 007**, **Star Wars: Rogue Squadron** y **Donkey Kong 64** entre 59 y 61 FPS. El renderizador de software angrylion-rdp-plus reparte el trabajo hasta en 12 hilos, el RSP de bajo nivel (cxd4) deja que cada juego ejecute su propio microcódigo, y el audio, con unos 67 ms de latencia, se mantiene en paso con la imagen a 60 Hz. A esto se suman una estantería con carátulas descargadas automáticamente, *save states* de 10 ranuras por juego, guardados EEPROM, SRAM, FlashRAM y Controller Pak, vibración del Rumble Pak a través del DualSense, avance rápido y opciones de relación de aspecto (4:3, entero y 16:9) con escalado suave o nítido, filtro de vídeo original de N64, recorte de *overscan* y zona muerta ajustable.
+
+La lista de títulos probados a velocidad completa que acompaña al anuncio incluye Super Mario 64, GoldenEye 007, Star Wars: Rogue Squadron, Donkey Kong 64, F-Zero X, Mario Kart 64 (con guardado de fantasmas y récords), Star Fox 64 (con vibración) y Paper Mario (guardado en FlashRAM). Conviene leerla como punto de partida y no como compatibilidad total: el propio autor abrió una hoja de cálculo pública para que la comunidad reporte qué funciona y qué no.
+
+## Requisitos y lo que queda pendiente
+
+Para instalarlo hace falta una PS5 con jailbreak que cargue kstuff o kstuff-lite, ShadowMountPlus y un cargador de ELF en marcha (elfldr, etaHEN o el de PS5 Payload Manager). La instalación consiste en copiar la carpeta `PPSA99064` —extraída del zip del *release*— a `/data/homebrew/` en la consola o a `homebrew/` en un USB exFAT; en unos 15 segundos ShadowMountPlus añade el icono. Las ROMs, siempre volcadas de cartuchos propios, van en `/data/mupen64plus/roms`, y no se incluye ningún juego.
+
+En el debe quedan el 64DD, el Transfer Pak, los trucos y el juego en red, que todavía no están soportados. Los títulos PAL pueden ir algo menos fluidos que los NTSC y, si un juego se comporta mal, el autor recomienda probar el intérprete desde los ajustes de núcleo de CPU. Es decir: para un puñado de clásicos ya es una vía real dentro de la propia consola, pero no para todo el catálogo.

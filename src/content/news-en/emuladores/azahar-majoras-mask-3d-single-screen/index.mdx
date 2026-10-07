@@ -1,0 +1,48 @@
+---
+title: "A custom Azahar fork lets you play Majora's Mask 3D on a single screen"
+description: "A custom Azahar fork moves Majora's Mask 3D's HUD, menus and controls onto a single 16:9 screen, with Project Restoration features included."
+pubDate: '2026-10-07'
+# author: omitted; the byline is derived from the `emuladores` vertical
+tags: ['Emulators', 'Nintendo 3DS']
+cover: './assets/cover.jpg'
+coverAlt: "Title screen of The Legend of Zelda: Majora's Mask 3D showing Majora's Mask"
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/majoras-mask-3d-gets-its-own-single-screen-experience-as-a-custom-azahar-fork.685014/'
+translationOf: 'emuladores/azahar-majoras-mask-3d'
+draft: false
+---
+
+3DS emulation has gained a feature it never had before: playing *The Legend of Zelda: Majora's Mask 3D* on a single panel. It does not arrive as a ROM patch but as a **custom Azahar fork**, the open-source Nintendo 3DS emulator. When the game is launched through this build, the interface is completely rearranged: a new HUD, a 16:9 aspect ratio and the Project Restoration improvements, among other tweaks.
+
+The move mirrors, in a different game, what had already been done for *Ocarina of Time 3D*, but through another route: here the author maintains his own version of the emulator instead of distributing a patch. This is a project independent from the main Azahar, whose last stable release, [2126.1.2](/noticias/azahar-2126-1-2/), fixed a crash when exiting a 3DS game from RetroArch a few weeks ago.
+
+## What changes in Majora's Mask 3D
+
+The changelog published by the author covers practically every part of the interface the game split across both screens:
+
+- Gear, masks, items and map accessible from a single screen, keeping the item models and descriptions.
+- Full Bomber's Notebook functionality on one screen.
+- Song menu, Song of Double Time and item-giving menus on one screen.
+- File select and options on one screen.
+- On-screen minimap, shown or hidden by holding **ZR** and pressing **SELECT**.
+- The features of [Project Restoration](https://restoration.zora.re/), the well-known quality-of-life mod for this title.
+- Redesigned HUD elements — smaller and wider text boxes, a thicker magic bar — to get closer to a home-console experience.
+- HUD scaling, positioning, spacing and visibility controls.
+- Difficulty options: damage multiplier, adjustable red potion, blue potion and bottled fairy healing, no heart, rupee, fairy or magic drops, no ammo pickups, rupee loss or moon crash on death, and doubled purchase prices.
+- Widescreen, an increased field of view and a slider to adjust camera distance.
+- Text that referred to the bottom screen or other 3DS-specific features, replaced by the new controls.
+- Correct rupee sounds in **HLE** audio, something the author says had not happened before in a 3DS emulator.
+- A pause-menu background that adapts to the resolution — by default, both the 3DS and emulators start from 240p — correct bloom lighting at higher resolutions, and custom texture support.
+
+## An AI-assisted project with no source code
+
+The author accompanied the release with an AI disclosure notice. In it, he acknowledges that artificial intelligence was used extensively to identify each element the game renders so it could be repositioned, scaled and transformed from the bottom screen to the top one. Without that help, he argues, the project would not have been feasible: the game is not decompiled yet and the changes have to be made at the assembly level. The layout of the interface's positions and scales, however, is his own work and required thinking through how each screen should look.
+
+This transparency about AI use connects with a live debate in the scene, the same ground covered by another recent project on the site, the [static recompilation of Wind Waker](/noticias/wind-waker-recompilacion-estatica-pc/). In this case there is a practical nuance: at the time of publication, according to GBAtemp, the GitHub repository did not include source code, which limits auditing and third-party collaboration.
+
+## Current state and how to try it
+
+Anyone who wants to put it to the test can already do so: the fork is distributed through its [GitHub repository](https://github.com/tgacquin/mm3d-dekui) and a [GameBanana page](https://gamebanana.com/mods/723825). As is usual in the scene, the emulator does not include the game: each user brings their own copy of *Majora's Mask 3D*.
+
+The playable state is what it is today: a rearrangement of the HUD and menus for a single screen on top of Azahar, with the Project Restoration features already built in. Whether the project receives maintenance and whether its author opens up the code remain to be seen — two conditions that usually mark the difference between a launch build and a tool the community can sustain over time.

@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 759 artículos. Actualizado: 2026-10-04
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 799 artículos. Actualizado: 2026-10-07
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -766,3 +766,43 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-04 | Garmin confirma la compra de Moxy Monitor y la 'Muscle Battery' asoma como siguiente paso | [wearables/garmin-compra-moxy-monitor-muscle-battery](https://www.techspain24.com/noticias/wearables/garmin-compra-moxy-monitor-muscle-battery/) |
 | 2026-10-04 | Peloton renueva sus cintas de correr: Tread Flex plegable, cámara de análisis y sincronización con Whoop | [wearables/peloton-cintas-correr-plegables-whoop](https://www.techspain24.com/noticias/wearables/peloton-cintas-correr-plegables-whoop/) |
 | 2026-10-04 | Ultrahuman integra el historial médico completo en su app de anillos inteligentes | [wearables/ultrahuman-historial-medico-anillo-inteligente](https://www.techspain24.com/noticias/wearables/ultrahuman-historial-medico-anillo-inteligente/) |
+| 2026-10-07 | Amazon retira el control por voz de la entrada auxiliar en varios altavoces Echo | [audio/alexa-echo-entrada-aux](https://www.techspain24.com/noticias/audio/alexa-echo-entrada-aux/) |
+| 2026-10-07 | Apple deberá pagar 184 millones más a Masimo por las patentes del Apple Watch | [wearables/apple-watch-masimo-184-millones](https://www.techspain24.com/noticias/wearables/apple-watch-masimo-184-millones/) |
+| 2026-10-07 | bbport ejecuta Bloodborne en Linux de forma nativa, sin traducir las instrucciones de la CPU | [emuladores/bbport-bloodborne-linux](https://www.techspain24.com/noticias/emuladores/bbport-bloodborne-linux/) |
+| 2026-10-07 | DJI lleva al Benelux su formación oficial de mapeo con drones | [drones/dji-formacion-mapeo-europa](https://www.techspain24.com/noticias/drones/dji-formacion-mapeo-europa/) |
+| 2026-10-07 | Dos productos PlayStation aparecen en certificaciones: uno podría ser una Portal con pantalla OLED | [consolas/playstation-portal-oled-filtracion](https://www.techspain24.com/noticias/consolas/playstation-portal-oled-filtracion/) |
+| 2026-10-07 | Dune: Awakening suma un millón de jugadores tras su llegada a PS5 y Xbox | [consolas/dune-awakening-1-millon-jugadores](https://www.techspain24.com/noticias/consolas/dune-awakening-1-millon-jugadores/) |
+| 2026-10-07 | El alcalde de Cleveland Heights pide a Amazon que sus drones dejen de sobrevolar viviendas | [drones/amazon-drones-cleveland-heights](https://www.techspain24.com/noticias/drones/amazon-drones-cleveland-heights/) |
+| 2026-10-07 | El DOOM original de 1993 ejecuta DLSS 5 gracias a un port propio a DirectX 12 | [tarjetas-graficas/doom-dlss-5-port](https://www.techspain24.com/noticias/tarjetas-graficas/doom-dlss-5-port/) |
+| 2026-10-07 | El Fitbit Edge se filtra al completo: 179 €, pantalla AMOLED y siete días de batería | [wearables/fitbit-edge-filtracion](https://www.techspain24.com/noticias/wearables/fitbit-edge-filtracion/) |
+| 2026-10-07 | El Garmin Enduro 4 apuesta por 90 días de autonomía y el doble de almacenamiento | [wearables/garmin-enduro-4](https://www.techspain24.com/noticias/wearables/garmin-enduro-4/) |
+| 2026-10-07 | El Pentágono elige tres láseres y un microondas antidrón para bases de EE. UU. | [drones/pentagono-laseres-antidron](https://www.techspain24.com/noticias/drones/pentagono-laseres-antidron/) |
+| 2026-10-07 | El Xbox Elite Series 3 se filtra con joysticks Hall/TMR, hápticos avanzados y una rueda de audio | [consolas/xbox-elite-series-3](https://www.techspain24.com/noticias/consolas/xbox-elite-series-3/) |
+| 2026-10-07 | El Xiaomi 18 Ultra se habría cancelado por el coste de su mejor cámara | [moviles/xiaomi-18-ultra-cancelado](https://www.techspain24.com/noticias/moviles/xiaomi-18-ultra-cancelado/) |
+| 2026-10-07 | ENGO lanza las engo Titanium: gafas AR de 28,9 gramos para corredores y ciclistas | [wearables/engo-titanium-gafas-ar](https://www.techspain24.com/noticias/wearables/engo-titanium-gafas-ar/) |
+| 2026-10-07 | GameStop vende la PS5 Pro usada a 1.399 dólares y lo califica de «intencionado» | [consolas/gamestop-ps5-pro-usada](https://www.techspain24.com/noticias/consolas/gamestop-ps5-pro-usada/) |
+| 2026-10-07 | Garmin lanza el Approach S72: su reloj de golf más avanzado mide el swing y hace llamadas | [wearables/garmin-approach-s72](https://www.techspain24.com/noticias/wearables/garmin-approach-s72/) |
+| 2026-10-07 | Google AI Edge Foresight convierte tus garabatos en notas completas sin salir del Mac | [componentes/google-ai-edge-foresight-mac](https://www.techspain24.com/noticias/componentes/google-ai-edge-foresight-mac/) |
+| 2026-10-07 | Huawei dice que el Ascend 950 ya supera a Nvidia en cuota de mercado en China | [componentes/huawei-ascend-950-nvidia-china](https://www.techspain24.com/noticias/componentes/huawei-ascend-950-nvidia-china/) |
+| 2026-10-07 | iFixit desmonta el Apple Watch Series 12 y el Ultra 4: la batería se cambia mejor, la pantalla sigue siendo el muro | [wearables/apple-watch-series-12-ultra-4-desmontaje](https://www.techspain24.com/noticias/wearables/apple-watch-series-12-ultra-4-desmontaje/) |
+| 2026-10-07 | JBL PartyBox Ultimate 2: 1.500 W, pantalla táctil y karaoke con IA | [audio/jbl-partybox-ultimate-2](https://www.techspain24.com/noticias/audio/jbl-partybox-ultimate-2/) |
+| 2026-10-07 | Los AMD EPYC Verano apuntan a un socket SB1 nuevo, según Dynatron | [componentes/amd-epyc-verano-sb1](https://www.techspain24.com/noticias/componentes/amd-epyc-verano-sb1/) |
+| 2026-10-07 | Los Googlebook arrancan con dos límites: apps Android peor en Intel y funciones sin Samsung | [moviles/googlebook-apps-intel-samsung](https://www.techspain24.com/noticias/moviles/googlebook-apps-intel-samsung/) |
+| 2026-10-07 | Mupen64Plus PS5 llega a la v0.6.0 como aplicación nativa de Nintendo 64 | [emuladores/mupen64plus-ps5](https://www.techspain24.com/noticias/emuladores/mupen64plus-ps5/) |
+| 2026-10-07 | Ninja Theory reporta despidos mientras Xbox avanza hacia el cierre del estudio de Hellblade | [consolas/ninja-theory-cierre-hellblade](https://www.techspain24.com/noticias/consolas/ninja-theory-cierre-hellblade/) |
+| 2026-10-07 | Noruega propone prohibir las gafas inteligentes con IA en espacios públicos | [wearables/noruega-prohibir-gafas-ia](https://www.techspain24.com/noticias/wearables/noruega-prohibir-gafas-ia/) |
+| 2026-10-07 | NVIDIA publica los GeForce 617.42 WHQL: soporte para Modern Warfare 4 y el bug de consumo que reaparece | [tarjetas-graficas/nvidia-geforce-617-42](https://www.techspain24.com/noticias/tarjetas-graficas/nvidia-geforce-617-42/) |
+| 2026-10-07 | Pimax Crystal Pro: un casco de VR para PC sin cables y con streaming foveado nativo | [wearables/pimax-crystal-pro](https://www.techspain24.com/noticias/wearables/pimax-crystal-pro/) |
+| 2026-10-07 | Prospero-win ejecuta juegos de Windows en una PS5 con homebrew gracias a su propia copia de Wine | [emuladores/prospero-win-ps5-windows](https://www.techspain24.com/noticias/emuladores/prospero-win-ps5-windows/) |
+| 2026-10-07 | Qualcomm pagará a Huawei por licenciar sus patentes por primera vez en 25 años | [moviles/qualcomm-pagara-huawei-licencias](https://www.techspain24.com/noticias/moviles/qualcomm-pagara-huawei-licencias/) |
+| 2026-10-07 | Reportes de decoloración en el iPhone 18 Pro: el burdeos se aclara alrededor de las cámaras | [moviles/iphone-18-pro-decoloracion](https://www.techspain24.com/noticias/moviles/iphone-18-pro-decoloracion/) |
+| 2026-10-07 | Retirado en horas un port no oficial de GTA V que se jugaba en el navegador | [consolas/gta-v-navegador-retirado](https://www.techspain24.com/noticias/consolas/gta-v-navegador-retirado/) |
+| 2026-10-07 | Se filtra el DJI Neo 3 en un vídeo de unboxing: las ranuras de la batería son reales | [drones/dji-neo-3-filtracion](https://www.techspain24.com/noticias/drones/dji-neo-3-filtracion/) |
+| 2026-10-07 | Se filtran las especificaciones del Surface Laptop con RTX Spark de NVIDIA | [tarjetas-graficas/surface-rtx-spark-filtracion](https://www.techspain24.com/noticias/tarjetas-graficas/surface-rtx-spark-filtracion/) |
+| 2026-10-07 | Shawn Layden critica el adiós al disco en PlayStation: «un golpe importante para la marca» | [consolas/shawn-layden-discos-playstation](https://www.techspain24.com/noticias/consolas/shawn-layden-discos-playstation/) |
+| 2026-10-07 | TDM Neo: auriculares que se giran y se convierten en altavoz Bluetooth | [audio/tdm-neo-auriculares-altavoz](https://www.techspain24.com/noticias/audio/tdm-neo-auriculares-altavoz/) |
+| 2026-10-07 | Un fork de Azahar permite jugar Majora's Mask 3D en una sola pantalla | [emuladores/azahar-majoras-mask-3d](https://www.techspain24.com/noticias/emuladores/azahar-majoras-mask-3d/) |
+| 2026-10-07 | Wing elige Denver para el reparto con drones de Walmart y dos suburbios ya congelaron sus hubs | [drones/wing-denver-walmart-drones](https://www.techspain24.com/noticias/drones/wing-denver-walmart-drones/) |
+| 2026-10-07 | Xeal planea desplegar 100.000 GPU Nvidia en «pods» junto a sus cargadores de coches eléctricos | [tarjetas-graficas/carga-ve-100000-gpu-nvidia](https://www.techspain24.com/noticias/tarjetas-graficas/carga-ve-100000-gpu-nvidia/) |
+| 2026-10-07 | XPSemu lleva la emulación de la Xbox original a la PS5 con jailbreak | [emuladores/xpsemu-emulacion-xbox-ps5](https://www.techspain24.com/noticias/emuladores/xpsemu-emulacion-xbox-ps5/) |
+| 2026-10-07 | Zelda: Breath of the Wild corre a 4K y 30 FPS en PS5 gracias al jailbreak y PS5CEMU-HAR | [emuladores/zelda-breath-of-the-wild-ps5](https://www.techspain24.com/noticias/emuladores/zelda-breath-of-the-wild-ps5/) |

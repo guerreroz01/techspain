@@ -1,0 +1,31 @@
+---
+title: 'Prospero-win runs Windows games on a homebrew PS5 using its own copy of Wine'
+description: 'Prospero-win launches its first public build: Windows games running on a homebrew PS5 through Wine, no PC required. Version 0.1.0 is experimental.'
+pubDate: '2026-10-07'
+tags: ['Emulators', 'Consoles']
+cover: './assets/cover.jpg'
+coverAlt: 'Header image from the story about prospero-win and its Windows game support on the homebrew PS5'
+source:
+  name: 'GBAtemp'
+  url: 'https://gbatemp.net/threads/prospero-win-brings-native-windows-game-support-to-homebrew-ps5.685047/'
+translationOf: 'emuladores/prospero-win-ps5-windows'
+draft: false
+---
+
+Developer mpereiraesaa has released the first public build of **prospero-win**, a homebrew application that runs Windows games directly on a homebrew-enabled PS5. The project ships its own copy of Wine and does not need a PC: games run on the console itself. Version 0.1.0 is described as experimental and, according to its author, already handles a handful of titles quite smoothly.
+
+## What prospero-win offers in version 0.1.0
+
+The program splits the work according to the game's architecture: 64-bit executables run natively on the PS5's x86-64 CPU, while 32-bit ones go through prospero-win's own x86 translator. On the graphics side, Direct3D 8, 9, 10 and 11 games draw through DXVK and Vulkan; there is also support for older OpenGL titles, 2D games and programs that render with GDI. Audio comes out of the console's own output.
+
+Controls are covered too: prospero-win recognises the DualSense with XInput-compatible controllers, rumble and custom mappings for keyboard-and-mouse games, and it also lets you plug in a USB keyboard and mouse. A built-in launcher lists your games and stores a graphics and control profile for each one. Among the titles the author lists as working are *Grand Theft Auto: San Andreas*, *Half-Life*, *Counter-Strike 1.6*, *OpenArena*, *Warcraft III: Reign of Chaos* and *Space Cadet Pinball*, though some require adding extras such as DXVK or LAV Filters to the game folder.
+
+## Why prospero-win matters to the homebrew scene
+
+The PS5 runs a proprietary fork of FreeBSD on x86-64 hardware, so there is a technical basis for running Windows software, but until now doing so meant booting a full Linux environment. Having prospero-win rely on Wine and DXVK inside the console's own homebrew environment lowers that friction and shows how far Sony's hardware can be pushed. It is the same direction other scene efforts are taking, such as [ProsperoEden bringing Nintendo Switch games to a modified PS5](/noticias/prosperoeden-emulador-switch-ps5/), albeit with a different approach: that one emulates a console, this one translates an operating system.
+
+## What is still missing
+
+It is worth not confusing enthusiasm with a promise of full compatibility. The author sets clear limits: only one program can run at a time, so installers and games that depend on an intermediate launcher will not start, and there is no support for 16-bit Windows or DOS. The mouse wheel does not work yet, and any title with DRM or anti-cheat systems is out of the question. On top of that comes the starting requirement: you need a homebrew-compatible console to try it.
+
+In short, prospero-win is a notable technical step for the scene, with a still-short compatibility list and plenty of room to improve in stability and coverage. Anyone with a homebrew PS5 can already try several classics, but it should be read as an experimental starting point rather than a stable way to play the Windows catalogue.
