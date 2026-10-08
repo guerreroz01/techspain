@@ -1,0 +1,41 @@
+---
+title: 'MAME NEHT vuelve tras más de una década con una build anclada al núcleo de MAME 0.160'
+description: 'MAME NEHT retoma su desarrollo tras una década con una build basada en MAME 0.160, pensada para conservar ROM hacks que la línea oficial ya no arranca.'
+pubDate: 2026-10-08
+tags: ['Emuladores', 'Arcade', 'MAME', 'NeoGeo']
+featured: false
+breaking: false
+source:
+  name: 'EmuCR'
+  url: 'https://www.emucr.com/2026/10/mame-neht-20261007.html'
+---
+
+MAME NEHT vuelve a moverse. La build fechada el 7 de octubre de 2026 marca el regreso a la actividad de un proyecto que llevaba más de una década sin publicar, y lo hace con una decisión que lo define: apoyarse en el código fuente de MAME 0.160 en lugar de seguir la numeración reciente del emulador.
+
+## Una build anclada al núcleo de MAME 0.160
+
+NEHT no es un emulador nuevo ni un sustituto de MAME. Es una línea de builds personalizadas que vuelve con el objetivo de revivir y modernizar su trabajo previo, tendiendo un puente entre las fuentes históricas y la ingeniería actual de MAME. El eje de esa estrategia es la base elegida: partir del código de MAME 0.160, en lugar de las versiones oficiales más nuevas.
+
+Esa decisión no es nostalgia, sino compatibilidad. Según el proyecto, anclarse a 0.160 es lo que permite seguir ejecutando ROM hacks concretos que las versiones oficiales posteriores dejaron de arrancar. Para quien depende de esos parches, la utilidad está en poder actualizar partes del emulador sin perderlos por el camino.
+
+## Qué incorpora esta entrega de MAME NEHT
+
+El listado de cambios de esta build se concentra en tres frentes:
+
+- **CPS3:** el conjunto oficial completo vuelve al núcleo mediante un *backport*, se convierte y queda integrado con ajustes SCSI personalizados.
+- **CV1K:** sincronización y modernización del driver para el núcleo 0.160.
+- **Sincronización de código:** actualización de drivers de subsistemas clave para alinearlos con las versiones oficiales recientes, preservando a la vez la compatibilidad con los hacks heredados de NeoGeo.
+
+## Por qué importa
+
+La línea oficial de MAME evoluciona y, con el tiempo, deja atrás parches y hacks que ya no encajan en su código. Los proyectos derivados existen precisamente para cubrir ese hueco: conservan material que, de otro modo, quedaría sin forma de ejecutarse. MAME NEHT se suma a esa tradición junto a otras builds derivadas que también reescriben partes del núcleo por motivos de precisión, como [MAME-NES v2.0 y su trabajo sobre el timing del PPU](/noticias/emuladores/mame-nes-2/).
+
+Conviene no leerlo como una promesa de compatibilidad total. El anuncio no afirma que toda la biblioteca funcione, ni que los hacks ajenos a los citados estén cubiertos: describe un conjunto de cambios acotado y una base antigua a propósito.
+
+## Qué cambia para el jugador
+
+El estado actual es concreto: la build Mame NEHT v0.160 ya está disponible para descargar desde el repositorio del proyecto. Su público natural es quien mantenía esos ROM hacks y se quedó sin forma de arrancarlos en la línea oficial.
+
+Lo que queda pendiente es todo lo que el anuncio no detalla: no hay cifras de compatibilidad, ni una lista completa de sistemas afectados, ni garantías sobre hacks distintos de los mencionados. Para el resto, la recomendación sigue siendo la de siempre: probar sobre la propia copia y no dar por hecho que un juego funciona solo porque su sistema esté soportado.
+
+La descarga y el código fuente están publicados por el desarrollador en GitHub, que EmuCR enlaza como origen de la release.

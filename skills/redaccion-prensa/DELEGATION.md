@@ -7,9 +7,10 @@ de escribir el orquestador, se delega **un subagente por artículo**, todos en p
 
 - Un subagente (`general`) por artículo. No reutilizar el mismo subagente para varios.
 - Todos se lanzan en **una sola respuesta** (múltiples llamadas `task`) para que corran en paralelo.
-- Cada subagente escribe dos carpetas: `src/content/news/<vertical>/<slug>/` (español) y
-  `src/content/news-en/<vertical>/<english-slug>/` (inglés). Son carpetas distintas por
-  artículo, así que no hay solapamiento entre subagentes. No usar `background` en escritores.
+- Cada subagente escribe **una sola carpeta**: `src/content/news/<vertical>/<slug>/`
+  (español: `index.mdx` + `assets/`). El compañero en inglés lo genera el orquestador
+  después, con el slug final que reporte cada escritor (ver «Compañero en inglés»). No usar
+  `background` en escritores.
 - Emitir una línea de estado antes y después de cada llamada (`⏳ Delegating …`, `✅/⚠️ …`).
 
 ## Redactores por vertical
@@ -95,15 +96,13 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
 - Tipo de pieza: `{tipo}` (`noticia` | `tutorial`)
 - URL original: `{article_url}`
 - Slug (última carpeta, kebab-case **en español**, minúsculas y ASCII): `{slug}`
-- Slug EN (última carpeta en inglés): lo elegís **vos**, derivado del titular en inglés,
-  kebab-case minúsculas ASCII; verificalo con `npm run slug -- --en <english-slug>`.
 - Vertical (carpeta/segmento de URL y primer elemento de `tags`): `{vertical}`
 - Fuente a atribuir en `source`: `{source_name}`
 - Fecha de hoy (`pubDate`): `{fecha_de_hoy}` — calculada al delegar, nunca un literal fijo.
 
 **Reglas no negociables:**
 - Cuerpo y frontmatter en español neutro/profesional (sin voseo, sin slang). El slug va en español (es la URL); los identificadores de código, en inglés.
-- Estructura por directorio: `src/content/news/{vertical}/{slug}/index.mdx` + `src/content/news/{vertical}/{slug}/assets/`, y **además** el compañero en inglés `src/content/news-en/{vertical}/<english-slug>/index.mdx` + `assets/` (ver «Compañero en inglés» más abajo). **Ambas piezas son obligatorias**: sin la inglesa, el artículo no está terminado.
+- Estructura por directorio: `src/content/news/{vertical}/{slug}/index.mdx` + `src/content/news/{vertical}/{slug}/assets/`. Escribís **solo la pieza española**: el compañero en inglés lo genera el orquestador después (ver «Compañero en inglés» más abajo).
 - Descarga TODAS las imágenes del artículo original a `assets/` con curl (añade `-A` con un User-Agent de navegador). La principal como `cover` (`./assets/cover.jpg` o `.png` según extensión); el resto embebidas con `![alt](./assets/x.jpg)`.
 - **No listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo): son cientos de entradas y cada listado quema ~12 KB de contexto. Tu slug y tu carpeta ya vienen dados. Para ver si un tema ya está cubierto, usá `npm run find -- <términos distintivos>`. **Si tu pieza ya está publicada, pará y reportalo: no la escribas.**
 - No copies verbatim: traduce y reescribe con tus palabras. No inventes datos, citas ni cifras.
@@ -118,39 +117,71 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
    - `noticia`: 2-4 secciones con subtítulos, con contexto para el lector hispanohablante.
    - `tutorial`: guía paso a paso (ver «Variante: tutoriales»).
 4. Ejecutá la pasada de SEO pre-publicación (`{seo_contract_path}`) sobre el `index.mdx` terminado: aplicá las correcciones que devuelva y registrá qué cambió. Nunca toques `title`, `tags`, `featured`, `breaking` ni `pubDate`.
-5. Escribí el **compañero en inglés** (ver «Compañero en inglés»): `src/content/news-en/{vertical}/<english-slug>/index.mdx`, traducción fiel del texto YA FINALIZADO en español, con las imágenes copiadas a su propia `assets/`.
-6. **NO ejecutes el build.** El orquestador hará un único `npm run build` al final, después de recoger todos los resultados.
+5. **NO ejecutes el build.** El orquestador hará un único `npm run build` al final, después de recoger todos los resultados y generar los compañeros en inglés.
 
-**Devuelve en tu único mensaje final:** slug final (si la pasada SEO renombró la carpeta, el nuevo), **slug EN final**, título final, título EN, fuente atribuida, imagen(es) usada(s) y los cambios de SEO aplicados (uno por línea). No ejecutes el build.
+**Devuelve en tu único mensaje final:** slug final (si la pasada SEO renombró la carpeta, el nuevo), título final, fuente atribuida, imagen(es) usada(s) y los cambios de SEO aplicados (uno por línea). El orquestador necesita el `{vertical}/{slug}` final para generar el compañero EN. No ejecutes el build.
 
 ---
 
-## Compañero en inglés (obligatorio)
+## Compañero en inglés (obligatorio, lo genera el orquestador)
 
 Todo artículo nuevo de este flujo publica DOS URLs: `/noticias/<vertical>/<slug>/`
-(español, el maestro) y `/en/news/<vertical>/<english-slug>/` (inglés, traducción).
-La página inglesa se genera de esta entrada, así que si falta, el artículo queda a
-medio publicar. La vertical es la **misma** carpeta en las dos colecciones.
+(español, el maestro, que escribe el redactor) y `/en/news/<vertical>/<english-slug>/`
+(inglés, traducción). La página inglesa se genera de esta entrada, así que si falta, el
+artículo queda a medio publicar: **sigue siendo obligatoria**. La vertical es la **misma**
+carpeta en las dos colecciones.
 
-- **Slug EN:** derivado del **titular en inglés**, kebab-case minúsculas ASCII.
-  Namespace separado del español (puede coincidir o no). Verificalo con
-  `npm run slug -- --en <english-slug>`.
-- **Frontmatter EN:** `title`, `description` (traducidos), `pubDate` igual al
-  español, `updatedDate` si existe, **sin `author`** (la firma se deriva y es la
-  misma que la de la pieza española), `tags`
-  traducidos al inglés (**`Tutorials` va primero en tutoriales**), `source` con
-  el **mismo** `name`/`url` que la pieza española, `draft: false`, y
-  **`translationOf: {vertical}/{slug}`** (el id español **completo** al que traduce). **No** lleva
-  `featured` ni `breaking`: esos campos no existen en esta colección y la
-  promoción es solo decisión de la pieza española.
-- **Cuerpo EN:** traducción fiel del español final a inglés neutro
-  (profesional, sin slang): mismos hechos, misma estructura, mismas imágenes.
-  Copiá cada imagen usada a `src/content/news-en/{vertical}/<english-slug>/assets/` y
-  referencialas con `./assets/<nombre>`. No inventes ni omitas datos al traducir.
+El redactor **ya no la escribe**. Cuando todos los escritores terminaron y reportaron su
+`{vertical}/{slug}` final, el orquestador la genera **artículo por artículo** con el paso
+local de traducción:
+
+```
+npm run translate:en -- <vertical>/<slug>
+```
+
+`scripts/translate-en.mjs` lee el `index.mdx` español final, le pide al modelo local de LM
+Studio (texto entra / texto sale, sin herramientas) un JSON con la traducción y recompone
+el frontmatter de forma determinista; además copia la `assets/` española a la carpeta
+inglesa. El script cubre el slug libre (sufijo `-2`, `-3`… si está ocupado).
+
+### Fallback remoto
+
+Si `npm run translate:en` sale con **código distinto de cero** (endpoint local caído o
+salida inválida), el orquestador NO reintenta el script: delega el compañero EN a un
+subagente remoto con esta plantilla compacta **solo-inglés**:
+
+---
+
+Traduce fielmente al inglés neutro/profesional la pieza española ya terminada
+`src/content/news/{vertical}/{slug}/index.mdx` (`{tipo}`) y crea su compañero en
+`src/content/news-en/{vertical}/<english-slug>/index.mdx` + `assets/`.
+
+- **Slug EN:** derivado del **titular en inglés**, kebab-case minúsculas ASCII. Namespace
+  separado del español (puede coincidir o no). Verificalo con
+  `npm run slug -- --en <english-slug>`; si sale `ocupado`, usá el sufijo libre que sugiere.
+- **Frontmatter EN:** traducí `title` y `description`; copiá `pubDate` igual al español,
+  `updatedDate` si existe, `cover`, `coverAlt`, `source` (el **mismo** `name`/`url` de la
+  pieza española) y `draft`; `tags` traducidos al inglés con la etiqueta inglesa de la
+  vertical **primero** (`Tutoriales` → `Tutorials`, y sigue primera en tutoriales).
+  **No escribas `author`** (la firma se deriva del vertical y es la misma que la de la
+  pieza española), ni `featured`, ni `breaking` (esos campos no existen en esta
+  colección). Agregá obligatoriamente `translationOf: '{vertical}/{slug}'` (el id español
+  **completo** al que traduce).
+- **Cuerpo EN:** traducción fiel del español final a inglés neutro (profesional, sin
+  slang): mismos hechos, misma estructura, mismas imágenes. Copiá cada imagen usada a
+  `src/content/news-en/{vertical}/<english-slug>/assets/` y referencialas con
+  `./assets/<nombre>`. No inventes ni omitas datos al traducir.
 - **Sin pasada SEO en inglés:** la pieza EN espeja la española ya optimizada.
-- Si el `translationOf` no apunta a un artículo español existente, **el build
-  falla**; y en producción la versión EN se oculta mientras la española siga en
-  `draft: true`.
+- **No ejecutes el build.**
+
+---
+
+### Invariantes de la entrada EN
+
+- Si el `translationOf` no apunta a un artículo español existente, **el build falla**; y en
+  producción la versión EN se oculta mientras la española siga en `draft: true`.
+- La firma no se escribe: se deriva del vertical (`src/lib/authors.ts`) y resuelve al mismo
+  redactor que la pieza española.
 
 ---
 
@@ -207,5 +238,5 @@ es una tarea del redactor.
   `emuladores` → `Emuladores`, `consolas` → `Consolas`, `componentes` → `Componentes`,
   `moviles` → `Móviles`, `wearables` → `Wearables`, `audio` → `Audio`, `tutoriales` → `Tutoriales`,
   `drones` → `Drones`.
-- Recoger los resultados de todos los subagentes, ejecutar **un único `npm run build`** al final (los subagentes no lo ejecutan para no pisarse `dist/` y `.astro/`), y confirmar al usuario cuántos artículos quedaron listos y cuáles fallaron.
+- Recoger los resultados de todos los subagentes, generar **cada compañero EN** con `npm run translate:en -- <vertical>/<slug>` (y, si el comando falla, el fallback remoto de arriba) y **recién entonces** ejecutar **un único `npm run build`** al final (los subagentes no lo ejecutan para no pisarse `dist/` y `.astro/`), y confirmar al usuario cuántos artículos quedaron listos y cuáles fallaron.
 - Por qué `tags` queda bloqueado en la pasada SEO: `tags[0]` decide el `@type` del JSON-LD (`Article` vs `NewsArticle`) en `src/pages/noticias/[slug].astro:47`, así que reordenarlo cambia la salida machine-readable; y como no hay páginas de tag, los tags no tienen ninguna superficie rastreable. Cero beneficio, riesgo real.

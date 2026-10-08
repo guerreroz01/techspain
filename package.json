@@ -16,6 +16,7 @@
     "index": "node scripts/index-published.mjs",
     "slug": "node scripts/slug-check.mjs",
     "find": "node scripts/find-published.mjs",
+    "translate:en": "node scripts/translate-en.mjs",
     "test:sitemaps": "node scripts/validate-sitemaps.mjs"
   },
   "dependencies": {

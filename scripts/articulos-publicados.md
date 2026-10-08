@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 799 artículos. Actualizado: 2026-10-07
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 851 artículos. Actualizado: 2026-10-08
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -806,3 +806,55 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-07 | Xeal planea desplegar 100.000 GPU Nvidia en «pods» junto a sus cargadores de coches eléctricos | [tarjetas-graficas/carga-ve-100000-gpu-nvidia](https://www.techspain24.com/noticias/tarjetas-graficas/carga-ve-100000-gpu-nvidia/) |
 | 2026-10-07 | XPSemu lleva la emulación de la Xbox original a la PS5 con jailbreak | [emuladores/xpsemu-emulacion-xbox-ps5](https://www.techspain24.com/noticias/emuladores/xpsemu-emulacion-xbox-ps5/) |
 | 2026-10-07 | Zelda: Breath of the Wild corre a 4K y 30 FPS en PS5 gracias al jailbreak y PS5CEMU-HAR | [emuladores/zelda-breath-of-the-wild-ps5](https://www.techspain24.com/noticias/emuladores/zelda-breath-of-the-wild-ps5/) |
+| 2026-10-08 | ACEMAGIC F9A: 192 GB de LPDDR5X unificada y Ryzen AI Max+ Pro 495 en un mini PC | [memorias/acemagic-f9a](https://www.techspain24.com/noticias/memorias/acemagic-f9a/) |
+| 2026-10-08 | AMD llevará FSR 4 a sus APUs con un modelo de IA más ligero | [tarjetas-graficas/amd-fsr-4-apus](https://www.techspain24.com/noticias/tarjetas-graficas/amd-fsr-4-apus/) |
+| 2026-10-08 | Análisis del bumper Rhinoshield para el iPhone 18 Pro: minimalista, pero más protector de lo que parece | [moviles/rhinoshield-iphone-18-pro](https://www.techspain24.com/noticias/moviles/rhinoshield-iphone-18-pro/) |
+| 2026-10-08 | Android 17 llega a cuatro Motorola en EE. UU. y aún no hay calendario de despliegue | [moviles/motorola-android-17](https://www.techspain24.com/noticias/moviles/motorola-android-17/) |
+| 2026-10-08 | Android Canary 2610 renueva la personalización de Pixel y prepara WhatsApp en HiLight | [moviles/android-canary-2610](https://www.techspain24.com/noticias/moviles/android-canary-2610/) |
+| 2026-10-08 | Ascend CBM-170SE2: fidelidad de gama alta en un altavoz de 468 dólares el par | [audio/ascend-cbm-170se2](https://www.techspain24.com/noticias/audio/ascend-cbm-170se2/) |
+| 2026-10-08 | Asus estrena los ProArt P16 y P14 con RTX Spark: hasta 128 GB de memoria unificada | [tarjetas-graficas/asus-proart-p14-p16](https://www.techspain24.com/noticias/tarjetas-graficas/asus-proart-p14-p16/) |
+| 2026-10-08 | AZZA estrena la caja ABYSS: triple cristal envolvente y soporte para placas con conectores traseros | [componentes/azza-abyss](https://www.techspain24.com/noticias/componentes/azza-abyss/) |
+| 2026-10-08 | Cherry Audio resucita el Gleeman Pentaphonic, un polifónico de 1981 del que existen menos de 70 unidades | [audio/cherry-audio-gleeman-pentaphonic](https://www.techspain24.com/noticias/audio/cherry-audio-gleeman-pentaphonic/) |
+| 2026-10-08 | ColorOS 17 arranca hoy su despliegue: calendario completo para OPPO, OnePlus y realme | [moviles/coloros-17-despliegue](https://www.techspain24.com/noticias/moviles/coloros-17-despliegue/) |
+| 2026-10-08 | Dayton Audio E150MR-4: un medio de 5,5 pulgadas con fibra de carbono por 59,95 dólares | [audio/dayton-audio-e150mr-4](https://www.techspain24.com/noticias/audio/dayton-audio-e150mr-4/) |
+| 2026-10-08 | Dell presenta el XPS 16 Creator Edition con RTX Spark y hasta 128 GB de memoria unificada | [tarjetas-graficas/dell-xps-16-creator](https://www.techspain24.com/noticias/tarjetas-graficas/dell-xps-16-creator/) |
+| 2026-10-08 | El Acer Googlebook 14 convence como convertible, pero su software va un paso por detrás | [portatiles/acer-googlebook-14](https://www.techspain24.com/noticias/portatiles/acer-googlebook-14/) |
+| 2026-10-08 | El iQOO Neo12 estrenaría la pantalla 2K y 185 Hz de Visionox este octubre | [moviles/iqoo-neo12-pantalla-2k-185hz](https://www.techspain24.com/noticias/moviles/iqoo-neo12-pantalla-2k-185hz/) |
+| 2026-10-08 | El POCO X8 ya está disponible desde 319 euros con batería de 8.340 mAh y Snapdragon 6s Gen 4 | [moviles/poco-x8](https://www.techspain24.com/noticias/moviles/poco-x8/) |
+| 2026-10-08 | El SMSL D200 cambia de chip: un DAC neutro y de amplia escena con ROHM por 319 dólares | [audio/smsl-d200](https://www.techspain24.com/noticias/audio/smsl-d200/) |
+| 2026-10-08 | El SMSL SU-3 llega como DAC de escritorio con EQ paramétrico de 32 bandas por 189 dólares | [audio/smsl-su-3](https://www.techspain24.com/noticias/audio/smsl-su-3/) |
+| 2026-10-08 | El SuperStation One estrena colores transparentes en una edición limitada | [consolas/superstation-one-edicion-limitada](https://www.techspain24.com/noticias/consolas/superstation-one-edicion-limitada/) |
+| 2026-10-08 | El Surface Laptop 15 Gen 8 vuelve a decantar la balanza hacia Intel frente a Snapdragon | [portatiles/surface-laptop-15-intel-snapdragon](https://www.techspain24.com/noticias/portatiles/surface-laptop-15-intel-snapdragon/) |
+| 2026-10-08 | El teclado 8BitDo Retro 87 de Xbox, a prueba: nostalgia verde que aguanta el uso diario | [consolas/8bitdo-xbox-keyboard](https://www.techspain24.com/noticias/consolas/8bitdo-xbox-keyboard/) |
+| 2026-10-08 | Filtración: Intel prepararía los Core 2000HX para portátiles con «Raptor Lake Next» | [portatiles/intel-core-2000hx](https://www.techspain24.com/noticias/portatiles/intel-core-2000hx/) |
+| 2026-10-08 | Formula V Line estrena la Air Power G10 en EE. UU., con entrada de aire orientable | [componentes/formula-v-air-power-g10](https://www.techspain24.com/noticias/componentes/formula-v-air-power-g10/) |
+| 2026-10-08 | FRONTIER pone a la venta 50 unidades del PC conmemorativo por los 50 años de Intel en Japón | [tarjetas-graficas/intel-50-aniversario-pc](https://www.techspain24.com/noticias/tarjetas-graficas/intel-50-aniversario-pc/) |
+| 2026-10-08 | Fyne Audio F1-10 Anniversary: 30 pares para celebrar diez años de la marca escocesa | [audio/fyne-audio-f1-10](https://www.techspain24.com/noticias/audio/fyne-audio-f1-10/) |
+| 2026-10-08 | Galaxy Z Fold 8 Ultra: el silicio-carbono no basta para dar el salto de autonomía | [moviles/galaxy-z-fold-8-ultra-bateria](https://www.techspain24.com/noticias/moviles/galaxy-z-fold-8-ultra-bateria/) |
+| 2026-10-08 | Gateron lanza el Silent Low Profile 3.0 Black, un interruptor silencioso que conserva el recorrido completo | [componentes/gateron-silent-low-profile-3](https://www.techspain24.com/noticias/componentes/gateron-silent-low-profile-3/) |
+| 2026-10-08 | INMO GO3 y Magic AI Glasses J: dos caminos opuestos para las gafas inteligentes | [wearables/inmo-go3-vs-magic-ai-glasses-j](https://www.techspain24.com/noticias/wearables/inmo-go3-vs-magic-ai-glasses-j/) |
+| 2026-10-08 | La cámara conectada del Pixel se amplía a 11 apps: Meet, Zoom, Teams y Slack | [moviles/pixel-connected-camera-apps](https://www.techspain24.com/noticias/moviles/pixel-connected-camera-apps/) |
+| 2026-10-08 | Lenovo abre la reserva del YOGA Pro 15 RTX Spark, a la venta el 16 de octubre | [tarjetas-graficas/lenovo-yoga-pro-15-rtx-spark](https://www.techspain24.com/noticias/tarjetas-graficas/lenovo-yoga-pro-15-rtx-spark/) |
+| 2026-10-08 | LG gram Pro 17: 17 pulgadas y 1,5 kg con batería para toda una jornada | [portatiles/lg-gram-pro-17](https://www.techspain24.com/noticias/portatiles/lg-gram-pro-17/) |
+| 2026-10-08 | Los Bose Ultra Open Earbuds de 2ª gen mejoran el sonido y la batería, pero mantienen los 299 dólares | [audio/bose-ultra-open-earbuds-2](https://www.techspain24.com/noticias/audio/bose-ultra-open-earbuds-2/) |
+| 2026-10-08 | Luxsin X8: ocho DAC CS43198 y ecualización asistida por IA por 699 dólares | [audio/luxsin-x8](https://www.techspain24.com/noticias/audio/luxsin-x8/) |
+| 2026-10-08 | Machenike 14 Ultra: 1,1 kg, pantalla 2,8K de 120 Hz y hasta 17,5 horas de autonomía | [portatiles/machenike-14-ultra](https://www.techspain24.com/noticias/portatiles/machenike-14-ultra/) |
+| 2026-10-08 | MAME NEHT vuelve tras más de una década con una build anclada al núcleo de MAME 0.160 | [emuladores/mame-neht](https://www.techspain24.com/noticias/emuladores/mame-neht/) |
+| 2026-10-08 | MAME-NES v2.0 reescribe el timing del PPU y añade cuatro alineaciones NTSC | [emuladores/mame-nes-2](https://www.techspain24.com/noticias/emuladores/mame-nes-2/) |
+| 2026-10-08 | Mechanic Master CR680: cinco caras sin tornillos, lateral reversible y 628 yuanes de preventa | [componentes/mechanic-master-cr680](https://www.techspain24.com/noticias/componentes/mechanic-master-cr680/) |
+| 2026-10-08 | Minisforum ESP4B: cuatro SSD M.2 y OCuLink desde una sola ranura PCIe 4.0 x4 | [componentes/minisforum-esp4b](https://www.techspain24.com/noticias/componentes/minisforum-esp4b/) |
+| 2026-10-08 | Motorola Razr 2026: sube a 799,99 dólares y sigue siendo el plegable de referencia | [moviles/motorola-razr-2026](https://www.techspain24.com/noticias/moviles/motorola-razr-2026/) |
+| 2026-10-08 | MSI abre las reservas del Prestige N16 Flip AI+, el 2 en 1 con RTX Spark y hasta 128 GB unificados | [tarjetas-graficas/msi-prestige-n16-flip-ai](https://www.techspain24.com/noticias/tarjetas-graficas/msi-prestige-n16-flip-ai/) |
+| 2026-10-08 | Noble Audio FoKus Artemis: inalámbricos con ANC, triple driver y 899 dólares | [audio/noble-audio-fokus-artemis](https://www.techspain24.com/noticias/audio/noble-audio-fokus-artemis/) |
+| 2026-10-08 | Noise Master Buds Open: los primeros auriculares abiertos de Noise con sonido de Bose | [audio/noise-master-buds-open](https://www.techspain24.com/noticias/audio/noise-master-buds-open/) |
+| 2026-10-08 | OnePlus lanza el 12 de octubre su primera batería externa con pantalla bajo el nuevo estándar chino | [moviles/oneplus-power-bank-67w](https://www.techspain24.com/noticias/moviles/oneplus-power-bank-67w/) |
+| 2026-10-08 | QNAP amplía su gama de 100 GbE con el switch gestionable L3 Lite QSW-M7230P-2X4F24T | [componentes/qnap-qsw-m7230p](https://www.techspain24.com/noticias/componentes/qnap-qsw-m7230p/) |
+| 2026-10-08 | Razer anuncia los Wolverine V4, sus nuevos mandos para Xbox y PC | [consolas/razer-wolverine-v4](https://www.techspain24.com/noticias/consolas/razer-wolverine-v4/) |
+| 2026-10-08 | Retro Remake abre las reservas del SuperStation SD2SPX, una tarjeta de memoria con microSD para PS1 y PS2 | [consolas/superstation-sd2spx](https://www.techspain24.com/noticias/consolas/superstation-sd2spx/) |
+| 2026-10-08 | ROG desvela los equipos de edición limitada de Phantom Blade Zero | [componentes/rog-phantom-blade-zero](https://www.techspain24.com/noticias/componentes/rog-phantom-blade-zero/) |
+| 2026-10-08 | SnowSky Echo Mini, el reproductor retro de la nueva submarca de FiiO | [audio/fiio-snowsky-echo-mini](https://www.techspain24.com/noticias/audio/fiio-snowsky-echo-mini/) |
+| 2026-10-08 | SOXAI Ring X: el anillo japonés de 5,19 mm busca su hueco fuera de Japón | [wearables/soxai-ring-x](https://www.techspain24.com/noticias/wearables/soxai-ring-x/) |
+| 2026-10-08 | Thermalright estrena las cajas TR-A30 ARGB y Vision, con pantalla magnética opcional | [componentes/thermalright-tr-a30](https://www.techspain24.com/noticias/componentes/thermalright-tr-a30/) |
+| 2026-10-08 | Vivo publica el calendario de OriginOS 7: qué modelos reciben Android 17 y cuándo | [moviles/vivo-originos-7](https://www.techspain24.com/noticias/moviles/vivo-originos-7/) |
+| 2026-10-08 | Wattson Audio Madison Phono: ecualización digital y tres entradas intercambiables por 5.495 dólares | [audio/wattson-audio-madison-phono](https://www.techspain24.com/noticias/audio/wattson-audio-madison-phono/) |
+| 2026-10-08 | XREAL Aura ya tiene precio: 1.279 dólares por las primeras gafas Android XR | [wearables/xreal-aura](https://www.techspain24.com/noticias/wearables/xreal-aura/) |

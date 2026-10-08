@@ -1,0 +1,46 @@
+---
+title: 'Minisforum ESP4B: Four M.2 SSDs and OCuLink from a Single PCIe 4.0 x4 Slot'
+description: 'Minisforum launches the ESP4B, a PCIe 4.0 x4 card with an AMD B850 chipset that adds four M.2 SSDs, OCuLink, and 20 Gbps USB-C without motherboard bifurcation.'
+pubDate: 2026-10-08
+tags: ['Components', 'Storage']
+cover: './assets/cover.jpg'
+coverAlt: 'Minisforum ESP4B expansion card with four M.2 slots and OCuLink port'
+source:
+  name: 'Profesional Review'
+  url: 'https://www.profesionalreview.com/2026/10/08/minisforum-esp4b-amd-b850-tarjeta-de-expansion/'
+draft: false
+translationOf: 'componentes/minisforum-esp4b'
+---
+
+Minisforum has put the **ESP4B** on sale, an expansion card that takes the **AMD B850** (Promontory 21) chipset off the motherboard to multiply connectivity for systems with few available PCIe lanes. The idea is simple to explain and hard to find: instead of splitting the processor's lines, the card itself incorporates the chipset and handles distributing the ports.
+
+## Minisforum ESP4B: a single x4 slot for four M.2 SSDs
+
+The ESP4B connects via a **PCIe 4.0 x4** interface and offers **four M.2 slots** for NVMe drives. What's interesting for the person installing it isn't the number of slots, but how bandwidth is distributed when they are filled:
+
+- With **two drives**, each operates at full PCIe 4.0 x4 and achieves reads of up to **6.1 GB/s**.
+- With the **four slots occupied**, distribution drops to **x2 per drive** and reads settle around **3.3 GB/s**.
+
+That automatic adjustment is what avoids relying on the motherboard's **PCIe bifurcation**. On platforms that don't support it —or that don't document it well—, the card keeps working because the integrated chipset does the job. It's the detail that separates the ESP4B from a simple passive adapter. On desktop boards, that same chipset usually comes integrated in models like the [Gigabyte B850 AORUS ELITE X3D](/noticias/gigabyte-b850-aorus-elite-x3d/), which also distributes four M.2 slots; the difference is that there the chipset lives on the board and here, on a card.
+
+![View of the Minisforum ESP4B card with its storage slots](./assets/imagen-3.jpg)
+
+## OCuLink and USB-C beyond storage
+
+Storage isn't the only thing it adds. The ESP4B incorporates an **OCuLink port**, intended for connecting an **external graphics card (eGPU)**, and a **20 Gbps USB Type-C** for peripherals or high-performance external storage. With the included adapter, the same port can also manage up to **four SATA devices**.
+
+![Connectors and ports of the expansion card](./assets/imagen-2.jpg)
+
+In a compact system, that combination is the difference between running short on storage and expanding without opening the chassis twice. Still, OCuLink deserves to be looked at calmly: its performance depends on the specific system and adapter, and it doesn't replace a full PCIe slot on the board.
+
+## Broad compatibility and $135 price
+
+Early tests circulating in communities like Reddit point to broader compatibility than expected. According to those reports, the card works on both current AMD and Intel platforms as well as older systems —a **2011 Dell OptiPlex** is cited— and even on systems based on **Minisforum ARM processors**, a company that this month also presented [a gaming mini PC with Ryzen 9 8945HX and Radeon RX 9060 XT](/noticias/componentes/minisforum-mini-pc-rx-9060-xt/).
+
+Its official price is **$135**, placing it above similar adapters. The argument isn't the price, but the package: proprietary chipset, four M.2s, OCuLink, and 20 Gbps USB-C on a single card.
+
+![Installation of the expansion card in a compact system](./assets/imagen-4.jpg)
+
+## What changes for those who are going to install it
+
+For a mini PC or a board with limited expansion, the ESP4B solves a real problem: adding storage without fighting for processor lines. Before buying it, it's worth checking three things: that there is an available and accessible **PCIe 4.0 x4 slot**, that the case has **clearance and airflow** for four SSDs (even if they are M.2, they generate heat under sustained load) and that the power supply can feed the assembly. If the goal is an eGPU, you need to verify OCuLink compatibility with the specific graphics card. With those checks done, the card fits where a passive adapter doesn't reach.

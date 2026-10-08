@@ -1,0 +1,35 @@
+---
+title: 'QNAP Expands Its 100 GbE Range with Managed L3 Lite Switch QSW-M7230P-2X4F24T'
+description: 'QNAP''s 1U switch combines two 100 GbE ports, four 25 GbE ports, and 24 PoE++ 10 GbE ports with 800 W for virtualization, storage, and AI.'
+pubDate: 2026-10-08
+tags: ['Components', 'Networking']
+cover: './assets/cover.jpg'
+coverAlt: 'View of the QNAP QSW-M7230P-2X4F24T switch, a 1U rack unit with 100, 25, and 10 GbE ports'
+source:
+  name: 'QNAP'
+  url: 'https://www.qnap.com/es-es/news/2026/qnap-ampl%C3%ADa-su-gama-de-100gbe-con-el-switch-gestionable-l3-lite-qsw-m7230p-2x4f24t'
+draft: false
+translationOf: 'componentes/qnap-qsw-m7230p'
+---
+
+QNAP has expanded its networking catalog with the **QSW-M7230P-2X4F24T**, a managed switch with L3 Lite functions designed for medium and large enterprises. The manufacturer targets it at virtualization workloads, high-speed storage, and AI infrastructure, concentrating all hardware in a single 1U rack chassis.
+
+## What the QSW-M7230P-2X4F24T Offers: 100, 25, and 10 GbE
+
+The unit distributes connectivity across three speed tiers. At the top, it carries **two QSFP28 100 GbE ports**, intended as trunk links toward the network core or to connect two of these switches together. Below that, **four SFP28 25 GbE ports** cover servers and NAS systems, while **twenty-four RJ45 10 GbE ports** serve workstations and other devices. The announced total switching capacity is **1,080 Gbps**.
+
+Having all three tiers in a single rack unit saves space and, above all, cabling: there is no need to chain several switches to go from 10 to 100 GbE. The proposal sits in the same league as [Ubiquiti's UniFi USW Pro XG switch](/noticias/ubiquiti-unifi-usw-pro-xg-10-poe/), which also bets on 10 GbE and Ethernet power delivery.
+
+## 800 W PoE++ with Management from QSS Pro
+
+The 24 RJ45 10 GbE ports are compatible with the **IEEE 802.3bt PoE++** standard, with a maximum of **90 W per port** and a **total power budget of 800 W**. There is plenty of margin to power Wi-Fi 7 access points, PTZ cameras, and other devices that no longer carry their own power supply, but it pays to look at the numbers before hanging everything on a single switch: 24 ports at 90 W would sum up to 2,160 W, well above the available 800 W, so the budget is shared and not all ports will be able to deliver maximum power simultaneously.
+
+The management of that energy is handled by the software **QSS Pro**, with real-time power control, consumption priorities, and remote port rebooting. On the traffic plane, the switch supports static IPv4 and IPv6 addressing, DHCP server, and advanced VLAN configuration; it also adds compatibility with **MC-LAG** and **LACP** protocols to eliminate single points of failure in the network.
+
+## Audiovisual Synchronization, Security, and Deployment
+
+The QSW-M7230P-2X4F24T incorporates support for **PTP Boundary Clock**, IGMP Snooping, and VLAN management, designed to keep video and audio synchronized on wall-mounted screens, audiovisual studios, and control rooms. In terms of security, it works in coordination with **ADRA NDR X**, the system QNAP installs on its NAS units, to isolate ransomware incidents, and allows launching isolated backups via the **Airgap+** mechanism.
+
+For growing networks, connecting two of these switches via their 100 GbE ports provides capacity for up to **48 workstations at 10 GbE and 8 NAS servers at 25 GbE**. On the server side, a unit like [the ASRock Rack SORANO motherboard for EPYC 8005](/noticias/asrock-rack-sorano-epyc-8005/), with dual 10 GbE networking, would fit into the same deployment. The model is already available in QNAP's solutions catalog.
+
+Before buying it, it pays to do the math: sum up the actual power consumption of your access points and PoE cameras, check that they fit within the 800 W with room to spare, and reserve QSS Pro priority management for critical ports. That way the switch won't surprise you on the day you add the next camera.

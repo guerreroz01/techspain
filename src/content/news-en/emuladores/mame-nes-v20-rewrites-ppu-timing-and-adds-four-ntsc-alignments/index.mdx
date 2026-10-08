@@ -1,0 +1,48 @@
+---
+title: 'MAME-NES v2.0 rewrites PPU timing and adds four NTSC alignments'
+description: 'The MAME branch for NES launches version 2.0: it rewrites the CPU, APU, and PPU timing in pursuit of cycle-accurate precision and adds four NTSC alignments.'
+pubDate: 2026-10-08
+tags: ['Emulators', 'NES']
+cover: './assets/cover.jpg'
+coverAlt: 'MAME logo'
+source:
+  name: 'EmuCR'
+  url: 'https://www.emucr.com/2026/10/mame-nes-v20.html'
+draft: false
+translationOf: 'emuladores/mame-nes-2'
+---
+
+# MAME-NES v2.0 rewrites PPU timing and adds four NTSC alignments
+
+The MAME-NES branch has released its version 2.0, an update focused on NES/Famicom hardware precision. The work thoroughly rewrites the CPU M6502/NES, APU, and PPU timing paths to approach cycle-accurate behavior, doing so without breaking the existing NES/Famicom architecture that MAME already had: the declared goal is to gain fidelity while maintaining compatibility with what exists.
+
+This is not a catalog change or a new interface, but an internal rewrite. The project is published on GitHub under the repository `theklap/mame_nes`, and the build is distributed as `nes.exe`.
+
+## MAME-NES moves PPU timing out of the APU
+
+The background change is where the PPU clock lives. Previously, PPU timing hung off the APU: each APU tick fired three PPU ticks. In version 2.0, the PPU manages its own timing and no longer depends on the APU.
+
+That decoupling is what opens the door to emulating the four NTSC CPU/PPU timing alignments, something the previous structure did not allow. It is a precision adjustment: it better reproduces how the two chips coordinate in the original hardware, not a convenience feature.
+
+## Four NTSC alignments to choose from
+
+The build exposes selection via `Tab → Machine Configuration → CPU/PPU Alignment`, with phases `0` through `3` or the `Random` option. `Random` does not pick purely at random: it chooses an alignment using weighted probabilities. In all cases, the selection takes effect when the machine is rebooted, so the change does not apply hot.
+
+## What the tests say
+
+The project claims that all four phases pass the `$2007`, `RMW2007Test`, and `AccuracyCoin` alignment tests. The version notes themselves qualify the rest of the table, with several results marked as pending confirmation:
+
+- **`Wario Woods`**: a flicker appears in phase 1.
+- **`read2004.nes`**: looks correct in phase 0; in phases 1–3 it is missing an initial `FF` (the author notes this as possibly normal behavior).
+- **`demo_ntsc`**: correct in all phases.
+- **`scanline.nes`**: correct in phase 0; in phases 1–3 it shows some corruption (also marked as possibly normal).
+- **`PaletteCorruption.nes`**: correctly detects the selected phase.
+- **`INC2007Alignment.nes`**: correctly detects the selected phase.
+
+These notes should be read with caution: they are from the development itself, not an external validation, and some results remain open to interpretation.
+
+## What changes for the player
+
+For someone playing today, the value lies in the fidelity of the work, not a list of new games. A CPU/APU/PPU timing path closer to the hardware reduces subtle synchronization errors that affect cycle-sensitive titles. Someone coming from [MAME4droid 1.41.2](/noticias/mame4droid-mame-0-289/) and its mobile packaging will find something different here: a desktop branch that prioritizes NES precision over convenience features.
+
+What still does not work entirely is listed in the notes themselves: the flicker of `Wario Woods` in phase 1 and the corruption of `scanline.nes` in phases 1–3 remain as pending points. The full build can be downloaded from the project's repository.

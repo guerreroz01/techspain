@@ -1,0 +1,35 @@
+---
+title: 'QNAP amplía su gama de 100 GbE con el switch gestionable L3 Lite QSW-M7230P-2X4F24T'
+description: 'El switch 1U de QNAP combina dos puertos de 100 GbE, cuatro de 25 GbE y 24 tomas de 10 GbE con PoE++ y 800 W para virtualización, almacenamiento e IA.'
+pubDate: '2026-10-08'
+tags: ['Componentes', 'Redes']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Vista del switch QNAP QSW-M7230P-2X4F24T, un equipo de rack de 1U con puertos de 100, 25 y 10 GbE'
+source:
+  name: 'QNAP'
+  url: 'https://www.qnap.com/es-es/news/2026/qnap-ampl%C3%ADa-su-gama-de-100gbe-con-el-switch-gestionable-l3-lite-qsw-m7230p-2x4f24t'
+---
+
+QNAP ha ampliado su catálogo de red con el **QSW-M7230P-2X4F24T**, un conmutador gestionable con funciones L3 Lite pensado para medianas y grandes empresas. El fabricante lo orienta a cargas de trabajo de virtualización, almacenamiento de alta velocidad e infraestructura de inteligencia artificial, y concentra todo el hardware en un único chasis de rack de formato 1U.
+
+## Qué ofrece el QSW-M7230P-2X4F24T: 100, 25 y 10 GbE
+
+El equipo reparte la conectividad en tres tramos de velocidad. En la parte alta lleva **dos puertos QSFP28 de 100 GbE**, pensados como enlaces troncales hacia el núcleo de la red o para unir dos de estos conmutadores entre sí. Por debajo, **cuatro puertos SFP28 de 25 GbE** cubren servidores y sistemas NAS, mientras que **veinticuatro puertos RJ45 de 10 GbE** atienden a los puestos de trabajo y al resto de dispositivos. La capacidad total de conmutación anunciada es de **1.080 Gbps**.
+
+Tener los tres tramos en una misma unidad de rack ahorra espacio y, sobre todo, cableado: no hace falta encadenar varios conmutadores para subir de 10 a 100 GbE. La propuesta queda en la misma liga que [el switch UniFi USW Pro XG de Ubiquiti](/noticias/ubiquiti-unifi-usw-pro-xg-10-poe/), que también apuesta por el 10 GbE y por la alimentación por Ethernet.
+
+## PoE++ de 800 W con gestión desde QSS Pro
+
+Los 24 puertos RJ45 de 10 GbE son compatibles con el estándar **IEEE 802.3bt PoE++**, con un máximo de **90 W por toma** y un **presupuesto energético global de 800 W**. Es margen de sobra para alimentar puntos de acceso Wi-Fi 7, cámaras PTZ y otros dispositivos que ya no llevan su propia fuente, pero conviene mirar los números antes de colgar todo de un solo switch: 24 tomas a 90 W sumarían 2.160 W, muy por encima de los 800 W disponibles, así que el presupuesto es compartido y no todos los puertos podrán entregar el máximo a la vez.
+
+De la gestión de esa energía se encarga el software **QSS Pro**, con control de potencia en tiempo real, prioridades de consumo y reinicio remoto de puertos. En el plano del tráfico, el conmutador admite direccionamiento estático IPv4 e IPv6, servidor DHCP y configuración avanzada de VLAN; además suma compatibilidad con **MC-LAG** y protocolos **LACP** para eliminar puntos únicos de fallo en la red.
+
+## Sincronización audiovisual, seguridad y despliegue
+
+El QSW-M7230P-2X4F24T incorpora soporte para **PTP Boundary Clock**, IGMP Snooping y gestión por VLAN, pensado para mantener sincronizados vídeo y sonido en pantallas murales, estudios audiovisuales y salas de control. En seguridad, funciona de forma coordinada con **ADRA NDR X**, el sistema que QNAP instala en sus NAS, para aislar incidentes de ransomware, y permite lanzar copias de seguridad aisladas mediante el mecanismo **Airgap+**.
+
+Para redes que crecen, unir dos de estos conmutadores por sus puertos de 100 GbE da capacidad para hasta **48 puestos de trabajo a 10 GbE y 8 servidores NAS a 25 GbE**. En el lado servidor, un equipo como [la placa ASRock Rack SORANO para EPYC 8005](/noticias/asrock-rack-sorano-epyc-8005/), con doble red de 10 GbE, encajaría en el mismo despliegue. El modelo ya está disponible en el catálogo de soluciones de QNAP.
+
+Antes de comprarlo, merece la pena hacer cuentas: suma el consumo real de tus puntos de acceso y cámaras PoE, comprueba que cabe en los 800 W con holgura y reserva la gestión de prioridades de QSS Pro para los puertos críticos. Así el switch no te sorprende el día que añadas la siguiente cámara.

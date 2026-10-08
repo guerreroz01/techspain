@@ -1,0 +1,41 @@
+---
+title: 'MAME NEHT Returns After More Than a Decade with a Build Anchored to the MAME 0.160 Core'
+description: 'MAME NEHT resumes its development after a decade with a build based on MAME 0.160, intended to preserve ROM hacks that the official branch can no longer run.'
+pubDate: 2026-10-08
+tags: ['Emulators', 'Arcade', 'MAME', 'NeoGeo']
+source:
+  name: 'EmuCR'
+  url: 'https://www.emucr.com/2026/10/mame-neht-20261007.html'
+draft: false
+translationOf: 'emuladores/mame-neht'
+---
+
+MAME NEHT is moving again. The build dated October 7, 2026 marks the return to activity of a project that hadn't published in over a decade, and it does so with a defining decision: relying on the source code of MAME 0.160 instead of following the emulator's recent numbering.
+
+## A Build Anchored to the MAME 0.160 Core
+
+NEHT is not a new emulator nor a substitute for MAME. It is a line of custom builds returning with the goal of reviving and modernizing its previous work, bridging historical sources and current MAME engineering. The axis of that strategy is the chosen base: starting from the code of MAME 0.160 rather than newer official versions.
+
+That decision isn't nostalgia, but compatibility. According to the project, anchoring to 0.160 is what allows continuing to run specific ROM hacks that later official versions stopped booting. For those relying on those patches, the utility lies in being able to update parts of the emulator without losing them along the way.
+
+## What This Release of MAME NEHT Incorporates
+
+The list of changes for this build concentrates on three fronts:
+
+- **CPS3:** The complete official set returns to the core via a backport, is converted and integrated with custom SCSI adjustments.
+- **CV1K:** Synchronization and modernization of the driver for the 0.160 core.
+- **Code synchronization:** Updating key subsystem drivers to align them with recent official versions, while preserving compatibility with inherited NeoGeo hacks at the same time.
+
+## Why It Matters
+
+The official MAME line evolves and, over time, leaves behind patches and hacks that no longer fit its code. Derived projects exist precisely to fill that gap: they preserve material that would otherwise have no way of running. MAME NEHT joins that tradition alongside other derived builds that also rewrite parts of the core for reasons of precision, such as [MAME-NES v2.0 and its work on PPU timing](/noticias/emuladores/mame-nes-2/).
+
+It's worth not reading it as a promise of total compatibility. The announcement doesn't claim that the entire library works, nor does it state that hacks unrelated to those cited are covered: it describes a set of changes and an old base for a reason.
+
+## What Changes for the Player
+
+The current state is concrete: the MAME NEHT v0.160 build is already available to download from the project's repository. Its natural audience is whoever maintained those ROM hacks and was left without a way to run them on the official line.
+
+What remains pending is everything the announcement doesn't detail: there are no compatibility figures, nor a complete list of affected systems, nor guarantees about hacks other than those mentioned. For the rest, the recommendation remains as always: test on your own copy and don't assume a game works just because its system is supported.
+
+The download and source code are published by the developer on GitHub, which EmuCR links to as the release origin.
