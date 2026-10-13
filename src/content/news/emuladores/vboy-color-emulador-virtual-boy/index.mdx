@@ -1,0 +1,38 @@
+---
+title: 'VBoy Color añade color y 3D estereoscópico al Virtual Boy en PC, Quest y Android'
+description: 'Un emulador libre y de código abierto permite jugar al catálogo del Virtual Boy en color y con 3D estereoscópico real en Meta Quest, además de en Windows, Linux, macOS y Android.'
+pubDate: 2026-10-13
+# author: se omite; la firma se deriva del vertical `emuladores`
+tags: ['Emuladores', 'Realidad virtual']
+featured: false
+breaking: false
+cover: './assets/cover.png'
+coverAlt: 'Comparativa del emulador VBoy Color frente a la imagen original en rojo del Virtual Boy'
+source:
+  name: 'RetroRGB'
+  url: 'https://retrorgb.com/vboy-color-virtual-boy-emulator.html'
+---
+
+VBoy Color acaba de llegar como un emulador de Virtual Boy gratuito y de código abierto, y lo hace con dos promesas que la consola de Nintendo nunca cumplió del todo: color y 3D estereoscópico real. La propuesta permite jugar los juegos en tres dimensiones a través de unas gafas Meta Quest, pero también en Windows, Linux, macOS y Android, tanto en 2D como en 3D. El proyecto se descarga desde su repositorio público en GitHub.
+
+El emulador parte de VirtualBoGo y compila sin tocar el núcleo de emulación **Beetle VB**, la bifurcación de libretro de la emulación de Virtual Boy de Mednafen. Se distribuye bajo licencia GPL-3.0 y, como es habitual en este tipo de proyectos, no incluye ningún juego: hay que aportar los volcados de los cartuchos propios.
+
+## Cómo consigue el color
+
+El color no es un filtro plano. El modo **Auto**, que viene por defecto, colorea cada píxel según lo que lo dibujó: las capas de fondo por su profundidad, de lejos a cerca, y los personajes por su paleta, con pasos de oscuro a más claro. Lo que un juego dibuja sin teselas —el mundo alámbrico de *Red Alarm* o el pozo de *3-D Tetris*— se colorea según la distancia entre las imágenes de ambos ojos, del índigo al dorado. Junto a él convive el modo **Multicolor**, que da un color propio a cada uno de los cuatro tonos del Virtual Boy a partir de una serie de paletas; el modo **Gradient**, que mapea el brillo del juego sobre un degradado; y el modo **Tint**, el aspecto clásico en rojo o en el color que se mezcle.
+
+Además de los modos automáticos hay *packs* de color pintados a mano juego a juego, tesela a tesela. Vienen integrados para títulos como *Galactic Pinball*, *Mario Clash*, *Mario's Tennis*, *Jack Bros.*, *Teleroboxer*, *Vertical Force*, *Wario Land*, *Bound High*, *Dragon Hopper*, *Innsmouth no Yakata*, *Panic Bomber*, *Space Invaders Virtual Collection* y *V-Tetris*, entre otros, que solo guardan colores: ninguna imagen de los juegos viaja con la aplicación. Un archivo `.vbcp` junto a la ROM sustituye al pack integrado, y en PC es posible pintar uno propio.
+
+![Comparativa del emulador VBoy Color frente a la imagen original en rojo del Virtual Boy](./assets/vboy-color-vs-mister.png)
+
+## 3D y el resto de prestaciones
+
+El punto fuerte del proyecto es el 3D. En unas Meta Quest cada ojo recibe su propia imagen, como en el hardware original, y la pantalla se refresca a la tasa más alta que admita el visor para que el desplazamiento no se rompa. En PC y teléfonos también hay 3D sin gafas especiales: el modo **side by side** para un televisor 3D, **top and bottom** o las clásicas **gafas de color** (*red/cyan*, *green/magenta* y *amber/blue*), mezcladas con el método de Dubois para conservar el color del juego todo lo posible.
+
+La lista de funciones es amplia: estados de guardado con miniaturas en color, soporte de RetroAchievements en modo *softcore*, mando en PC, VR y Android con reasignación de botones por juego, y tres estilos de pantalla —**Sharp**, **Smooth** con los bordes redondeados de OmniScale, y **LED** con las filas de luz y el brillo suave del propio Virtual Boy—. En Quest, la imagen puede flotar en la habitación real mediante *passthrough*; en PC se ajusta el tamaño de la ventana, y los *hotkeys* cubren capturas (F12), guardado y carga de estado (F2 y F4), reinicio (Ctrl+R) y salida (Ctrl+Q). La grabación de vídeo puede registrar la imagen original en rojo y la coloreada lado a lado, fotograma a fotograma, y el emulador acepta incluso *runs* de TASVideos (`.bk2`) que reproduce por sí solo.
+
+## Estado real y qué falta
+
+VBoy Color funciona en Windows (`.zip` x64), Linux (binario que necesita un controlador Vulkan), macOS vía RetroArch, y Android en teléfonos, tabletas, dispositivos portátiles y televisores compatibles. El requisito en Android es Android 10 o superior, ARM de 64 bits y Vulkan, lo que deja fuera a los Fire TV Stick con Android de 32 bits. Como núcleo de RetroArch se puede instalar en Windows, Linux, macOS y Android, y en PC existe una versión de VR (`VBoyColorVR.exe`) para Quest Link, Virtual Desktop o SteamVR.
+
+El propio RetroRGB deja una matización honesta: quien ya tenga un MiSTer puede añadir color desde siempre con el ajuste **Color Mode\\Multicolor** o cargando una paleta de Game Boy Color, y verlo en 3D en cualquier pantalla, aunque el modo anaglifo no está a la altura del 3D real de un visor. Aun así, la ventaja de la emulación por software está en cosas que el hardware original no puede ofrecer, y este emulador es un motivo de peso para que los aficionados al Virtual Boy le den una oportunidad.

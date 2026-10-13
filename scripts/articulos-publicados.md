@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 851 artículos. Actualizado: 2026-10-08
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 882 artículos. Actualizado: 2026-10-13
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -858,3 +858,34 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-08 | Vivo publica el calendario de OriginOS 7: qué modelos reciben Android 17 y cuándo | [moviles/vivo-originos-7](https://www.techspain24.com/noticias/moviles/vivo-originos-7/) |
 | 2026-10-08 | Wattson Audio Madison Phono: ecualización digital y tres entradas intercambiables por 5.495 dólares | [audio/wattson-audio-madison-phono](https://www.techspain24.com/noticias/audio/wattson-audio-madison-phono/) |
 | 2026-10-08 | XREAL Aura ya tiene precio: 1.279 dólares por las primeras gafas Android XR | [wearables/xreal-aura](https://www.techspain24.com/noticias/wearables/xreal-aura/) |
+| 2026-10-13 | Beats y Pokémon insinúan un altavoz Beats Pill con diseño de Pikachu | [audio/beats-pokemon-altavoz-pill-pikachu](https://www.techspain24.com/noticias/audio/beats-pokemon-altavoz-pill-pikachu/) |
+| 2026-10-13 | CMF lanza sus primeros altavoces Bluetooth: Speaker S y Speaker M, desde 59 dólares | [audio/cmf-speaker-s-m](https://www.techspain24.com/noticias/audio/cmf-speaker-s-m/) |
+| 2026-10-13 | Cómo elegir la CPU ideal para tu PC: guía paso a paso | [tutoriales/como-elegir-cpu-ideal](https://www.techspain24.com/noticias/tutoriales/como-elegir-cpu-ideal/) |
+| 2026-10-13 | El DJI Mini 5 Pro cae a 679 dólares, su mínimo histórico en Amazon | [drones/dji-mini-5-pro-minimo-historico](https://www.techspain24.com/noticias/drones/dji-mini-5-pro-minimo-historico/) |
+| 2026-10-13 | El Ejército de EE. UU. reparte 4.150 millones en contratos antidrón entre diez empresas | [drones/ejercito-eeuu-4150-millones-antidron](https://www.techspain24.com/noticias/drones/ejercito-eeuu-4150-millones-antidron/) |
+| 2026-10-13 | El Fitbit Air estrena la correa Metal Mesh y afina el registro automático de actividad | [wearables/fitbit-air-metal-mesh-nuevas-funciones](https://www.techspain24.com/noticias/wearables/fitbit-air-metal-mesh-nuevas-funciones/) |
+| 2026-10-13 | El Fitbit Edge ya es oficial: pantalla AMOLED, ECG, GPS y hasta una semana de batería | [wearables/fitbit-edge-lanzamiento-oficial](https://www.techspain24.com/noticias/wearables/fitbit-edge-lanzamiento-oficial/) |
+| 2026-10-13 | El Garmin MARQ Gen 3 se filtra en las páginas de soporte en español de Garmin | [wearables/garmin-marq-gen-3-filtracion](https://www.techspain24.com/noticias/wearables/garmin-marq-gen-3-filtracion/) |
+| 2026-10-13 | El Honor Win 2 y la Win Pad se presentan el 21 de octubre, sin precio ni fecha para España | [moviles/honor-win-2-win-pad](https://www.techspain24.com/noticias/moviles/honor-win-2-win-pad/) |
+| 2026-10-13 | El Huawei Pura X View roza las 450.000 unidades en China, pero sigue sin stock y con sobreprecio | [moviles/huawei-pura-x-view-ventas](https://www.techspain24.com/noticias/moviles/huawei-pura-x-view-ventas/) |
+| 2026-10-13 | El MacBook Pro con M6 llegará con tres mejoras: más núcleos, doble motor neural y 2 nm | [portatiles/m6-macbook-pro-tres-mejoras](https://www.techspain24.com/noticias/portatiles/m6-macbook-pro-tres-mejoras/) |
+| 2026-10-13 | El mercado de consolas se desploma: Xbox cae un 33 % interanual y PS5 un 25 %, con la Series X a 800 dólares | [consolas/mercado-consolas-caida-xbox-ps5](https://www.techspain24.com/noticias/consolas/mercado-consolas-caida-xbox-ps5/) |
+| 2026-10-13 | Fosi Audio DAP Neo: un reproductor de audio con alma de iPod desde 79,99 dólares | [audio/fosi-audio-dap-neo](https://www.techspain24.com/noticias/audio/fosi-audio-dap-neo/) |
+| 2026-10-13 | Googlebook OS ya se ejecuta en un Mac con Apple Silicon gracias a un proyecto open source | [portatiles/googlebook-os-macs-apple-silicon](https://www.techspain24.com/noticias/portatiles/googlebook-os-macs-apple-silicon/) |
+| 2026-10-13 | HelixSR lleva el DLSS de NVIDIA a las portátiles AMD: 7 ms por fotograma frente a los 11 ms de FSR 4 | [tarjetas-graficas/helixsr-dlss-steam-deck-rog-ally](https://www.techspain24.com/noticias/tarjetas-graficas/helixsr-dlss-steam-deck-rog-ally/) |
+| 2026-10-13 | Intel pone nombre a Crescent Island: GPU D-Series, con 1,3 PFLOPS en FP8 y 1,5 TB/s | [tarjetas-graficas/intel-gpu-d-series-crescent-island](https://www.techspain24.com/noticias/tarjetas-graficas/intel-gpu-d-series-crescent-island/) |
+| 2026-10-13 | Intel y Qualcomm ya han subido el precio de sus CPU: hasta un 20 % en Panther Lake y AMD podría seguir | [componentes/intel-qualcomm-subida-precios-cpu](https://www.techspain24.com/noticias/componentes/intel-qualcomm-subida-precios-cpu/) |
+| 2026-10-13 | La CPU, la RAM y el SSD ya concentran el 68 % del coste de componentes de un portátil | [memorias/cpu-ram-ssd-68-coste-portatil](https://www.techspain24.com/noticias/memorias/cpu-ram-ssd-68-coste-portatil/) |
+| 2026-10-13 | La ESA quiere que Anbernic entre en la lista de «superfakes» de Estados Unidos | [emuladores/anbernic-esa-superfake](https://www.techspain24.com/noticias/emuladores/anbernic-esa-superfake/) |
+| 2026-10-13 | Las Galaxy Glasses se filtran al completo: 41 gramos, sin pantalla y hasta 16 variantes | [wearables/samsung-galaxy-glasses-filtracion](https://www.techspain24.com/noticias/wearables/samsung-galaxy-glasses-filtracion/) |
+| 2026-10-13 | LineageOS 24 se adelanta con Android 17 y apps rediseñadas | [moviles/lineageos-24-android-17](https://www.techspain24.com/noticias/moviles/lineageos-24-android-17/) |
+| 2026-10-13 | Los envíos de móviles en China caen un 15,4 % y Huawei es el único que crece con fuerza | [moviles/china-envios-moviles-q3-2026](https://www.techspain24.com/noticias/moviles/china-envios-moviles-q3-2026/) |
+| 2026-10-13 | Nintendo asegura que no tiene planes de abandonar el formato físico | [consolas/nintendo-mantiene-formato-fisico](https://www.techspain24.com/noticias/consolas/nintendo-mantiene-formato-fisico/) |
+| 2026-10-13 | Overdrive, la tienda pirata que reparte juegos y DLC gratis en PS5 con jailbreak | [consolas/ps5-jailbreak-overdrive-tienda](https://www.techspain24.com/noticias/consolas/ps5-jailbreak-overdrive-tienda/) |
+| 2026-10-13 | PSBox Cloud Gaming lleva el catálogo de Xbox a las PS5 con jailbreak | [consolas/psbox-cloud-gaming-xbox-ps5](https://www.techspain24.com/noticias/consolas/psbox-cloud-gaming-xbox-ps5/) |
+| 2026-10-13 | Samsung conserva el liderazgo mundial de móviles en el Q3 2026, pero el mercado cae un 20 % y los precios suben otro 20 % | [moviles/samsung-lider-q3-2026-mercado-cae](https://www.techspain24.com/noticias/moviles/samsung-lider-q3-2026-mercado-cae/) |
+| 2026-10-13 | Samsung recortará hasta un 30 % su producción de móviles por la subida del 175 % en la RAM | [moviles/samsung-recorta-produccion-moviles-ram](https://www.techspain24.com/noticias/moviles/samsung-recorta-produccion-moviles-ram/) |
+| 2026-10-13 | ScummVM 2026.4 suma casi 200 juegos retro y estrena 12 motores | [emuladores/scummvm-2026-4-juegos](https://www.techspain24.com/noticias/emuladores/scummvm-2026-4-juegos/) |
+| 2026-10-13 | Sony lanza en China los INZONE E9 en morado cristal y los H9 II edición Fnatic: 799 y 1.699 yuanes | [audio/sony-inzone-e9-h9-ii-fnatic](https://www.techspain24.com/noticias/audio/sony-inzone-e9-h9-ii-fnatic/) |
+| 2026-10-13 | Taki Udon muestra la FPGA SP, una portátil que ejecuta cartuchos originales de Game Boy Advance | [emuladores/taki-udon-fpga-sp-gba](https://www.techspain24.com/noticias/emuladores/taki-udon-fpga-sp-gba/) |
+| 2026-10-13 | VBoy Color añade color y 3D estereoscópico al Virtual Boy en PC, Quest y Android | [emuladores/vboy-color-emulador-virtual-boy](https://www.techspain24.com/noticias/emuladores/vboy-color-emulador-virtual-boy/) |

@@ -1,0 +1,39 @@
+---
+title: 'Googlebook OS is now running on an Apple Silicon Mac thanks to an open-source project'
+description: 'A developer publishes gbos-vm, a project that runs the Googlebook OS within a GPU-accelerated virtual machine on Macs equipped with an Apple chip.'
+pubDate: 2026-10-13
+tags: ['Laptops', 'Googlebook', 'Mac']
+cover: './assets/cover.jpg'
+coverAlt: 'Googlebook OS settings panel running inside a window on a Mac'
+source:
+  name: 'TechPowerUp'
+  url: 'https://www.techpowerup.com/353610/modder-boots-googlebook-os-on-apple-silicon-macs'
+draft: false
+translationOf: 'portatiles/googlebook-os-macs-apple-silicon'
+---
+
+The Googlebooks have been on the market for only a few weeks and their system is already working on a device that Google didn't design it for: a Mac with an Apple chip. Developer Skylar Taylor-Barrick has published `gbos-vm`, an open-source project that boots Googlebook OS inside a virtual machine with GPU acceleration on Macs with Apple Silicon, and with Chrome running.
+
+The case is interesting for those following the consolidation of the Android laptop, but it's worth looking at it with the lid open and hours passing: it's not a system designed for the Mac, but a way to peek at it without buying anything. As an experiment, it works; as a daily work machine, not yet.
+
+## How the System Boots Up
+
+The installation script downloads the official recovery image that Google publishes for the Dell XPS Googlebook, an ARM64 build based on Android 17. It then replaces the `vendor` partition, which is specific to Dell hardware, with virtual device components from Google's Cuttlefish project, and boots everything under QEMU.
+
+![Dell XPS Googlebook recovery image download page open in Chrome](./assets/imagen-2.jpg)
+
+The key to it working without emulation is that the Dell is one of the Googlebooks with a Snapdragon X: its image is compiled for Arm, so it runs directly on the Mac's hypervisor. That leaves out Macs with Intel chips. Since Googlebook OS renders via Vulkan and Macs use Metal, the project redirects those calls via MoltenVK.
+
+Before trying it you must meet a list that is not exactly light: the README asks for 16 GB of RAM, 60 GB of free storage space, Xcode command-line tools and the Android SDK with NDK, plus about 9 GB of downloads. The first boot takes around 45 seconds on an M5 MacBook, which is the only machine the developer lists as tested.
+
+## Edges That Still Need Smoothing
+
+The author himself describes it as a development environment, not as a substitute for the Mac's system, and the problems he lists justify that warning. Bluetooth drops when booting, a TPM daemon enters an error loop, the display is limited to 60 FPS, and on one of the boots the audio sounded silent.
+
+There is also a background limitation: the reconstructed `vendor` partition uses software KeyMint and Gatekeeper and has no verified boot, so keys are not protected by a secure element. That's the difference between a test bench and a machine you rely on to work.
+
+## What It Means for the Reader
+
+For someone weighing buying a Googlebook, `gbos-vm` is a free way to test the system before deciding, provided you have an Apple-chip Mac and the patience to set up the environment. For someone looking for a laptop for daily use, the path remains native hardware: real battery life, sustained thermal performance, and manufacturer support cannot be evaluated from within a virtual machine.
+
+What really counts here is the signal: an operating system born just weeks ago is already moving outside its original hardware in a matter of weeks. That speaks to an Android base with fewer ties than one might expect, even though it's still far from the stability demanded by a work laptop.

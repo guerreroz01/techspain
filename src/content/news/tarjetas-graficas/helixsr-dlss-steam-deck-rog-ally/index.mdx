@@ -1,0 +1,45 @@
+---
+title: 'HelixSR lleva el DLSS de NVIDIA a las portátiles AMD: 7 ms por fotograma frente a los 11 ms de FSR 4'
+description: 'Un mod comunitario ejecuta la reconstrucción de imagen de DLSS 3.7 sobre GPU AMD en Steam Deck y ROG Ally X, con mediciones independientes que lo sitúan por delante de FSR 4 en coste por fotograma.'
+pubDate: '2026-10-13'
+tags: ['Tarjetas gráficas', 'NVIDIA', 'AMD']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Una Steam Deck OLED y una ASUS ROG Ally X colocadas una al lado de la otra sobre un fondo morado'
+source:
+  name: 'Wccftech'
+  url: 'https://wccftech.com/helixsr-mod-dlss-3-7-steam-deck-amd-handhelds-faster-fsr-4/'
+---
+
+Un mod comunitario permite a las portátiles con GPU AMD ejecutar la reconstrucción de imagen de NVIDIA. Se llama **HelixSR** y, en las primeras mediciones independientes, escalar a 1080p le cuesta alrededor de **7 milisegundos por fotograma**, frente a los **11 ms** que consume FSR 4 en las mismas condiciones. El dato pesa porque el parque de portátiles AMD —Steam Deck, ROG Ally X y compañía— sigue sin acceso oficial a FSR 4.
+
+## Qué hace HelixSR
+
+HelixSR se presenta como un sustituto directo de FSR 3.1 en juegos con **Direct3D 12**. La idea es engañar al juego: este cree que está llamando al escalador de AMD, pero lo que recibe es la reconstrucción de imagen de DLSS. Para conseguirlo, ejecuta la red neuronal de NVIDIA como sombreadores de cómputo de DirectX 12, de modo que no necesita controlador de NVIDIA, ni CUDA, ni ROCm. Sobre Linux funciona a través de Proton y vkd3d-proton.
+
+El modelo que emplea es el **Preset E** (que el desarrollador llama «Model E»), introducido con **DLSS 3.7**. Se trata de la última iteración del modelo convolucional de DLSS antes de que NVIDIA pasara a los modelos Transformer con DLSS 4. En una portátil ese detalle no es menor: el modelo convolucional es bastante más ligero de ejecutar, que es justo lo que necesita un chip con un presupuesto de vatios tan ajustado como el de una Steam Deck o una ROG Ally X.
+
+El desarrollo firma **lonewolf0622**, que publicó el proyecto en GitHub a comienzos de octubre.
+
+![Miniatura del vídeo con la demostración de DLSS 3.7 ejecutándose en portátiles AMD](./assets/helixsr-video.jpg)
+
+## Los números medidos frente a FSR 4
+
+Conviene precisar de dónde salen las cifras: **son pruebas de la comunidad, no del fabricante**. Un usuario de ResetEra midió unos **3,5 ms por fotograma** con HelixSR a **800p**, frente a **4,5 ms** con FSR 4, y **7 ms frente a 11 ms a 1080p**, con la GPU de la Steam Deck a **1400 MHz**. En una placa **BC-250**, *Hitman: World of Assassination* a **4K** rindió **35 FPS** con el preset Quality de DLSS, frente a **17 FPS** con FSR 4.
+
+El youtuber **BlackHeart909** aportó otro grupo de datos: entre **34 y 40 FPS** en *Pragmata* sobre Steam Deck en modo Performance, y entre **35 y 40 FPS** en *CONTROL Resonant* sobre la ROG Ally X a **1080p**, un juego que hasta ahora arrastraba un *ghosting* severo. Bajando la salida de la Ally X a **720p**, el juego se mantuvo en **60 FPS** estables.
+
+La calidad de imagen, en cambio, no tiene un veredicto único. El autor original de las pruebas lo situó algo por debajo de FSR 4 pero muy por encima de FSR 3; BlackHeart909 fue más entusiasta y sugirió que en algunos casos incluso podría verse mejor que FSR 4. La diferencia de coste por fotograma es difícil de discutir; la de calidad, de momento, depende de a quién se pregunte.
+
+## Estado del mod y límites actuales
+
+HelixSR se mueve rápido: en pocos días desde su publicación, el desarrollador ha sacado **cinco actualizaciones**. Entre las novedades hay un instalador de un solo archivo, un modo **QSSM** (Quality Super-Sampled Mode) que renderiza por encima de la resolución de pantalla para lograr bordes más limpios, y una corrección del desenfoque que se reportaba en GPU **RDNA 3** bajo Windows, el mismo problema que afectaba a la ROG Ally X de BlackHeart909.
+
+Los límites siguen ahí: funciona **solo con juegos de Direct3D 12**, sin soporte de **Vulkan**, y los títulos que no integran FSR 3.1 necesitan una herramienta externa, **OptiScaler**, para poder engancharse.
+
+## Por qué importa en portátiles AMD
+
+El contexto es el que explica el interés. FSR 4 está **oficialmente limitado a GPU RDNA 4**, lo que deja al chip **RDNA 2** de la Steam Deck y a las portátiles **RDNA 3** como la ROG Ally X ancladas en un FSR 3 que sigue apoyándose en escalado temporal, claramente inferior. Las soluciones comunitarias para forzar FSR 4 en esos dispositivos existen, pero a un coste de rendimiento que un chip de portátil no puede asumir con juegos exigentes.
+
+Ahí es donde HelixSR cambia la ecuación: es **gratuito** y, frente a la alternativa real disponible hoy —quedarse en FSR 3 o cargar con el sobrecoste de los parches de FSR 4—, ofrece más imagen reconstruida por milisegundo. El rival a batir no es una generación de hardware que estas máquinas ya no pueden comprar, sino lo que ya tienen instalado. Mientras tanto, la Steam Deck 2 apunta a **2028** según el filtrador Kepler_L2, así que cualquier cosa que alargue la vida útil de la generación actual tiene recorrido. Habrá que ver si la comunidad consigue cerrar la brecha de calidad frente a FSR 4 en las próximas revisiones.

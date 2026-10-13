@@ -1,0 +1,41 @@
+---
+title: 'ScummVM 2026.4 suma casi 200 juegos retro y estrena 12 motores'
+description: 'La versión 2026.4.0 del emulador llega en el 25 aniversario del proyecto con 194 títulos añadidos, 12 motores nuevos y mejoras en 17 motores más.'
+pubDate: 2026-10-13
+tags: ['Emuladores', 'Retro']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Logotipo de ScummVM en verde y gris sobre fondo naranja'
+source:
+  name: 'GamingOnLinux'
+  url: 'https://www.gamingonlinux.com/2026/10/scummvm-2026-4-brings-nearly-200-newly-supported-retro-games/'
+---
+
+ScummVM 2026.4.0 ya está disponible. La nueva versión del veterano proyecto de código abierto añade **194 juegos** recién soportados y **12 motores nuevos**, además de mejoras y correcciones repartidas por otros 17 motores ya existentes. El lanzamiento lleva el nombre en clave «Never-slop» y coincide con el 25 aniversario del proyecto, cuyo primer commit público se remonta a finales de septiembre de 2001.
+
+## Doce motores nuevos y un catálogo con acento español
+
+El grueso de la novedad son los motores que se incorporan por primera vez, y entre los títulos que desbloquean hay una presencia española muy marcada. La entrega suma **nueve aventuras de Mortadelo y Filemón**, desde *Una Aventura de Cine Edición Original* hasta *Mamelucos a la Romana*, pasando por *La Sexta Secta*, *Operación Moscú* o *El Escarabajo de Cleopatra*.
+
+Junto a ellas entran clásicos que muchos jugadores llevaban años pidiendo. En el terreno de la aventura gráfica destacan *Dracula: Resurrection* y *Dracula 2: The Last Sanctuary*, *Amerzone: The Explorer's Legacy*, *The Cameron Files: The Secret at Loch Ness*, *Return of the Phantom* o *Dragonsphere*. También aparecen las dos entregas de *Star Wars: Rebel Assault*, seis títulos de la serie *Nancy Drew*, las sagas *Shadows on the Vatican* y *Reversion*, y joyas como *Dungeon Master*, *Harvester*, *The Fool's Errand* y *Eagle Eye Mysteries*.
+
+A esa lista se añaden más de 140 juegos del motor **Wintermute** que ahora quedan cubiertos de forma genérica, lo que explica buena parte del salto en el recuento final.
+
+## Qué es ScummVM (y qué no)
+
+Conviene aclarar el matiz que separa a ScummVM de un emulador de consola al uso: no recrea el hardware de un ordenador antiguo, sino que **reimplementa los motores originales** que movían cada juego. El programa lee los archivos originales —gráficos, sonidos y scripts— y se encarga de todo lo necesario para que funcionen en hardware moderno.
+
+La consecuencia práctica es doble. Por un lado, permite revivir títulos como *Monkey Island*, *Broken Sword* o *Day of the Tentacle* sin depender de su software original. Por otro, ScummVM **no incluye los juegos**: hace falta disponer de los archivos de un título soportado para poder ejecutarlo.
+
+## Mejoras internas y estado de los puertos
+
+Más allá del catálogo, la versión trae trabajo de fondo que se nota en el día a día. El **grabador de eventos** (Event Recorder) mejora, la mezcla de sonido se acelera gracias a un emulador del chip **OPL3 AdLib** más rápido, y se añade soporte para un tipo de instalador adicional, lo que facilita arrancar juegos sin ejecutar su instalación original.
+
+El repaso a los motores mejorados deja detalles concretos: *Sanitarium* corrige sus sonidos de pasos, *Another World* gana compatibilidad con sistemas big-endian, el motor GLK suma algunos juegos de ZX Spectrum y el de *Hopkins* por fin completa su minijuego de disparos. El motor Kyra incorpora automapa en los juegos EOB y admite traducciones fan al coreano de *Legend of Kyrandia*; se arregla un antiguo problema de pathfinding en *Lure of the Temptress* y varios fallos en *Riddle of Master Lu*, mientras *Might and Magic* recibe mejoras de calidad de vida y correcciones de cuelgues. El motor SCUMM también avanza en la compatibilidad con sus títulos de C64 y de las primeras versiones de Windows HE. El changelog completo está en las notas de la versión.
+
+En cuanto a las plataformas, la compilación de puertos llegará poco después y por ahora están disponibles las versiones de **Windows, macOS** (incluida la de **PowerPC**), **Dreamcast, Haiku y OpenDingux**. El puerto de Atari, por su parte, incorpora integración opcional con la librería de sonido nFM.
+
+## Qué se puede jugar hoy
+
+El estado actual es el mejor que ha tenido el proyecto en mucho tiempo: casi 200 títulos nuevos entran de golpe y decenas de motores ya soportados reciben ajustes de precisión. La letra pequeña es la de siempre —la disponibilidad de cada build depende de que los paquetes lleguen a cada plataforma, y conviene contrastar el título concreto contra la lista de compatibilidad antes de darlo por sentado—, pero el trabajo de preservación que hay detrás es difícil de discutir.

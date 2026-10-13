@@ -1,0 +1,51 @@
+---
+title: 'LineageOS 24 se adelanta con Android 17 y apps rediseñadas'
+description: 'El proyecto publica la versión 24.0 de su ROM gratuita sobre Android 17, con las apps principales en Material Design 3 Expressive, actualizaciones en streaming y utilidades de flasheo desde el navegador.'
+pubDate: 2026-10-13
+tags: ['Móviles', 'LineageOS', 'Android 17']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Logotipo de LineageOS 24'
+source:
+  name: '9to5Google'
+  url: 'https://9to5google.com/2026/10/12/lineageos-24-launches-based-on-android-17-with-app-redesigns-and-simple-flash-tool/'
+---
+
+LineageOS 24 ya es oficial. La nueva versión de la ROM gratuita se apoya en Android 17 —la base que Google publicó en junio— y lo hace antes de lo que el propio proyecto había previsto: el equipo asegura que pudo rebasar sus cambios sobre el código nuevo más rápido de lo esperado. El anuncio llega, además, en la cuenta atrás para el décimo aniversario de LineageOS, que se cumple el 24 de diciembre de 2026.
+
+La rama 24.0 integra los parches de seguridad de agosto de 2025 a octubre de 2026 en las versiones 18.1 a 24.0 del sistema. Como siempre, la descarga es gratuita: el coste real de alargar la vida de un móvil con LineageOS no es el software, sino comprobar que el dispositivo sigue en la lista de soporte.
+
+## Las apps del proyecto se renuevan
+
+El mayor bloque de novedades está en las aplicaciones propias, ya migradas casi por completo a Material Design 3 Expressive. La incorporación más llamativa es **Canvas**, un editor de imágenes integrado que cubre lo básico (recorte, balance de blancos y filtros) y que acompaña a la galería Glimpse y a la cámara Aperture.
+
+El resto de la suite también se mueve:
+
+- **Updater**: rediseño completo y, sobre todo, actualizaciones **en streaming por defecto**, lo que reduce de forma notable el tiempo de instalación en dispositivos con particiones A/B. En equipos sin A/B, la partición de recovery se actualiza sola en el arranque posterior a una actualización correcta.
+- **Twelve** (reproductor de música): mejora los tiempos de carga con bibliotecas grandes, añade una pestaña con tus discos y géneros más escuchados y refuerza el soporte de Jellyfin.
+- **Jelly** (navegador): admite apps tipo PWA mediante un nuevo atajo, una vía útil para quien no quiere pasar por tiendas de terceros.
+- **SetupWizard**: implementación completa de Material Design 3 Expressive y flujo de configuración inicial reestructurado.
+- **Catapult** (lanzador de Android TV) añade indicador de batería, y **Etar** y **Seedvault** se actualizan a su última versión upstream. El **WebView** sube a la 155.0.8059.30.
+
+## Instalar la ROM desde el navegador
+
+Instalar LineageOS también se vuelve algo más sencillo. El proyecto estrena herramientas de flasheo basadas en **WebUSB** que funcionan directamente en el navegador para varios protocolos habituales: ADB, Fastboot, el protocolo Amlogic Burn y el Samsung Odin.
+
+Estas utilidades, disponibles en `flash.lineageos.org`, evitan tener que buscar, instalar y ejecutar programas de escritorio aparte. Eso sí, **no sustituyen a las guías del wiki**: la documentación por dispositivo sigue siendo la ruta por defecto y la única plenamente soportada, y la compatibilidad de estas herramientas web depende del dispositivo, el navegador, el sistema operativo y el tipo de conexión USB. Flashear software personalizado sigue implicando riesgo, así que conviene hacer copia de seguridad y verificar que los archivos y el dispositivo elegidos son los correctos.
+
+## Qué cambia para ti: soporte y dispositivos
+
+Aquí está la letra pequeña que de verdad importa al usuario. LineageOS formaliza que los dispositivos con **kernel Linux 4.4 y 4.9** dejan de aceptarse para las ramas 23.2 y 24.0: solo se admiten nuevas aportaciones sobre **LineageOS 22.2**, que seguirá recibiendo compilaciones y parches de seguridad mensuales hasta que Google deje de publicar boletines oficiales para Android 15. La razón es la de siempre: mantener esos kernels antiguos hacia adelante se vuelve insostenible.
+
+Para el resto, el proyecto ha ampliado los kernels comunes por fabricante (Qualcomm y Amlogic) y ha unificado los *shims* de compatibilidad de dispositivos heredados, una forma de repartir el mantenimiento y no duplicar esfuerzos.
+
+![Nivel de parches de seguridad por rama de LineageOS](./assets/security-patch-level-by-branch.jpg)
+
+Sobre la actualización: si vienes de una compilación oficial, **no hace falta borrar el dispositivo** salvo que la página de tu modelo lo indique expresamente; el proceso se hace siguiendo la guía de actualización del wiki. Si venías de una compilación no oficial, toca pasar por la guía de instalación como cualquier usuario nuevo.
+
+El despliegue llegará a una selección creciente de dispositivos en las próximas semanas, a medida que los mantenedores los pongan a punto. El listado inicial es amplio: cubre buena parte de la familia Pixel (desde el Pixel 4 hasta el Pixel 10), modelos de Samsung, Sony, Xiaomi, OnePlus, Motorola, Fairphone 4 y 5, Nothing Phone (1) y varios equipos de AYN o Retroid, entre otros.
+
+## Veredicto
+
+A este precio —cero euros— LineageOS 24 es la mejor forma de mantener vivo un móvil con soporte oficial caducado, y llegar antes de lo previsto sobre Android 17 es una señal de salud del proyecto. Antes de lanzarte, comprueba dos cosas en el wiki: que tu modelo está listado y, sobre todo, que su kernel no sea 4.4 o 4.9. Si tu terminal cae en ese grupo antiguo, tu camino se queda en LineageOS 22.2; si es de los nuevos, actualizar es gratis y alarga unos años más la vida del dispositivo.
