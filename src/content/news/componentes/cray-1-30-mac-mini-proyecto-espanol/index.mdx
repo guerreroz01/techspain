@@ -1,0 +1,42 @@
+---
+title: 'El Cray-1 de 1976 revive en Cáceres con 30 Mac mini montados en clúster'
+description: 'La réplica del Cray-1 del Museo de Historia de la Computación calcula sobre 30 Mac mini en red: 1,5 teraflops frente a los 160 megaflops del original de 1976.'
+pubDate: '2026-10-14'
+# author: (se omite; lo deriva el vertical `componentes`)
+tags: ['Componentes', 'Retrocomputación']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Réplica a tamaño real del Cray-1 con su característica carcasa curva y el banco acolchado alrededor'
+source:
+  name: 'Xataka'
+  url: 'https://www.xataka.com/ordenadores/proyecto-espanol-ha-devuelto-a-vida-cray-1-1976-usando-30-mac-mini-hace-decada'
+---
+
+El Museo de Historia de la Computación, en Majadas de Tiétar (Cáceres), ha presentado una réplica a tamaño real del Cray-1, el superordenador que se presentó en 1976 y que fue el ordenador más rápido de su época. Lo interesante no está en su silueta curva, sino en lo que la hace funcionar: 30 Mac mini de Apple conectados en red que, en conjunto, calculan más rápido que la máquina original. No es la restauración de una unidad histórica, sino un equipo nuevo con la apariencia de un clásico, y ha necesitado más de un año y medio de trabajo.
+
+## Un Cray-1 por fuera, 30 Mac mini por dentro
+
+La réplica reproduce el aspecto exterior del Cray-1 y le da capacidad de cálculo con hardware mucho más reciente. El conjunto utiliza 28 Mac mini de 2012 y otros dos de 2014. Del total, 25 montan procesadores Intel Core i5 de dos núcleos, mientras que los cinco restantes usan Core i7 de cuatro núcleos. La clave de que funcionen como una sola máquina es que están conectados en red para repartir las operaciones entre ellos: es lo que se conoce como un clúster, varios ordenadores que colaboran en una misma tarea aprovechando el cálculo de cada procesador.
+
+![Réplica del Cray-1 con su estructura curva y la base acolchada característica](./assets/replica-cray-1.jpg)
+
+El museo atribuye al conjunto unos 1,5 teraflops, es decir, un billón y medio de operaciones de coma flotante por segundo. El Cray-1 de 1976 tenía un máximo teórico de unos 160 megaflops. La diferencia sirve para ver cuánto ha avanzado la informática, aunque conviene no leerla como una equivalencia exacta: son arquitecturas distintas y las cifras se obtienen con métodos diferentes, así que la comparación es orientativa.
+
+## Del montaje al silencio: cómo se refrigera el clúster
+
+Aquí es donde el proyecto deja de ser una maqueta y se convierte en un problema de taller. Mantener 30 ordenadores encendidos sin que la exposición se convierta en una sala ruidosa obliga a pensar en el flujo de aire antes que en la potencia. La solución pasa por colocar **los Mac mini en posición vertical**, sobre bandejas de aluminio dentro de una estructura de acero, de modo que el aire caliente ascienda y salga por la parte superior. No hacen falta ventiladores adicionales: la convección natural hace el trabajo y el montaje se queda en silencio.
+
+![Interior de la réplica con los Mac mini distribuidos en bandejas dentro de la estructura](./assets/interior-cluster-mac-mini.jpg)
+
+La instalación se maneja desde un terminal inspirado en los años setenta, que aloja a uno de los equipos de Apple. Los visitantes pueden ver cómo cambia el rendimiento cuando trabajan varios procesadores a la vez, que es justo lo que un clúster quiere demostrar.
+
+## Bajo la consola: emuladores, Raspberry Pi y dos Cray de verdad
+
+El puesto de control gestiona mucho más que los 30 Mac mini. Según la documentación oficial del proyecto, estos equipos funcionan con macOS Mojave, pero la instalación incorpora otros sistemas. Desde su consola de tres pantallas se puede controlar una Raspberry Pi que ejecuta emuladores de entornos informáticos clásicos, además de otro clúster formado por placas Raspberry Pi. El conjunto también incluye dos superordenadores Cray CX1 auténticos que corren CentOS, una distribución de Linux.
+
+## Qué enseña este montaje
+
+El proyecto no reproduce el funcionamiento interno del Cray-1 original, y precisamente ahí está su valor: conserva la apariencia de una máquina que marcó una época y la usa para explicar cómo ha cambiado la forma de abordar los grandes cálculos. La carcasa curva del Cray original no era un capricho estético —acortaba las conexiones internas para que las señales tardaran menos en recorrerlas—, y ese mismo espíritu práctico reaparece aquí en la refrigeración por convección.
+
+Para quien reutiliza hardware veterano, la lección es la de siempre: antes de sumar potencia, resuelve la física. Una pieza excelente sobre el papel no sirve si no entra en la caja o si el aire no puede evacuarse. Colocar los equipos en vertical y dejar que el calor suba es más barato y más silencioso que añadir ventiladores, y esa idea encaja igual en un museo que en un servidor doméstico montado con un [portátil viejo en lugar de una Raspberry Pi nueva](/noticias/old-laptop-home-server/).

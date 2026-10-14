@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 882 artículos. Actualizado: 2026-10-13
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 902 artículos. Actualizado: 2026-10-14
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -889,3 +889,23 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-13 | Sony lanza en China los INZONE E9 en morado cristal y los H9 II edición Fnatic: 799 y 1.699 yuanes | [audio/sony-inzone-e9-h9-ii-fnatic](https://www.techspain24.com/noticias/audio/sony-inzone-e9-h9-ii-fnatic/) |
 | 2026-10-13 | Taki Udon muestra la FPGA SP, una portátil que ejecuta cartuchos originales de Game Boy Advance | [emuladores/taki-udon-fpga-sp-gba](https://www.techspain24.com/noticias/emuladores/taki-udon-fpga-sp-gba/) |
 | 2026-10-13 | VBoy Color añade color y 3D estereoscópico al Virtual Boy en PC, Quest y Android | [emuladores/vboy-color-emulador-virtual-boy](https://www.techspain24.com/noticias/emuladores/vboy-color-emulador-virtual-boy/) |
+| 2026-10-14 | AMD muestra los EPYC Verano con hasta 192 núcleos y LPDDR5X | [componentes/amd-epyc-verano](https://www.techspain24.com/noticias/componentes/amd-epyc-verano/) |
+| 2026-10-14 | AYN confirma el Odin 3 Portal, una portátil Android más grande y de gama alta | [consolas/ayn-odin-3-portal](https://www.techspain24.com/noticias/consolas/ayn-odin-3-portal/) |
+| 2026-10-14 | Biostar BIWCL-PAT: una placa industrial de 148 × 102 mm con Intel Wildcat Lake | [componentes/biostar-biwcl-pat](https://www.techspain24.com/noticias/componentes/biostar-biwcl-pat/) |
+| 2026-10-14 | El Cray-1 de 1976 revive en Cáceres con 30 Mac mini montados en clúster | [componentes/cray-1-30-mac-mini-proyecto-espanol](https://www.techspain24.com/noticias/componentes/cray-1-30-mac-mini-proyecto-espanol/) |
+| 2026-10-14 | El miniDSP Tide16 apuesta por ARM y Dirac para simplificar el audio inmersivo | [audio/minidsp-tide16-procesador-audio](https://www.techspain24.com/noticias/audio/minidsp-tide16-procesador-audio/) |
+| 2026-10-14 | Elgato Wave Go: el primer micrófono inalámbrico de Elgato, dos en uno | [audio/elgato-wave-go-microfono-inalambrico](https://www.techspain24.com/noticias/audio/elgato-wave-go-microfono-inalambrico/) |
+| 2026-10-14 | GTA 6 podría llegar a PC en el primer trimestre de 2027, según un informe no confirmado | [consolas/gta-6-pc-primer-trimestre-2027](https://www.techspain24.com/noticias/consolas/gta-6-pc-primer-trimestre-2027/) |
+| 2026-10-14 | HomePod mini 2 desde 169 €, nuevo Apple TV 4K y un HomeView que no se venderá en la UE | [audio/apple-homepod-mini-2-homeview-apple-tv-4k](https://www.techspain24.com/noticias/audio/apple-homepod-mini-2-homeview-apple-tv-4k/) |
+| 2026-10-14 | HP lanza el EliteBoard G2a, un PC entero dentro de un teclado desde 3.028 dólares | [componentes/hp-eliteboard-g2a](https://www.techspain24.com/noticias/componentes/hp-eliteboard-g2a/) |
+| 2026-10-14 | La Legion Go 2 supera los 3.000 dólares: la portátil con Ryzen Z2 Extreme se dispara de precio | [consolas/lenovo-legion-go-2-precio](https://www.techspain24.com/noticias/consolas/lenovo-legion-go-2-precio/) |
+| 2026-10-14 | Microsoft anuncia el Azure Maia 300: chiplets de 2 nm, 288 GB de HBM4 y 950 W para la nube | [componentes/microsoft-maia-300](https://www.techspain24.com/noticias/componentes/microsoft-maia-300/) |
+| 2026-10-14 | MOTU OctaLite: ocho previos de micrófono en formato de medio rack | [audio/motu-octalite-interfaz-audio](https://www.techspain24.com/noticias/audio/motu-octalite-interfaz-audio/) |
+| 2026-10-14 | NVIDIA planearía una RTX 5080 de 24 GB para el primer trimestre de 2027, según un reporte | [tarjetas-graficas/rtx-5080-24-gb-q1-2027](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-5080-24-gb-q1-2027/) |
+| 2026-10-14 | Pebble Round 2: un beta tester muestra en vídeo el reloj ultrafino de Pebble | [wearables/pebble-round-2-reloj](https://www.techspain24.com/noticias/wearables/pebble-round-2-reloj/) |
+| 2026-10-14 | Razer lanza tres auriculares gaming de Pokémon: Charizard, Lucario y Sylveon | [audio/razer-pokemon-headsets-charizard-lucario-sylveon](https://www.techspain24.com/noticias/audio/razer-pokemon-headsets-charizard-lucario-sylveon/) |
+| 2026-10-14 | Sennheiser HDB 630: auriculares premiados con un dongle que resuelve los códecs | [audio/sennheiser-hdb-630](https://www.techspain24.com/noticias/audio/sennheiser-hdb-630/) |
+| 2026-10-14 | Sony lanza el ECM-AX10, un micrófono de audio espacial que graba con el móvil por USB-C | [audio/sony-ecm-ax10-microfono-espacial](https://www.techspain24.com/noticias/audio/sony-ecm-ax10-microfono-espacial/) |
+| 2026-10-14 | Sony lanza una PS5 Digital Edition «Midnight Black» exclusiva de Japón el 19 de noviembre | [consolas/ps5-midnight-black-japon](https://www.techspain24.com/noticias/consolas/ps5-midnight-black-japon/) |
+| 2026-10-14 | Teufel CINEBAR PRO 2: la barra de sonido más potente de la marca, con Dolby Atmos y hasta 7.1.2 canales | [audio/teufel-barra-sonido-dolby-atmos-dts-x](https://www.techspain24.com/noticias/audio/teufel-barra-sonido-dolby-atmos-dts-x/) |
+| 2026-10-14 | Xbox Labs es la respuesta de Microsoft a los mods y ports hechos con IA | [consolas/xbox-labs-microsoft](https://www.techspain24.com/noticias/consolas/xbox-labs-microsoft/) |

@@ -1,0 +1,34 @@
+---
+title: 'Microsoft anuncia el Azure Maia 300: chiplets de 2 nm, 288 GB de HBM4 y 950 W para la nube'
+description: 'El Azure Maia 300 es el tercer chip de IA de Microsoft en dos años: abandona el monolito por chiplets de 2 nm para abaratar la inferencia en su nube Azure.'
+pubDate: 2026-10-14
+# author: se omite; la firma se deriva del vertical `componentes`
+tags: ['Componentes', 'Inteligencia Artificial']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Render del procesador Azure Maia 300 de Microsoft para la nube Azure'
+source:
+  name: 'El Chapuzas Informático'
+  url: 'https://elchapuzasinformatico.com/2026/10/microsoft-azure-maia-300/'
+---
+
+Microsoft ha presentado el **Azure Maia 300**, su tercer chip de IA en dos años y el primero de la familia con un diseño multi-chiplet. Lo anunció el consejero delegado de la compañía, Satya Nadella, con la intención de escalar el silicio propio hasta despliegues de varios gigavatios y convertirlo en el sistema principal de inferencia para los productos y servicios de la casa. La pieza sustituirá al Maia 200 en esa tarea y apunta a algún momento de 2027.
+
+## El Azure Maia 300 cambia el monolito por chiplets
+
+El Maia 200 era un monolito; el 300 se parte en piezas. Hay un dado principal de cálculo fabricado por TSMC en el nodo N2P, de 2 nm. A su alrededor se colocan dos chiplets de entrada/salida (I/O) en un nodo más antiguo —suficiente y más barato para mover datos—, cuatro tiles de memoria DDR RDIMM que hacen de memoria principal del sistema y ocho stacks de HBM4 para el acelerador. Es el mismo reparto que llevamos años viendo en el escritorio: el silicio caro donde rinde y el barato donde solo tiene que conectar.
+
+La HBM4 suma 288 GB, frente a los 216 GB de HBM3E del Maia 200, y funciona a 9 GT/s para un ancho de banda de 18 TB/s: 2,5 veces el de la generación anterior. En cómputo, el Maia 300 entrega 13,8 PFLOPS en FP4 y 6,9 PFLOPS en FP8, mientras el Maia 200 se quedaba en 10,1 PFLOPS en FP4 y 5,1 PFLOPS en FP8. El rack sube a 96 chips —el doble que los 48 del 200— y el enlace entre chips llega a 3,2 TB/s.
+
+![Tabla de especificaciones del Azure Maia 300: 288 GB de HBM4, 18 TB/s de ancho de banda y 950 W de TDP](./assets/maia-300-especificaciones.jpg)
+
+## 950 W: el precio de meter más en el mismo sitio
+
+El dato que más debería mirar quien sigue el hardware de cerca es el consumo: el TDP sube a **950 W**, 200 W más que los 750 W del Maia 200, y eso con un nodo teóricamente más eficiente. No hay contradicción. Más memoria apilada, más ancho de banda y más fases de alimentación caben en el mismo encapsulado, pero toda la energía que entra acaba saliendo en forma de calor. Un rack completo de 96 unidades se va a unos 91 kW de pico, una cifra que en un centro de datos deja de ser un detalle y pasa a ser un problema de refrigeración y de reparto eléctrico. Es el mismo límite físico que persigue al PC de consumo: la densidad térmica crece más deprisa que la eficiencia del nodo.
+
+## Qué cambia con el Azure Maia 300
+
+El objetivo de Microsoft es doble: abaratar el coste de funcionamiento de servicios como GitHub Copilot y reducir la dependencia de hardware de NVIDIA y AMD. La compañía afirma que el Maia 300 rinde un 40 % más de tokens por vatio que las soluciones basadas en GPU y que un rack completo multiplica por siete la generación de tokens de un rack de Maia 200. Hoy el Maia 200 ya ejecuta modelos de OpenAI, los MAI de Microsoft y modelos abiertos en regiones de Estados Unidos, Europa y Australia.
+
+Para quien no administra Azure, el efecto es indirecto pero real: si el silicio propio abarata la inferencia, esa presión acaba trasladándose al precio final de la nube. Y es la misma carrera que siguen [el Intel Crescent Island, GPU D-Series con 1,3 PFLOPS en FP8](/noticias/tarjetas-graficas/intel-gpu-d-series-crescent-island/) o [la alternativa china a NVIDIA con el Ascend 950](/noticias/componentes/huawei-ascend-950-nvidia-china/): cada vez más cómputo concentrado en menos espacio. Al comprar o montar hardware, la señal a seguir no es el chip en sí, sino lo que estrena —HBM4, empaquetado 2D y gestión térmica a 950 W—, porque esa dirección acaba bajando al resto del ecosistema.
