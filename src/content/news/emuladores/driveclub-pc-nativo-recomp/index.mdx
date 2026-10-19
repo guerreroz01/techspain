@@ -1,0 +1,44 @@
+---
+title: 'Driveclub ya corre de forma nativa en PC con un recomp hecho por fans'
+description: 'DriveClub Recomp reimplementa las librerías de PS4 y traduce sus gráficos a Vulkan: Driveclub corre en PC sin emulación, de 720p a 8K y framerate desbloqueado.'
+pubDate: '2026-10-19'
+# author: se omite; la firma se deriva del vertical `emuladores`
+tags: ['Emuladores', 'Recompilación', 'PS4', 'Windows']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Pantalla de DriveClub Recomp sobre una carrera nocturna, con el contador marcando 66 FPS y un render a 3840x2160 en la esquina superior derecha'
+source:
+  name: 'DriveClub Recomp (GitHub)'
+  url: 'https://github.com/OverkillLabs3/driveclub-recomp'
+---
+
+**Driveclub**, el juego de carreras que Evolution Studios publicó en 2014 como exclusivo de PS4, ya arranca en Windows sin un emulador de consola de por medio. El proyecto **DriveClub Recomp**, que OverkillLabs3 ha publicado en GitHub, ejecuta el código del juego de forma nativa en PC y llega a la versión v0.2.3, el punto de partida de las cifras de rendimiento que su autor ha medido.
+
+## Cómo funciona el recomp de Driveclub en PC
+
+No hay emulación de CPU en el sentido clásico: el código x86-64 del propio juego se ejecuta directamente sobre el procesador del PC. El trabajo se concentra, en cambio, en las dos piezas que antes aportaba la consola. Por un lado se reimplementan las librerías de sistema de PS4 que el juego espera encontrar al arrancar; por otro, las órdenes de gráficos se traducen a Vulkan para que la GPU del PC entienda lo que el motor pide.
+
+La comparación con otras recompilaciones que ya hemos cubierto, como la [recompilación estática de The Wind Waker](/noticias/emuladores/wind-waker-recompilacion-estatica-pc/), cabe con una salvedad: la PS4 ya habla x86-64, así que aquí el trabajo no está en traducir instrucciones de CPU, sino en reconstruir el entorno que rodea al juego y en traducir su lenguaje de gráficos.
+
+## Qué permite ajustar y cómo rinde en 4K
+
+El port admite resoluciones de 720p a 8K, pantallas ultrawide y un framerate desbloqueado que no acelera el juego. Además sustituye el antialiasing original por DLAA en tarjetas NVIDIA RTX o por FSR 3.1 en cualquier GPU, ambos a resolución nativa; quien tenga una RTX puede alternar entre los dos dentro del juego con la tecla `F10`.
+
+En cuanto a las cifras, el desarrollador asegura que el juego se mantiene en torno a los 60 FPS a 4K en las escenas más exigentes con una RTX 5070 Ti combinada con un Ryzen 7 5800X3D. La actualización v0.2.3 elevó una carrera de prueba a 4K de unos 62 a unos 71 FPS.
+
+![Fotograma de Driveclub en PC con una motocicleta en la recta de salida y el contador marcando 71 FPS con FSR 4 activo](./assets/imagen-3.jpg)
+
+## DCport, la segunda vía para llegar al mismo sitio
+
+No es el único proyecto en esta línea. **DCport**, de qnfn, sigue un camino parecido y suma soporte de FSR 3.1 y FSR 4. Los dos comparten además el requisito que más pesa al usuario: hace falta el volcado propio de la versión 1.28 del juego, que ninguno de los dos distribuye.
+
+![Ventana de DCport con la ficha de Driveclub (CUSA00003, v1.28), la sesión fijada a 120 FPS y la comprobación de una AMD Radeon RX 6750 XT](./assets/imagen-2.jpg)
+
+## Estado actual: qué funciona y qué no
+
+El proyecto sigue con las aristas propias de una primera etapa. Algunos reflejos se ven demasiado brillantes, los shaders se compilan durante los primeros minutos de partida, las CPU más lentas sueltan fotogramas en escenas cargadas y las funciones multijugador en línea no funcionan. A esto se suma una limitación de verificación: hasta ahora solo se ha probado con hardware NVIDIA.
+
+Conviene situarlo en su contexto. Hace unos meses un parche de shadPS4 permitió a Driveclub llegar hasta 8K, y el salto es notable para un juego que salió a 1080p y 30 FPS. Es también el mismo terreno en el que se mueve el port no oficial de Gran Turismo Sport.
+
+Lo que se puede jugar hoy es real: el Driveclub de Evolution Studios corre en Windows a resolución nativa, con framerate libre y con dos opciones modernas de antialiasing. Lo que queda pendiente es igual de claro: reflejos, compilación de shaders inicial, rendimiento en CPU modestas, juego en línea y una verificación que todavía no ha salido de las tarjetas NVIDIA.

@@ -1,0 +1,82 @@
+---
+title: 'Cómo detectar quién usa tu WiFi: guía paso a paso para identificar intrusos en la red'
+description: '¿Alguien se ha colado en tu red WiFi? Guía paso a paso para descubrirlo: panel del router, Fing, Wireless Network Watcher, Nmap y Wireshark, y sus límites.'
+pubDate: '2026-10-19'
+tags: ['Tutoriales', 'Ciberseguridad']
+featured: false
+breaking: false
+cover: './assets/cover.webp'
+coverAlt: 'Ilustración de un ladrón accediendo a una red WiFi'
+source:
+  name: 'ComputerHoy'
+  url: 'https://computerhoy.20minutos.es/ciberseguridad/como-saberlo-todo-sobre-persona-que-te-esta-robando-tu-wifi-si-tienes-paciencia-tiempo_7041024_0.html'
+---
+
+Una caída brusca de velocidad no siempre tiene que ver con lo que tienes contratado ni con las barreras que encuentre la señal: a veces significa que alguien se ha colado en tu red WiFi. Esto ocurre si dejaste la red sin seguridad configurada, si tu router tiene alguna vulnerabilidad conocida o si alguien descifró la clave. Esta guía explica cómo descubrir qué dispositivos están conectados a tu red, desde las opciones más básicas hasta las herramientas que se usan en auditorías, y va pensada para quien sospecha que hay intrusos y quiere comprobarlo sin complicarse de más.
+
+Más allá de la velocidad, tener un intruso en la red afecta a la seguridad de todos tus dispositivos: alguien conectado a la misma red puede interceptar los paquetes de datos con facilidad. Y si desde tu dirección IP se comete un acto ilegal, aunque tú no lo sepas, las consecuencias legales pueden recaer en ti como usuario identificado.
+
+## Requisitos previos
+
+- Conocimientos básicos de direcciones IP, direcciones MAC y términos generales de redes.
+- Acceso al panel de administración de tu router (dirección y credenciales de acceso).
+
+## Cómo ver los dispositivos conectados a tu WiFi desde el router
+
+Es la técnica más sencilla y la que conviene usar primero: el propio router recopila los dispositivos conectados.
+
+1. **Accede al panel de administración.** Introduce en el navegador la dirección `192.168.1.1` o `192.168.0.1`.
+2. **Busca la tabla de concesiones DHCP.** Recorre los menús del router —generalmente en la pestaña «Avanzado»— hasta encontrar algo que ponga «tabla de concesiones DHCP». Te mostrará todas las direcciones IP privadas que se asignan dinámicamente a cada dispositivo conectado, junto con detalles como el tiempo y el nombre del host.
+3. **Localiza la tabla ARP.** Suele figurar como «tabla ARP» y mapea de forma concreta la dirección IP y la dirección MAC física de cada dispositivo.
+4. **Consulta la tabla de clientes WiFi.** También aparece como tabla y muestra la dirección MAC de cada cliente junto a la intensidad de la señal.
+
+## Cómo identificar cada dispositivo con Fing
+
+Si el panel del router no te da suficiente detalle, la siguiente opción es la aplicación Fing, disponible en Android, iOS, Windows y macOS.
+
+1. **Instala Fing** desde la tienda de aplicaciones de tu sistema (en Android, desde Google Play).
+2. **Revisa la lista de dispositivos conectados** a tu red WiFi con la dirección MAC correspondiente. También sirve cuando viajas y sospechas de una cámara conectada a internet.
+3. **Deja que analice los protocolos** NetBIOS, UPnP y mDNS, y determine qué puertos están abiertos para identificar la marca y el modelo del terminal conectado: en la práctica, sabrás si hay una smart TV, una consola como una PlayStation 5 o un altavoz inteligente de cualquier marca.
+
+## Cómo revisar tu red en Windows con Wireless Network Watcher
+
+Para Windows, en cualquier versión, la opción más apta si no quieres complicarte es Wireless Network Watcher, de NirSoft: es de código abierto, muy ligera y está diseñada específicamente para ese sistema operativo.
+
+1. **Descárgalo** desde la página oficial de NirSoft.
+2. **Ejecútalo.** Realiza peticiones ARP en todo el rango de subred asignado.
+3. **Lee los resultados.** Recopila la dirección IP, la dirección MAC, el fabricante de la tarjeta de red, el nombre del equipo conectado y un recuento de detecciones.
+4. **Automatiza las alertas** para que la herramienta avise cuando aparezca una dirección MAC que no esté registrada de antemano.
+
+## Cómo escanear toda tu subred con Nmap y Zenmap
+
+Un escalón más avanzado es Nmap, la herramienta por excelencia en este terreno.
+
+1. **Descarga Nmap** desde su página oficial, según tu sistema operativo.
+2. **Busca el ejecutable de Zenmap** dentro de la carpeta de Nmap: es una interfaz gráfica muy intuitiva.
+3. **Determina tu dirección IP** en Windows o en cualquier otro sistema.
+4. **Marca el objetivo.** Deja intactos los tres primeros bloques de tu dirección IP y sustituye el último por `0/24`, para ordenar a la herramienta que busque en toda tu subred y no solo en el equipo desde el que estás buscando.
+5. **Lee el escaneo.** Aparecerán muchísimos dispositivos con toda su información: los puertos que tienen abiertos, la latencia y el modelo de los dispositivos, ya sean Amazon, TP-Link, etc.
+
+## Cómo inspeccionar el tráfico en tiempo real con Wireshark
+
+La segunda herramienta avanzada es Wireshark, que captura todo el tráfico en tiempo real y requiere aprender a usar filtros.
+
+1. **Descárgala** desde su página oficial, seleccionando tu sistema operativo.
+2. **Ábrela** cuando finalice la instalación y busca la red principal, la que aparece más arriba.
+3. **Aplica un filtro** con el comando `ip.src == tudireccionip`. Sabrás así hacia dónde viajan todos los paquetes de la red de tu WiFi principal, con la dirección IP concreta del servidor —aplicaciones, páginas web, etc.—, además del puerto que están abriendo.
+
+## Cómo verificar que funcionó
+
+- **Panel del router:** las tablas DHCP, ARP y de clientes WiFi listan direcciones IP privadas, direcciones MAC, nombres de host e intensidad de señal de los equipos conectados.
+- **Fing y Wireless Network Watcher:** aparece un dispositivo por cada equipo presente en la red, con su IP, su MAC y —según la herramienta— el fabricante o el modelo. Comprueba que cada fila corresponda a un equipo que reconozcas.
+- **Nmap y Zenmap:** el escaneo devuelve la lista de dispositivos de tu subred con sus puertos abiertos y su modelo; si aparece un equipo que no tienes, hay un intruso.
+- **Wireshark:** con el filtro aplicado, los paquetes que salen de tu red muestran la IP del servidor de destino y el puerto.
+
+## Advertencias y limitaciones
+
+- En muchos casos el panel del router no muestra nombres concretos, sino nombres de host genéricos, así que cuesta identificar algún dispositivo cuando ya tienes muchos conectados —altavoces, luces, etc.—.
+- Con el paso del tiempo, la versión gratuita de Fing está bastante limitada.
+- Nmap y Wireshark pueden resultar más complicadas sin conocimientos avanzados en gestión de redes, y la información que captura Wireshark resulta abrumadora al principio si no sabes cómo hacer las búsquedas.
+- Detectar a un intruso no reduce por sí solo el riesgo: quien está conectado a tu red puede seguir interceptando paquetes de datos, y una actividad ilegal realizada desde tu dirección IP puede acabar atribuida a ti.
+
+Si quieres dar un paso más allá de la detección y reforzar el equipo, nuestra guía sobre [cómo mejorar la seguridad de tu router en 10 minutos](/noticias/tutoriales/seguridad-router-10-minutos/) es el siguiente paso lógico.

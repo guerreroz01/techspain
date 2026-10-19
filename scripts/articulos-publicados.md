@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 902 artículos. Actualizado: 2026-10-14
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 916 artículos. Actualizado: 2026-10-19
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -909,3 +909,17 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-14 | Sony lanza una PS5 Digital Edition «Midnight Black» exclusiva de Japón el 19 de noviembre | [consolas/ps5-midnight-black-japon](https://www.techspain24.com/noticias/consolas/ps5-midnight-black-japon/) |
 | 2026-10-14 | Teufel CINEBAR PRO 2: la barra de sonido más potente de la marca, con Dolby Atmos y hasta 7.1.2 canales | [audio/teufel-barra-sonido-dolby-atmos-dts-x](https://www.techspain24.com/noticias/audio/teufel-barra-sonido-dolby-atmos-dts-x/) |
 | 2026-10-14 | Xbox Labs es la respuesta de Microsoft a los mods y ports hechos con IA | [consolas/xbox-labs-microsoft](https://www.techspain24.com/noticias/consolas/xbox-labs-microsoft/) |
+| 2026-10-19 | Cómo detectar quién usa tu WiFi: guía paso a paso para identificar intrusos en la red | [tutoriales/como-detectar-quien-usa-tu-wifi](https://www.techspain24.com/noticias/tutoriales/como-detectar-quien-usa-tu-wifi/) |
+| 2026-10-19 | Cómo sincronizar tu cuenta personal en Google Chrome paso a paso | [tutoriales/sincronizar-cuenta-google-chrome](https://www.techspain24.com/noticias/tutoriales/sincronizar-cuenta-google-chrome/) |
+| 2026-10-19 | Cómo usar SynthID Detector para comprobar si una imagen es de IA | [tutoriales/como-usar-synthid-deteccion-ia](https://www.techspain24.com/noticias/tutoriales/como-usar-synthid-deteccion-ia/) |
+| 2026-10-19 | Dos palés de RTX 5090 por valor de 470.000 dólares desaparecen del aeropuerto de Guarulhos | [tarjetas-graficas/robo-rtx-5090-aeropuerto-brasil](https://www.techspain24.com/noticias/tarjetas-graficas/robo-rtx-5090-aeropuerto-brasil/) |
+| 2026-10-19 | Driveclub ya corre de forma nativa en PC con un recomp hecho por fans | [emuladores/driveclub-pc-nativo-recomp](https://www.techspain24.com/noticias/emuladores/driveclub-pc-nativo-recomp/) |
+| 2026-10-19 | El Dock 4 de DJI recambia la batería de su dron en 25 segundos y lo devuelve al aire en menos de 45 | [drones/dji-dock-4](https://www.techspain24.com/noticias/drones/dji-dock-4/) |
+| 2026-10-19 | El primer MacBook Pro con pantalla táctil podría debutar el 6 de noviembre | [portatiles/macbook-pantalla-tactil-6-noviembre](https://www.techspain24.com/noticias/portatiles/macbook-pantalla-tactil-6-noviembre/) |
+| 2026-10-19 | El remake de Demon’s Souls supera los 60 FPS en el emulador de PS5 y roza los 120 FPS con frame generation | [emuladores/demons-souls-remake-60-fps-emulador-ps5](https://www.techspain24.com/noticias/emuladores/demons-souls-remake-60-fps-emulador-ps5/) |
+| 2026-10-19 | La Alpha 0.8.0 del mod DLSS-NR on AMD reúne casi todo el stack de DLSS para las Radeon | [tarjetas-graficas/dlss-5-amd-radeon-mod](https://www.techspain24.com/noticias/tarjetas-graficas/dlss-5-amd-radeon-mod/) |
+| 2026-10-19 | La alta demanda del iPhone Duo estira los envíos a enero y complica comprarlo en tienda el 23 de octubre | [moviles/iphone-duo-demanda-retrasa-envio](https://www.techspain24.com/noticias/moviles/iphone-duo-demanda-retrasa-envio/) |
+| 2026-10-19 | La RAM y el almacenamiento de la PS6 costarían por sí solos más de 680 dólares | [consolas/ps6-coste-ram-ssd-680-dolares](https://www.techspain24.com/noticias/consolas/ps6-coste-ram-ssd-680-dolares/) |
+| 2026-10-19 | NVIDIA desmiente que la RTX 5090 esté descontinuada y admite que el suministro está ajustado | [tarjetas-graficas/nvidia-desmiente-rtx-5090](https://www.techspain24.com/noticias/tarjetas-graficas/nvidia-desmiente-rtx-5090/) |
+| 2026-10-19 | Un aficionado hace funcionar iOS 16 en un Redmi Note 12 y publica el código del port | [moviles/redmi-note-12-ios-16](https://www.techspain24.com/noticias/moviles/redmi-note-12-ios-16/) |
+| 2026-10-19 | Xbox contrata a un estratega de juegos físicos: ¿lugar para los discos en Project Helix? | [consolas/xbox-contrata-experto-juegos-fisicos](https://www.techspain24.com/noticias/consolas/xbox-contrata-experto-juegos-fisicos/) |

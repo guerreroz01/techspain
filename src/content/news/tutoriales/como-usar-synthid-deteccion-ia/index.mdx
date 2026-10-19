@@ -1,0 +1,108 @@
+---
+title: 'Cómo usar SynthID Detector para comprobar si una imagen es de IA'
+description: 'Guía paso a paso con SynthID Detector: cómo subir una imagen, un vídeo o un audio, leer la respuesta de Google y qué no llega a detectar su marca de agua.'
+pubDate: '2026-10-19'
+tags: ['Tutoriales', 'Inteligencia Artificial']
+featured: false
+breaking: false
+cover: './assets/cover.jpg'
+coverAlt: 'Imagen compuesta de un perro con el pelo de colores y el texto «¿Esto es IA?»'
+source:
+  name: 'Engadget'
+  url: 'https://www.engadget.com/2286802/how-to-use-google-ai-detection-website-synthid/'
+---
+
+Cada vez circulan más imágenes, vídeos y audios generados por IA y conviene poder
+comprobar si un archivo concreto lo hizo una persona o un modelo. SynthID Detector es
+la web con la que Google puso su sistema de detección al alcance de cualquiera: subes
+un archivo y la herramienta te dice si dentro lleva la marca de agua que SynthID añade
+a lo que genera la IA de Google. Esta guía explica cómo usarla paso a paso, qué hace
+falta antes de empezar y qué no resuelve su respuesta.
+
+## Requisitos previos
+
+- Un navegador con conexión a internet.
+- Una cuenta de Google, OpenAI o Apple: la herramienta exige iniciar sesión para poder
+  usarla.
+- El archivo que quieres comprobar, ya sea una imagen, un vídeo o un archivo de audio.
+- Un cupo de uso: alrededor de 10 comprobaciones al día, según Engadget, citando a un
+  portavoz de Google que habló con Ars Technica.
+
+## Pasos
+
+### 1. Abre SynthID.com
+
+La herramienta se llama SynthID Detector y se abre desde la dirección `synthid.com`.
+
+### 2. Inicia sesión con una cuenta de Google, OpenAI o Apple
+
+SynthID Detector solo funciona con sesión iniciada y acepta cualquiera de esas tres
+cuentas. Sin identificarte, no puedes pasar a la comprobación.
+
+### 3. Sube la imagen, el vídeo o el archivo de audio
+
+Selecciona el archivo que quieres comprobar y súbelo a la web. El proceso es el mismo
+sea una imagen, un vídeo o un archivo de audio.
+
+### 4. Espera la respuesta de Google
+
+El trámite dura unos segundos. SynthID Detector escanea el archivo en busca de la marca
+de agua y devuelve el resultado en cuanto lo tiene.
+
+### 5. Lee el resultado
+
+La respuesta es un sí o un no: la herramienta indica si encontró la marca de agua o si
+no aparece ninguna. No hay puntuación ni informe intermedio.
+
+## Cómo funciona SynthID Detector
+
+Desde 2023, SynthID incorpora una etiqueta imperceptible a los contenidos generados por
+IA. El modelo Gemini deja esa marca en todo lo que crea, y SynthID Detector lo único que
+hace es buscarla: por eso su respuesta solo confirma si la marca está o no. Al limitarse a
+detectar una marca ya presente, en lugar de analizar patrones sospechosos del archivo, la
+herramienta evita los falsos positivos.
+
+En este sitio ya hemos trabajado con ese modelo en la práctica; un buen ejemplo es
+[esta guía para convertir vídeos de YouTube en una guía de estudio con Gemini Notebook](/noticias/gemini-notebook-youtube-study-guide/).
+
+La comprobación no se queda solo en Google. El detector también busca las marcas que
+dejan los socios de SynthID, así que puede identificar contenido creado con modelos de
+OpenAI, NVIDIA o Kakao además de los de Gemini. Apple también forma parte del programa,
+aunque el soporte para detectar sus creaciones todavía está en desarrollo.
+
+![Pantalla de un móvil con los iconos de ChatGPT, Gemini y Copilot](./assets/detectores-ia.jpg)
+
+*Imagen: Robert Way/Getty Images.*
+
+Google afirma además que las firmas de SynthID persisten aunque el contenido se edite
+después de generarse.
+
+## Cómo verificar que funcionó
+
+- Si en unos segundos recibes una respuesta, la comprobación se completó con normalidad.
+- Haz una prueba de control con un archivo de origen conocido: Gemini crea todo con
+  marca de SynthID desde el momento de la generación, así que una imagen salida de ese
+  modelo debería devolver una respuesta afirmativa.
+- Verifica que subiste el archivo correcto: la respuesta se refiere solo a ese archivo.
+
+## Advertencias y limitaciones
+
+- **Solo detecta marcas SynthID.** El detector no analiza el archivo: solo busca la
+  marca, así que todo lo que genere un modelo sin ella pasa desapercibido. Las
+  herramientas de Meta no usan SynthID y quedan fuera.
+- **Un resultado negativo no demuestra nada.** Significa únicamente que no se encontró
+  la marca: no convierte el archivo en una prueba de autoría humana.
+- **No dice qué parte es de IA.** El detector solo informa de si la marca está, sin
+  indicar qué fragmentos del archivo fueron generados.
+- **Sesión obligatoria y cupo diario.** Necesitas una cuenta de Google, OpenAI o Apple,
+  y ese límite de uso existe, según Google, para que nadie tome las respuestas del
+  detector como guía para retirar la marca.
+- **No hay garantía absoluta.** Google admite que, aunque las firmas sobreviven a las
+  ediciones, siempre puede aparecer alguien que encuentre la forma de esquivarlas.
+
+Si necesitas otra vía, OpenAI mantiene su propio detector, que revisa tanto metadatos
+como marcas de SynthID, y Meta ofrece Content Seal con [su detector en línea](https://meta.ai/identification).
+Engadget recoge además un informe de Reuters de 2026 en el que esa detección de Meta
+falló con algunas de sus propias imágenes recortadas. Anthropic y Microsoft ya marcan
+contenido sin ofrecer todavía una herramienta al público: ninguna de estas opciones cubre
+toda la IA generativa, cada una busca su propia marca.
