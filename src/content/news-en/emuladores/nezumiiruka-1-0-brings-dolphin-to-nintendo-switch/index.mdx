@@ -1,0 +1,53 @@
+---
+title: 'Nezumiiruka 1.0 brings Dolphin to Nintendo Switch'
+description: 'Nezumiiruka 1.0 emulates GameCube and Wii on Nintendo Switch with Deko3D. Games cited by its developer, Wii requirements, and save state and Netplay limitations.'
+pubDate: '2026-10-20'
+tags: ['Emulators', 'Nintendo Switch', 'Dolphin', 'GameCube', 'Wii']
+draft: false
+translationOf: 'emuladores/nezumiiruka-1-0-lleva-dolphin-a-nintendo-switch'
+cover: './assets/cover.jpg'
+coverAlt: 'Wii library in Nezumiiruka with Resident Evil 4: Wii Edition selected and its cover art on the right'
+source:
+  name: 'PalindromicBreadLoaf — GitHub'
+  url: 'https://github.com/PalindromicBreadLoaf/nezumiiruka/releases/tag/v1.0.0'
+---
+
+**Nezumiiruka 1.0.0 now has its first non-pre-release version.** PalindromicBreadLoaf released this Dolphin port for emulating GameCube and Wii on Nintendo Switch on October 19. It aims to bring GameCube games close to their original speed at standard handheld clock speeds, although the developer acknowledges that many games still fall short.
+
+The release is based on **Dolphin 2609-75** and is identical to release candidate 1.0.0-rc2. The move to stable numbering does not introduce another round of optimizations over RC2 or mean that every game runs without errors. The project is also independent: its documentation makes clear that it is not affiliated with the Dolphin team.
+
+## Nezumiiruka favors Deko3D over Vulkan
+
+The port includes a Deko3D backend written specifically to take advantage of Switch hardware. It is the developer’s recommended option and the one used by the standard download, `nezumiiruka.nro`. There is also an alternative build with Vulkan through nxvk, but the developer considers it slower and more resource-heavy.
+
+In the [original GBAtemp announcement](https://gbatemp.net/threads/nezumiiruka-a-new-port-of-dolphin-to-the-nintendo-switch.685580/), the developer explains that Vulkan is an alternative for games with Deko3D issues, not the first choice for improving performance. The software is distributed as a homebrew application in NRO format for Nintendo Switch, not as an eShop application.
+
+## Some GameCube games reach full speed; Wii demands more
+
+The developer cites **Luigi’s Mansion and Super Smash Bros. Melee** as examples that can reach their original speed at stock handheld clock speeds. The same announcement puts most games closer to 85–90% emulation speed. These are the developer’s assessments, not the results of independent TechSpain24 testing or a guarantee for the entire library.
+
+The [release documentation](https://github.com/PalindromicBreadLoaf/nezumiiruka/blob/v1.0.0/Readme.md) provides a more conservative reference: many 3D titles run at around 80% and are CPU-limited. Both descriptions point to the same practical issue: having graphics headroom to increase resolution does not ensure that game logic runs at its original pace.
+
+![Luigi in a room in Luigi’s Mansion, running in Nezumiiruka](./assets/luigis-mansion.jpg)
+
+*Screenshot published by the developer, presented as Luigi’s Mansion at 2× internal resolution and stock clock speeds. A still image cannot verify smoothness.*
+
+For Wii, the developer describes titles as playable with substantial overclocking, specifying **1,785 MHz or higher** in the announcement. That condition does not imply general compatibility or make higher clock speeds a universal recommendation. In a later reply in the same thread, the developer also warns that Metroid Prime and Metroid Prime 2 run poorly and does not promise that they can reach full speed.
+
+## Controls, achievements and optional frame generation
+
+Nezumiiruka includes preset and customizable controller profiles, an in-game menu, a profiler to help diagnose issues, and a built-in updater. The announcement also lists support for RetroAchievements, USB storage and Game Boy Advance linking. For Wii, the documentation describes using the touchscreen for pointer input.
+
+![Pac-Man Vs. player selection with the Game Boy Advance screen overlaid in the lower-left corner](./assets/pac-man-vs-gba.jpg)
+
+*Pac-Man Vs. example using the Game Boy Advance linking feature, shared by PalindromicBreadLoaf.*
+
+Frame generation through Lossless Scaling and lsfg-nx is also available. It is optional: it requires your own copy of `Lossless.dll`, obtained by purchasing Lossless Scaling, and is currently implemented only in Deko3D. The developer warns about its high resource demands and the need to raise GPU clock speeds for good results. Inserting intermediate frames should not be confused with running emulation at its original speed.
+
+## No Netplay and limits on transferring data from PC
+
+The JitArm64 recompiler adapted for Switch comes with a tradeoff: **save states and shader caches are not interchangeable with Dolphin on PC**. The documentation also warns that save states may stop working between Nezumiiruka versions; they should not be treated as a permanent preservation format.
+
+Network play is another significant omission. The developer rules out Netplay between Switch and PC because of desynchronization, and says that play between Switch consoles has not yet been implemented. Although [mainline Dolphin has expanded NetPlay to Android](/noticias/dolphin-progress-report-2609/), that feature does not automatically carry over to this port.
+
+The [1.0.0 release notes](https://github.com/PalindromicBreadLoaf/nezumiiruka/releases/tag/v1.0.0) add a caution about peripherals: the developer has not been able to personally test the Wii U GameCube controller adapter or certain Skylanders and Disney Infinity features because the necessary equipment is unavailable. The current release combines specific games that, according to its developer, already reach full speed with others limited by the CPU and features still awaiting verification. That is the scope of this first stable version, not a promise to run the entire GameCube and Wii libraries without compromise.

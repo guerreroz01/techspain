@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 916 artículos. Actualizado: 2026-10-19
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 921 artículos. Actualizado: 2026-10-20
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -923,3 +923,8 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-19 | NVIDIA desmiente que la RTX 5090 esté descontinuada y admite que el suministro está ajustado | [tarjetas-graficas/nvidia-desmiente-rtx-5090](https://www.techspain24.com/noticias/tarjetas-graficas/nvidia-desmiente-rtx-5090/) |
 | 2026-10-19 | Un aficionado hace funcionar iOS 16 en un Redmi Note 12 y publica el código del port | [moviles/redmi-note-12-ios-16](https://www.techspain24.com/noticias/moviles/redmi-note-12-ios-16/) |
 | 2026-10-19 | Xbox contrata a un estratega de juegos físicos: ¿lugar para los discos en Project Helix? | [consolas/xbox-contrata-experto-juegos-fisicos](https://www.techspain24.com/noticias/consolas/xbox-contrata-experto-juegos-fisicos/) |
+| 2026-10-20 | China exigirá licencias para exportar motores y hélices de drones desde el 18 de noviembre | [drones/china-exigira-licencias-para-exportar-motores-y-helices-de-drones-desde-el-18-de-noviembre](https://www.techspain24.com/noticias/drones/china-exigira-licencias-para-exportar-motores-y-helices-de-drones-desde-el-18-de-noviembre/) |
+| 2026-10-20 | Colorful pone a la venta en China la placa base iGame X870E Ultra-S | [componentes/colorful-pone-a-la-venta-en-china-la-placa-base-igame-x870e-ultra-s](https://www.techspain24.com/noticias/componentes/colorful-pone-a-la-venta-en-china-la-placa-base-igame-x870e-ultra-s/) |
+| 2026-10-20 | Nezumiiruka 1.0 lleva Dolphin a Nintendo Switch | [emuladores/nezumiiruka-1-0-lleva-dolphin-a-nintendo-switch](https://www.techspain24.com/noticias/emuladores/nezumiiruka-1-0-lleva-dolphin-a-nintendo-switch/) |
+| 2026-10-20 | REDMI Band 4 llega con pantalla de 60 Hz y hasta 21 días de autonomía | [wearables/redmi-band-4-llega-con-pantalla-de-60-hz-y-hasta-21-dias-de-autonomia](https://www.techspain24.com/noticias/wearables/redmi-band-4-llega-con-pantalla-de-60-hz-y-hasta-21-dias-de-autonomia/) |
+| 2026-10-20 | Triangle amplía la serie Borea con los altavoces BR05 | [audio/triangle-amplia-la-serie-borea-con-los-altavoces-br05](https://www.techspain24.com/noticias/audio/triangle-amplia-la-serie-borea-con-los-altavoces-br05/) |
