@@ -74,12 +74,30 @@ function serpTitle(value: string, max = TITLE_MAX): string {
   return (atWord.length >= TITLE_MIN ? atWord : cut).replace(/[\s,;:.·-]+$/, '');
 }
 
-const brandedTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+/**
+ * Meta descriptions get truncated by Google around 158 characters. 291 of the
+ * 1237 published entries exceed 160 (max 316), so the tail — often the concrete
+ * fact that earns the click — is cut by the SERP. `serpDescription` trims on a
+ * word boundary and marks the cut; the frontmatter and Open Graph keep the full
+ * text.
+ */
+const DESCRIPTION_MAX = 158;
+
+function serpDescription(value: string, max = DESCRIPTION_MAX): string {
+  if (value.length <= max) return value;
+  const cut = value.slice(0, max);
+  const atWord = cut.slice(0, cut.lastIndexOf(' '));
+  const base = atWord.length >= 60 ? atWord : cut;
+  return `${base.replace(/[\s,;:.·-]+$/, '')}…`;
+}
+
 const conciseTitle = title ? serpTitle(title) : null;
+const brandedTitle = title ? `${title} | ${SITE.title}` : SITE.title;
 const withBrand = conciseTitle ? `${conciseTitle} | ${SITE.title}` : SITE.title;
 // Keep the brand only when it still fits; otherwise the words that earn the
 // click matter more than the site name (Google often appends it anyway).
 const pageTitle = withBrand.length <= 65 ? withBrand : (conciseTitle ?? SITE.title);
+const metaDescription = serpDescription(description);
 const siteBase = Astro.site ?? new URL(SITE.url);
 const canonical = new URL(Astro.url.pathname, siteBase).href;
 const ogImage = new URL(image, siteBase).href;
@@ -94,7 +112,7 @@ const rssHref = new URL('rss.xml', siteBase).href;
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -256,7 +274,7 @@ const rssHref = new URL('rss.xml', siteBase).href;
       <slot />
     </main>
 
-    <Footer />
+    <Footer lang={lang} />
 
     <ConsentBanner />
   </body>

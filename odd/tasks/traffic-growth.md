@@ -41,10 +41,13 @@ already ranks for — without renaming indexed URLs or inflating volume.
 - [x] T4 — 56 EN bodies started with a duplicate `# H1`; stripped. Verified: 1 `<h1>` per page.
 - [x] T5 — Concise `<title>` derived from the headline (`serpTitle`), `<h1>` and OG untouched. Verified: 1155 → 126 pages over 60 chars (most of the rest are HTML-entity artefacts), max 138 → 73.
 - [x] T6 — 10 internal links pointed at five non-existent vertical-nested URLs. Rewritten at source **and** kept as 301s in `astro.config.mjs` for external inbound. Verified: 0 broken internal links.
-- [ ] T7 — After deploy: resubmit IndexNow for the full URL set (Bing/DuckDuckGo, relevant for US).
-- [ ] T8 — Cover audit: 354 of 1218 unique covers (29%) are under 1200px wide and cannot earn the Discover large card. Re-source the highest-impression offenders first.
-- [ ] T9 — EN content: target US intent (USD, US carriers, US releases), not mirrored translations of Spain/China-market stories.
-- [ ] T10 — Editorial rule for new headlines: ≤60 characters. The template mitigation is not a substitute.
+- [x] T7 — After deploy: IndexNow submitted for 55 URLs (26 recent news, home, 22 hubs, 5 redirected). Key file live (HTTP 200).
+- [x] T8 — Meta descriptions: 291 of 1237 exceeded 160 chars (max 316). `serpDescription()` trims the `<meta name="description">` only; frontmatter and Open Graph keep the full text. Verified: 9 pages over 160 (max 168).
+- [x] T9 — Section navigation: no page linked to a vertical hub except an article's own breadcrumb and the sitemap. The footer now lists all eleven sections site-wide, with ES/EN labels and the matching path prefix.
+- [x] T10 — Verified hreflang is correct and mutual (es/en/x-default → ES) and absent when there is no companion. 308 of 929 ES articles have a pair.
+- [x] T11 — Cover discovery added: `scripts/check-covers.mjs` reads image headers (JPEG/PNG/WebP/GIF/AVIF, no library), reports every entry under 1200px, and fails only on entries absent from `scripts/cover-baseline.json`. Wired as `npm run covers` / `npm run covers:strict`, documented in `AGENTS.md`, `SKILL.md` and `DELEGATION.md`. Current debt: 354 of 1237 baselined, 19 without cover. Re-sourcing those covers is still manual.
+- [ ] T12 — 621 ES articles have no EN companion. Do not blanket-translate; publish EN for US-intent stories only.
+- [ ] T13 — 126 `<title>` still exceed 60 raw characters; most are HTML-entity inflation (`&quot;` counts 6, renders 1). Recheck after the next deploy with decoded entities.
 
 ## Findings that changed the diagnosis
 

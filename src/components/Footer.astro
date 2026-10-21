@@ -1,5 +1,26 @@
 ---
 import { SITE, SOCIAL, CONSENT_ACTIVE } from '../consts';
+import { VERTICALS } from '../lib/verticals';
+
+interface Props {
+  /** Page language; selects the label set and the hub path prefix. */
+  lang?: string;
+}
+
+const { lang = SITE.lang } = Astro.props;
+const isEn = lang.startsWith('en');
+const basePath = isEn ? '/en/news/' : '/noticias/';
+
+/**
+ * Vertical hubs were previously reachable only from an article's breadcrumb or
+ * the sitemap: the header nav has no section links. A site-wide footer block
+ * gives every page a path into all eleven sections, which is what builds the
+ * topical clusters the sections are supposed to represent.
+ */
+const SECTIONS = VERTICALS.map((vertical) => ({
+  label: isEn ? vertical.en : vertical.es,
+  href: `${basePath}${vertical.token}/`,
+}));
 
 const year = new Date().getFullYear();
 
@@ -42,6 +63,18 @@ const LEGAL_LINKS = [
               </button>
             </li>
           )
+        }
+      </ul>
+    </nav>
+
+    <nav class="site-footer__sections" aria-label={isEn ? 'Sections' : 'Secciones'}>
+      <ul class="site-footer__links">
+        {
+          SECTIONS.map((section) => (
+            <li>
+              <a href={section.href}>{section.label}</a>
+            </li>
+          ))
         }
       </ul>
     </nav>
@@ -100,6 +133,13 @@ const LEGAL_LINKS = [
 
   .site-footer__links a:hover {
     color: var(--color-text);
+  }
+
+  /* Full-width row under the legal/social links: the eleven section hubs. */
+  .site-footer__sections {
+    width: 100%;
+    padding-top: var(--space-4);
+    border-top: var(--border-width) solid var(--color-border);
   }
 
   /* Matches the surrounding footer links; reopens the cookie notice. */

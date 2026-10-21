@@ -28,6 +28,16 @@
       "focus": ["componentes", "reviews", "noticias"]
     },
     {
+      "id": "toms-guide",
+      "name": "Tom's Guide",
+      "layer": "tech-media",
+      "homepage": "https://www.tomsguide.com",
+      "rss": "https://www.tomsguide.com/feeds.xml",
+      "lang": "en",
+      "focus": ["reviews", "guías de compra", "comparativas"],
+      "notes": "Verificado 2026-10 con el UA del detector (50 items). Cubre el formato 'cuál comprar', que es el de mejor CTR en Search Console."
+    },
+    {
       "id": "techpowerup",
       "name": "TechPowerUp",
       "layer": "tech-media",
@@ -330,19 +340,20 @@
       "name": "ITHome",
       "layer": "asia",
       "homepage": "https://www.ithome.com",
-      "rss": "https://www.ithome.com/rss",
+      "rss": null,
       "lang": "zh",
       "focus": ["adelanto", "filtraciones", "noticias"],
-      "notes": "Clave para detección temprana de novedades."
+      "notes": "Seguimiento manual desde 2026-10. Aportó 43 piezas publicadas sin una sola presencia en el top 22 de Search Console, y su volumen (60 candidatos cada 2 días) enterraba la señal de las demás. Se conserva para contraste."
     },
     {
       "id": "mydrivers",
       "name": "MyDrivers",
       "layer": "asia",
       "homepage": "https://news.mydrivers.com",
-      "rss": "https://rss.mydrivers.com/Rss.aspx?Tid=1",
+      "rss": null,
       "lang": "zh",
-      "focus": ["adelanto", "hardware", "noticias"]
+      "focus": ["adelanto", "hardware", "noticias"],
+      "notes": "Seguimiento manual desde 2026-10. Fue la fuente más prolífica del corpus (70 piezas) y ninguna entró en las 22 con más clics de Search Console: dominaba precio en yuanes e industria. Se conserva la homepage para contrastar, no para detectar."
     },
     {
       "id": "expreview",
@@ -429,6 +440,16 @@
       "rss": "https://www.xataka.com/index.xml",
       "lang": "es",
       "focus": ["tecnología", "noticias", "reviews"]
+    },
+    {
+      "id": "adslzone",
+      "name": "ADSLZone",
+      "layer": "es-competition",
+      "homepage": "https://www.adslzone.net",
+      "rss": "https://www.adslzone.net/feed/",
+      "lang": "es",
+      "focus": ["tecnología", "tutoriales", "noticias"],
+      "notes": "Verificado 2026-10 (15 items). Aporta tutoriales en español, el formato que mejor convierte en la vertical Tutoriales."
     },
     {
       "id": "xataka-windows",
@@ -781,6 +802,16 @@
       "lang": "en",
       "focus": ["comunidad", "homebrew", "emulación"],
       "notes": "Feed del foro completo: ruidoso e incluye off-topic. No hay feed de portada usable."
+    },
+    {
+      "id": "wololo",
+      "name": "Wololo.net",
+      "layer": "emulacion",
+      "homepage": "https://wololo.net",
+      "rss": "https://wololo.net/feed/",
+      "lang": "en",
+      "focus": ["homebrew", "emulación", "releases"],
+      "notes": "Verificado 2026-10 (20 items). Mismo perfil que GBAtemp, la fuente que más piezas puso en el top 22 pese a ser un feed de foro."
     },
     {
       "id": "dolphin-blog",
@@ -1427,10 +1458,10 @@
       "name": "Head-Fi",
       "layer": "audio",
       "homepage": "https://www.head-fi.org",
-      "rss": "https://www.head-fi.org/forums/-/index.rss",
+      "rss": null,
       "lang": "en",
       "focus": ["comunidad", "auriculares", "iem", "dac", "reviews"],
-      "notes": "Feed del foro completo (50 items): ruidoso, filtrar antes de seleccionar."
+      "notes": "Seguimiento manual desde 2026-10. El feed del foro entrega 50 hilos por corrida, casi todos conversación y no noticia, y la vertical audio no registró clics en Search Console. Usar la homepage para reviews concretas."
     },
     {
       "id": "headfonics",
@@ -1646,10 +1677,10 @@
       "name": "DroneXL",
       "layer": "drones",
       "homepage": "https://dronexl.co",
-      "rss": "https://dronexl.co/feed/",
+      "rss": null,
       "lang": "en",
       "focus": ["drones", "dji", "filtraciones", "noticias", "reviews"],
-      "notes": "Feed muy activo, centrado en rumores y filtraciones de DJI, Autel, Skydio y Parrot."
+      "notes": "Seguimiento manual desde 2026-10. La vertical drones publicó cerca de 50 piezas sin clics en Search Console, y este feed aportaba 27 candidatos cada 2 días. Revisar a mano solo si hay un lanzamiento de consumo (DJI, sobre todo)."
     },
     {
       "id": "suasnews",

@@ -315,6 +315,62 @@ const TECH_SIGNAL = [
   'correo', 'email', 'spotify', 'clipchamp', 'carplay', 'roku',
 ];
 
+/*
+ * Intención del lector.
+ *
+ * Search Console (28 días) muestra qué tipo de pieza recibe clic y cuál no:
+ * producto de consumo con decisión de compra o de uso ("fitbit charge 7",
+ * "desactivar apple intelligence", "apple watch ultra 2 vs ultra 4",
+ * "mupen64plus ps5") sí; inteligencia de industria y precios de mercado chino,
+ * no. El clasificador de verticales no cambia — la vertical sigue siendo la
+ * correcta —; lo que cambia es el orden en que el reporte ofrece los candidatos.
+ *
+ * Es una señal de prioridad editorial, no un filtro: nada se descarta.
+ */
+const INTENT_HIGH = [
+  ['precio', /\bprecio|\bprice\b|€|\beuros?\b|\bd[óo]lares?\b/i],
+  ['review', /\ban[áa]lisis\b|\breview\b|\bprobamos\b|\bhands[- ]on\b|\btested\b/i],
+  ['comparativa', /\bvs\.?\b|\bversus\b|\bcomparativa\b|\bcu[áa]l (?:elegir|comprar)\b|\bmejor\b|\bwhich (?:one|to (?:buy|choose|pick))\b/i],
+  ['guía', /\bgu[íi]a\b|\bc[óo]mo\b|\bhow to\b|\btutorial\b|\bpaso a paso\b/i],
+  ['lanzamiento', /\blanzamiento\b|\bya disponible\b|\ba la venta\b|\bdisponibilidad\b|\bpreventa\b|\breserva\b|\blaunch/i],
+  ['filtración', /\bfiltraci[óo]n\b|\bfiltrado\b|\bleak\b|\brumor/i],
+  ['oferta', /\boferta\b|\bdescuento\b|\bchollo\b|\bdeal\b|\brebaja\b/i],
+];
+
+const INTENT_LOW = [
+  ['industria', /\bHBM\d?\b|\bDRAM\b|\bNAND\b|\boblea|\bfundici[óo]n|\bTSMC\b|\bFoundry\b/i],
+  ['finanzas', /\bingresos\b|\bbeneficios\b|\bfacturaci[óo]n\b|\bacciones\b|\bvalor de mercado\b|\bcapitalizaci[óo]n\b|\brevenue\b|\bearnings\b/i],
+  ['empresarial', /\bEPYC\b|\bXeon\b|\bAscend\b|\bLoongson\b|\bcentro de datos\b|\bdata cent(?:er|re)\b|\bsupercomputador|\bHPC\b/i],
+  ['precio-china', /\byuan(?:es)?\b|\bCNY\b|\bRMB\b/i],
+];
+
+/** Prioridad editorial de un titular: -6 (industria) … +4 (intención clara). */
+function readerIntent(title) {
+  const text = String(title || '');
+  const reasons = [];
+  let score = 0;
+  for (const [label, rx] of INTENT_HIGH) {
+    if (rx.test(text)) {
+      score += 2;
+      reasons.push(`+${label}`);
+    }
+  }
+  for (const [label, rx] of INTENT_LOW) {
+    if (rx.test(text)) {
+      // Industria pesa más que cualquier señal de compra: "el precio del DRAM
+      // sube" menciona un precio, pero no es una noticia para el lector.
+      score -= 3;
+      reasons.push(`-${label}`);
+    }
+  }
+  return { score: Math.max(-6, Math.min(4, score)), reasons };
+}
+
+/** Mayor intención primero; a igual intención, lo más reciente. */
+function byIntentThenDate(a, b) {
+  return (b.intent ?? 0) - (a.intent ?? 0) || String(b.date ?? '').localeCompare(String(a.date ?? ''));
+}
+
 const VERTICAL_LABELS = {
   audio: '🎧 Audio',
   wearables: '⌚ Wearables',
@@ -655,6 +711,7 @@ async function main() {
       // Clasificamos solo por el título: las menciones incidentales en la
       // descripción ("GPU", "RAM", "SSD") ensucian el resultado.
       const verticals = classify(item.title || '');
+      const intent = readerIntent(item.title || '');
 
       candidates.push({
         id: guid,
@@ -664,6 +721,8 @@ async function main() {
         source: source.id,
         sourceName: source.name,
         verticals,
+        intent: intent.score,
+        intentReasons: intent.reasons,
         description: truncate(description),
       });
     }
@@ -706,11 +765,14 @@ function writeSelectionFile(candidates, includeOthers) {
   lines.push('');
 
   for (const [v, label] of Object.entries(VERTICAL_LABELS)) {
-    const items = byVertical[v] || [];
+    const items = (byVertical[v] || []).sort(byIntentThenDate);
     if (items.length === 0) continue;
     lines.push(`## ${label}`);
     lines.push('');
-    for (const c of items) lines.push(`- [ ] ${mdLink(c.title, c.url)} — ${c.sourceName}`);
+    for (const c of items) {
+      const mark = (c.intent ?? 0) <= -2 ? ' · _baja prioridad_' : '';
+      lines.push(`- [ ] ${mdLink(c.title, c.url)} — ${c.sourceName}${mark}`);
+    }
     lines.push('');
   }
 
@@ -746,7 +808,7 @@ function printReport({ candidates, withoutRss, failed, days, limit, includeOther
   let idx = 0;
   let budget = limit === Infinity ? Infinity : limit;
   for (const [v, label] of Object.entries(VERTICAL_LABELS)) {
-    const items = grouped[v] || [];
+    const items = (grouped[v] || []).sort(byIntentThenDate);
     if (items.length === 0) continue;
     out += `## ${label} (${items.length})\n\n`;
     for (const c of items) {
@@ -754,7 +816,8 @@ function printReport({ candidates, withoutRss, failed, days, limit, includeOther
       budget -= 1;
       idx += 1;
       const when = c.date ? new Date(c.date).toLocaleDateString('es-ES') : '—';
-      out += `**[${idx}]** ${c.title} — _${c.sourceName}_ (${when})\n     ${c.url}\n`;
+      const mark = (c.intent ?? 0) <= -2 ? ' · _baja prioridad_' : '';
+      out += `**[${idx}]** ${c.title} — _${c.sourceName}_ (${when})${mark}\n     ${c.url}\n`;
       if (c.description) out += `     ${truncate(c.description, 140)}\n\n`;
     }
   }

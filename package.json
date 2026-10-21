@@ -17,6 +17,10 @@
     "slug": "node scripts/slug-check.mjs",
     "find": "node scripts/find-published.mjs",
     "translate:en": "node scripts/translate-en.mjs",
+    "covers": "node scripts/check-covers.mjs",
+    "covers:strict": "node scripts/check-covers.mjs --strict",
+    "quality": "node scripts/check-quality.mjs",
+    "quality:strict": "node scripts/check-quality.mjs --strict",
     "test:sitemaps": "node scripts/validate-sitemaps.mjs"
   },
   "dependencies": {

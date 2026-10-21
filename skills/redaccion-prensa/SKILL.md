@@ -25,7 +25,7 @@ Load this skill when the user asks to write or publish a technology news article
 - Orden de prioridad del clasificador (decide qué vertical gana cuando un titular casa con dos o más): `Audio` → `Wearables` → `Móviles` → `Tutoriales` → `Drones` → tarjetas gráficas, memorias, portátiles, emuladores, consolas, componentes. Consecuencia: una guía how-to sobre audio, un ponible o un móvil cae en esa vertical, no en `Tutoriales`; y una guía paso a paso sobre un dron cae en `Tutoriales`, no en `Drones`.
 - Never copy source text verbatim: translate and rewrite in your own words. Always attribute via `source: { name, url }`.
 - Attribute the ultimate origin, not the relay: if the outlet you read cites another outlet as its source, trace and attribute the original, and read it to confirm before publishing.
-- Images: download EVERY content image from the original article into the entry's own `src/content/news/<vertical>/<slug>/assets/` folder. Reference the cover as `./assets/<name>`; embed extra images inline with `![alt](./assets/<name>)`. Never hotlink the source's CDN.
+- Images: download EVERY content image from the original article into the entry's own `src/content/news/<vertical>/<slug>/assets/` folder. Reference the cover as `./assets/<name>`; embed extra images inline with `![alt](./assets/<name>)`. Never hotlink the source's CDN. The `cover` must be **at least 1200px wide** — below that Google Discover cannot show the large card. Verify with `npm run covers -- --strict` before reporting the piece as done; never add a new entry to the baseline.
 - Never invent facts, quotes, numbers, or dates. Every claim must trace to a source listed in `src/data/sources.json`.
 - Respect source terms: VideoCardz forbids automated scraping; use only the `rss` field where present, otherwise read the homepage manually.
 - Follow the content model in `AGENTS.md` §6 and the template in `assets/frontmatter-template.md`.
@@ -43,9 +43,39 @@ Every piece is one of two types. Decide the type before writing.
 - A `tutorial` puts `Tutoriales` first in `tags`, even when the guide is about hardware (it wins over the topic vertical).
 - Tutorials are evergreen content: they are NOT contrasted, confirmed, or checked for saturation. Every step, menu path, and setting name must exist in the original — never invent one.
 
+## Editorial line (evidence-based)
+
+Search Console, 28 days (2026-09-20 → 2026-10-18): 553 clicks, ~28.900 impressions, CTR 1,9%, average position 10,5. What separates a piece that earns clicks from one that only earns impressions is **reader intent**, not the vertical.
+
+**What works.** Every one of the 22 highest-clicking pieces is one of three shapes:
+
+1. **Consumer product launch or leak** with an availability or price the reader can act on (Fitbit Charge 7, Suunto Race 3S, Oppo Find X10).
+2. **Comparison or buying guide** — "X vs Y", "cuál elegir" (Apple Watch Ultra 2 vs Ultra 4: 9,0% CTR; Garmin Fenix 9 vs Ultra 4).
+3. **Verifiable how-to** about software or a device — disable, configure, fix ("desactivar Apple Intelligence": 5,6% CTR).
+
+Emulation and consumer wearables/mobile are the verticals that convert: GBAtemp alone supplied 4 of the top 22, and SamMobile 2.
+
+**What does not work.** Roughly 160 published pieces from MyDrivers (70), ITHome (43), GizmoChina (24) and Wccftech (26) — China-market hardware and industry news — produced no entry in the top 22. Enterprise silicon, memory-market pricing and corporate financials sit at 0–1 clicks per piece. Volume does not fix it: 929 Spanish pieces produced 553 clicks in a month.
+
+**Selection rule.** Prefer a story whose headline answers one of: what does it cost, is it available, which one do I buy, how do I do this. Deprioritise a story whose only angle is industry data, factory output, corporate results, or a price denominated in yuan. `npm run news` scores each candidate as `intent` (−6 industry … +4 clear intent) and orders `scripts/seleccion.md` by it; `· _baja prioridad_` marks the ones to skip unless there is a stronger angle.
+
+**This is not a filter.** A deprecated angle is still right when it changes what the reader can do — a DRAM price rise that changes what a laptop costs is a consumer story. The score orders; the editor decides.
+
+### Shape playbook
+
+| Shape | Structure | `tags[0]` | Proven example (CTR / position) |
+| --- | --- | --- | --- |
+| Launch or leak | What it is, the price or availability, who it is for, what is still unknown | product vertical | `fitbit-charge-7-launch` — Wearables (9,4% / 5,1) |
+| Comparison | The two options in one line, the 3 differences that actually matter, a verdict by reader profile, price | `Tutoriales` (it is a buying guide), product vertical second | `apple-watch-ultra-2-vs-ultra-4-guide` — Tutoriales, Wearables (9,0% / 5,4) |
+| How-to | What it solves, prerequisites, numbered steps, how to verify it worked, caveats | `Tutoriales` | `disable-apple-intelligence-ios-27` — Tutoriales (5,6% / 8,1) |
+
+Comparisons and how-tos both lead with `Tutoriales`: that is how the best-performing pieces are already tagged, and it concentrates buying-guide intent in one vertical instead of scattering it across the product verticals.
+
 ## Decision Gates
 
 | Fork | Type | Decide |
+| --- | --- | --- |
+| Reader interest | both | Does the headline answer cost, availability, which-to-buy or how-to? Yes → strong candidate. Only industry data, factory output or corporate results → deprioritise (see the editorial line). |
 | --- | --- | --- |
 | Relevance | both | Fits one of the 11 verticals (componentes, portátiles, consolas, tarjetas gráficas, memorias, móviles, wearables, audio, emuladores de videojuegos, drones, tutoriales)? No → skip. |
 | Saturation | `noticia` | Layer `es-competition` already saturated the story? Yes → skip or find a fresh angle. |

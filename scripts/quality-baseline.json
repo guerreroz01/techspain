@@ -1,0 +1,1014 @@
+{
+  "generatedAt": "2026-10-21",
+  "minWords": 400,
+  "descriptionRange": [
+    70,
+    160
+  ],
+  "note": "Known editorial debt. New entries must not be added here: fix the piece instead.",
+  "entries": {
+    "src/content/news-en/audio/bluos-integrates-apple-music-without-relying-on-airplay": [
+      "short:364w"
+    ],
+    "src/content/news-en/audio/cherry-audio-revives-the-gleeman-pentaphonic-a-1981-synth-with-fewer-than-70-units-in-existence": [
+      "desc-long:166"
+    ],
+    "src/content/news-en/audio/cmf-launches-its-first-bluetooth-speakers-speaker-s-and-speaker-m-from-59-dollars": [
+      "desc-long:194"
+    ],
+    "src/content/news-en/audio/fosi-audio-dap-neo-an-ipod-soul-audio-player-from-79-99": [
+      "desc-long:182"
+    ],
+    "src/content/news-en/audio/fyne-audio-f1-10-anniversary-30-pairs-to-celebrate-ten-years-of-the-scottish-brand": [
+      "desc-long:172"
+    ],
+    "src/content/news-en/audio/homepod-mini-2-from-169-new-apple-tv-4k-and-homeview-not-for-eu": [
+      "desc-long:165"
+    ],
+    "src/content/news-en/audio/jamo-hyg-5-combines-wifi-gesture-control-and-rca-input": [
+      "short:357w"
+    ],
+    "src/content/news-en/audio/motu-octalite-eight-microphone-preamps-in-half-rack-format": [
+      "desc-long:171"
+    ],
+    "src/content/news-en/audio/neurable-one-eeg-headphones-burnout-tracking": [
+      "short:367w"
+    ],
+    "src/content/news-en/audio/razer-launches-three-pokemon-gaming-headsets-charizard-lucario-and-sylveon": [
+      "desc-long:182"
+    ],
+    "src/content/news-en/audio/snowsky-echo-mini-the-retro-player-from-fiios-new-subbrand": [
+      "desc-long:164"
+    ],
+    "src/content/news-en/audio/sony-launches-inzone-e9-in-crystal-purple-and-h9-ii-fnatic-edition-in-china-799-and-1699-yuan": [
+      "desc-long:200"
+    ],
+    "src/content/news-en/ayaneo-konkr-pocket-block": [
+      "short:308w"
+    ],
+    "src/content/news-en/bose-quietcomfort-ultra-2nd-gen-auracast": [
+      "short:368w"
+    ],
+    "src/content/news-en/componentes/colorful-puts-the-igame-x870e-ultra-s-motherboard-on-sale-in-china": [
+      "desc-long:172"
+    ],
+    "src/content/news-en/componentes/framework-desktop-ryzen-ai-max-pro-495-sells-out": [
+      "short:385w"
+    ],
+    "src/content/news-en/componentes/intel-and-qualcomm-have-already-raised-cpu-prices-up-to-20-on-panther-lake-and-amd-could-follow": [
+      "desc-long:259"
+    ],
+    "src/content/news-en/consolas/ayn-confirms-the-odin-3-portal-a-larger-and-high-end-android-portable": [
+      "desc-long:163"
+    ],
+    "src/content/news-en/consolas/console-market-crashes-xbox-drops-33-year-over-year-and-ps5-down-25-with-series-x-at-800": [
+      "desc-long:174"
+    ],
+    "src/content/news-en/consolas/dune-awakening-one-million-players": [
+      "short:383w"
+    ],
+    "src/content/news-en/consolas/gta-6-jason-lucia-lovers-or-friends": [
+      "desc-long:161"
+    ],
+    "src/content/news-en/consolas/nintendo-confirms-no-plans-to-abandon-physical-format": [
+      "desc-long:161"
+    ],
+    "src/content/news-en/consolas/overdrive-the-pirate-store-distributing-games-and-dlc-for-free-on-jailbroken-ps5": [
+      "desc-long:186"
+    ],
+    "src/content/news-en/consolas/psbox-cloud-gaming-brings-xbox-catalog-to-ps5-via-jailbreak": [
+      "desc-long:172"
+    ],
+    "src/content/news-en/consolas/razer-announces-wolverine-v4-controllers-for-xbox-and-pc": [
+      "desc-long:177"
+    ],
+    "src/content/news-en/consolas/sony-launches-a-midnight-black-ps5-digital-edition-exclusive-to-japan-on-november-19": [
+      "desc-long:168"
+    ],
+    "src/content/news-en/consolas/superstation-one-launches-transparent-colors-limited-edition": [
+      "desc-long:172"
+    ],
+    "src/content/news-en/consolas/xbox-hires-a-physical-games-strategist-is-there-room-for-discs-in-project-helix": [
+      "desc-long:161"
+    ],
+    "src/content/news-en/drones/amazon-drones-cleveland-heights-mayor": [
+      "desc-long:162"
+    ],
+    "src/content/news-en/drones/antigravity-a1-360-drone": [
+      "desc-long:171"
+    ],
+    "src/content/news-en/drones/bird-inspired-drone-touch-branches": [
+      "desc-long:164"
+    ],
+    "src/content/news-en/drones/dji-mapping-drone-training-europe": [
+      "desc-long:161"
+    ],
+    "src/content/news-en/drones/dji-updates-mavic-air-2-and-air-2s-with-bug-fixes": [
+      "short:367w"
+    ],
+    "src/content/news-en/drones/neros-100-million-drone-order": [
+      "desc-long:172"
+    ],
+    "src/content/news-en/drones/powerus-nasdaq-defense-drones": [
+      "desc-long:170"
+    ],
+    "src/content/news-en/drones/states-sue-faa-drone-delivery": [
+      "desc-long:172"
+    ],
+    "src/content/news-en/drones/us-army-awards-415-billion-in-anti-drone-contracts-to-ten-companies": [
+      "desc-long:169"
+    ],
+    "src/content/news-en/emuladores/driveclub-recomp-nativamente-en-pc": [
+      "desc-long:163"
+    ],
+    "src/content/news-en/emuladores/nezumiiruka-1-0-brings-dolphin-to-nintendo-switch": [
+      "desc-long:161"
+    ],
+    "src/content/news-en/emuladores/taki-udon-shows-fpga-sp-handheld-runs-original-game-boy-advance-cartridges": [
+      "short:364w",
+      "desc-long:163"
+    ],
+    "src/content/news-en/emuladores/the-esa-wants-anbernic-added-to-the-us-superfake-list": [
+      "desc-long:206"
+    ],
+    "src/content/news-en/emuladores/vboy-color-adds-color-and-3d-stereoscopic-to-virtual-boy-on-pc-quest-and-android": [
+      "desc-long:170"
+    ],
+    "src/content/news-en/logitech-zone-vibe-pro-headphones": [
+      "short:396w"
+    ],
+    "src/content/news-en/luxman-l-100-centennial-integrated-amplifier": [
+      "desc-long:182"
+    ],
+    "src/content/news-en/make-phone-photos-videos-take-less-space": [
+      "desc-long:161"
+    ],
+    "src/content/news-en/memorias/a-hobbyist-turns-laptop-memory-into-desktop-ddr5-7800": [
+      "short:385w",
+      "desc-long:164"
+    ],
+    "src/content/news-en/memorias/cpu-ram-and-ssd-already-account-for-68-percent-of-a-laptop-s-component-cost": [
+      "desc-long:176"
+    ],
+    "src/content/news-en/moviles/android-sideloading-24-hour-wait-four-countries": [
+      "short:369w"
+    ],
+    "src/content/news-en/moviles/high-iphone-duo-demand-stretches-ships-to-january-complicates-october-23-store-purchase": [
+      "desc-long:194"
+    ],
+    "src/content/news-en/moviles/honor-win-2-and-win-pad-unveiled-on-october-21-no-price-or-date-yet-for-spain": [
+      "desc-long:221"
+    ],
+    "src/content/news-en/moviles/huawei-pura-x-view-approaches-450000-units-sold-in-china-yet-still-out-of-stock-and-selling-at-a-premium": [
+      "desc-long:218"
+    ],
+    "src/content/news-en/moviles/iphone-18-pro-max-att-cellular-issues": [
+      "desc-long:171"
+    ],
+    "src/content/news-en/moviles/iphone-18-pro-paint-fading": [
+      "desc-long:164"
+    ],
+    "src/content/news-en/moviles/lineageos-24-android-17-redesigned-apps": [
+      "desc-long:179"
+    ],
+    "src/content/news-en/moviles/los-envios-de-moviles-en-china-caen-un-154-y-huawei-es-el-unico-que-crece-con-fuerza": [
+      "desc-long:191"
+    ],
+    "src/content/news-en/moviles/oneplus-launches-first-screen-equipped-power-bank-under-chinas-new-standard-on-october-12": [
+      "desc-long:177"
+    ],
+    "src/content/news-en/moviles/samsung-retains-global-mobile-leadership-in-q3-2026-but-market-falls-and-prices-rise": [
+      "desc-long:194"
+    ],
+    "src/content/news-en/moviles/samsung-to-cut-mobile-production-by-up-to-30-due-to-175-rise-in-ram-costs": [
+      "desc-long:231"
+    ],
+    "src/content/news-en/portatiles/surface-laptop-15-gen-8-tips-the-scales-back-toward-intel-over-snapdragon": [
+      "desc-long:183"
+    ],
+    "src/content/news-en/shadps4-prerelease-2026-09-29": [
+      "short:239w"
+    ],
+    "src/content/news-en/shure-mv6-gen-2-usb-gaming-microphone": [
+      "short:344w"
+    ],
+    "src/content/news-en/tarjetas-graficas/amd-adrenalin-26-10-1-expands-fsr-4-1-with-laptop-limitations": [
+      "short:368w"
+    ],
+    "src/content/news-en/tarjetas-graficas/helixsr-brings-nvidias-dlss-to-amd-laptops-7-ms-per-frame-vs-fsr-4s-11ms": [
+      "desc-long:181"
+    ],
+    "src/content/news-en/tarjetas-graficas/intel-names-crescent-island-gpu-d-series-with-1-3-pflops-in-fp8-and-1-5-tb-s": [
+      "short:387w",
+      "desc-long:173"
+    ],
+    "src/content/news-en/tutoriales/how-to-detect-who-uses-your-wifi-step-by-step-guide-to-identify-network-intruders": [
+      "desc-long:167"
+    ],
+    "src/content/news-en/tutoriales/which-processor-for-each-graphics-card": [
+      "desc-long:165"
+    ],
+    "src/content/news-en/wearables/apple-watch-series-12-ultra-4-teardown": [
+      "desc-long:178"
+    ],
+    "src/content/news-en/wearables/fitbit-edge-leak": [
+      "desc-long:162"
+    ],
+    "src/content/news-en/wearables/galaxy-glasses-leaked-in-full-41-grams-no-screen-and-up-to-16-variants": [
+      "desc-long:170"
+    ],
+    "src/content/news-en/wearables/inmo-go3-and-magic-ai-glasses-j-two-opposite-paths-for-smart-glasses": [
+      "desc-long:167"
+    ],
+    "src/content/news-en/wearables/pebble-round-2-beta-tester-shows-off-ultra-thin-watch-in-video": [
+      "desc-long:166"
+    ],
+    "src/content/news-en/wearables/qalo-sl-1-screenless-health-tracker-smart-ring": [
+      "short:373w"
+    ],
+    "src/content/news-en/wearables/soxai-ring-x-the-519mm-japanese-ring-seeks-a-foothold-outside-japan": [
+      "desc-long:166"
+    ],
+    "src/content/news/ai-cost-memory-2027": [
+      "desc-long:231"
+    ],
+    "src/content/news/ai-storage-opportunity": [
+      "desc-long:166"
+    ],
+    "src/content/news/akasa-newton-n16-nuc-case": [
+      "desc-long:175"
+    ],
+    "src/content/news/amazon-portatil-sin-ram-ssd": [
+      "desc-long:161"
+    ],
+    "src/content/news/amd-neural-lighting-dlss-5": [
+      "desc-long:263"
+    ],
+    "src/content/news/amd-ryzen-price-hike-2026": [
+      "desc-long:268"
+    ],
+    "src/content/news/amd-ryzen-single-core-ipc-50": [
+      "desc-long:231"
+    ],
+    "src/content/news/android-ai-malware-self-healing": [
+      "desc-long:194"
+    ],
+    "src/content/news/android-auto-que-es": [
+      "desc-long:187"
+    ],
+    "src/content/news/android-gaming-phone-buying-guide": [
+      "desc-long:163"
+    ],
+    "src/content/news/apple-a20-pro-iphone-18-pro-benchmark": [
+      "desc-long:182"
+    ],
+    "src/content/news/apple-a20-pro-on-device-27b-model": [
+      "desc-long:207"
+    ],
+    "src/content/news/apple-a20-pro-packaging-vapor-chamber": [
+      "desc-long:226"
+    ],
+    "src/content/news/apple-iphone-dram-price-hike": [
+      "desc-long:214"
+    ],
+    "src/content/news/apple-m5-ultra-gpu-geekbench": [
+      "desc-long:184"
+    ],
+    "src/content/news/apple-new-ceo-iphone-18-launch": [
+      "desc-long:201"
+    ],
+    "src/content/news/apple-vp-iphone-duo": [
+      "desc-long:211"
+    ],
+    "src/content/news/asetek-rtx-5070-tgs-2026": [
+      "desc-long:172"
+    ],
+    "src/content/news/asrock-tempguard-rtx-pro-6000-meltdown": [
+      "desc-long:192"
+    ],
+    "src/content/news/astros-playroom-kyty-ps5": [
+      "desc-long:207"
+    ],
+    "src/content/news/asus-am5-bios-cxmt-memory": [
+      "desc-long:184"
+    ],
+    "src/content/news/asus-lc-360-240-aio": [
+      "desc-long:180"
+    ],
+    "src/content/news/asus-rog-cronox-eurux": [
+      "desc-long:208"
+    ],
+    "src/content/news/asus-rtx-5090-800w-adapter": [
+      "short:369w"
+    ],
+    "src/content/news/asus-tuf-laptop-hinge": [
+      "desc-long:200"
+    ],
+    "src/content/news/asus-zenbook-14-snapdragon-review": [
+      "desc-long:207"
+    ],
+    "src/content/news/audio/alexa-echo-entrada-aux": [
+      "desc-long:161"
+    ],
+    "src/content/news/audio/bluos-integra-apple-music-sin-depender-de-airplay": [
+      "short:398w"
+    ],
+    "src/content/news/audio/cmf-speaker-s-m": [
+      "desc-long:195"
+    ],
+    "src/content/news/audio/fosi-audio-dap-neo": [
+      "desc-long:193"
+    ],
+    "src/content/news/audio/jamo-hyg-5-combina-wifi-control-gestual-y-entrada-rca": [
+      "short:388w"
+    ],
+    "src/content/news/audio/sony-inzone-e9-h9-ii-fnatic": [
+      "desc-long:214"
+    ],
+    "src/content/news/ax-rtx-5070-fragrance": [
+      "desc-long:194"
+    ],
+    "src/content/news/ayaneo-konkr-pocket-block": [
+      "short:344w"
+    ],
+    "src/content/news/be-quiet-psu-modular-cables-smoke": [
+      "desc-long:295"
+    ],
+    "src/content/news/beats-iphone-game-controller-rumor": [
+      "desc-long:173"
+    ],
+    "src/content/news/best-laptop-deals": [
+      "desc-long:188"
+    ],
+    "src/content/news/bose-quietcomfort-ultra-auracast": [
+      "short:397w"
+    ],
+    "src/content/news/carplay-two-phones": [
+      "desc-long:197"
+    ],
+    "src/content/news/case-fans-wrong-headers": [
+      "desc-long:209"
+    ],
+    "src/content/news/celeron-substrate-repair-overclock": [
+      "desc-long:184"
+    ],
+    "src/content/news/cemu-wii-u-switch-port": [
+      "desc-long:202"
+    ],
+    "src/content/news/cloning-old-ssd-problems": [
+      "desc-long:174"
+    ],
+    "src/content/news/cod-black-ops-2-dedicated-servers": [
+      "short:307w",
+      "desc-long:178"
+    ],
+    "src/content/news/componentes/intel-qualcomm-subida-precios-cpu": [
+      "desc-long:242"
+    ],
+    "src/content/news/componentes/minisforum-ryzen-ai-max-495-workstation": [
+      "desc-long:161"
+    ],
+    "src/content/news/consolas/mercado-consolas-caida-xbox-ps5": [
+      "desc-long:210"
+    ],
+    "src/content/news/consolas/ninja-theory-cierre-hellblade": [
+      "desc-long:161"
+    ],
+    "src/content/news/consolas/nintendo-mantiene-formato-fisico": [
+      "desc-long:192"
+    ],
+    "src/content/news/consolas/ps5-jailbreak-overdrive-tienda": [
+      "desc-long:189"
+    ],
+    "src/content/news/consolas/psbox-cloud-gaming-xbox-ps5": [
+      "desc-long:190"
+    ],
+    "src/content/news/consolas/xbox-elite-series-3": [
+      "desc-long:162"
+    ],
+    "src/content/news/control-resonance-rtx-5090-4k": [
+      "desc-long:167"
+    ],
+    "src/content/news/control-resonant-steamos-sin-soporte-steam-deck": [
+      "short:375w"
+    ],
+    "src/content/news/copper-steampunk-pc-build": [
+      "desc-long:197"
+    ],
+    "src/content/news/corsair-nautilus-ii-rs-ii": [
+      "desc-long:220"
+    ],
+    "src/content/news/costco-rtx-5080-pc-deal": [
+      "short:253w"
+    ],
+    "src/content/news/cuda-13-4-windows-on-arm": [
+      "desc-long:188"
+    ],
+    "src/content/news/cxmt-dram-margins": [
+      "desc-long:233"
+    ],
+    "src/content/news/cxmt-nand-flash": [
+      "desc-long:245"
+    ],
+    "src/content/news/dark-souls-3-path-tracing-dlss-5": [
+      "desc-long:179"
+    ],
+    "src/content/news/deepseek-v4-1-flash-memory": [
+      "desc-long:235"
+    ],
+    "src/content/news/dell-pc-assembly-kit-japan": [
+      "desc-long:206"
+    ],
+    "src/content/news/dell-pro-5-16-amd-review": [
+      "desc-long:204"
+    ],
+    "src/content/news/disable-apple-intelligence-ios-27": [
+      "desc-long:292"
+    ],
+    "src/content/news/dlss-5-desktop-neuralscreen": [
+      "short:251w"
+    ],
+    "src/content/news/dlss-5-hybrid-fp8-rtx-50": [
+      "short:290w"
+    ],
+    "src/content/news/dlss-5-intel-arc-140v-mod": [
+      "desc-long:249"
+    ],
+    "src/content/news/dlss-multi-frame-gen-rtx-30": [
+      "desc-long:232"
+    ],
+    "src/content/news/dragon-quest-xi-switch-2-launch": [
+      "short:330w"
+    ],
+    "src/content/news/drones/amprius-baterias-drones-pentagono": [
+      "desc-long:161"
+    ],
+    "src/content/news/drones/dji-actualiza-mavic-air-2-y-air-2s-con-correcciones-de-errores": [
+      "short:398w"
+    ],
+    "src/content/news/drones/ejercito-eeuu-4150-millones-antidron": [
+      "desc-long:200"
+    ],
+    "src/content/news/dual-rtx-5090-power-draw": [
+      "desc-long:207"
+    ],
+    "src/content/news/emuladores/anbernic-esa-superfake": [
+      "desc-long:197"
+    ],
+    "src/content/news/emuladores/mupen64plus-ps5": [
+      "desc-long:161"
+    ],
+    "src/content/news/emuladores/taki-udon-fpga-sp-gba": [
+      "desc-long:178"
+    ],
+    "src/content/news/emuladores/vboy-color-emulador-virtual-boy": [
+      "desc-long:178"
+    ],
+    "src/content/news/fable-vital-to-xbox-dna": [
+      "desc-long:213"
+    ],
+    "src/content/news/fake-9800x3d-official-store": [
+      "desc-long:205"
+    ],
+    "src/content/news/fallen-tear-the-ascension-llegara-nintendo-switch-2-2027": [
+      "short:396w"
+    ],
+    "src/content/news/far-cry-3-blood-dragon-switch-2": [
+      "desc-long:187"
+    ],
+    "src/content/news/ff7-revelation-200gb": [
+      "desc-long:177"
+    ],
+    "src/content/news/ff7-revelation-pc-dlss-5": [
+      "short:245w"
+    ],
+    "src/content/news/fujitsu-monaka-cpu": [
+      "desc-long:194"
+    ],
+    "src/content/news/gamenative-steam-android-gta5": [
+      "desc-long:198"
+    ],
+    "src/content/news/gaming-handheld-home-media-server": [
+      "desc-long:179"
+    ],
+    "src/content/news/gba-switch-2-pokemon-transfer": [
+      "desc-long:191"
+    ],
+    "src/content/news/gears-of-war-e-day-pc-requirements": [
+      "desc-long:174"
+    ],
+    "src/content/news/geforce-616-92-game-ready-drivers": [
+      "desc-long:174"
+    ],
+    "src/content/news/geforce-now-new-games-september-2026": [
+      "desc-long:176"
+    ],
+    "src/content/news/geforce-rtx-20-dlss-frame-gen": [
+      "short:289w"
+    ],
+    "src/content/news/gigabyte-b850-aorus-elite-x3d": [
+      "desc-long:202"
+    ],
+    "src/content/news/google-wallet-problems-fixes": [
+      "desc-long:219"
+    ],
+    "src/content/news/googlebook-preorders-september-21": [
+      "short:318w",
+      "desc-long:177"
+    ],
+    "src/content/news/gpd-win-5-ryzen-ai-max-388": [
+      "desc-long:186"
+    ],
+    "src/content/news/gpu-legacy-pcie-slot": [
+      "desc-long:218"
+    ],
+    "src/content/news/gta-5-switch-port-android": [
+      "desc-long:165"
+    ],
+    "src/content/news/guild-wars-3-console-hud": [
+      "desc-long:210"
+    ],
+    "src/content/news/honor-2-liter-ai-workstation": [
+      "desc-long:200"
+    ],
+    "src/content/news/honor-life-eink-device": [
+      "desc-long:232"
+    ],
+    "src/content/news/honor-magic9-precio-decimo-aniversario": [
+      "short:392w"
+    ],
+    "src/content/news/hp-ferrari-ai-pc": [
+      "desc-long:182"
+    ],
+    "src/content/news/huawei-matepad-air-review": [
+      "desc-long:195"
+    ],
+    "src/content/news/huawei-us-trial-theft": [
+      "desc-long:229"
+    ],
+    "src/content/news/hygon-1000-series-cpu": [
+      "desc-long:185"
+    ],
+    "src/content/news/hyperkin-supaboy-preorders": [
+      "desc-long:200"
+    ],
+    "src/content/news/i7-14700k-amazon-sales-leader": [
+      "desc-long:227"
+    ],
+    "src/content/news/intel-arc-drivers-101-9030": [
+      "desc-long:201"
+    ],
+    "src/content/news/intel-cxl-vs-hbm": [
+      "desc-long:190"
+    ],
+    "src/content/news/intel-raptor-lake-next-8p": [
+      "desc-long:195"
+    ],
+    "src/content/news/ios-27-best-features": [
+      "desc-long:167"
+    ],
+    "src/content/news/iphone-17-18-same-design-cases": [
+      "desc-long:204"
+    ],
+    "src/content/news/iphone-18-pro-1tb-qlc": [
+      "desc-long:292"
+    ],
+    "src/content/news/iphone-18-pro-apple-store-first-in-line": [
+      "desc-long:181"
+    ],
+    "src/content/news/iphone-18-pro-battery-replacement-price": [
+      "desc-long:174"
+    ],
+    "src/content/news/iphone-18-pro-china-first-hour-sales": [
+      "desc-long:186"
+    ],
+    "src/content/news/iphone-18-pro-dxo-172": [
+      "desc-long:205"
+    ],
+    "src/content/news/iphone-18-pro-freeze-bug": [
+      "desc-long:177"
+    ],
+    "src/content/news/iphone-18-pro-max-vapor-chamber": [
+      "desc-long:204"
+    ],
+    "src/content/news/iphone-18-pro-preorder-china": [
+      "desc-long:176"
+    ],
+    "src/content/news/iphone-18-pro-teardown-critique": [
+      "desc-long:316"
+    ],
+    "src/content/news/iphone-18-pro-variable-aperture-hands-on": [
+      "desc-long:194"
+    ],
+    "src/content/news/iphone-18-pro-variable-aperture-mod": [
+      "desc-long:214"
+    ],
+    "src/content/news/iphone-duo-fold-animation": [
+      "desc-long:190"
+    ],
+    "src/content/news/iphone-duo-ios-27-1-launch": [
+      "desc-long:176"
+    ],
+    "src/content/news/iphone-duo-max-larger-foldable": [
+      "desc-long:175"
+    ],
+    "src/content/news/joy-con-2-drift-teardown": [
+      "desc-long:271"
+    ],
+    "src/content/news/justwatch-streaming-platform": [
+      "desc-long:209"
+    ],
+    "src/content/news/kepler-feram-hbm-alternative": [
+      "desc-long:167"
+    ],
+    "src/content/news/kioxia-cxl-rampocalypse": [
+      "desc-long:194"
+    ],
+    "src/content/news/kioxia-xl1-cxl-xl-flash": [
+      "desc-long:185"
+    ],
+    "src/content/news/lenovo-chromebook-80-deal": [
+      "desc-long:239"
+    ],
+    "src/content/news/level-2-ev-charger-guide": [
+      "desc-long:195"
+    ],
+    "src/content/news/liquid-cooled-gpu-four-years": [
+      "desc-long:180"
+    ],
+    "src/content/news/loongson-9a1000-gpu": [
+      "desc-long:198"
+    ],
+    "src/content/news/macbook-ai-amd-gpu-drivers": [
+      "short:252w"
+    ],
+    "src/content/news/macbook-pro-m5-1tb-bh-deal": [
+      "desc-long:197"
+    ],
+    "src/content/news/mame4droid-mame-0-289": [
+      "desc-long:223"
+    ],
+    "src/content/news/manli-rtx-5080-30th-anniversary": [
+      "short:307w",
+      "desc-long:162"
+    ],
+    "src/content/news/marvels-wolverine-ps5-launch": [
+      "desc-long:185"
+    ],
+    "src/content/news/max-vs-100-live-stream": [
+      "desc-long:173"
+    ],
+    "src/content/news/mejorar-audio-iphone": [
+      "desc-long:177"
+    ],
+    "src/content/news/memorias/acemagic-f9a": [
+      "desc-long:162"
+    ],
+    "src/content/news/memorias/cpu-ram-ssd-68-coste-portatil": [
+      "desc-long:174"
+    ],
+    "src/content/news/microsoft-auto-sr-intel-laptops": [
+      "desc-long:175"
+    ],
+    "src/content/news/microsoft-surface-event-2026": [
+      "desc-long:268"
+    ],
+    "src/content/news/modern-n64-console-crt-4k": [
+      "desc-long:180"
+    ],
+    "src/content/news/motorola-moto-tag-2-review": [
+      "desc-long:223"
+    ],
+    "src/content/news/mouse-12-inch-ryzen-ai-laptop": [
+      "desc-long:179"
+    ],
+    "src/content/news/moviles/android-sideloading-limites-cuatro-paises": [
+      "short:388w"
+    ],
+    "src/content/news/moviles/china-envios-moviles-q3-2026": [
+      "desc-long:181"
+    ],
+    "src/content/news/moviles/honor-win-2-win-pad": [
+      "desc-long:237"
+    ],
+    "src/content/news/moviles/huawei-pura-x-view-ventas": [
+      "desc-long:222"
+    ],
+    "src/content/news/moviles/lineageos-24-android-17": [
+      "desc-long:203"
+    ],
+    "src/content/news/moviles/samsung-lider-q3-2026-mercado-cae": [
+      "desc-long:220"
+    ],
+    "src/content/news/moviles/samsung-recorta-produccion-moviles-ram": [
+      "desc-long:277"
+    ],
+    "src/content/news/netease-youdao-openpods": [
+      "desc-long:183"
+    ],
+    "src/content/news/nfs-underground-2-switch": [
+      "desc-long:169"
+    ],
+    "src/content/news/nintendo-45m-pirated-switch-games-lawsuit": [
+      "short:375w"
+    ],
+    "src/content/news/nintendo-fire-emblem-new": [
+      "desc-long:184"
+    ],
+    "src/content/news/nintendo-tariff-refund-sale": [
+      "desc-long:214"
+    ],
+    "src/content/news/nitrografx-pc-engine-emulator": [
+      "desc-long:192"
+    ],
+    "src/content/news/noctua-caim1-anti-ai-camera": [
+      "desc-long:189"
+    ],
+    "src/content/news/nor-flash-slc-nand-undersupply": [
+      "desc-long:260"
+    ],
+    "src/content/news/nvidia-app-overlay-cpu": [
+      "short:362w",
+      "desc-long:190"
+    ],
+    "src/content/news/ocultar-conversaciones-whatsapp-guia": [
+      "desc-long:161"
+    ],
+    "src/content/news/old-laptop-home-server": [
+      "desc-long:190"
+    ],
+    "src/content/news/openai-thermal-morse-code-air-gap": [
+      "desc-long:274"
+    ],
+    "src/content/news/oppo-f35-octubre": [
+      "short:399w"
+    ],
+    "src/content/news/oppo-find-x10-accessories-launch": [
+      "desc-long:217"
+    ],
+    "src/content/news/oppo-find-x10-dimensity-9600-pro": [
+      "desc-long:177"
+    ],
+    "src/content/news/oppo-find-x10-hasselblad-teleconverter": [
+      "desc-long:187"
+    ],
+    "src/content/news/persona-6-nintendo-direct": [
+      "short:386w",
+      "desc-long:161"
+    ],
+    "src/content/news/pixel-fallos-control-volumen-bluetooth-android-17-qpr1": [
+      "short:376w"
+    ],
+    "src/content/news/pixel-weather-boton-actualizacion-widget": [
+      "short:271w"
+    ],
+    "src/content/news/playstation-kojima-xbox": [
+      "desc-long:208"
+    ],
+    "src/content/news/playstation-plus-septiembre": [
+      "desc-long:184"
+    ],
+    "src/content/news/playstation-pulse-headsets": [
+      "desc-long:188"
+    ],
+    "src/content/news/portatiles/googlebook-os-macs-apple-silicon": [
+      "desc-long:161"
+    ],
+    "src/content/news/portatiles/m6-macbook-pro-tres-mejoras": [
+      "desc-long:162"
+    ],
+    "src/content/news/ps5-firmware-top-10-most-played": [
+      "desc-long:194"
+    ],
+    "src/content/news/ps5-linux-creator-departs": [
+      "desc-long:213"
+    ],
+    "src/content/news/ps5-pro-supply-shortage-2027": [
+      "desc-long:240"
+    ],
+    "src/content/news/ps6-release-date-price-rumor": [
+      "desc-long:201"
+    ],
+    "src/content/news/qwen-27b-12gb-ram-laptop": [
+      "short:379w",
+      "desc-long:162"
+    ],
+    "src/content/news/r9-fury-hbm-300-yuan": [
+      "desc-long:239"
+    ],
+    "src/content/news/radeon-rx-9050-4gb-vs-8gb": [
+      "desc-long:174"
+    ],
+    "src/content/news/rediseno-widget-pixel-vips-empieza-desplegarse": [
+      "short:326w"
+    ],
+    "src/content/news/redmi-k100-large-battery": [
+      "desc-long:247"
+    ],
+    "src/content/news/retroid-pocket-duo-lite-optimizacion-guia": [
+      "desc-long:161"
+    ],
+    "src/content/news/rpcs3-nvidia-driver-performance": [
+      "desc-long:211"
+    ],
+    "src/content/news/rtx-20-dlss-frame-gen-mod": [
+      "short:295w"
+    ],
+    "src/content/news/rtx-2gb-prebuilt-pc": [
+      "desc-long:203"
+    ],
+    "src/content/news/rtx-3070-ti-16gb-mod": [
+      "desc-long:175"
+    ],
+    "src/content/news/rtx-4090-cooler-on-rtx-3060": [
+      "desc-long:181"
+    ],
+    "src/content/news/rtx-4090-undervolt-dlss-5": [
+      "desc-long:188"
+    ],
+    "src/content/news/rtx-5060-ti-ritona": [
+      "desc-long:188"
+    ],
+    "src/content/news/rtx-5070-ti-laptop-160w-unlock": [
+      "desc-long:210"
+    ],
+    "src/content/news/rtx-5090-connector-melted-indie-game": [
+      "short:372w",
+      "desc-long:193"
+    ],
+    "src/content/news/rtx-5090-triple-8-pin-mod": [
+      "short:315w"
+    ],
+    "src/content/news/rtx-5090-us-shortage-price-surge": [
+      "desc-long:190"
+    ],
+    "src/content/news/rtx-60-rubin-2027-rumor": [
+      "desc-long:225"
+    ],
+    "src/content/news/run-hide-fight-streaming": [
+      "desc-long:165"
+    ],
+    "src/content/news/ryzen-5-7500-5500f-pricing": [
+      "desc-long:170"
+    ],
+    "src/content/news/ryzen-9-9950x3d-dies": [
+      "desc-long:169"
+    ],
+    "src/content/news/ryzen-9800x3d-newegg-combo": [
+      "desc-long:182"
+    ],
+    "src/content/news/samsung-exynos-hbm-shift": [
+      "desc-long:187"
+    ],
+    "src/content/news/samsung-google-photos-sync": [
+      "desc-long:188"
+    ],
+    "src/content/news/samsung-hbm-base-die-tsmc": [
+      "desc-long:188"
+    ],
+    "src/content/news/samsung-outsourcing-ddr5-ssd": [
+      "desc-long:213"
+    ],
+    "src/content/news/samsung-p9-8tb-portable-ssd": [
+      "desc-long:172"
+    ],
+    "src/content/news/sapphire-nitro-rx-9070-xt-valor-mortis": [
+      "desc-long:221"
+    ],
+    "src/content/news/seagate-ai-storage": [
+      "desc-long:195"
+    ],
+    "src/content/news/shadps4-prerelanzamiento-2026-09-29": [
+      "short:270w"
+    ],
+    "src/content/news/siri-ai-ios-27": [
+      "desc-long:179"
+    ],
+    "src/content/news/solar-plants-gpu-data-centers": [
+      "desc-long:198"
+    ],
+    "src/content/news/solidigm-first-us-nand-fab": [
+      "desc-long:250"
+    ],
+    "src/content/news/sony-pssr-2-firmware": [
+      "desc-long:205"
+    ],
+    "src/content/news/spotify-wrapped-kids-music": [
+      "desc-long:167"
+    ],
+    "src/content/news/steam-big-picture-big-art-beta": [
+      "desc-long:187"
+    ],
+    "src/content/news/steam-deck-2-how-when": [
+      "desc-long:161"
+    ],
+    "src/content/news/steam-deck-factory-reset": [
+      "desc-long:189"
+    ],
+    "src/content/news/steelseries-aeon-pro": [
+      "desc-long:185"
+    ],
+    "src/content/news/suyu-switch-emulator-native": [
+      "desc-long:192"
+    ],
+    "src/content/news/switch-2-docked-vrr": [
+      "desc-long:180"
+    ],
+    "src/content/news/switch-23-firmware-exploit": [
+      "desc-long:189"
+    ],
+    "src/content/news/tarjetas-graficas/helixsr-dlss-steam-deck-rog-ally": [
+      "desc-long:197"
+    ],
+    "src/content/news/tarjetas-graficas/intel-gpu-d-series-crescent-island": [
+      "desc-long:165"
+    ],
+    "src/content/news/thermal-grizzly-wireview-melted-rx-7900-xtx": [
+      "desc-long:224"
+    ],
+    "src/content/news/thermaltake-ax1000-dual-system": [
+      "desc-long:195"
+    ],
+    "src/content/news/thin-gaming-laptops-215w": [
+      "desc-long:217"
+    ],
+    "src/content/news/titan-quest-ii-enero-2027": [
+      "desc-long:161"
+    ],
+    "src/content/news/transcend-ddr5-6400-industrial": [
+      "desc-long:167"
+    ],
+    "src/content/news/ubisoft-xbox-disc-to-digital": [
+      "desc-long:219"
+    ],
+    "src/content/news/ugreen-e-ink-iphone-case": [
+      "desc-long:174"
+    ],
+    "src/content/news/usb-c-video-output-check": [
+      "desc-long:181"
+    ],
+    "src/content/news/valve-steam-frame-android-tool": [
+      "desc-long:209"
+    ],
+    "src/content/news/vivo-x500-pro-max-camera": [
+      "desc-long:161"
+    ],
+    "src/content/news/warcraft-wow-xbox-blizzard": [
+      "desc-long:181"
+    ],
+    "src/content/news/wearables/fitbit-air-metal-mesh-nuevas-funciones": [
+      "desc-long:167"
+    ],
+    "src/content/news/wearables/qalo-pulsera-anillo": [
+      "short:387w"
+    ],
+    "src/content/news/wearables/samsung-galaxy-glasses-filtracion": [
+      "desc-long:180"
+    ],
+    "src/content/news/windows-11-auto-dark-mode": [
+      "desc-long:177"
+    ],
+    "src/content/news/windows-11-bootable-usb": [
+      "desc-long:212"
+    ],
+    "src/content/news/windows-11-patch-amd-crashes": [
+      "desc-long:223"
+    ],
+    "src/content/news/winlator-11-2": [
+      "desc-long:216"
+    ],
+    "src/content/news/wo-long-2-release-date": [
+      "desc-long:208"
+    ],
+    "src/content/news/wolverine-sales-record": [
+      "desc-long:198"
+    ],
+    "src/content/news/xbox-disc-to-digital-history": [
+      "desc-long:218"
+    ],
+    "src/content/news/xbox-game-pass-day-one-changes": [
+      "desc-long:240"
+    ],
+    "src/content/news/xbox-game-pass-day-one-denial": [
+      "desc-long:210"
+    ],
+    "src/content/news/xbox-game-pass-discounts": [
+      "desc-long:177"
+    ],
+    "src/content/news/xbox-series-x-ps5-emulator-quake-2": [
+      "desc-long:231"
+    ],
+    "src/content/news/xbox-tokyo-game-show-2026-resumen": [
+      "desc-long:173"
+    ],
+    "src/content/news/xiyun-c-gpu-china-telecom": [
+      "desc-long:184"
+    ],
+    "src/content/news/xmg-apex-16-pro-16-rtx-5070": [
+      "desc-long:181"
+    ],
+    "src/content/news/zelda-40-aniversario": [
+      "desc-long:244"
+    ]
+  }
+}

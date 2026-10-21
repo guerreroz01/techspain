@@ -104,6 +104,7 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
 - Cuerpo y frontmatter en español neutro/profesional (sin voseo, sin slang). El slug va en español (es la URL); los identificadores de código, en inglés.
 - Estructura por directorio: `src/content/news/{vertical}/{slug}/index.mdx` + `src/content/news/{vertical}/{slug}/assets/`. Escribís **solo la pieza española**: el compañero en inglés lo genera el orquestador después (ver «Compañero en inglés» más abajo).
 - Descarga TODAS las imágenes del artículo original a `assets/` con curl (añade `-A` con un User-Agent de navegador). La principal como `cover` (`./assets/cover.jpg` o `.png` según extensión); el resto embebidas con `![alt](./assets/x.jpg)`.
+- **La imagen `cover` debe tener al menos 1200px de ancho.** Por debajo de eso Google Discover no puede mostrar la tarjeta grande, que es el canal que más rápido mueve tráfico a un portal nuevo. Si la fuente solo ofrece una imagen más chica, buscá otra del mismo hecho; no publiques con un cover de 780px.
 - **No listes `src/content/news/`** (ni `ls`, ni glob, ni grep recursivo): son cientos de entradas y cada listado quema ~12 KB de contexto. Tu slug y tu carpeta ya vienen dados. Para ver si un tema ya está cubierto, usá `npm run find -- <términos distintivos>`. **Si tu pieza ya está publicada, pará y reportalo: no la escribas.**
 - No copies verbatim: traduce y reescribe con tus palabras. No inventes datos, citas ni cifras.
 - Atribuye el origen real en `source: { name, url }`. Si el medio cita a otro, atribuye al original.
@@ -117,7 +118,8 @@ Si `{tipo}` es `tutorial`, leé además la sección **«Variante: tutoriales»**
    - `noticia`: 2-4 secciones con subtítulos, con contexto para el lector hispanohablante.
    - `tutorial`: guía paso a paso (ver «Variante: tutoriales»).
 4. Ejecutá la pasada de SEO pre-publicación (`{seo_contract_path}`) sobre el `index.mdx` terminado: aplicá las correcciones que devuelva y registrá qué cambió. Nunca toques `title`, `tags`, `featured`, `breaking` ni `pubDate`.
-5. **NO ejecutes el build.** El orquestador hará un único `npm run build` al final, después de recoger todos los resultados y generar los compañeros en inglés.
+5. Verificá cover y calidad antes de reportar la pieza: `npm run covers -- --strict` y `npm run quality -- --strict`. Si falla cualquiera, corregí la pieza (imagen más grande, más cuerpo, descripción dentro de 70–160 caracteres, `source` completo). **Nunca agregues tu pieza a los archivos de baseline**: registran deuda histórica, no lo nuevo.
+6. **NO ejecutes el build.** El orquestador hará un único `npm run build` al final, después de recoger todos los resultados y generar los compañeros en inglés.
 
 **Devuelve en tu único mensaje final:** slug final (si la pasada SEO renombró la carpeta, el nuevo), título final, fuente atribuida, imagen(es) usada(s) y los cambios de SEO aplicados (uno por línea). El orquestador necesita el `{vertical}/{slug}` final para generar el compañero EN. No ejecutes el build.
 
