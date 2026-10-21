@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 929 artículos. Actualizado: 2026-10-21
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 935 artículos. Actualizado: 2026-10-21
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -931,8 +931,14 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-21 | AMD Adrenalin 26.10.1 amplía FSR 4.1 con límites para portátiles | [tarjetas-graficas/amd-adrenalin-26-10-1-amplia-fsr-4-1-con-limites-para-portatiles](https://www.techspain24.com/noticias/tarjetas-graficas/amd-adrenalin-26-10-1-amplia-fsr-4-1-con-limites-para-portatiles/) |
 | 2026-10-21 | ASUS adol 14 Air 2026 suma una versión de 16 GB y 1 TB en China | [portatiles/asus-adol-14-air-2026-suma-una-version-de-16-gb-y-1-tb-en-china](https://www.techspain24.com/noticias/portatiles/asus-adol-14-air-2026-suma-una-version-de-16-gb-y-1-tb-en-china/) |
 | 2026-10-21 | BluOS integra Apple Music sin depender de AirPlay | [audio/bluos-integra-apple-music-sin-depender-de-airplay](https://www.techspain24.com/noticias/audio/bluos-integra-apple-music-sin-depender-de-airplay/) |
+| 2026-10-21 | Cómo convertir la ROG Ally en una consola híbrida con el dock ROG Bulwark DG310 | [tutoriales/rog-ally-dock-modo-hibrido](https://www.techspain24.com/noticias/tutoriales/rog-ally-dock-modo-hibrido/) |
 | 2026-10-21 | DJI actualiza Mavic Air 2 y Air 2S con correcciones de errores | [drones/dji-actualiza-mavic-air-2-y-air-2s-con-correcciones-de-errores](https://www.techspain24.com/noticias/drones/dji-actualiza-mavic-air-2-y-air-2s-con-correcciones-de-errores/) |
+| 2026-10-21 | El OPPO Watch X2 Mini cae a 229,99 euros: Wear OS y NFC sin una caja enorme | [wearables/oppo-watch-x2-mini-precio](https://www.techspain24.com/noticias/wearables/oppo-watch-x2-mini-precio/) |
+| 2026-10-21 | Fitbit Edge vs. Fitbit Inspire 3: cuál conviene comprar | [tutoriales/fitbit-edge-vs-inspire-3](https://www.techspain24.com/noticias/tutoriales/fitbit-edge-vs-inspire-3/) |
+| 2026-10-21 | Garmin Edge 1060 vs 850 vs 550: cuál elegir según cómo ruedas | [tutoriales/garmin-edge-1060-vs-850-vs-550](https://www.techspain24.com/noticias/tutoriales/garmin-edge-1060-vs-850-vs-550/) |
 | 2026-10-21 | Jamo HYG 5 combina WiFi, control gestual y entrada RCA | [audio/jamo-hyg-5-combina-wifi-control-gestual-y-entrada-rca](https://www.techspain24.com/noticias/audio/jamo-hyg-5-combina-wifi-control-gestual-y-entrada-rca/) |
+| 2026-10-21 | MediaMarkt pone el Motorola moto g86 5G con el Moto Watch Fit de regalo a 239 euros | [wearables/pack-mediamarkt-motorola-smartwatch](https://www.techspain24.com/noticias/wearables/pack-mediamarkt-motorola-smartwatch/) |
 | 2026-10-21 | Oura incorpora Cardio Effort y prueba el VO2 max automático | [wearables/oura-incorpora-cardio-effort-y-prueba-el-vo2-max-automatico](https://www.techspain24.com/noticias/wearables/oura-incorpora-cardio-effort-y-prueba-el-vo2-max-automatico/) |
+| 2026-10-21 | Pebble Time 2: el reloj de tinta electrónica que promete 30 días de autonomía | [wearables/pebble-time-2-analisis](https://www.techspain24.com/noticias/wearables/pebble-time-2-analisis/) |
 | 2026-10-21 | Turtle Beach Stealth Ultra II incorpora palancas TMR y pantalla táctil | [consolas/turtle-beach-stealth-ultra-ii-incorpora-palancas-tmr-y-pantalla-tactil](https://www.techspain24.com/noticias/consolas/turtle-beach-stealth-ultra-ii-incorpora-palancas-tmr-y-pantalla-tactil/) |
 | 2026-10-21 | Un aficionado transforma memoria de portátil en DDR5-7800 de sobremesa | [memorias/un-aficionado-transforma-memoria-de-portatil-en-ddr5-7800-de-sobremesa](https://www.techspain24.com/noticias/memorias/un-aficionado-transforma-memoria-de-portatil-en-ddr5-7800-de-sobremesa/) |
