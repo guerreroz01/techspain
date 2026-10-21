@@ -78,7 +78,25 @@ export function socialPoolImageFor(id: string): string {
 export const ADS = {
   enabled: true,
   client: 'ca-pub-5346680680468175',
+  /**
+   * Ad unit ids, by placement. Create each unit in AdSense and paste its
+   * `data-ad-slot` here: that single edit lights up every placement bound to the
+   * name, with no component changes.
+   *
+   * An empty string means "not created yet" and renders nothing — never a blank
+   * unit, which logs a TagError and wastes a request.
+   */
+  slots: {
+    homeTop: '',
+    homeMid: '',
+    article: '',
+    archive: '',
+    hub: '',
+  },
 } as const;
+
+/** A placement name, as declared in `ADS.slots`. */
+export type AdSlotName = keyof typeof ADS.slots;
 
 /** Ads only run when the switch is on AND a publisher id is set. */
 export const ADS_ACTIVE = ADS.enabled && ADS.client.length > 0;

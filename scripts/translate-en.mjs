@@ -152,6 +152,40 @@ function normalizeSlug(slug) {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Recorta el slug a un identificador corto y buscable.
+ *
+ * El modelo devuelve a veces la frase entera del titular (hasta 107 caracteres
+ * en el corpus). Un slug-oración no coincide con cómo se busca de verdad: la
+ * consulta es el sujeto ("galaxy z fold 8 dex"), no la oración completa. Se
+ * descartan artículos y preposiciones iniciales y se corta en límite de palabra.
+ */
+const LEADING_STOPWORDS = new Set(['the', 'a', 'an', 'this', 'that', 'these', 'those', 'why', 'how', 'what', 'when']);
+const STOPWORDS = new Set([
+  'the', 'a', 'an', 'this', 'that', 'these', 'those', 'of', 'for', 'and', 'with',
+  'to', 'in', 'on', 'at', 'by', 'from', 'as', 'is', 'are', 'was', 'were', 'it', 'its',
+]);
+
+/** Slug corto y buscable: máximo `max` caracteres, sin stopwords iniciales. */
+function shortSlug(value, max = 55) {
+  const words = normalizeSlug(value).split('-').filter(Boolean);
+  while (words.length > 0 && LEADING_STOPWORDS.has(words[0])) words.shift();
+
+  const kept = [];
+  let length = 0;
+  for (const word of words) {
+    const nextLength = kept.length === 0 ? word.length : length + 1 + word.length;
+    if (nextLength > max) break;
+    kept.push(word);
+    length = nextLength;
+  }
+  while (kept.length > 1 && STOPWORDS.has(kept[kept.length - 1])) kept.pop();
+
+  if (kept.length > 0) return kept.join('-');
+  if (words.length > 0) return words[0];
+  return normalizeSlug(value).slice(0, max).replace(/-+$/, '');
+}
+
 /** Primer sufijo `-2`, `-3`… libre para un slug ya ocupado. */
 function nextFree(slug, taken) {
   for (let n = 2; n < 1000; n += 1) {
@@ -176,7 +210,14 @@ function buildMessages(entry, body) {
     '- Keep every image path exactly as written (e.g. ./assets/...).',
     '- Keep every URL exactly as written; do not translate or rewrite links.',
     '- Translate the title, description, coverAlt and tags.',
-    '- Choose a kebab-case, lowercase, ASCII English slug derived from the English title.',
+    '- Do NOT start the body with an H1 (`# ...`): the page template already renders',
+    '  the title, so a leading H1 duplicates it. Start with the first paragraph and',
+    '  use `##` for sections.',
+    '- Choose a SHORT, searchable kebab-case, lowercase, ASCII English slug: 3-6 words,',
+    '  at most 55 characters, the primary subject plus one qualifier. Never the whole',
+    '  sentence of the headline, and never a stopword-only lead (the/a/an/this/why/how).',
+    '  Example: title "Samsung opens reservations for the Galaxy Z Fold 8 in three colours"',
+    '  -> slug "galaxy-z-fold-8-reservations".',
     '- Return ONLY valid JSON, with no markdown fences and no commentary, using this exact shape:',
     '  {"title": string, "description": string, "coverAlt": string, "tags": string[], "slug": string, "body": string}',
     'The `body` field holds the full translated article in Markdown (headings included) and must NOT contain the frontmatter.',
@@ -418,7 +459,12 @@ async function main() {
 
   const taken = new Set([...existingIds(NEWS_EN_DIR)].map(basename));
   const reserved = new Set(verticalLabels().keys());
-  const requested = normalizeSlug(flags.en || result.slug || result.title);
+  // `--en` is an explicit human decision: respect it verbatim (normalised only).
+  // Otherwise the model's slug is trimmed to a short, searchable identifier,
+  // because it tends to return the whole headline as a sentence.
+  const requested = flags.en
+    ? normalizeSlug(flags.en)
+    : shortSlug(result.slug || result.title);
   if (!requested) fail('no se pudo derivar un slug EN válido (revisá `--en` o el título)');
   const enSlug =
     taken.has(requested) || reserved.has(requested)

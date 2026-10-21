@@ -52,7 +52,34 @@ const {
   ogLocale = 'es_ES',
 } = Astro.props;
 
-const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+/**
+ * Google truncates a `<title>` at roughly 60 characters. This corpus has a
+ * median headline of 84 (max 138), so most headlines lose their distinguishing
+ * words — usually the product name — in the SERP.
+ *
+ * `serpTitle` derives a concise `<title>` from the headline without touching the
+ * on-page `<h1>`: keep the first clause when it is substantial, otherwise cut on
+ * a word boundary. The full headline still drives Open Graph and Twitter cards.
+ */
+const TITLE_MAX = 60;
+const TITLE_MIN = 25;
+
+function serpTitle(value: string, max = TITLE_MAX): string {
+  const clause = (value.split(/\s*[:|—–]\s*/)[0] ?? '').trim();
+  const base = clause.length >= TITLE_MIN && clause.length <= max ? clause : value;
+  if (base.length <= max) return base;
+
+  const cut = base.slice(0, max);
+  const atWord = cut.slice(0, cut.lastIndexOf(' '));
+  return (atWord.length >= TITLE_MIN ? atWord : cut).replace(/[\s,;:.·-]+$/, '');
+}
+
+const brandedTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+const conciseTitle = title ? serpTitle(title) : null;
+const withBrand = conciseTitle ? `${conciseTitle} | ${SITE.title}` : SITE.title;
+// Keep the brand only when it still fits; otherwise the words that earn the
+// click matter more than the site name (Google often appends it anyway).
+const pageTitle = withBrand.length <= 65 ? withBrand : (conciseTitle ?? SITE.title);
 const siteBase = Astro.site ?? new URL(SITE.url);
 const canonical = new URL(Astro.url.pathname, siteBase).href;
 const ogImage = new URL(image, siteBase).href;
@@ -72,12 +99,22 @@ const rssHref = new URL('rss.xml', siteBase).href;
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    {noindex && <meta name="robots" content="noindex, follow" />}
+    {/*
+      Indexable pages opt into large image previews. Google Discover requires
+      `max-image-preview:large`; without it the article is not eligible for the
+      large card, which is the main discovery surface for a news site that has
+      no domain authority yet. Legal pages keep their `noindex, follow`.
+    */}
+    {noindex ? (
+      <meta name="robots" content="noindex, follow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large" />
+    )}
 
     <!-- Open Graph -->
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content={SITE.title} />
-    <meta property="og:title" content={pageTitle} />
+    <meta property="og:title" content={brandedTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={ogLocale} />
@@ -85,7 +122,7 @@ const rssHref = new URL('rss.xml', siteBase).href;
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:title" content={brandedTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 

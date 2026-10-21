@@ -92,6 +92,14 @@ export default defineConfig({
   // requests the old URL on the single source of truth instead of a 404.
   redirects: {
     '/sitemap-news.xml': '/news-sitemap.xml',
+    // Internal links written against the vertical-nested scheme for entries that
+    // are actually flat (the slug predates the vertical folders). 301 keeps every
+    // existing inbound link working instead of rewriting the bodies.
+    '/noticias/audio/psb-iq2-altavoces': '/noticias/psb-iq2-altavoces',
+    '/noticias/audio/shure-mv6-gen-2': '/noticias/shure-mv6-gen-2',
+    '/noticias/wind-waker-recompilacion-estatica-pc': '/noticias/emuladores/wind-waker-recompilacion-estatica-pc',
+    '/noticias/tutoriales/seguridad-router-10-minutos': '/noticias/seguridad-router-10-minutos',
+    '/noticias/wearables/inmo-air-3-gafas-recall': '/noticias/inmo-air-3-gafas-recall',
   },
   integrations: [
     sitemap({
