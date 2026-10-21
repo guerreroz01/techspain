@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 921 artículos. Actualizado: 2026-10-20
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 929 artículos. Actualizado: 2026-10-21
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -928,3 +928,11 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-20 | Nezumiiruka 1.0 lleva Dolphin a Nintendo Switch | [emuladores/nezumiiruka-1-0-lleva-dolphin-a-nintendo-switch](https://www.techspain24.com/noticias/emuladores/nezumiiruka-1-0-lleva-dolphin-a-nintendo-switch/) |
 | 2026-10-20 | REDMI Band 4 llega con pantalla de 60 Hz y hasta 21 días de autonomía | [wearables/redmi-band-4-llega-con-pantalla-de-60-hz-y-hasta-21-dias-de-autonomia](https://www.techspain24.com/noticias/wearables/redmi-band-4-llega-con-pantalla-de-60-hz-y-hasta-21-dias-de-autonomia/) |
 | 2026-10-20 | Triangle amplía la serie Borea con los altavoces BR05 | [audio/triangle-amplia-la-serie-borea-con-los-altavoces-br05](https://www.techspain24.com/noticias/audio/triangle-amplia-la-serie-borea-con-los-altavoces-br05/) |
+| 2026-10-21 | AMD Adrenalin 26.10.1 amplía FSR 4.1 con límites para portátiles | [tarjetas-graficas/amd-adrenalin-26-10-1-amplia-fsr-4-1-con-limites-para-portatiles](https://www.techspain24.com/noticias/tarjetas-graficas/amd-adrenalin-26-10-1-amplia-fsr-4-1-con-limites-para-portatiles/) |
+| 2026-10-21 | ASUS adol 14 Air 2026 suma una versión de 16 GB y 1 TB en China | [portatiles/asus-adol-14-air-2026-suma-una-version-de-16-gb-y-1-tb-en-china](https://www.techspain24.com/noticias/portatiles/asus-adol-14-air-2026-suma-una-version-de-16-gb-y-1-tb-en-china/) |
+| 2026-10-21 | BluOS integra Apple Music sin depender de AirPlay | [audio/bluos-integra-apple-music-sin-depender-de-airplay](https://www.techspain24.com/noticias/audio/bluos-integra-apple-music-sin-depender-de-airplay/) |
+| 2026-10-21 | DJI actualiza Mavic Air 2 y Air 2S con correcciones de errores | [drones/dji-actualiza-mavic-air-2-y-air-2s-con-correcciones-de-errores](https://www.techspain24.com/noticias/drones/dji-actualiza-mavic-air-2-y-air-2s-con-correcciones-de-errores/) |
+| 2026-10-21 | Jamo HYG 5 combina WiFi, control gestual y entrada RCA | [audio/jamo-hyg-5-combina-wifi-control-gestual-y-entrada-rca](https://www.techspain24.com/noticias/audio/jamo-hyg-5-combina-wifi-control-gestual-y-entrada-rca/) |
+| 2026-10-21 | Oura incorpora Cardio Effort y prueba el VO2 max automático | [wearables/oura-incorpora-cardio-effort-y-prueba-el-vo2-max-automatico](https://www.techspain24.com/noticias/wearables/oura-incorpora-cardio-effort-y-prueba-el-vo2-max-automatico/) |
+| 2026-10-21 | Turtle Beach Stealth Ultra II incorpora palancas TMR y pantalla táctil | [consolas/turtle-beach-stealth-ultra-ii-incorpora-palancas-tmr-y-pantalla-tactil](https://www.techspain24.com/noticias/consolas/turtle-beach-stealth-ultra-ii-incorpora-palancas-tmr-y-pantalla-tactil/) |
+| 2026-10-21 | Un aficionado transforma memoria de portátil en DDR5-7800 de sobremesa | [memorias/un-aficionado-transforma-memoria-de-portatil-en-ddr5-7800-de-sobremesa](https://www.techspain24.com/noticias/memorias/un-aficionado-transforma-memoria-de-portatil-en-ddr5-7800-de-sobremesa/) |
