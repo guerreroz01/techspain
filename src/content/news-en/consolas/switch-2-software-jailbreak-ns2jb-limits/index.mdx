@@ -1,0 +1,55 @@
+---
+title: 'Switch 2 gets a software-only jailbreak: what ns2jb allows and where it stops'
+description: 'The ns2jb jailbreak shows Mario Kart World mods on Switch 2 and opens the door to homebrew, but it is tethered and is not a custom firmware.'
+pubDate: 2026-10-23
+tags: ['Consoles', 'Nintendo Switch 2', 'Homebrew', 'Security']
+cover: './assets/cover.webp'
+coverAlt: 'Mario Kart World results screen on a monitor with Red, Cinnamoroll and other characters added through mods'
+source:
+  name: 'pepsipu'
+  url: 'https://pepsipu.com/blog/2026-10-switch2-jailbreak-ns2jb'
+draft: false
+translationOf: 'consolas/switch-2-jailbreak-ns2jb-limites'
+---
+
+Mario Kart World with characters outside Nintendo's roster is the most visible demonstration of **ns2jb, the software-only jailbreak for Switch 2 presented by researcher pepsipu**. Their technical write-up, published on **18 October**, describes native code execution inside specific system processes and states compatibility with firmware **23.0.1**. It is a step forward for homebrew and game modifications, but it does not mean the console is fully open or that a custom firmware already exists.
+
+The announcement was covered by [Nintendo Everything on 22 October](https://nintendoeverything.com/nintendo-switch-2-has-been-jailbroken-for-the-first-time/). Those dates should be kept apart: the research was not published today, and an outlet reporting the demonstration **is not the same as an independent reproduction of the exploit**. This article explains the capabilities its author documents; we have not tested the procedure on a console.
+
+## What ns2jb allows on Switch 2
+
+According to pepsipu, ns2jb allows arbitrary native code to run with the permissions of any ordinary system module and of the built-in **fs** module, which handles the file system. This is not just about displaying a message inside an application: that reach allows work with services that take part in how the console operates.
+
+The researcher lists uses such as running **homebrew**, that is, unofficial software built by the community; studying and modifying Switch 2 games; and extracting copies of save data. They also describe access to a good part of the peripherals through their memory registers. These are technical capabilities, not an announcement of finished applications or of universal compatibility with existing tools.
+
+The proof a player understands best is the Mario Kart World mod. The published images and videos show custom characters in Nintendo's exclusive. That demonstration illustrates the modification of one specific game: on its own it does not prove that every title can be modified in the same way.
+
+![Second results screen in Mario Kart World with custom characters, including Hatsune Miku](./assets/mario-kart-personajes.webp)
+
+*Image from the demonstration published by pepsipu; it is not official Nintendo content.*
+
+## The entry point is a first-generation Switch game
+
+The research uses **SmileBASIC 4, a title for the original Switch**, as the entry point into the new console through backward compatibility. The author describes how they moved from running code in that application to obtaining greater capabilities in system services. So the fact that the target is Switch 2 does not mean the first flaw sits in a game native to that generation.
+
+The firmware version named in the original article is 23.0.1, described as the most recent **when it was published on 18 October**. That reference should not become a promise that it works on later versions or on any console configuration.
+
+Nor should it be confused with the [original Switch security flaw involving sending screenshots to a phone](/noticias/switch-23-firmware-exploit/), which we covered earlier. Sharing a console family does not turn two different access routes into the same vulnerability.
+
+![HELLO FROM SWITCH 2 test message in a console dialog box, published by the researcher](./assets/ejecucion-switch-2.webp)
+
+## It is not permanent, and it is not a full CFW
+
+The researcher themselves defines ns2jb as **tethered**: access is not kept after a reboot and the procedure has to be enabled again. Being software-only means this route does not depend on a modchip; it does not mean it survives from boot or that it works without conditions.
+
+pepsipu also acknowledges that, among the built-in modules, they have only managed to compromise fs. Their conclusion presents the work as something that may help the community move towards a **CFW, or custom firmware**, not as a CFW that is already available. Execution in those processes does not demonstrate full control of the system kernel or of the boot chain.
+
+For the same reason, **the demonstration does not prove that piracy has been enabled**. Modifying Mario Kart World or backing up a save is not the same as having a general method to run unauthorised copies. The documented scope should be described by what it allows, not by capabilities it does not yet prove.
+
+## Codex helped, but it did not hack the console on its own
+
+Another important nuance is the role of artificial intelligence. Pepsipu used Codex during the research, but states explicitly that the initial automated goal of achieving code execution did not succeed. The jailbreak took **about two weeks of substantial work**, according to their explanation.
+
+The author does credit Codex with building the Mario Kart World mod in a single day, a playful demonstration that is separate from developing the exploitation chain. Blending both pieces of work would make a striking headline, but a wrong one.
+
+For anyone who just wants to enjoy the Switch 2 catalogue, what has been published remains research with limits, not a new official feature or a solid reason to make a purchase decision. Its immediate value lies in the possibilities for study, homebrew and modification; future support and progress towards more accessible tools are still pending.
