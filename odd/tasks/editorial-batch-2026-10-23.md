@@ -54,6 +54,8 @@ For E1–E6 the selected source URLs must be carried forward from the parent sel
 - `npm run build`: passed, 1329 pages. `npm run test:sitemaps`: all 7 checks passed (1295 URLs in sitemap-0, 14 in the 48 h news sitemap). `npm run index`: regenerated, 947 published articles.
 - Promotion: `consolas/switch-2-jailbreak-ns2jb-limites` set `featured: true`; the previous lead `wearables/oura-incorpora-cardio-effort-y-prueba-el-vo2-max-automatico` set `featured: false`. All seven keep `breaking: false`.
 - Gap: the article SEO pass is evidenced only for the Touch ID tutorial. For the other six the writers were cut by a usage limit after writing, so the pass is unverified, not claimed as done. Structural quality and cover checks did pass for all seven.
+- Work-unit commits on `feat/editorial-batch-2026-10-23`: `7a84494` tracking, `953b24e` 8BitDo, `7ff1bed` GuliKit, `5585875` Touch ID tutorial, `a105d2e` Insta360 Mic, `073e288` Samsung Q990H, `d266a6b` Thermaltake View 590, `fa377b1` Switch 2 ns2jb, `c6edd62` published index and featured rotation.
+- Receipt-driven development reported `off (decided by global)` when checked after the commits, so no native review lifecycle was entered; delivery follows ordinary repository policy. Push, PR creation and merge remain outstanding user decisions.
 - Authored changed lines across the 14 new MDX entries: 863, plus the task document and regenerated index. This exceeds the 400-line delivery budget, so `ask-on-risk` requires a delivery/chain decision before any commit; no commit, push, PR or deploy has been performed.
 
 ## Review workload and delivery
