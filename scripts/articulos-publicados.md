@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 940 artículos. Actualizado: 2026-10-21
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 947 artículos. Actualizado: 2026-10-23
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -947,3 +947,10 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-21 | Pebble Time 2: el reloj de tinta electrónica que promete 30 días de autonomía | [wearables/pebble-time-2-analisis](https://www.techspain24.com/noticias/wearables/pebble-time-2-analisis/) |
 | 2026-10-21 | Turtle Beach Stealth Ultra II incorpora palancas TMR y pantalla táctil | [consolas/turtle-beach-stealth-ultra-ii-incorpora-palancas-tmr-y-pantalla-tactil](https://www.techspain24.com/noticias/consolas/turtle-beach-stealth-ultra-ii-incorpora-palancas-tmr-y-pantalla-tactil/) |
 | 2026-10-21 | Un aficionado transforma memoria de portátil en DDR5-7800 de sobremesa | [memorias/un-aficionado-transforma-memoria-de-portatil-en-ddr5-7800-de-sobremesa](https://www.techspain24.com/noticias/memorias/un-aficionado-transforma-memoria-de-portatil-en-ddr5-7800-de-sobremesa/) |
+| 2026-10-23 | 8BitDo Ultimate 3E llega a Europa: mando modular para Xbox y PC por 139,99 euros | [consolas/8bitdo-ultimate-3e-llega-europa-mando-xbox-pc](https://www.techspain24.com/noticias/consolas/8bitdo-ultimate-3e-llega-europa-mando-xbox-pc/) |
+| 2026-10-23 | Cómo desbloquear el iPhone Duo con Touch ID sin deslizar | [tutoriales/como-desbloquear-iphone-duo-touch-id-sin-deslizar](https://www.techspain24.com/noticias/tutoriales/como-desbloquear-iphone-duo-touch-id-sin-deslizar/) |
+| 2026-10-23 | GuliKit TT Pro: una alternativa al mando de Switch 2 por 60 dólares, según Engadget | [consolas/gulikit-tt-pro-alternativa-mando-switch-2](https://www.techspain24.com/noticias/consolas/gulikit-tt-pro-alternativa-mando-switch-2/) |
+| 2026-10-23 | Insta360 Mic combina pantalla de tinta electrónica y grabación de 32 bits | [audio/insta360-mic-pantalla-tinta-electronica-grabacion-32-bits](https://www.techspain24.com/noticias/audio/insta360-mic-pantalla-tinta-electronica-grabacion-32-bits/) |
+| 2026-10-23 | Samsung Q990H a análisis: diálogos claros y límites en el Dolby Atmos | [audio/samsung-q990h-analisis-barra-sonido-dolby-atmos](https://www.techspain24.com/noticias/audio/samsung-q990h-analisis-barra-sonido-dolby-atmos/) |
+| 2026-10-23 | Switch 2 recibe un jailbreak por software: qué permite ns2jb y cuáles son sus límites | [consolas/switch-2-jailbreak-ns2jb-limites](https://www.techspain24.com/noticias/consolas/switch-2-jailbreak-ns2jb-limites/) |
+| 2026-10-23 | Thermaltake View 590: cristal curvo y cinco ventiladores de serie | [componentes/thermaltake-view-590-cristal-curvo-cinco-ventiladores](https://www.techspain24.com/noticias/componentes/thermaltake-view-590-cristal-curvo-cinco-ventiladores/) |
