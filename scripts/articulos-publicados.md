@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 947 artículos. Actualizado: 2026-10-23
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 952 artículos. Actualizado: 2026-10-26
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -954,3 +954,8 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-23 | Samsung Q990H a análisis: diálogos claros y límites en el Dolby Atmos | [audio/samsung-q990h-analisis-barra-sonido-dolby-atmos](https://www.techspain24.com/noticias/audio/samsung-q990h-analisis-barra-sonido-dolby-atmos/) |
 | 2026-10-23 | Switch 2 recibe un jailbreak por software: qué permite ns2jb y cuáles son sus límites | [consolas/switch-2-jailbreak-ns2jb-limites](https://www.techspain24.com/noticias/consolas/switch-2-jailbreak-ns2jb-limites/) |
 | 2026-10-23 | Thermaltake View 590: cristal curvo y cinco ventiladores de serie | [componentes/thermaltake-view-590-cristal-curvo-cinco-ventiladores](https://www.techspain24.com/noticias/componentes/thermaltake-view-590-cristal-curvo-cinco-ventiladores/) |
+| 2026-10-26 | Anker Soundcore Space 2 Pro, análisis: llamadas de referencia y graves de más | [audio/soundcore-space-2-pro-analisis](https://www.techspain24.com/noticias/audio/soundcore-space-2-pro-analisis/) |
+| 2026-10-26 | El Amazfit Helio Strap ya vibra con llamadas y notificaciones gracias a una app no oficial | [wearables/helio-strap-avisos-llamadas-openstrap](https://www.techspain24.com/noticias/wearables/helio-strap-avisos-llamadas-openstrap/) |
+| 2026-10-26 | El Even G2 estrena Knowledge Base: las gafas ya recuerdan tus reuniones | [wearables/even-g2-knowledge-base](https://www.techspain24.com/noticias/wearables/even-g2-knowledge-base/) |
+| 2026-10-26 | nxnative convierte juegos de Switch en apps nativas de macOS, sin emulador | [emuladores/nxnative-juegos-switch-mac](https://www.techspain24.com/noticias/emuladores/nxnative-juegos-switch-mac/) |
+| 2026-10-26 | OnePlus Buds Clip: auriculares de pinza con dos drivers y 40 horas de autonomía | [audio/oneplus-buds-clip](https://www.techspain24.com/noticias/audio/oneplus-buds-clip/) |

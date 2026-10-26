@@ -1,0 +1,43 @@
+---
+title: 'The Amazfit Helio Strap now vibrates for calls and notifications thanks to an unofficial app'
+description: 'OpenStrap, an unofficial Android app, makes the Amazfit Helio Strap vibrate for calls and notifications; Zepp only uses it for basic alerts.'
+pubDate: '2026-10-26'
+tags: ['Wearables', 'Amazfit', 'Apps']
+draft: false
+cover: './assets/cover.jpg'
+coverAlt: 'A person wearing the Amazfit Helio Strap on their wrist while checking the app on their phone'
+translationOf: 'wearables/helio-strap-avisos-llamadas-openstrap'
+source:
+  name: 'OpenStrap'
+  url: 'https://github.com/sayed0am/openstrap/releases/tag/v2.0.0'
+---
+
+The **Amazfit Helio Strap** has always carried a vibration motor inside, but the **Zepp** app barely makes use of it: it alerts for pairing and low battery, and little else. The band does not vibrate when a call comes in or a message arrives, something that is taken for granted on almost any connected wearable. An independent project has shown that this is not a hardware limitation: **OpenStrap**, an unofficial Android application, makes the band vibrate for incoming calls and for phone notifications.
+
+The new feature arrives with version **2.0.0** of OpenStrap, published on 24 October, whose release notes include vibration for calls and alerts "with a choice of pattern". The specialist outlet [Gadgets & Wearables](https://gadgetsandwearables.com/2026/10/26/helio-strap-phone-alerts-third-party-app/) picked it up on 26 October in an article by Ivan Jovin, which also asks why Zepp Health has left that function out.
+
+## What OpenStrap adds to the Amazfit Helio Strap
+
+OpenStrap does not go through Zepp's servers: it talks to the band directly over Bluetooth. The project grew out of reverse engineering of the protocol the Helio Strap uses, and that work is what has made features the official application does not expose reachable. According to the 2.0.0 release notes, vibration supports several patterns, so a call alert does not have to vibrate the same way as a message.
+
+The same update adds workouts controlled from the phone: choosing a sport, seeing heart rate live on a zone arc, getting a haptic alert when leaving the target zone, recording the route with GPS and closing with a summary of the effort. In other words, vibration is not confined to phone alerts; it also works as a signal during exercise.
+
+![OpenStrap notification and call settings for the Amazfit Helio Strap](./assets/avisos-openstrap.png)
+
+Before installing it, three conditions are worth being clear about. It is an **unofficial app**, with no backing from Zepp Health. It requires **Android 9 or later**. And the **first pairing still goes through the Zepp app**, which handles the band's initial authentication; without that step beforehand, OpenStrap has nothing to work with.
+
+## Why Zepp left it out
+
+The Helio Strap carries a **232 mAh** battery, enough for up to **10 days of typical use**, one of its strongest arguments against watches with a screen. That figure is also the most repeated explanation: vibrating the motor a few times a day for system alerts is not the same as doing it for every call, message, email and app notification, especially on a phone that generates dozens of alerts a day.
+
+It is worth underlining: **Zepp Health has not publicly explained why it does not offer the feature**, so battery life is a reasonable hypothesis, not a confirmed reason. There is a second, equally plausible and less technical explanation: the company has positioned the Helio Strap as a health, recovery and training band, not as a smartwatch. Adding phone alerts blurs that line and brings the product closer to a category it does not want to occupy.
+
+## What does not change
+
+Vibration with alerts is a convenience, not an extension of what the band measures. The health and recovery indicators are still the ones Zepp calculates from the device's data: OpenStrap reads them and presents them in its interface, but there is no independent validation of those metrics and no guaranteed equivalence with what the official app shows. Nor should it be read as medical advice.
+
+The figure that weighs most day to day is also missing: **nobody has measured real battery life with notifications enabled**. The advertised 10 days correspond to typical use with vibration almost at rest, so the reader should expect less and check it for themselves. Add to that what is usual in an independent project: no support, no guarantee that a firmware update will not break the connection, and data management in the hands of its authors. The official app is moving in that same territory: it is preparing [controls to decide which health data go to the cloud](/noticias/amazfit-zepp-cloud-data-controls/).
+
+Finally, versions should not be confused. **2.1.0**, published on 25 October, is a different release: it adds home-screen widgets in three sizes. Call and notification alerts arrived with 2.0.0 the day before.
+
+If the Helio Strap works for you as a health band and what you were missing was knowing about a call without taking your phone out of your pocket, this is the route available today, with the caveats of an unofficial app. If you need manufacturer support or a verified battery figure, wait: Zepp has said nothing and nobody has measured how long the battery lasts when vibrating all day.
