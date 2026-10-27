@@ -55,7 +55,8 @@ toggle, or gate RDD.
   says no kernel exploit above 12.70. Resolve or explicitly qualify this
   conflict; never promise universal firmware or payload support. Preserve the
   existing URL, publication date, attribution, and legacy author. No EN backfill.
-  Work-unit commit identity: **pending local commit after verified implementation**.
+  Work-unit commit identity: `a7d6b14d6fcb17370d5471f2d1ca0b98825e0e30`
+  (`fix(seo): clarify PS5 exploit requirements and related links`).
   Rollback boundary: these two content files and their task evidence only.
 - [x] **T2 — Verify October 21 and ROG diagnosis, read-only.**
   Route: free local OpenSEO GSC reads and targeted public HTTP/source readback.
@@ -82,7 +83,7 @@ toggle, or gate RDD.
 - [x] Run `npm run build` once, then `npm run test:sitemaps` once; record actual results.
 - [x] Read built PS5 HTML: complete rendered title, unchanged self-canonical,
   indexability, and working structural links to/from Mupen64Plus. Check link targets.
-- [ ] Record focused checks, rendered-artifact readback, rollback boundary, and
+- [x] Record focused checks, rendered-artifact readback, rollback boundary, and
   eventual work-unit commit identity together; ask before delivery risk expands.
 
 Previous read-only checks are baseline evidence, **not final post-edit checks**:
@@ -172,3 +173,9 @@ Rollback remains the two scoped content files and their task evidence only.
 Content changes remain 51 additions / 15 deletions; no generated tracked changes
 were observed. T2 diagnosis is complete with historical cause unresolved; T3 remains
 pending an authorized app session. Remote delivery remains unauthorized and unused.
+
+Local delivery: implementation commit `a7d6b14d6fcb17370d5471f2d1ca0b98825e0e30`
+contains exactly the two scoped content files and this feature document (225 additions,
+15 deletions, including 174 document lines). A separate documentation-only evidence
+commit records this identity; content bytes remain those validated by the single
+build. No push, PR, or deployment was performed.
