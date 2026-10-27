@@ -24,7 +24,7 @@ Do not treat low impressions as proof that a headline rewrite will recover traff
 - ROG EN: 7 to 0 clicks, 145 to 2 impressions. Its decline predates October 21.
   Current ES/EN pages return 200 with self-canonicals and mutual hreflang;
   present availability does not establish historical availability or indexing.
-- OpenSEO default is `2840/en`. Spain contributed 43 clicks versus US 4 in the
+- OpenSEO default was `2840/en` at preparation. Spain contributed 43 clicks versus US 4 in the
   latest week, but `traffic-growth.md` explicitly retains US + Spain intent.
   OpenSEO project context and saved reports were empty during preparation.
 
@@ -32,7 +32,7 @@ Do not treat low impressions as proof that a headline rewrite will recover traff
 
 Local improvements only: existing PS5 content and relevant reciprocal links,
 evidence-led metadata changes, and a primary market update through an explicitly
-authorized app session. Preserve US as a secondary audience.
+authorized local app operation. Preserve US as a secondary audience.
 
 No URL changes, deletion, new articles or legacy English backfill, shared layout
 edits, remote administration, credentials discovery, deployment, pushes, or PRs.
@@ -66,14 +66,15 @@ toggle, or gate RDD.
   Existing source <https://www.ithome.com/1/010/575.htm> confirms the gear lineup,
   not new gear pricing or availability. Historical root cause remains unresolved.
   No content changes or implementation commit are claimed for this diagnosis.
-- [ ] **T3 — Set primary OpenSEO market only through an authorized app session.**
+- [x] **T3 — Set primary OpenSEO market through the authorized local app operation.**
   Route: supported application `updateProject`, not a nonexistent MCP market tool.
-  Pending authorized app session and reconciliation of primary ES / secondary US
-  intent. Preserve project ID, name `Techspain24`, and domain `techspain24.com`;
-  proposed market pair is `locationCode: 2724`, `languageCode: "es"`.
-  Pass the domain explicitly: omitted domain is documented to clear it.
-  Re-read `list_projects` after any authorized update. Do not mark complete until
-  the saved pair is verified. Rollback: restore the prior `2840/en` pair only.
+  Completed once with HTTP 200 through the generated local app operation; the
+  legitimate selfhost path required no login, credentials, or ambient session.
+  Fresh MCP `list_projects` readback verified the same project ID, name
+  `Techspain24`, and domain `techspain24.com`, with market `2724/es` instead of
+  `2840/en`. US remains a secondary audience. `initialAudit:null`; no research
+  or credit usage was triggered. Evidence: Engram observation **#1145**.
+  Rollback: restore the prior `2840/en` pair only through the supported app operation.
 
 ## Acceptance and validation
 
@@ -171,11 +172,32 @@ Actual built-HTML parsing and local target existence checks cover its rendering
 boundary. No unit runner, TDD, RED/GREEN, or production deployment is claimed.
 Rollback remains the two scoped content files and their task evidence only.
 Content changes remain 51 additions / 15 deletions; no generated tracked changes
-were observed. T2 diagnosis is complete with historical cause unresolved; T3 remains
-pending an authorized app session. Remote delivery remains unauthorized and unused.
+were observed. T2 diagnosis is complete with historical cause unresolved; T3 is
+complete with the verified local-app evidence below. Remote delivery remains unauthorized and unused.
 
 Local delivery: implementation commit `a7d6b14d6fcb17370d5471f2d1ca0b98825e0e30`
 contains exactly the two scoped content files and this feature document (225 additions,
 15 deletions, including 174 document lines). A separate documentation-only evidence
 commit records this identity; content bytes remain those validated by the single
 build. No push, PR, or deployment was performed.
+
+## T3 final market-update evidence
+
+The earlier app-session requirement was an incorrect preparation assumption,
+retained in the superseded preflight history above. The parent verified that the
+local selfhost supports this legitimate generated app operation without login.
+The bounded local worker executed supported `updateProject` exactly once, HTTP 200.
+
+- Fresh MCP before tuple:
+  `(98cd401d-afa2-4853-ad8d-e41cd2cdb1f9, Techspain24, techspain24.com, 2840, en)`.
+- Fresh MCP after tuple:
+  `(98cd401d-afa2-4853-ad8d-e41cd2cdb1f9, Techspain24, techspain24.com, 2724, es)`.
+- `initialAudit:null`; no research or credits triggered. Other projects, content,
+  and context were untouched. No credentials, direct database writes, or source/config
+  edits were used. Authoritative operation/readback evidence: Engram **#1145**.
+- Primary Spain/Spanish is corrected; secondary US intent is preserved. This does
+  not fix or explain the unresolved October 21 historical anomaly (T2).
+
+This final update changes only task evidence and its full Engram mirror **#1141**.
+Validation for this passive documentation change: `git diff --check` only; no
+content checks, build, or review rerun. RDD remains OFF and untouched.
