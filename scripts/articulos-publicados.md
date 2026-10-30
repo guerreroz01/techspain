@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 952 artículos. Actualizado: 2026-10-26
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 957 artículos. Actualizado: 2026-10-30
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -600,9 +600,9 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-09-28 | El vivo WATCH 6 se pone a la venta con cristal de zafiro y titanio desde 999 yuanes | [vivo-watch-6](https://www.techspain24.com/noticias/vivo-watch-6/) |
 | 2026-09-28 | El vivo X Fold6 apuntaría al 1 de octubre para su lanzamiento global y al 6 para India | [vivo-x-fold6-global](https://www.techspain24.com/noticias/vivo-x-fold6-global/) |
 | 2026-09-28 | Expertos coreanos advierten: China está a solo dos años en memoria HBM | [corea-hbm-brecha-2-anos](https://www.techspain24.com/noticias/corea-hbm-brecha-2-anos/) |
+| 2026-09-28 | Exploit de PS5: compatibilidad, requisitos y límites | [guia-exploit-ps5](https://www.techspain24.com/noticias/guia-exploit-ps5/) |
 | 2026-09-28 | Great Wall lanza una fuente de 230 W con triple protección por 149 yuanes | [great-wall-fuente-230w-149](https://www.techspain24.com/noticias/great-wall-fuente-230w-149/) |
 | 2026-09-28 | GTA 2 también recibe mejora gráfica: un desarrollador usa RTX Remix para añadir ray tracing al clásico de 1999 | [gta-2-rtx-remix](https://www.techspain24.com/noticias/gta-2-rtx-remix/) |
-| 2026-09-28 | Guía de exploit de PS5: preparación de la consola y jailbreak paso a paso | [guia-exploit-ps5](https://www.techspain24.com/noticias/guia-exploit-ps5/) |
 | 2026-09-28 | Honor presenta el HONOR Life S3, lector de tinta electrónica de 61 gramos con sujeción magnética | [honor-life-lector-s3](https://www.techspain24.com/noticias/honor-life-lector-s3/) |
 | 2026-09-28 | Honor Watch 6 Pro: cerámica nanocristalina y OLED de doble capa desde 1.699 yuanes | [honor-watch-6-pro](https://www.techspain24.com/noticias/honor-watch-6-pro/) |
 | 2026-09-28 | Intel acelera el intercambio de memoria en caliente: 512 GB en 7 segundos en Linux | [intel-hot-swap-512gb-7-segundos](https://www.techspain24.com/noticias/intel-hot-swap-512gb-7-segundos/) |
@@ -959,3 +959,8 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-26 | El Even G2 estrena Knowledge Base: las gafas ya recuerdan tus reuniones | [wearables/even-g2-knowledge-base](https://www.techspain24.com/noticias/wearables/even-g2-knowledge-base/) |
 | 2026-10-26 | nxnative convierte juegos de Switch en apps nativas de macOS, sin emulador | [emuladores/nxnative-juegos-switch-mac](https://www.techspain24.com/noticias/emuladores/nxnative-juegos-switch-mac/) |
 | 2026-10-26 | OnePlus Buds Clip: auriculares de pinza con dos drivers y 40 horas de autonomía | [audio/oneplus-buds-clip](https://www.techspain24.com/noticias/audio/oneplus-buds-clip/) |
+| 2026-10-30 | Cómo configurar el HomePod como altavoz predeterminado del Mac | [tutoriales/configurar-homepod-altavoz-predeterminado-mac](https://www.techspain24.com/noticias/tutoriales/configurar-homepod-altavoz-predeterminado-mac/) |
+| 2026-10-30 | Cómo detectar las aplicaciones que consumen la batería de tu portátil con Windows | [tutoriales/detectar-aplicaciones-consumen-bateria-portatil-windows](https://www.techspain24.com/noticias/tutoriales/detectar-aplicaciones-consumen-bateria-portatil-windows/) |
+| 2026-10-30 | EasySMX S10 Lite: un mando barato para Switch 2 con una carcasa que genera dudas | [consolas/easysmx-s10-lite-mando-switch-2](https://www.techspain24.com/noticias/consolas/easysmx-s10-lite-mando-switch-2/) |
+| 2026-10-30 | Fairbuds 2: auriculares reparables por 119 euros, con límites en sonido y llamadas | [audio/fairbuds-2-auriculares-reparables-precio](https://www.techspain24.com/noticias/audio/fairbuds-2-auriculares-reparables-precio/) |
+| 2026-10-30 | Ultrahuman Ring Pro: el anillo sin suscripción llega a tiendas de EE. UU. por 479 dólares | [wearables/ultrahuman-ring-pro-anillo-sin-suscripcion](https://www.techspain24.com/noticias/wearables/ultrahuman-ring-pro-anillo-sin-suscripcion/) |
