@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 957 artículos. Actualizado: 2026-10-30
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 963 artículos. Actualizado: 2026-11-02
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -964,3 +964,9 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-10-30 | EasySMX S10 Lite: un mando barato para Switch 2 con una carcasa que genera dudas | [consolas/easysmx-s10-lite-mando-switch-2](https://www.techspain24.com/noticias/consolas/easysmx-s10-lite-mando-switch-2/) |
 | 2026-10-30 | Fairbuds 2: auriculares reparables por 119 euros, con límites en sonido y llamadas | [audio/fairbuds-2-auriculares-reparables-precio](https://www.techspain24.com/noticias/audio/fairbuds-2-auriculares-reparables-precio/) |
 | 2026-10-30 | Ultrahuman Ring Pro: el anillo sin suscripción llega a tiendas de EE. UU. por 479 dólares | [wearables/ultrahuman-ring-pro-anillo-sin-suscripcion](https://www.techspain24.com/noticias/wearables/ultrahuman-ring-pro-anillo-sin-suscripcion/) |
+| 2026-11-02 | Amazfit Helio Ring actualiza la recuperación con HybridCharge y más seguimiento automático | [wearables/amazfit-helio-ring-actualizacion-recuperacion](https://www.techspain24.com/noticias/wearables/amazfit-helio-ring-actualizacion-recuperacion/) |
+| 2026-11-02 | Azahar alpha4 mejora la emulación de 3DS en Android y escritorio | [emuladores/azahar-alpha4-mejoras-emulacion](https://www.techspain24.com/noticias/emuladores/azahar-alpha4-mejoras-emulacion/) |
+| 2026-11-02 | Biwin M560 de 2 TB: respuesta y límites de escritura en el análisis de Tom’s Hardware | [memorias/biwin-m560-2tb-analisis-rendimiento](https://www.techspain24.com/noticias/memorias/biwin-m560-2tb-analisis-rendimiento/) |
+| 2026-11-02 | Glitch Boy convierte la emulación de NES y Game Boy en arte por 189 euros | [emuladores/glitch-boy-emulacion-nes-game-boy-arte-189-euros](https://www.techspain24.com/noticias/emuladores/glitch-boy-emulacion-nes-game-boy-arte-189-euros/) |
+| 2026-11-02 | Speediance Strap Pro añade seguimiento del estrés con EDA: qué cambia al actualizar | [wearables/speediance-strap-pro-estres-eda](https://www.techspain24.com/noticias/wearables/speediance-strap-pro-estres-eda/) |
+| 2026-11-02 | Vivo Buds Clip: auriculares abiertos para Europa, con un precio reportado de 179 euros | [audio/vivo-buds-clip-auriculares-abiertos-europa](https://www.techspain24.com/noticias/audio/vivo-buds-clip-auriculares-abiertos-europa/) |
