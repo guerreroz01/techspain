@@ -1,0 +1,49 @@
+---
+title: 'Azahar alpha4 improves Nintendo 3DS emulation on Android and desktop'
+description: 'Azahar 2127.0 alpha4 introduces per-game settings on Android, reduces some sources of latency, and fixes bugs on PC. It remains a test release.'
+pubDate: 2026-11-02
+tags: ['Emulators', 'Nintendo 3DS', 'Android', 'PC']
+cover: './assets/cover.png'
+coverAlt: 'Fire Mario jumps between enemies in a cave from New Super Mario Bros. 2'
+source:
+  name: 'Azahar'
+  url: 'https://github.com/azahar-emu/azahar/releases/tag/2127.0-alpha4'
+draft: false
+translationOf: 'emuladores/azahar-alpha4-mejoras-emulacion'
+---
+
+**Azahar 2127.0 alpha4 is now available as a test release** of the Nintendo 3DS emulator. Published on November 1st, it introduces per-game settings on Android, changes to reduce certain sources of latency, and fixes for desktop. The team's notice is explicit: it is not considered stable and is aimed at those who accept possible bugs to test upcoming features.
+
+The distinction matters before downloading it. It is not a universal recommendation to replace an installation that already works: the project advises waiting for the next stable version for those who do not want to tolerate problems. The new features are detailed in the [official Azahar 2127.0 Alpha 4 release notes](https://github.com/azahar-emu/azahar/releases/tag/2127.0-alpha4), which separate Android changes, common ones, and desktop-specific ones.
+
+## Azahar alpha4 adds per-game settings on Android
+
+The Android version allows configuring each emulated application independently, as was already the case on desktop. Access is obtained by long-pressing its entry in the list of applications. For someone who alternates between several games, the utility is concrete: it has individual configurations instead of relying solely on a shared configuration.
+
+ADPF is also incorporated to inform the operating system of CPU work bursts. In the [technical explanation of the change](https://github.com/azahar-emu/azahar/pull/2706), PabloMK7 describes how Azahar communicates the emulation load per frame to guide Android's scheduling. The developer warns of a battery cost whose magnitude has not yet been quantified.
+
+The notes cite a **15% performance improvement observed on a device with Mali**. They do not identify the model, game, or complete test configuration there: the figure corresponds to that case communicated by the project, not all phones with that GPU nor all of Android. It is also not a measurement from TechSpain24. Application scanning now skips hidden files and folders whose names begin with a dot.
+
+## Less latency, with results that depend on the case
+
+The team has reduced several sources of delay in audio, frame presentation, and input. Their summary speaks of **one or two frames of improvement in some cases**. That formulation does not equate to promising an identical reduction in any game, screen, or device, and the notes do not offer a universal measurement in milliseconds.
+
+On Android, the technical contribution describes changes in input updates, OpenGL presentation, and reception of touch events and controller axes. It also seeks that a very brief press be registered at least once. These are control response changes; they should not be confused with a guarantee of more frames per second.
+
+Among common adjustments, audio time stretching is disabled by default. On Windows an option to disable audio effects with the cubeb backend is added. Those platform differences should be kept: that last option is not announced for all systems.
+
+## Desktop: on-screen keyboard and specific fixes
+
+On desktop, an optional virtual keyboard arrives during emulation, intended for portable devices focused on controller or touch screen. **It is disabled by default**. The update also corrects detection of press and release of D-pad-type inputs, restores missing icons since alpha3, and solves crashes with paths containing non-ASCII characters.
+
+Common logging includes fixes for saved states with LLE modules enabled and for the OpenGL shader cache in vanilla Android and macOS builds. If Azahar closes while loading the Vulkan cache, a visual notice invites resetting it: this does not mean that all possible renderer bugs disappear.
+
+## Which games receive fixes and what remains pending
+
+The notes identify specific problems: fatal errors of some applications, especially **New Super Mario Bros. 2**, when launching them from the HOME menu; booting the Taiwanese edition of **Star Fox 64 3D**; and graphical defects in **Inazuma Eleven GO Galaxy**. These are delimited corrections, not a certification of perfect compatibility for those titles or for the entire catalog.
+
+There is also free camera via an external script and the RPC server, although the team still prefers implementations adapted to each game due to the particularities of the 3DS GPU. It is also added the possibility of setting the percentage and charge state of the emulated battery or using those of the host device.
+
+Against the previous [Azahar 2126.1.2 patch focused on RetroArch](/noticias/azahar-2126-1-2/), this release proposes a broader set of changes. The current state remains that of an alpha: it offers features that can be tested, but its validation before the stable version continues to be open.
+
+*Cover image: screenshot from New Super Mario Bros. 2 published in the [official Azahar graphics resources repository](https://github.com/azahar-emu/branding/blob/master/screenshots/new-super-mario-bros-2.png). It is a reference image of the project, not a screenshot from our tests nor a specific demonstration of alpha4.*
