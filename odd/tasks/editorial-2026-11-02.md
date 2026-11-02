@@ -44,7 +44,7 @@ The user subsequently selected “Publicar el lote completo”: explicit maintai
   - Duplicate evidence: `npm run find -- 'M560'` returned `sin coincidencias`.
 - [x] **ED-07 — Integrate English companions and promotion.** Six one-shot translations completed strictly sequentially using the verified supported `--en` flag and the authorized existing configuration. All six exited 0; final IDs and fidelity evidence are recorded below. Exactly one ES feature is selected: Vivo. The only older article change is `featured: true` to `false` in `src/content/news/audio/fairbuds-2-auriculares-reparables-precio/index.mdx`; all six new entries retain `breaking: false`.
 - [x] **ED-08 — Run ordinary publication checks.** Index regeneration, strict covers, strict quality, exactly one final build, sitemap tests and twelve-route output verification all exited 0; exact evidence below. No historical baselines changed.
-- [ ] **ED-09 — Deliver the verified batch.** Delivery is now explicitly authorized under the scope above. Commit the six bilingual stories independently, commit shared integration/evidence, fast-forward `main` only if its verified base is unchanged, and push normally to `origin main`. Record observed hashes and push results; do not claim a live Vercel deployment from Git transport success.
+- [x] **ED-09 — Deliver the verified batch.** Six bilingual story commits and shared integration were committed normally, `main` was fast-forwarded from the unchanged verified base, and the batch push to `origin main` exited 0. Exact observed evidence below. Git delivery is complete; live Vercel deployment is not proven by this push.
 
 ## Validation evidence gathered during preparation
 
@@ -82,7 +82,7 @@ Rollback boundary before delivery: remove only the six new ES directories and th
 
 State at delivery start: ED-01 through ED-08 complete locally with six bilingual pairs and passing final checks; ED-09 execution remains pending. Preparation/integration performed no commits or pushes. Engram mirror target: project `techspain`, topic `odd/editorial-2026-11-02/tasks`; mirror and readback follow final delivery evidence updates.
 
-Delivery route: `editorial/2026-11-02` → fast-forward-only `main` → authorized `origin main` push. ED-09 remains pending until actual commit and push evidence exists. Public deployment readback belongs to the parent after delivery.
+Delivery route: `editorial/2026-11-02` → fast-forward-only `main` → authorized `origin main` push. ED-09 is now complete based on the observed Git delivery below. Public deployment readback belongs to the parent after delivery.
 
 ## Skill resolution
 
@@ -134,3 +134,11 @@ Observed story commits, in order (each contains only its bilingual pair and asse
 6. `05859731852d76a3cfe3c892f6c38b5f78afc11e` — `feat(editorial): publish bilingual Biwin M560 review coverage`
 
 Each `git diff --cached --check` and normal `git commit` exited 0. No hooks were skipped; no source mutation was detected. Shared integration and push remain pending at this document snapshot; their identities cannot be self-referenced before creation.
+
+Final delivery update (supersedes earlier pending snapshots):
+
+- Shared integration: `23842b0143337744d22c62ae3324029f6e331a93` — `chore(editorial): integrate November 2 batch and verification evidence`; exactly this task document, the generated index, and the Fairbuds feature demotion. All 40 source hashes still matched after its normal commit.
+- `git switch main` and `git merge --ff-only editorial/2026-11-02` both exited 0: `Updating e5596a7..23842b0`, `Fast-forward`. No merge commit, conflict resolution, rewrite or reset was needed. Working tree was clean and all source hashes matched before push.
+- First batch push: `git push --porcelain origin main` exited **0**, with `refs/heads/main:refs/heads/main e5596a7..23842b0` and `Done`, to `github.com:guerreroz01/techspain.git`. Captured in `/tmp/opencode/editorial-2026-11-02/push-batch.log` and `push-batch.exit`. This is observed remote Git acceptance, not proof of a completed Vercel deployment.
+- This passive documentation completion is the authorized bounded follow-up commit on `main`; it changes no article, asset, index, promotion, runtime code, configuration, or baseline. Its eventual commit hash and second push outcome belong in the final terminal summary and Engram delivery facts, not a fabricated self-reference in this commit.
+- Final task progress: **9/9 complete for editorial preparation, local verification, and Git delivery**. Remaining external verification: parent checks the live Vercel deployment separately. Historical debt remains 354 undersized covers, 19 missing covers, and 331 quality failures; no new strict violations or baseline modifications.
