@@ -95,6 +95,11 @@ export default defineConfig({
     // Internal links written against the vertical-nested scheme for entries that
     // are actually flat (the slug predates the vertical folders). 301 keeps every
     // existing inbound link working instead of rewriting the bodies.
+    //
+    // Astro normalizes each key and emits an anchored regex, so declaring the
+    // slash-terminated variant is a no-op (same regex). The 301 therefore only
+    // covers the bare path; the body links were rewritten to the live URLs, which
+    // is what actually removes the 404s. Do not re-add duplicate keys.
     '/noticias/audio/psb-iq2-altavoces': '/noticias/psb-iq2-altavoces',
     '/noticias/audio/shure-mv6-gen-2': '/noticias/shure-mv6-gen-2',
     '/noticias/wind-waker-recompilacion-estatica-pc': '/noticias/emuladores/wind-waker-recompilacion-estatica-pc',
