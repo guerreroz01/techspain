@@ -3,7 +3,7 @@
 Lista de los artículos ya publicados en la página, con su enlace directo.
 Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 
-> Generado automáticamente desde `src/content/news/` con `npm run index`. 963 artículos. Actualizado: 2026-11-02
+> Generado automáticamente desde `src/content/news/` con `npm run index`. 975 artículos. Actualizado: 2026-11-03
 
 | Fecha | Artículo | URL |
 | --- | --- | --- |
@@ -970,3 +970,15 @@ Consúltala ANTES de redactar para no duplicar una historia ya cubierta.
 | 2026-11-02 | Glitch Boy convierte la emulación de NES y Game Boy en arte por 189 euros | [emuladores/glitch-boy-emulacion-nes-game-boy-arte-189-euros](https://www.techspain24.com/noticias/emuladores/glitch-boy-emulacion-nes-game-boy-arte-189-euros/) |
 | 2026-11-02 | Speediance Strap Pro añade seguimiento del estrés con EDA: qué cambia al actualizar | [wearables/speediance-strap-pro-estres-eda](https://www.techspain24.com/noticias/wearables/speediance-strap-pro-estres-eda/) |
 | 2026-11-02 | Vivo Buds Clip: auriculares abiertos para Europa, con un precio reportado de 179 euros | [audio/vivo-buds-clip-auriculares-abiertos-europa](https://www.techspain24.com/noticias/audio/vivo-buds-clip-auriculares-abiertos-europa/) |
+| 2026-11-03 | DirectX recorta hasta un 90 % la memoria del ray tracing con su mayor cambio desde 2018 | [tarjetas-graficas/directx-memoria-ray-tracing-90-por-ciento](https://www.techspain24.com/noticias/tarjetas-graficas/directx-memoria-ray-tracing-90-por-ciento/) |
+| 2026-11-03 | DJI Mic Mini 2S, análisis: audio de gama alta con dos reservas | [audio/dji-mic-mini-2s-analisis](https://www.techspain24.com/noticias/audio/dji-mic-mini-2s-analisis/) |
+| 2026-11-03 | Google corrige el consumo excesivo de batería del Pixel Watch desde la Play Store | [wearables/pixel-watch-bateria-arreglo-google](https://www.techspain24.com/noticias/wearables/pixel-watch-bateria-arreglo-google/) |
+| 2026-11-03 | Helen Chiang niega las acusaciones sobre su salida de Xbox y cuestiona cómo se aplicaron las normas | [consolas/helen-chiang-xbox-salida](https://www.techspain24.com/noticias/consolas/helen-chiang-xbox-salida/) |
+| 2026-11-03 | Las RTX 3060 y RTX 3050 vuelven a las tiendas para tapar el hueco de las RTX 50 | [tarjetas-graficas/rtx-3060-3050-vuelven-escasez-rtx-50](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-3060-3050-vuelven-escasez-rtx-50/) |
+| 2026-11-03 | NVIDIA sube el precio de la RTX 50 en noviembre: hasta 500 dólares en la RTX 5090 | [tarjetas-graficas/rtx-50-subida-precio-noviembre-2026](https://www.techspain24.com/noticias/tarjetas-graficas/rtx-50-subida-precio-noviembre-2026/) |
+| 2026-11-03 | RPCS3 vacía la categoría «Loadable»: ningún juego de PS3 se queda ya en pantalla negra | [emuladores/rpcs3-categoria-loadable-completa](https://www.techspain24.com/noticias/emuladores/rpcs3-categoria-loadable-completa/) |
+| 2026-11-03 | San Bernardino operará cinco drones autónomos con 500 galones de espuma por salida | [drones/drones-incendios-california-espuma](https://www.techspain24.com/noticias/drones/drones-incendios-california-espuma/) |
+| 2026-11-03 | Sennheiser Momentum True Wireless 5: 300 dólares y una batería que se puede cambiar | [audio/sennheiser-momentum-true-wireless-5-analisis](https://www.techspain24.com/noticias/audio/sennheiser-momentum-true-wireless-5-analisis/) |
+| 2026-11-03 | SK Hynix prevé que la escasez de memoria dure hasta 2030 y contradice el optimismo de Acer | [memorias/sk-hynix-crisis-hardware-2030](https://www.techspain24.com/noticias/memorias/sk-hynix-crisis-hardware-2030/) |
+| 2026-11-03 | Tachyum se declara en concurso y deja en el aire el futuro de la CPU Prodigy | [componentes/tachyum-prodigy-bancarrota](https://www.techspain24.com/noticias/componentes/tachyum-prodigy-bancarrota/) |
+| 2026-11-03 | WiiM Bar, análisis: 479 dólares por una barra Dolby Atmos que gana en música y pierde en cine | [audio/wiim-bar-analisis](https://www.techspain24.com/noticias/audio/wiim-bar-analisis/) |
